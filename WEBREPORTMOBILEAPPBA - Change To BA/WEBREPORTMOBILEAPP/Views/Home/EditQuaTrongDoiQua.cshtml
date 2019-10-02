@@ -1,0 +1,66 @@
+﻿@using WEBREPORTMOBILEAPP.Models
+@model VW_DOIQUA
+@{
+    ViewBag.Title = "EditQuaTrongDoiQua";
+    Layout = "~/Views/Shared/_LayoutPageAdmin.cshtml";
+}
+
+<div class="card mb-3">
+    <div class="card-header">
+        <i class="fas fa-table"></i>
+        <br />
+        <form name="doiqua" id="doiqua">
+            <table>
+                <thead>
+                    <tr>
+                        <th colspan="2" class="text-center">Thêm quà vào đơn hàng</th>
+                    </tr>
+                    <tr>
+                        <th>Chương trình đổi quà</th>
+                        <th>
+                            <input type="text" value="@Model.Bill_id" name="txt_billid" hidden />
+                            <input type="text" name="SL_ctdq" value="@Model.CTDQ_ID" hidden />
+                            @Model.CTDQ_Name
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>Quà</th>
+                        <th>
+                            <input type="text" name="SL_qua" id="SL_qua" value="@Model.DMQT_Barcode" />
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>Số lượng</th>
+                        <th>
+                            <input type="number" inputmode="numeric" name="Txt_sl" value="0" required="required" />
+                        </th>
+                    </tr>
+                    <tr>
+                        <th colspan="2">
+                            <button type="button" value="Thêm" onclick="ThemQua()">Thêm</button>
+                            @*<input type="submit" value="Thêm" />*@
+                        </th>
+                    </tr>
+                </thead>
+            </table>
+        </form>
+    </div>
+</div>
+
+<script>
+    function ThemQua() {
+        var datapost = $('#doiqua').serialize();
+                    $.post('@Url.Action("ThemQuaVaoDoiQua", "Home")', datapost, function (res) {
+                        if (res.status != undefined && res.status == "1") {
+                            //mua item thanh cong, lam mot viec gi do sau do, vi du: thong bao mua hang thanh cong va dong' popup
+                                    alert(res.message);
+                                    location.reload(true);
+                        } else {
+                            //thong bao loi ra cho nguoi dung hoặc thông báo validate data gì đó
+                            alert(res.message);
+                        }
+                    }, 'json');//kiểu dữ liệu trả về là json
+                    return false;
+                }
+</script>
+

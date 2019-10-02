@@ -1,0 +1,104 @@
+﻿@using WEBREPORTMOBILEAPP.Models
+@model  List<VW_doithucanhtranhdongian>
+@{
+    ViewBag.Title = "ViewDoiThuCanhTranhDG";
+    Layout = "~/Views/Shared/_LayoutPageAdmin.cshtml";
+    int i = 1;
+}
+<script>
+    $(function () {
+        $("#startdate").datepicker({
+            dateFormat: "yy-mm-dd",
+            ignoreReadonly: true,
+            allowInputToggle: true
+        }).val()
+        $("#enddate").datepicker({
+            dateFormat: "yy-mm-dd",
+            ignoreReadonly: true,
+            allowInputToggle: true
+        }).val()
+    });
+    function submitform() {
+        $('#BATestForm').submit();
+    }
+</script>
+
+<div class="card mb-3">
+    <div class="card-header">
+        <i class="fas fa-table"></i>
+        @using (Html.BeginForm("ViewDoiThuCanhTranhDG", "HOME", FormMethod.Post, new { id = "BATestForm", name = "BATestForm" }))
+        {
+            <table>
+                <thead>
+                    <tr>
+                        <th>Ngày bắt đầu</th>
+                        <th><input id="startdate" name="txt_bd" value="@ViewBag.bd" class="form-control" onchange="submitform();" type="date" /></th>
+                    </tr>
+                    <tr>
+                        <th>Ngày kết thúc</th>
+                        <th><input id="enddate" name="txt_kt" value="@ViewBag.kt" class="form-control" onchange="submitform();" type="date" /></th>
+                    </tr>
+                </thead>
+            </table>
+        }
+        <br />
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Nhân viên</th>
+                        <th>Siêu thị</th>
+                        <th>Nội dung</th>
+                        <th>Hình ảnh</th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th>#</th>
+                        <th>Nhân viên</th>
+                        <th>Siêu thị</th>
+                        <th>Nội dung</th>
+                        <th>Hình ảnh</th>
+                    </tr>
+                </tfoot>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@i</td>
+                            <td>@item.US_ID</td>
+                            <td>@item.Shop_ID</td>
+                            <td>@item.DTCTIMAGED_Note</td>
+                            <td>
+                                <img src="@item.DTCTIMAGED_ImagePublish" />
+                            </td>
+                        </tr>
+                        i++;
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+    @*<div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>*@
+</div>
+<script>
+    $(document).ready(function () {
+        $('#dataTable').DataTable(
+            {
+                dom: 'Bfrtip',
+                buttons: [
+                    'copy', 'csv', 'excel', 'pdf', 'print'
+                ],
+                paging: false,
+                searching: false,
+                "ordering": false,
+                "info": false
+            });
+    });
+</script>
+
+
+

@@ -1,0 +1,212 @@
+﻿@using WEBREPORTMOBILEAPP.Models
+@model List<VW_banhang>
+@{
+    ViewBag.Title = "ViewReportGift";
+    Layout = "~/Views/Shared/_LayoutPageAdmin.cshtml";
+    var luser = ViewBag.user as List<tbl_user>;
+    var lctdq = ViewBag.chuongtrinhdoiqua as List<tbl_ChuongTrinhDoiQua>;
+    var doiqua = ViewBag.doiqua as List<VW_DOIQUA>;
+    var lquatang = ViewBag.quatang as List<tbl_DanhMucQuaTang>;
+    var dmqtctdq = ViewBag.dmqt as List<tbl_DMQT_CTDQ>;
+    var bill = ViewBag.bill as List<tbl_bill>;
+    var sms = ViewBag.sms as List<VW_SMSOTP>;
+}
+<script>
+    $(function () {
+        $("#startdate").datepicker({
+            dateFormat: "yy-mm-dd",
+            ignoreReadonly: true,
+            allowInputToggle: true
+        }).val()
+        $("#enddate").datepicker({
+            dateFormat: "yy-mm-dd",
+            ignoreReadonly: true,
+            allowInputToggle: true
+        }).val()
+    });
+    function submitform() {
+        $('#BATestForm').submit();
+    }
+</script>
+<script>
+    $(document).ready(function () {
+        $('#dataTable1').DataTable();
+    });
+</script>
+<div class="card mb-3">
+    <div class="card-header">
+
+        @using (Html.BeginForm("ViewReportGift", "HOME", FormMethod.Post, new { id = "BATestForm", name = "BATestForm" }))
+        {
+            <table>
+                <thead>
+                    <tr>
+                        <th>Ngày bắt đầu</th>
+                        <th><input id="startdate" name="txt_bd" value="@ViewBag.bd" class="form-control" onchange="submitform();" type="date" /></th>
+                    </tr>
+                    <tr>
+                        <th>Ngày kết thúc</th>
+                        <th><input id="enddate" name="txt_kt" value="@ViewBag.kt" class="form-control" onchange="submitform();" type="date" /></th>
+                    </tr>
+                    <tr>
+                        <th>
+                            Ca làm việc
+                        </th>
+                        <th>
+                            <select name="txt_ca" onchange="submitform();">
+                                @if (ViewBag.ca == "0")
+                                {
+                                    <option value="0" selected>ALL</option>
+                                    <option value="1">Sáng</option>
+                                    <option value="2">Chiều</option>
+                                }
+                                else if (ViewBag.ca == "1")
+                                {
+                                    <option value="0">ALL</option>
+                                    <option value="1" selected>Sáng</option>
+                                    <option value="2">Chiều</option>
+                                }
+                                else
+                                {
+                                    <option value="0">ALL</option>
+                                    <option value="1" >Sáng</option>
+                                    <option value="2" selected>Chiều</option>
+                                }
+
+                            </select>
+                        </th>
+                    </tr>
+                </thead>
+            </table>
+        }
+        <i class="fas fa-table"></i> CỬA HÀNG - NHÓM NGÀNH HÀNG
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>ĐỘI XE</th>
+                        <th colspan="@(lquatang.Count() + 3)">TOTAL</th>
+                        @foreach (var item in lctdq)
+                        {
+                            <th colspan="@(dmqtctdq.Where(n => n.CTDQ_ID == item.CTDQ_ID).Count() + 3)">
+                                @item.CTDQ_Name
+                            </th>
+                        }
+                    </tr>
+
+                    <tr>
+                        <th>Đội xe</th>
+                        <th>
+                            Doanh số
+                        </th>
+                        <th>
+                            Kh-DQ
+                        </th>
+                        <th>
+                            KH-LTT
+                        </th>
+                        @foreach (var item in lquatang)
+                        {
+                            <th>@item.DMQT_Name</th>
+                        }
+                        @foreach (var item in lctdq)
+                        {
+                            <th>
+                                Doanh số
+                            </th>
+                            <th>
+                                Kh-DQ
+                            </th>
+                            <th>
+                                KH-LTT
+                            </th>
+                            foreach (var item1 in lquatang)
+                            {
+                                if (dmqtctdq.SingleOrDefault(n => n.CTDQ_ID == item.CTDQ_ID && n.DMQT_Barcode == item1.DMQT_Barcode) != null)
+                                {
+
+                                    <th>
+                                        @item1.DMQT_Name
+                                    </th>
+                                }
+                            }
+
+                        }
+                    </tr>
+                   
+                </thead>
+                <tbody>
+                    @foreach (var item in luser)
+                    {
+                        <tr>
+                            <td>
+                                @item.Us_username
+                            </td>
+                            <td>
+                                @Model.Where(n => n.Us_id == item.Us_id).Sum(n => n.BillDetail_dongia * n.BillDetail_soluong).Value.ToString("#,##")
+                            </td>
+                            <td>
+                                @bill.Where(n => n.Us_id == item.Us_id).Count().ToString("#,##")
+                            </td>
+                            <td>
+                                @sms.Where(n => n.Us_id == item.Us_id && n.HSsms_OTPConfirm == n.HSsms_OTP).Count().ToString("#,##")
+                            </td>
+                            @foreach (var item1 in lquatang)
+                            {
+                                <td>@doiqua.Where(n => n.Us_id == item.Us_id && n.DMQT_Barcode == item1.DMQT_Barcode).Sum(n => n.DoiQua_Value).Value.ToString("#,##")</td>
+                            }
+                            @foreach (var item1 in lctdq)
+                            {
+                                var listkt = doiqua.Where(n => n.CTDQ_ID == item1.CTDQ_ID && n.Us_id == item.Us_id).Select(n => n.Bill_id).ToList();
+                                <td>
+                                    @Model.Where(n => n.Us_id == item.Us_id && listkt.Contains(n.Bill_id)).Sum(n => n.BillDetail_dongia * n.BillDetail_soluong).Value.ToString("#,##")
+                                </td>
+                                <td>
+                                    @bill.Where(n => n.Us_id == item.Us_id && listkt.Contains(n.Bill_id)).Count().ToString("#,##")
+                                </td>
+                                <td>
+                                    @sms.Where(n => n.Us_id == item.Us_id && n.HSsms_OTPConfirm == n.HSsms_OTP && listkt.Contains(n.Bill_id)).Count().ToString("#,##")
+                                </td>
+                                foreach (var item2 in lquatang)
+                                {
+                                    if (dmqtctdq.SingleOrDefault(n => n.CTDQ_ID == item1.CTDQ_ID && n.DMQT_Barcode == item2.DMQT_Barcode) != null)
+                                    {
+
+                                        <td>
+                                            @doiqua.Where(n => n.Us_id == item.Us_id && n.DMQT_Barcode == item2.DMQT_Barcode && n.CTDQ_ID == item1.CTDQ_ID).Sum(n => n.DoiQua_Value).Value.ToString("#,##")
+                                        </td>
+                                    }
+                                }
+
+                            }
+                        </tr>
+                    }
+                    <tr hidden="hidden">
+                        <th>ĐỘI XE</th>
+                        <th>TOTAL</th>
+                        @for (int j = 1; j <= lquatang.Count() + 2; j++)
+                        {
+                            <th></th>
+                        }
+                        @foreach (var item in lctdq)
+                        {
+                            <th>
+                                @item.CTDQ_Name
+                            </th>
+                            for (int j = 1; j <= dmqtctdq.Where(n => n.CTDQ_ID == item.CTDQ_ID).Count() + 2; j++)
+                            {
+                                <th></th>
+                            }
+                        }
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    @*<div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>*@
+</div>
+
+
+

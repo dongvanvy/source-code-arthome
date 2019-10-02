@@ -1,0 +1,145 @@
+﻿
+@using WEBREPORTMOBILEAPP.Models
+@model List<VW_DOIQUA>
+@{
+    ViewBag.Title = "ViewBaoCaoChiTietDoiQua";
+    Layout = "~/Views/Shared/_LayoutPageAdmin.cshtml";
+    int i = 1;
+    var user = ViewBag.user as List<tbl_user>;
+    var shop = ViewBag.shop as List<tbl_shop>;
+    var dmqt = ViewBag.dmqt as List<tbl_DanhMucQuaTang>;
+    var banhang = ViewBag.banhang as List<VW_banhang>;
+    var bill = ViewBag.bill as List<tbl_bill>;
+}
+<script>
+    $(function () {
+        $("#startdate").datepicker({
+            dateFormat: "yy-mm-dd",
+            ignoreReadonly: true,
+            allowInputToggle: true
+        }).val()
+        $("#enddate").datepicker({
+            dateFormat: "yy-mm-dd",
+            ignoreReadonly: true,
+            allowInputToggle: true
+        }).val()
+    });
+    function submitform() {
+        $('#BATestForm').submit();
+    }
+</script>
+
+<div class="card mb-3">
+    <div class="card-header">
+        <i class="fas fa-table"></i>
+        @using (Html.BeginForm("ViewBaoCaoChiTietDoiQua", "HOME", FormMethod.Post, new { id = "BATestForm", name = "BATestForm" }))
+        {
+            <table>
+                <thead>
+                    <tr>
+                        <th>Ngày bắt đầu</th>
+                        <th><input id="startdate" name="txt_bd" value="@ViewBag.bd" class="form-control" onchange="submitform();" type="date" /></th>
+                    </tr>
+                    <tr>
+                        <th>Ngày kết thúc</th>
+                        <th><input id="enddate" name="txt_kt" value="@ViewBag.kt" class="form-control" onchange="submitform();" type="date" /></th>
+                    </tr>
+                </thead>
+            </table>
+        }
+        <br />
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Nhân viên</th>
+                        <th>Mã nhân viên</th>
+                        <th>Cửa hàng</th>
+                        <th>Code CH</th>
+                        <th>Giá trị đơn hàng</th>
+                        <th>Thời gian</th>
+                        <th>Tên khách hàng</th>
+                        <th>Số điện thoại</th>
+                        <th>Hình ảnh</th>
+                        <th>Quà</th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th>#</th>
+                        <th>Nhân viên</th>
+                        <th>Mã nhân viên</th>
+                        <th>Cửa hàng</th>
+                        <th>Code CH</th>
+                        <th>Giá trị đơn hàng</th>
+                        <th>Thời gian</th>
+                        <th>Tên khách hàng</th>
+                        <th>Số điện thoại</th>
+                        <th>Hình ảnh</th>
+                        <th>Quà</th>
+                    </tr>
+                </tfoot>
+                <tbody>
+                    @foreach (var item in bill)
+                    {
+                    <tr>
+                        <td>@i</td>
+                        <td>@user.FirstOrDefault(n => n.Us_id == item.Us_id).Us_name</td>
+                        <td>@user.FirstOrDefault(n => n.Us_id == item.Us_id).Us_username</td>
+                        <td>@shop.FirstOrDefault(n => n.Shop_id == item.Shop_id).Shop_name</td>
+                        <td>@shop.FirstOrDefault(n => n.Shop_id == item.Shop_id).Shop_id</td>
+                        <td>@banhang.Where(n => n.Bill_id == item.Bill_id).Sum(n => n.BillDetail_soluong * n.BillDetail_dongia).Value.ToString("#,##")</td>
+                        <td>@item.Bill_date.Value.ToString("dd/MM/yyyy HH:mm")</td>
+                        <td>@item.Bill_TenKH</td>
+                        <td>@item.Bill_SDTKH</td>
+                        <td>
+                            @if (item.Bill_ImageKH != null)
+                            {
+                                <img src="@item.Bill_ImageKH" style="width:70px;height:auto;" />
+                            }
+                        </td>
+                        <td>
+                            <table>
+                                @foreach (var item1 in dmqt)
+                                {
+                                    if (Model.Where(n => n.Bill_id == item.Bill_id && n.DMQT_Barcode == item1.DMQT_Barcode).Count() > 0)
+                                    {
+                                        <tr>
+                                            <td>@Model.FirstOrDefault(n => n.Bill_id == item.Bill_id && n.DMQT_Barcode == item1.DMQT_Barcode).DMQT_Name</td>
+                                            <td>@Model.Where(n => n.Bill_id == item.Bill_id && n.DMQT_Barcode == item1.DMQT_Barcode).Sum(n => n.DoiQua_Value).Value.ToString("#,##")</td>
+                                        </tr>
+                                    }
+
+                                }
+                            </table>
+
+                        </td>
+                    </tr>
+                        i++;
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+</div>
+<script>
+    $(document).ready(function () {
+        $('#dataTable').DataTable(
+            {
+                dom: 'Bfrtip',
+                buttons: [
+                    'copy', 'csv', 'excel', 'pdf', 'print'
+                ],
+                paging: false,
+                searching: false,
+                "ordering": false,
+                "info": false});
+    });
+</script>
+
+
+

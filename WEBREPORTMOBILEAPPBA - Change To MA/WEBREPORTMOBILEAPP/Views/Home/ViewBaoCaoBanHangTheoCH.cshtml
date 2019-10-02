@@ -1,0 +1,431 @@
+﻿
+@using WEBREPORTMOBILEAPP.Models
+@model List<VW_banhang>
+@{
+    ViewBag.Title = "ViewBaoCaoBanHangTheoCH";
+    Layout = "~/Views/Shared/_LayoutPageAdmin.cshtml";
+    int i = 1;
+    var user = ViewBag.user as List<tbl_user>;
+    var shop = ViewBag.shop as List<tbl_shop>;
+    var sku = ViewBag.sku as List<tbl_sku>;
+    var ddh = ViewBag.ddh as List<tbl_bill>;
+    var nhomnh = ViewBag.nhomnh as List<tbl_NhomNganhHang>;
+    var nganhh = ViewBag.nganhh as List<tbl_NganhHang>;
+    var nhanh = ViewBag.nhanh as List<tbl_NhanHang>;
+}
+
+<script>
+    $(function () {
+        $("#startdate").datepicker({
+            dateFormat: "yy-mm-dd",
+            ignoreReadonly: true,
+            allowInputToggle: true
+        }).val()
+        $("#enddate").datepicker({
+            dateFormat: "yy-mm-dd",
+            ignoreReadonly: true,
+            allowInputToggle: true
+        }).val()
+    });
+    function submitform() {
+        $('#BATestForm').submit();
+    }
+</script>
+
+<div class="card mb-3">
+    <div class="card-header">
+
+        @using (Html.BeginForm("ViewBaoCaoBanHangTheoCH", "HOME", FormMethod.Post, new { id = "BATestForm", name = "BATestForm" }))
+        {
+            <table>
+                <thead>
+                    <tr>
+                        <th>Ngày bắt đầu</th>
+                        <th><input id="startdate" name="txt_bd" value="@ViewBag.bd" class="form-control" onchange="submitform();" type="date" /></th>
+                    </tr>
+                    <tr>
+                        <th>Ngày kết thúc</th>
+                        <th><input id="enddate" name="txt_kt" value="@ViewBag.kt" class="form-control" onchange="submitform();" type="date" /></th>
+                    </tr>
+                </thead>
+            </table>
+        }
+        <i class="fas fa-table"></i> CỬA HÀNG - NHÓM NGÀNH HÀNG
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Tên cửa hàng</th>
+                        <th>Chi tiết</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in shop)
+                    {
+                        <tr>
+                            <td>@item.Shop_name</td>
+                            <td>
+                                <table>
+                                    <tr>
+                                        <td>Tên nhóm ngành hàng</td>
+                                        <td>Số lượng</td>
+                                        <td>Thành tiền</td>
+                                    </tr>
+                                    @foreach (var item1 in nhomnh)
+                                    {
+                                        <tr>
+                                            <td>@item1.NNH_Name</td>
+                                            <td>
+                                                @if (Model.Where(n => n.sku_text1 == item1.NNH_Name && n.Shop_id == item.Shop_id).Count() == 0)
+                                                {
+                                                    <span>0</span>
+                                                }
+                                                else
+                                                {
+                                                    <span>@Model.Where(n => n.sku_text1 == item1.NNH_Name && n.Shop_id == item.Shop_id).Sum(n => n.BillDetail_soluong).Value.ToString("#,##")</span>
+                                                }
+                                            </td>
+                                            <td>
+                                                @if (Model.Where(n => n.sku_text1 == item1.NNH_Name && n.Shop_id == item.Shop_id).Count() == 0)
+                                                {
+                                                    <span>0</span>
+                                                }
+                                                else
+                                                {
+                                                    <span>@Model.Where(n => n.sku_text1 == item1.NNH_Name && n.Shop_id == item.Shop_id).Sum(n => n.BillDetail_soluong * n.BillDetail_dongia).Value.ToString("#,##")</span>
+                                                }
+                                            </td>
+                                        </tr>
+                                    }
+                                </table>
+                            </td>
+                        </tr>
+                        i++;
+                    }
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+    @*<div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>*@
+</div>
+<div class="card mb-3">
+    <div class="card-header">
+        <i class="fas fa-table"></i>NHÂN VIÊN - NHÓM NGÀNH HÀNG
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable1" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Tên nhân viên</th>
+                        <th>Chi tiết</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in user)
+                    {
+                        <tr>
+                            <td>@item.Us_name</td>
+                            <td>
+                                <table>
+                                    <tr>
+                                        <td>Tên nhóm ngành hàng</td>
+                                        <td>Số lượng</td>
+                                        <td>Thành tiền</td>
+                                    </tr>
+                                    @foreach (var item1 in nhomnh)
+                                    {
+                                        <tr>
+                                            <td>@item1.NNH_Name</td>
+                                            <td>
+                                                @if (Model.Where(n => n.sku_text1 == item1.NNH_Name && n.Us_id == item.Us_id).Count() == 0)
+                                                {
+                                                    <span>0</span>
+                                                }
+                                                else
+                                                {
+                                                    <span>@Model.Where(n => n.sku_text1 == item1.NNH_Name && n.Us_id == item.Us_id).Sum(n => n.BillDetail_soluong).Value.ToString("#,##")</span>
+                                                }
+                                            </td>
+                                            <td>
+                                                @if (Model.Where(n => n.sku_text1 == item1.NNH_Name && n.Us_id == item.Us_id).Count() == 0)
+                                                {
+                                                    <span>0</span>
+                                                }
+                                                else
+                                                {
+                                                    <span>@Model.Where(n => n.sku_text1 == item1.NNH_Name && n.Us_id == item.Us_id).Sum(n => n.BillDetail_soluong * n.BillDetail_dongia).Value.ToString("#,##")</span>
+                                                }
+                                            </td>
+                                        </tr>
+                                    }
+                                </table>
+                            </td>
+                        </tr>
+                        i++;
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+    @*<div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>*@
+</div>
+<div class="card mb-3">
+    <div class="card-header">
+        <i class="fas fa-table"></i>CỬA HÀNG - NGÀNH HÀNG
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Tên cửa hàng</th>
+                        <th>Chi tiết</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in shop)
+                    {
+                        <tr>
+                            <td>@item.Shop_name</td>
+                            <td>
+                                <table>
+                                    <tr>
+                                        <td>Tên ngành hàng</td>
+                                        <td>Số lượng</td>
+                                        <td>Thành tiền</td>
+                                    </tr>
+                                    @foreach (var item1 in nganhh)
+                                    {
+                                        <tr>
+                                            <td>@item1.NH_Name</td>
+                                            <td>
+                                                @if (Model.Where(n => n.sku_text2 == item1.NH_Name && n.Shop_id == item.Shop_id).Count() == 0)
+                                                {
+                                                    <span>0</span>
+                                                }
+                                                else
+                                                {
+                                                    <span>@Model.Where(n => n.sku_text2 == item1.NH_Name && n.Shop_id == item.Shop_id).Sum(n => n.BillDetail_soluong).Value.ToString("#,##")</span>
+                                                }
+                                            </td>
+                                            <td>
+                                                @if (Model.Where(n => n.sku_text2 == item1.NH_Name && n.Shop_id == item.Shop_id).Count() == 0)
+                                                {
+                                                    <span>0</span>
+                                                }
+                                                else
+                                                {
+                                                    <span>@Model.Where(n => n.sku_text2 == item1.NH_Name && n.Shop_id == item.Shop_id).Sum(n => n.BillDetail_soluong * n.BillDetail_dongia).Value.ToString("#,##")</span>
+                                                }
+                                            </td>
+                                        </tr>
+                                    }
+                                </table>
+                            </td>
+                        </tr>
+                        i++;
+                    }
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+    @*<div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>*@
+</div>
+<div class="card mb-3">
+    <div class="card-header">
+        <i class="fas fa-table"></i>NHÂN VIÊN - NGÀNH HÀNG
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable2" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Tên nhân viên</th>
+                        <th>Chi tiết</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in user)
+                    {
+                        <tr>
+                            <td>@item.Us_name</td>
+                            <td>
+                                <table>
+                                    <tr>
+                                        <td>Tên ngành hàng</td>
+                                        <td>Số lượng</td>
+                                        <td>Thành tiền</td>
+                                    </tr>
+                                    @foreach (var item1 in nganhh)
+                                    {
+                                        <tr>
+                                            <td>@item1.NH_Name</td>
+                                            <td>
+                                                @if (Model.Where(n => n.sku_text2 == item1.NH_Name && n.Us_id == item.Us_id).Count() == 0)
+                                                {
+                                                    <span>0</span>
+                                                }
+                                                else
+                                                {
+                                                    <span>@Model.Where(n => n.sku_text2 == item1.NH_Name && n.Us_id == item.Us_id).Sum(n => n.BillDetail_soluong).Value.ToString("#,##")</span>
+                                                }
+                                            </td>
+                                            <td>
+                                                @if (Model.Where(n => n.sku_text2 == item1.NH_Name && n.Us_id == item.Us_id).Count() == 0)
+                                                {
+                                                    <span>0</span>
+                                                }
+                                                else
+                                                {
+                                                    <span>@Model.Where(n => n.sku_text2 == item1.NH_Name && n.Us_id == item.Us_id).Sum(n => n.BillDetail_soluong * n.BillDetail_dongia).Value.ToString("#,##")</span>
+                                                }
+                                            </td>
+                                        </tr>
+                                    }
+                                </table>
+                            </td>
+                        </tr>
+                        i++;
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+    @*<div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>*@
+</div>
+<div class="card mb-3">
+    <div class="card-header">
+        <i class="fas fa-table"></i>CỬA HÀNG - NHÃN HÀNG
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Tên cửa hàng</th>
+                        <th>Chi tiết</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in shop)
+                    {
+                        <tr>
+                            <td>@item.Shop_name</td>
+                            <td>
+                                <table>
+                                    <tr>
+                                        <td>Tên nhãn hàng</td>
+                                        <td>Số lượng</td>
+                                        <td>Thành tiền</td>
+                                    </tr>
+                                    @foreach (var item1 in nhanh)
+                                    {
+                                        <tr>
+                                            <td>@item1.NhanH_Name</td>
+                                            <td>
+                                                @if (Model.Where(n => n.sku_text3 == item1.NhanH_Name && n.Shop_id == item.Shop_id).Count() == 0)
+                                                {
+                                                    <span>0</span>
+                                                }
+                                                else
+                                                {
+                                                    <span>@Model.Where(n => n.sku_text3 == item1.NhanH_Name && n.Shop_id == item.Shop_id).Sum(n => n.BillDetail_soluong).Value.ToString("#,##")</span>
+                                                }
+                                            </td>
+                                            <td>
+                                                @if (Model.Where(n => n.sku_text3 == item1.NhanH_Name && n.Shop_id == item.Shop_id).Count() == 0)
+                                                {
+                                                    <span>0</span>
+                                                }
+                                                else
+                                                {
+                                                    <span>@Model.Where(n => n.sku_text3 == item1.NhanH_Name && n.Shop_id == item.Shop_id).Sum(n => n.BillDetail_soluong * n.BillDetail_dongia).Value.ToString("#,##")</span>
+                                                }
+                                            </td>
+                                        </tr>
+                                    }
+                                </table>
+                            </td>
+                        </tr>
+                        i++;
+                    }
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+    @*<div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>*@
+</div>
+<div class="card mb-3">
+    <div class="card-header">
+        <i class="fas fa-table"></i>NHÂN VIÊN - NHÃN HÀNG
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable2" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Tên nhân viên</th>
+                        <th>Chi tiết</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in user)
+                    {
+                        <tr>
+                            <td>@item.Us_name</td>
+                            <td>
+                                <table>
+                                    <tr>
+                                        <td>Tên nhãn hàng</td>
+                                        <td>Số lượng</td>
+                                        <td>Thành tiền</td>
+                                    </tr>
+                                    @foreach (var item1 in nhanh)
+                                    {
+                                        <tr>
+                                            <td>@item1.NhanH_Name</td>
+                                            <td>
+                                                @if (Model.Where(n => n.sku_text3 == item1.NhanH_Name && n.Us_id == item.Us_id).Count() == 0)
+                                                {
+                                                    <span>0</span>
+                                                }
+                                                else
+                                                {
+                                                    <span>@Model.Where(n => n.sku_text3 == item1.NhanH_Name && n.Us_id == item.Us_id).Sum(n => n.BillDetail_soluong).Value.ToString("#,##")</span>
+                                                }
+                                            </td>
+                                            <td>
+                                                @if (Model.Where(n => n.sku_text3 == item1.NhanH_Name && n.Us_id == item.Us_id).Count() == 0)
+                                                {
+                                                    <span>0</span>
+                                                }
+                                                else
+                                                {
+                                                    <span>@Model.Where(n => n.sku_text3 == item1.NhanH_Name && n.Us_id == item.Us_id).Sum(n => n.BillDetail_soluong * n.BillDetail_dongia).Value.ToString("#,##")</span>
+                                                }
+                                            </td>
+                                        </tr>
+                                    }
+                                </table>
+                            </td>
+                        </tr>
+                        i++;
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+    @*<div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>*@
+</div>
+
+<script>
+</script>
+
+
+

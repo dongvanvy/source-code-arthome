@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="046f553fabe04e618bcf3f8baceb0694" Name="Diagram1">
+        <EntityTypeShape EntityType="DBMOBILEAPPModel.tbl_BaoCaoHinhAnh" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBMOBILEAPPModel.tbl_bigplan" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBMOBILEAPPModel.tbl_bill" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBMOBILEAPPModel.Tbl_BillChuyenNhanKho" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBMOBILEAPPModel.Tbl_BillCNKDetail" Width="1.5" PointX="2.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBMOBILEAPPModel.tbl_billDetail" Width="1.5" PointX="4.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBMOBILEAPPModel.tbl_CaLamViecDetail" Width="1.5" PointX="6.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBMOBILEAPPModel.tbl_chitietDondathang" Width="1.5" PointX="6.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBMOBILEAPPModel.Tbl_ChitietDonNhapHang" Width="1.5" PointX="6.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBMOBILEAPPModel.tbl_ChitietSupChamDiem" Width="1.5" PointX="8.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBMOBILEAPPModel.tbl_chucnangphu" Width="1.5" PointX="8.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBMOBILEAPPModel.tbl_ChuongTrinhDoiQua" Width="1.5" PointX="8.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBMOBILEAPPModel.tbl_DanhMucQuaTang" Width="1.5" PointX="0.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBMOBILEAPPModel.tbl_DetailBaoCaoHinhAnh" Width="1.5" PointX="2.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBMOBILEAPPModel.tbl_DMQT_CTDQ" Width="1.5" PointX="10.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBMOBILEAPPModel.tbl_DoiQua" Width="1.5" PointX="10.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBMOBILEAPPModel.tbl_doithucanhtranh" Width="1.5" PointX="10.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBMOBILEAPPModel.Tbl_DoithucanhtranhIMAGE" Width="1.5" PointX="4.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBMOBILEAPPModel.Tbl_DoithucanhtranhIMAGEDetail" Width="1.5" PointX="6.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBMOBILEAPPModel.tbl_Dondathang" Width="1.5" PointX="12.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBMOBILEAPPModel.Tbl_DonNhapHang" Width="1.5" PointX="0.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBMOBILEAPPModel.tbl_DTCTBrand" Width="1.5" PointX="12.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBMOBILEAPPModel.tbl_DTCTcrmrange" Width="1.5" PointX="12.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBMOBILEAPPModel.tbl_DTCTCty" Width="1.5" PointX="12.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBMOBILEAPPModel.tbl_DTCTffrange" Width="1.5" PointX="12.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBMOBILEAPPModel.tbl_DTCTformat" Width="1.5" PointX="14.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBMOBILEAPPModel.tbl_DTCTltmrange" Width="1.5" PointX="14.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBMOBILEAPPModel.tbl_DTCTonpostoffpost" Width="1.5" PointX="14.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBMOBILEAPPModel.tbl_DTCTtype" Width="1.5" PointX="8.75" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBMOBILEAPPModel.tbl_DTCTVARIANT" Width="1.5" PointX="14.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBMOBILEAPPModel.Tbl_HsSms" Width="1.5" PointX="14.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBMOBILEAPPModel.Tbl_ImageDonNhapHang" Width="1.5" PointX="2.75" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBMOBILEAPPModel.tbl_Kho" Width="1.5" PointX="4.75" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBMOBILEAPPModel.Tbl_KhoChiNhanh" Width="1.5" PointX="16.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBMOBILEAPPModel.Tbl_KhoChuyenNhan" Width="1.5" PointX="16.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBMOBILEAPPModel.Tbl_KhoDoi" Width="1.5" PointX="16.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBMOBILEAPPModel.Tbl_KHOQUA" Width="1.5" PointX="10.75" PointY="16.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBMOBILEAPPModel.Tbl_KhoXe" Width="1.5" PointX="16.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBMOBILEAPPModel.Tbl_KHtiepcan" Width="1.5" PointX="12.75" PointY="16.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBMOBILEAPPModel.tbl_menu" Width="1.5" PointX="14.75" PointY="16.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBMOBILEAPPModel.tbl_NganhHang" Width="1.5" PointX="16.75" PointY="16.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBMOBILEAPPModel.tbl_NhanHang" Width="1.5" PointX="6.75" PointY="17.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBMOBILEAPPModel.tbl_NhomNganhHang" Width="1.5" PointX="18.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBMOBILEAPPModel.tbl_Price" Width="1.5" PointX="18.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBMOBILEAPPModel.Tbl_ReportDQN" Width="1.5" PointX="18.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBMOBILEAPPModel.tbl_RulesChuongTrinhDoiQua" Width="1.5" PointX="18.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBMOBILEAPPModel.tbl_shop" Width="1.5" PointX="18.75" PointY="17.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBMOBILEAPPModel.tbl_shopbackup" Width="1.5" PointX="0.75" PointY="19.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBMOBILEAPPModel.tbl_shopTemp" Width="1.5" PointX="20.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBMOBILEAPPModel.tbl_sku" Width="1.5" PointX="2.75" PointY="20.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBMOBILEAPPModel.tbl_SupBigPlan" Width="1.5" PointX="4.75" PointY="20.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBMOBILEAPPModel.tbl_SupChamDiem" Width="1.5" PointX="6.75" PointY="20.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBMOBILEAPPModel.tbl_SupCheckIn" Width="1.5" PointX="20.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBMOBILEAPPModel.Tbl_SupName" Width="1.5" PointX="8.75" PointY="20.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBMOBILEAPPModel.tbl_Target" Width="1.5" PointX="10.75" PointY="20.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBMOBILEAPPModel.tbl_TieuChiBaoCaoHinhAnh" Width="1.5" PointX="20.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBMOBILEAPPModel.tbl_TieuChiChamDiem" Width="1.5" PointX="12.75" PointY="20.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBMOBILEAPPModel.tbl_user" Width="1.5" PointX="14.75" PointY="20.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBMOBILEAPPModel.tbl_UserCheckInOut" Width="1.5" PointX="20.75" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBMOBILEAPPModel.VW_banhang" Width="1.5" PointX="22.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBMOBILEAPPModel.VW_BCHINHANH" Width="1.5" PointX="22.75" PointY="19.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBMOBILEAPPModel.VW_Bigplan" Width="1.5" PointX="24.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBMOBILEAPPModel.VW_DatHang" Width="1.5" PointX="6.75" PointY="24.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBMOBILEAPPModel.VW_DeXuatNhapHang" Width="1.5" PointX="8.75" PointY="24.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBMOBILEAPPModel.VW_DOIQUA" Width="1.5" PointX="24.75" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBMOBILEAPPModel.vw_doithucanhtranh" Width="1.5" PointX="16.75" PointY="24.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBMOBILEAPPModel.VW_doithucanhtranhdongian" Width="1.5" PointX="18.75" PointY="24.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBMOBILEAPPModel.VW_DoithucanhtranhImage" Width="1.5" PointX="24.75" PointY="23.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBMOBILEAPPModel.VW_KHO" Width="1.5" PointX="10.75" PointY="25.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBMOBILEAPPModel.VW_NHAPHANG" Width="1.5" PointX="26.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBMOBILEAPPModel.VW_ReportDTCTSimple" Width="1.5" PointX="26.75" PointY="19.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBMOBILEAPPModel.VW_Supchamdiem" Width="1.5" PointX="26.75" PointY="25.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBMOBILEAPPModel.VW_SupCheckin" Width="1.5" PointX="0.75" PointY="27.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBMOBILEAPPModel.VW_SUPCHECKINOUT" Width="1.5" PointX="2.75" PointY="27.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBMOBILEAPPModel.VW_UsercheckInout" Width="1.5" PointX="12.75" PointY="27.75" IsExpanded="true" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

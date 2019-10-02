@@ -1,0 +1,126 @@
+﻿@using WEBREPORTMOBILEAPP.Models
+@model List<VW_banhang>
+@{
+    ViewBag.Title = "ViewReportSku";
+    Layout = "~/Views/Shared/_LayoutPageAdmin.cshtml";
+    var luser = ViewBag.user as List<tbl_user>;
+    var sku = ViewBag.sku as List<tbl_sku>;
+}
+<script>
+    $(function () {
+        $("#startdate").datepicker({
+            dateFormat: "yy-mm-dd",
+            ignoreReadonly: true,
+            allowInputToggle: true
+        }).val()
+        $("#enddate").datepicker({
+            dateFormat: "yy-mm-dd",
+            ignoreReadonly: true,
+            allowInputToggle: true
+        }).val()
+    });
+    function submitform() {
+        $('#BATestForm').submit();
+    }
+</script>
+<script>
+    $(document).ready(function () {
+        $('#dataTable1').DataTable();
+    });
+</script>
+<div class="card mb-3">
+    <div class="card-header">
+
+        @using (Html.BeginForm("ViewReportSku", "HOME", FormMethod.Post, new { id = "BATestForm", name = "BATestForm" }))
+        {
+            <table>
+                <thead>
+                    <tr>
+                        <th>Ngày bắt đầu</th>
+                        <th><input id="startdate" name="txt_bd" value="@ViewBag.bd" class="form-control" onchange="submitform();" type="date" /></th>
+                    </tr>
+                    <tr>
+                        <th>Ngày kết thúc</th>
+                        <th><input id="enddate" name="txt_kt" value="@ViewBag.kt" class="form-control" onchange="submitform();" type="date" /></th>
+                    </tr>
+                    <tr>
+                        <th>
+                            Ca làm việc
+                        </th>
+                        <th>
+                            <select name="txt_ca" onchange="submitform();">
+                                @if (ViewBag.ca == "0")
+                                {
+                                    <option value="0" selected>ALL</option>
+                                    <option value="1">Sáng</option>
+                                    <option value="2">Chiều</option>
+                                }
+                                else if (ViewBag.ca == "1")
+                                {
+                                    <option value="0">ALL</option>
+                                    <option value="1" selected>Sáng</option>
+                                    <option value="2">Chiều</option>
+                                }
+                                else
+                                {
+                                    <option value="0">ALL</option>
+                                    <option value="1">Sáng</option>
+                                    <option value="2" selected>Chiều</option>
+                                }
+
+                            </select>
+                        </th>
+                    </tr>
+                </thead>
+            </table>
+        }
+        <i class="fas fa-table"></i> Sản phẩm đã bán
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>ĐỘI XE</th>
+                        <th>Nhóm ngành hàng</th>
+                        <th>Ngành hàng</th>
+                        <th>Nhãn hàng</th>
+                        <th>Barcode</th>
+                        <th>Tên sản phẩm</th>
+                        <th>Khối lượng</th>
+                        <th>Số lượng</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in luser)
+                    {
+                        foreach (var item1 in sku)
+                        {
+                            if (Model.Where(n => n.Us_id == item.Us_id && n.sku_barcode == item1.sku_barcode).Count() > 0)
+                            {
+                    <tr>
+                        <td>
+                            @item.Us_username
+                    </td>
+                    <td>@item1.sku_text1</td>
+                    <td>@item1.sku_text2</td>
+                    <td>@item1.sku_text3</td>
+                    <td>@item1.sku_barcode</td>
+                    <td>@item1.sku_name</td>
+                    <td>@item1.sku_detail</td>
+                    <td>@Model.Where(n => n.Us_id == item.Us_id && n.sku_barcode == item1.sku_barcode).Sum(n => n.BillDetail_soluong).Value.ToString("#,##")</td>
+                    </tr>
+                            }
+
+                        }
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+    @*<div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>*@
+</div>
+
+
+
+

@@ -1,0 +1,230 @@
+﻿@model WEBREPORTMOBILEAPP.Models.tbl_shop
+
+@{
+    ViewBag.Title = "DeleteShop";
+    Layout = "~/Views/Shared/_LayoutPageAdmin.cshtml";
+}
+
+
+<div>
+   
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Shop_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Shop_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Shop_detail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Shop_detail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Shop_npp)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Shop_npp)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Shop_nppcode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Shop_nppcode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Shop_Ngcode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Shop_Ngcode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Shop_LoaiCHCurrent)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Shop_LoaiCHCurrent)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Shop_LoaiCHFuture)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Shop_LoaiCHFuture)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Shop_latidue)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Shop_latidue)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Shop_Longtidue)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Shop_Longtidue)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Shop_phone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Shop_phone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Shop_Sup)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Shop_Sup)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Shop_GroupPrice)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Shop_GroupPrice)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Shop_text2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Shop_text2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Shop_text3)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Shop_text3)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Shop_text4)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Shop_text4)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Shop_float1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Shop_float1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Shop_float2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Shop_float2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Shop_float3)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Shop_float3)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Shop_float4)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Shop_float4)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Shop_bit)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Shop_bit)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Shop_datetime1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Shop_datetime1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Shop_datetime2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Shop_datetime2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Shop_datetime3)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Shop_datetime3)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Shop_datetime4)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Shop_datetime4)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Shop_deleteflag)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Shop_deleteflag)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Shop_SyncFlag)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Shop_SyncFlag)
+        </dd>
+
+    </dl>
+
+  
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "ViewShop")
+        </div>
+   
+</div>

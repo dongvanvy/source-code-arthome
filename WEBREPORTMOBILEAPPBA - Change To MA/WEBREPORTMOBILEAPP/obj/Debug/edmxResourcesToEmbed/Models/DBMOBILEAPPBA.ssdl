@@ -1,0 +1,3090 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DBMOBILEAPPBAModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="tbl_BaoCaoHinhAnh">
+    <Key>
+      <PropertyRef Name="BCHA_ID" />
+    </Key>
+    <Property Name="BCHA_ID" Type="nvarchar" MaxLength="900" Nullable="false" />
+    <Property Name="Shop_id" Type="nvarchar" MaxLength="900" />
+    <Property Name="Us_id" Type="nvarchar" MaxLength="900" />
+    <Property Name="BCHA_Time" Type="datetime" />
+    <Property Name="BCHA_SyncFlag" Type="datetime" />
+    <Property Name="BCHA_DeleteFlag" Type="datetime" />
+    <Property Name="Bigplan_id" Type="nvarchar" MaxLength="900" />
+  </EntityType>
+  <EntityType Name="tbl_bigplan">
+    <Key>
+      <PropertyRef Name="Bigplan_id" />
+    </Key>
+    <Property Name="Bigplan_id" Type="nvarchar" MaxLength="900" Nullable="false" />
+    <Property Name="Us_id" Type="nvarchar" MaxLength="900" Nullable="false" />
+    <Property Name="CaLamViecDetail_id" Type="nvarchar" MaxLength="900" Nullable="false" />
+    <Property Name="Shop_id" Type="nvarchar" MaxLength="900" Nullable="false" />
+    <Property Name="Bigplan_date" Type="datetime" Nullable="false" />
+    <Property Name="Bigplan_deleteFlag" Type="datetime" />
+    <Property Name="BigPlan_SyncFlag" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tbl_bill">
+    <Key>
+      <PropertyRef Name="Bill_id" />
+    </Key>
+    <Property Name="Bill_id" Type="nvarchar" MaxLength="900" Nullable="false" />
+    <Property Name="Us_id" Type="nvarchar" MaxLength="900" Nullable="false" />
+    <Property Name="Shop_id" Type="nvarchar" MaxLength="900" Nullable="false" />
+    <Property Name="Bill_date" Type="datetime" />
+    <Property Name="Bill_deleteFlag" Type="datetime" />
+    <Property Name="Bill_SyncFlag" Type="datetime" />
+    <Property Name="Bill_SDTKH" Type="nvarchar(max)" />
+    <Property Name="Bill_TenKH" Type="nvarchar(max)" />
+    <Property Name="Bill_ImageKH" Type="nvarchar(max)" />
+    <Property Name="Bill_OTP" Type="nvarchar(max)" />
+    <Property Name="Bill_OTPConfirm" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Tbl_BillCNKDetail">
+    <Key>
+      <PropertyRef Name="DBCNK_ID" />
+    </Key>
+    <Property Name="DBCNK_ID" Type="nvarchar" MaxLength="900" Nullable="false" />
+    <Property Name="BCNK_ID" Type="nvarchar" MaxLength="900" Nullable="false" />
+    <Property Name="DMQT_Barcode" Type="float" />
+    <Property Name="Us_IDnhan" Type="nvarchar" MaxLength="900" />
+    <Property Name="Us_NameNhan" Type="nvarchar(max)" />
+    <Property Name="DBCNK_SoluongChuyen" Type="int" />
+    <Property Name="DBCNK_SoluongNhan" Type="int" />
+    <Property Name="DBCNK_XacNhanNhan" Type="bit" />
+    <Property Name="DBCNK_XacNhanChuyen" Type="bit" />
+    <Property Name="DBCNK_NoteXacNhanNhan" Type="nvarchar(max)" />
+    <Property Name="DBCNK_NoteXacNhanChuyen" Type="nvarchar(max)" />
+    <Property Name="DBCNK_SyncFlag" Type="datetime" />
+    <Property Name="DBCNK_DeleteFlag" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Tbl_BillChuyenNhanKho">
+    <Key>
+      <PropertyRef Name="BCNK_ID" />
+    </Key>
+    <Property Name="BCNK_ID" Type="nvarchar" MaxLength="900" Nullable="false" />
+    <Property Name="Us_IDChuyen" Type="nvarchar" MaxLength="900" />
+    <Property Name="Us_NameChuyen" Type="nvarchar(max)" />
+    <Property Name="BCNK_Time" Type="datetime" />
+    <Property Name="BCNK_SyncFlag" Type="datetime" />
+    <Property Name="BCNK_DeleteFlag" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tbl_billDetail">
+    <Key>
+      <PropertyRef Name="Bill_id" />
+      <PropertyRef Name="sku_barcode" />
+    </Key>
+    <Property Name="Bill_id" Type="nvarchar" MaxLength="900" Nullable="false" />
+    <Property Name="sku_barcode" Type="float" Nullable="false" />
+    <Property Name="BillDetail_soluong" Type="int" />
+    <Property Name="BillDetail_dongia" Type="float" />
+    <Property Name="BillDetail_deleteFlag" Type="datetime" />
+    <Property Name="BillDetail_SyncFlag" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tbl_CaLamViecDetail">
+    <Key>
+      <PropertyRef Name="CaLamViecDetail_id" />
+    </Key>
+    <Property Name="CaLamViecDetail_id" Type="nvarchar" MaxLength="900" Nullable="false" />
+    <Property Name="CaLamViecDetail_Name" Type="nvarchar(max)" />
+    <Property Name="CaLamViecDetail_TGBD" Type="time" Precision="7" />
+    <Property Name="CaLamViecDetail_TGKT" Type="time" Precision="7" />
+    <Property Name="CaLamViecDetail_CHAMCONG" Type="float" />
+    <Property Name="CaLamViecDetail_DeleteFlag" Type="datetime" />
+    <Property Name="CaLamViecDetail_SyncFlag" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tbl_chitietDondathang">
+    <Key>
+      <PropertyRef Name="DDH_ID" />
+      <PropertyRef Name="sku_barcode" />
+    </Key>
+    <Property Name="DDH_ID" Type="nvarchar" MaxLength="900" Nullable="false" />
+    <Property Name="sku_barcode" Type="float" Nullable="false" />
+    <Property Name="CTDDH_Soluong" Type="float" />
+    <Property Name="CTDDH_SyncFlag" Type="datetime" />
+    <Property Name="CTDDH_DeleteFlag" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Tbl_ChitietDonNhapHang">
+    <Key>
+      <PropertyRef Name="CTDNH_ID" />
+    </Key>
+    <Property Name="CTDNH_ID" Type="nvarchar" MaxLength="900" Nullable="false" />
+    <Property Name="DNH_ID" Type="nvarchar" MaxLength="900" Nullable="false" />
+    <Property Name="sku_id" Type="float" />
+    <Property Name="CTDNH_Soluong" Type="float" />
+    <Property Name="CTDNH_Date" Type="datetime" />
+    <Property Name="CTDNH_SyncFlag" Type="datetime" />
+    <Property Name="CTDNH_DeleteFlag" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tbl_ChitietSupChamDiem">
+    <Key>
+      <PropertyRef Name="ChitietSupChamDiem_ID" />
+    </Key>
+    <Property Name="ChitietSupChamDiem_ID" Type="nvarchar" MaxLength="900" Nullable="false" />
+    <Property Name="SupChamDiem_id" Type="nvarchar" MaxLength="900" />
+    <Property Name="TieuChiCD_id" Type="nvarchar" MaxLength="900" />
+    <Property Name="ChitietSupChamDiem_value" Type="int" />
+    <Property Name="ChitietSupChamDiem_DeleteFlag" Type="datetime" />
+    <Property Name="ChitietSupChamDiem_SyncFlag" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tbl_chucnangphu">
+    <Key>
+      <PropertyRef Name="CNP_ID" />
+    </Key>
+    <Property Name="CNP_ID" Type="nvarchar" MaxLength="900" Nullable="false" />
+    <Property Name="CNP_NAME" Type="nvarchar(max)" />
+    <Property Name="CNP_Detail" Type="nvarchar(max)" />
+    <Property Name="CNP_value" Type="float" />
+    <Property Name="CNP_Status" Type="bit" />
+    <Property Name="CNP_SyncFlag" Type="datetime" />
+    <Property Name="CNP_DeleteFlag" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tbl_ChuongTrinhDoiQua">
+    <Key>
+      <PropertyRef Name="CTDQ_ID" />
+    </Key>
+    <Property Name="CTDQ_ID" Type="nvarchar" MaxLength="900" Nullable="false" />
+    <Property Name="CTDQ_Name" Type="nvarchar(max)" />
+    <Property Name="CTDQ_Detail" Type="nvarchar(max)" />
+    <Property Name="CTDQ_APPLYROLE" Type="nvarchar(max)" />
+    <Property Name="CTDQ_DateBatDau" Type="datetime" />
+    <Property Name="CTDQ_DateKetThuc" Type="datetime" />
+    <Property Name="CTDQ_SyncFlag" Type="datetime" />
+    <Property Name="CTDQ_DeleteFlag" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tbl_DanhMucQuaTang">
+    <Key>
+      <PropertyRef Name="DMQT_Barcode" />
+    </Key>
+    <Property Name="DMQT_Barcode" Type="float" Nullable="false" />
+    <Property Name="DMQT_Name" Type="nvarchar(max)" />
+    <Property Name="DMQT_Detail" Type="nvarchar(max)" />
+    <Property Name="DMQT_Status" Type="bit" />
+    <Property Name="DMQT_SyncFlag" Type="datetime" />
+    <Property Name="DMQT_DeleteFlag" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tbl_DetailBaoCaoHinhAnh">
+    <Key>
+      <PropertyRef Name="BCHA_ID" />
+      <PropertyRef Name="TCBCHA_ID" />
+    </Key>
+    <Property Name="BCHA_ID" Type="nvarchar" MaxLength="900" Nullable="false" />
+    <Property Name="TCBCHA_ID" Type="nvarchar" MaxLength="900" Nullable="false" />
+    <Property Name="DBCHA_Image" Type="nvarchar(max)" />
+    <Property Name="DBCHA_SyncFlag" Type="datetime" />
+    <Property Name="DBCHA_DeleteFlag" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tbl_DMQT_CTDQ">
+    <Key>
+      <PropertyRef Name="DMCT_ID" />
+    </Key>
+    <Property Name="DMCT_ID" Type="nvarchar" MaxLength="900" Nullable="false" />
+    <Property Name="DMQT_Barcode" Type="float" />
+    <Property Name="CTDQ_ID" Type="nvarchar" MaxLength="900" />
+    <Property Name="DMCT_Status" Type="bit" />
+    <Property Name="DMCT_SyncFlag" Type="datetime" />
+    <Property Name="DMCT_DeleteFlag" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tbl_DoiQua">
+    <Key>
+      <PropertyRef Name="DoiQua_ID" />
+    </Key>
+    <Property Name="DoiQua_ID" Type="nvarchar" MaxLength="900" Nullable="false" />
+    <Property Name="Bill_id" Type="nvarchar" MaxLength="900" Nullable="false" />
+    <Property Name="RCTDQ_ID" Type="nvarchar" MaxLength="900" Nullable="false" />
+    <Property Name="DMQT_Barcode" Type="float" Nullable="false" />
+    <Property Name="DoiQua_Value" Type="int" />
+    <Property Name="DoiQua_SyncFlag" Type="datetime" />
+    <Property Name="DoiQua_DeleteFlag" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tbl_doithucanhtranh">
+    <Key>
+      <PropertyRef Name="dt_id" />
+    </Key>
+    <Property Name="dt_id" Type="nvarchar" MaxLength="900" Nullable="false" />
+    <Property Name="US_ID" Type="nvarchar" MaxLength="900" Nullable="false" />
+    <Property Name="Shop_id" Type="nvarchar" MaxLength="900" Nullable="false" />
+    <Property Name="dt_keyacc" Type="nvarchar(max)" />
+    <Property Name="dt_cty" Type="nvarchar(max)" />
+    <Property Name="dt_fortmat" Type="nvarchar(max)" />
+    <Property Name="dt_brand" Type="nvarchar(max)" />
+    <Property Name="dt_variant" Type="nvarchar(max)" />
+    <Property Name="dt_crmrange" Type="nvarchar(max)" />
+    <Property Name="dt_ffrange" Type="nvarchar(max)" />
+    <Property Name="dt_ltnrange" Type="nvarchar(max)" />
+    <Property Name="dt_noidung" Type="nvarchar(max)" />
+    <Property Name="dt_OnPostOffPost" Type="nvarchar(max)" />
+    <Property Name="dt_giagoc" Type="int" />
+    <Property Name="dt_giakm" Type="int" />
+    <Property Name="dt_hangtang" Type="nvarchar(max)" />
+    <Property Name="dt_giahangtang" Type="int" />
+    <Property Name="dt_post" Type="nvarchar(max)" />
+    <Property Name="dt_tenpost" Type="nvarchar(max)" />
+    <Property Name="dt_thoigianbd" Type="datetime" />
+    <Property Name="dt_thoigiankt" Type="datetime" />
+    <Property Name="dt_nam" Type="int" />
+    <Property Name="dt_type" Type="nvarchar(max)" />
+    <Property Name="dt_SyncFlag" Type="datetime" />
+    <Property Name="dt_DeleteFlag" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Tbl_DoithucanhtranhIMAGE">
+    <Key>
+      <PropertyRef Name="DTCTIMAGE_ID" />
+    </Key>
+    <Property Name="DTCTIMAGE_ID" Type="nvarchar" MaxLength="900" Nullable="false" />
+    <Property Name="DTCTIMAGE_Date" Type="datetime" />
+    <Property Name="US_ID" Type="nvarchar" MaxLength="900" Nullable="false" />
+    <Property Name="Shop_ID" Type="nvarchar" MaxLength="900" Nullable="false" />
+    <Property Name="DTCTIMAGE_Note" Type="nvarchar(max)" />
+    <Property Name="DTCTIMAGE_SyncFlag" Type="datetime" />
+    <Property Name="DTCTIMAGE_DeleteFlag" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Tbl_DoithucanhtranhIMAGEDetail">
+    <Key>
+      <PropertyRef Name="DTCTIMAGED_ID" />
+    </Key>
+    <Property Name="DTCTIMAGED_ID" Type="nvarchar" MaxLength="900" Nullable="false" />
+    <Property Name="DTCTIMAGE_ID" Type="nvarchar" MaxLength="900" Nullable="false" />
+    <Property Name="DTCTIMAGED_Note" Type="nvarchar(max)" />
+    <Property Name="DTCTIMAGED_SyncFlag" Type="datetime" />
+    <Property Name="DTCTIMAGED_DeleteFlag" Type="datetime" />
+    <Property Name="DTCTIMAGED_Image" Type="nvarchar(max)" />
+    <Property Name="DTCTIMAGED_ImagePublish" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="tbl_Dondathang">
+    <Key>
+      <PropertyRef Name="DDH_ID" />
+    </Key>
+    <Property Name="DDH_ID" Type="nvarchar" MaxLength="900" Nullable="false" />
+    <Property Name="Us_id" Type="nvarchar" MaxLength="900" />
+    <Property Name="Shop_id" Type="nvarchar" MaxLength="900" />
+    <Property Name="DDH_time" Type="datetime" />
+    <Property Name="DDH_Syncflag" Type="datetime" />
+    <Property Name="DDH_DeleteFlag" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Tbl_DonNhapHang">
+    <Key>
+      <PropertyRef Name="DNH_ID" />
+    </Key>
+    <Property Name="DNH_ID" Type="nvarchar" MaxLength="900" Nullable="false" />
+    <Property Name="US_ID" Type="nvarchar" MaxLength="900" Nullable="false" />
+    <Property Name="Shop_id" Type="nvarchar" MaxLength="900" Nullable="false" />
+    <Property Name="DNH_Image" Type="nvarchar(max)" />
+    <Property Name="DNH_ImagePublish" Type="nvarchar(max)" />
+    <Property Name="DNH_Date" Type="datetime" />
+    <Property Name="DNH_SyncFlag" Type="datetime" />
+    <Property Name="DNH_DeleteFlag" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tbl_DTCTBrand">
+    <Key>
+      <PropertyRef Name="Brand_id" />
+    </Key>
+    <Property Name="Brand_id" Type="nvarchar" MaxLength="900" Nullable="false" />
+    <Property Name="cty_id" Type="nvarchar" MaxLength="900" />
+    <Property Name="Brand_name" Type="nvarchar(max)" />
+    <Property Name="Brand_details" Type="nvarchar(max)" />
+    <Property Name="Brand_status" Type="int" />
+    <Property Name="Brand_SyncFlag" Type="datetime" />
+    <Property Name="Brand_DeleteFlag" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tbl_DTCTcrmrange">
+    <Key>
+      <PropertyRef Name="crm_id" />
+    </Key>
+    <Property Name="crm_id" Type="nvarchar" MaxLength="900" Nullable="false" />
+    <Property Name="crm_name" Type="nvarchar(max)" />
+    <Property Name="crm_detail" Type="nvarchar(max)" />
+    <Property Name="crm_status" Type="int" />
+    <Property Name="crm_SyncFlag" Type="datetime" />
+    <Property Name="crm_DeleteFlag" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tbl_DTCTCty">
+    <Key>
+      <PropertyRef Name="cty_id" />
+    </Key>
+    <Property Name="cty_id" Type="nvarchar" MaxLength="900" Nullable="false" />
+    <Property Name="cty_name" Type="nvarchar(max)" />
+    <Property Name="cty_detail" Type="nvarchar(max)" />
+    <Property Name="cty_status" Type="int" />
+    <Property Name="cty_SyncFlag" Type="datetime" />
+    <Property Name="cty_DeleteFlag" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tbl_DTCTffrange">
+    <Key>
+      <PropertyRef Name="ff_id" />
+    </Key>
+    <Property Name="ff_id" Type="nvarchar" MaxLength="900" Nullable="false" />
+    <Property Name="ff_name" Type="nvarchar(max)" />
+    <Property Name="ff_detail" Type="nvarchar(max)" />
+    <Property Name="ff_status" Type="int" />
+    <Property Name="ff_SyncFlag" Type="datetime" />
+    <Property Name="ff_DeleteFlag" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tbl_DTCTformat">
+    <Key>
+      <PropertyRef Name="bf_id" />
+    </Key>
+    <Property Name="bf_id" Type="nvarchar" MaxLength="900" Nullable="false" />
+    <Property Name="bf_name" Type="nvarchar(max)" />
+    <Property Name="bf_details" Type="nvarchar(max)" />
+    <Property Name="bf_status" Type="int" />
+    <Property Name="bf_SyncFlag" Type="datetime" />
+    <Property Name="bf_DeleteFlag" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tbl_DTCTltmrange">
+    <Key>
+      <PropertyRef Name="ltm_id" />
+    </Key>
+    <Property Name="ltm_id" Type="nvarchar" MaxLength="900" Nullable="false" />
+    <Property Name="ltm_name" Type="nvarchar(max)" />
+    <Property Name="ltm_detail" Type="nvarchar(max)" />
+    <Property Name="ltm_status" Type="int" />
+    <Property Name="ltm_SyncFlag" Type="datetime" />
+    <Property Name="ltm_DeleteFlag" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tbl_DTCTonpostoffpost">
+    <Key>
+      <PropertyRef Name="ofpost_id" />
+    </Key>
+    <Property Name="ofpost_id" Type="nvarchar" MaxLength="900" Nullable="false" />
+    <Property Name="ofpost_name" Type="nvarchar(max)" />
+    <Property Name="ofpost_detail" Type="nvarchar(max)" />
+    <Property Name="ofpost_status" Type="int" />
+    <Property Name="ofpost_SyncFlag" Type="datetime" />
+    <Property Name="ofpost_DeleteFlag" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tbl_DTCTtype">
+    <Key>
+      <PropertyRef Name="ty_id" />
+    </Key>
+    <Property Name="ty_id" Type="nvarchar" MaxLength="900" Nullable="false" />
+    <Property Name="ty_name" Type="nvarchar(max)" />
+    <Property Name="ty_details" Type="nvarchar(max)" />
+    <Property Name="ty_status" Type="int" />
+    <Property Name="ty_SyncFlag" Type="datetime" />
+    <Property Name="ty_DeleteFlag" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tbl_DTCTVARIANT">
+    <Key>
+      <PropertyRef Name="va_id" />
+    </Key>
+    <Property Name="va_id" Type="nvarchar" MaxLength="900" Nullable="false" />
+    <Property Name="va_name" Type="nvarchar(max)" />
+    <Property Name="va_detail" Type="nvarchar(max)" />
+    <Property Name="va_status" Type="int" />
+    <Property Name="va_SyncFlag" Type="datetime" />
+    <Property Name="va_DeleteFlag" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Tbl_HsSms">
+    <Key>
+      <PropertyRef Name="HSsms_ID" />
+    </Key>
+    <Property Name="HSsms_ID" Type="nvarchar" MaxLength="900" Nullable="false" />
+    <Property Name="Bill_id" Type="nvarchar" MaxLength="900" />
+    <Property Name="HSsms_OTP" Type="nvarchar(max)" />
+    <Property Name="HSsms_OTPConfirm" Type="nvarchar(max)" />
+    <Property Name="HSsms_Time" Type="datetime" />
+    <Property Name="HSsms_Status" Type="nvarchar(max)" />
+    <Property Name="HSsms_Code" Type="nvarchar(max)" />
+    <Property Name="HSsms_Phone" Type="nvarchar(max)" />
+    <Property Name="HSsms_SyncFlag" Type="datetime" />
+    <Property Name="HSsms_DeleteFlag" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Tbl_ImageDonNhapHang">
+    <Key>
+      <PropertyRef Name="IDNH_ID" />
+    </Key>
+    <Property Name="IDNH_ID" Type="nvarchar" MaxLength="900" Nullable="false" />
+    <Property Name="DNH_ID" Type="nvarchar" MaxLength="900" Nullable="false" />
+    <Property Name="IDNH_Image" Type="nvarchar(max)" />
+    <Property Name="IDNH_ImagePublish" Type="nvarchar(max)" />
+    <Property Name="IDNH_Note" Type="nvarchar(max)" />
+    <Property Name="IDNH_SyncFlag" Type="datetime" />
+    <Property Name="IDNH_DeleteFlag" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tbl_Kho">
+    <Key>
+      <PropertyRef Name="KHO_ID" />
+    </Key>
+    <Property Name="KHO_ID" Type="nvarchar" MaxLength="900" Nullable="false" />
+    <Property Name="Shop_IDNguon" Type="nvarchar(max)" />
+    <Property Name="KHO_ACTION" Type="nvarchar(max)" />
+    <Property Name="Shop_IDDICH" Type="nvarchar(max)" />
+    <Property Name="DMQT_Barcode" Type="float" />
+    <Property Name="KHO_SOLUONG" Type="int" />
+    <Property Name="KHO_Time" Type="datetime" />
+    <Property Name="KHO_ACCEPT" Type="bit" />
+    <Property Name="KHO_SyncFlag" Type="datetime" />
+    <Property Name="KHO_DeleteFlag" Type="datetime" />
+    <Property Name="KHO_UsIDDich" Type="nvarchar" MaxLength="900" />
+    <Property Name="KHO_USNameDich" Type="nvarchar(max)" />
+    <Property Name="KHO_UsIDNguon" Type="nvarchar" MaxLength="900" />
+    <Property Name="KHO_USNameNguon" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Tbl_KhoChiNhanh">
+    <Key>
+      <PropertyRef Name="KCN_ID" />
+    </Key>
+    <Property Name="KCN_ID" Type="nvarchar" MaxLength="900" Nullable="false" />
+    <Property Name="KCN_Name" Type="nvarchar(max)" />
+    <Property Name="KCN_Adress" Type="nvarchar(max)" />
+    <Property Name="KCN_Phone" Type="nvarchar(max)" />
+    <Property Name="KCN_TenNguoiGiuKho" Type="nvarchar(max)" />
+    <Property Name="KCN_UserQL" Type="nvarchar(max)" />
+    <Property Name="KCN_Type" Type="nvarchar(max)" />
+    <Property Name="KCN_SyncFlag" Type="datetime" />
+    <Property Name="KCN_DeleteFlag" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Tbl_KhoChuyenNhan">
+    <Key>
+      <PropertyRef Name="CNK_ID" />
+    </Key>
+    <Property Name="CNK_ID" Type="nvarchar" MaxLength="900" Nullable="false" />
+    <Property Name="CNK_TypeChuyen" Type="nvarchar(max)" />
+    <Property Name="CNK_TypeNhan" Type="nvarchar(max)" />
+    <Property Name="CNK_IDChuyen" Type="nvarchar" MaxLength="900" Nullable="false" />
+    <Property Name="CNK_NameChuyen" Type="nvarchar(max)" />
+    <Property Name="CNK_IDNhan" Type="nvarchar" MaxLength="900" Nullable="false" />
+    <Property Name="CNK_NameNhan" Type="nvarchar(max)" />
+    <Property Name="BCNK_ID" Type="nvarchar" MaxLength="900" Nullable="false" />
+    <Property Name="CNK_SyncFlag" Type="datetime" />
+    <Property Name="CNK_DeleteFlag" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Tbl_KhoDoi">
+    <Key>
+      <PropertyRef Name="KD_ID" />
+    </Key>
+    <Property Name="KD_ID" Type="nvarchar" MaxLength="900" Nullable="false" />
+    <Property Name="KD_Name" Type="nvarchar(max)" />
+    <Property Name="KD_Adress" Type="nvarchar(max)" />
+    <Property Name="KD_Phone" Type="nvarchar(max)" />
+    <Property Name="KD_TenNguoiGiuKho" Type="nvarchar(max)" />
+    <Property Name="KD_UserQL" Type="nvarchar(max)" />
+    <Property Name="KD_Type" Type="nvarchar(max)" />
+    <Property Name="KD_SyncFlag" Type="datetime" />
+    <Property Name="KD_DeleteFlag" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Tbl_KHOQUA">
+    <Key>
+      <PropertyRef Name="KV_ID" />
+    </Key>
+    <Property Name="KV_ID" Type="nvarchar" MaxLength="900" Nullable="false" />
+    <Property Name="KV_Name" Type="nvarchar(max)" />
+    <Property Name="KV_Adress" Type="nvarchar(max)" />
+    <Property Name="KV_Phone" Type="nvarchar(max)" />
+    <Property Name="KV_TenNguoiGiuKho" Type="nvarchar(max)" />
+    <Property Name="KV_UserQL" Type="nvarchar(max)" />
+    <Property Name="KV_Type" Type="nvarchar(max)" />
+    <Property Name="KV_SyncFlag" Type="datetime" />
+    <Property Name="KV_DeleteFlag" Type="datetime" />
+    <Property Name="KV_TypeKhoChuyen" Type="nvarchar(max)" />
+    <Property Name="KV_TypeKhoNhan" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Tbl_KhoXe">
+    <Key>
+      <PropertyRef Name="KX_ID" />
+    </Key>
+    <Property Name="KX_ID" Type="nvarchar" MaxLength="900" Nullable="false" />
+    <Property Name="KX_Name" Type="nvarchar(max)" />
+    <Property Name="KX_Adress" Type="nvarchar(max)" />
+    <Property Name="KX_Phone" Type="nvarchar(max)" />
+    <Property Name="KX_TenNguoiGiuKho" Type="nvarchar(max)" />
+    <Property Name="KX_UserQuanLy" Type="nvarchar(max)" />
+    <Property Name="KX_Type" Type="nvarchar(max)" />
+    <Property Name="KX_SyncFlag" Type="datetime" />
+    <Property Name="KX_DeleteFlag" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tbl_menu">
+    <Key>
+      <PropertyRef Name="Menu_id" />
+    </Key>
+    <Property Name="Menu_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Menu_Name" Type="nvarchar(max)" />
+    <Property Name="Menu_code" Type="nvarchar(max)" />
+    <Property Name="Menu_Role" Type="nvarchar(max)" />
+    <Property Name="Menu_DeleteFlag" Type="datetime" />
+    <Property Name="Menu_SyncFlag" Type="datetime" />
+    <Property Name="Menu_Status" Type="int" />
+  </EntityType>
+  <EntityType Name="tbl_NganhHang">
+    <Key>
+      <PropertyRef Name="NH_ID" />
+    </Key>
+    <Property Name="NH_ID" Type="nvarchar" MaxLength="900" Nullable="false" />
+    <Property Name="NH_Name" Type="nvarchar(max)" />
+    <Property Name="NH_Status" Type="bit" />
+    <Property Name="NH_SyncFlag" Type="datetime" />
+    <Property Name="NH_DeleteFlag" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tbl_NhanHang">
+    <Key>
+      <PropertyRef Name="NhanH_ID" />
+    </Key>
+    <Property Name="NhanH_ID" Type="nvarchar" MaxLength="900" Nullable="false" />
+    <Property Name="NhanH_Name" Type="nvarchar(max)" />
+    <Property Name="NhanH_Status" Type="bit" />
+    <Property Name="NhanH_SyncFlag" Type="datetime" />
+    <Property Name="NhanH_DeleteFlag" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tbl_NhomNganhHang">
+    <Key>
+      <PropertyRef Name="NNH_ID" />
+    </Key>
+    <Property Name="NNH_ID" Type="nvarchar" MaxLength="900" Nullable="false" />
+    <Property Name="NNH_Name" Type="nvarchar(max)" />
+    <Property Name="NNH_Status" Type="bit" />
+    <Property Name="NNH_SyncFlag" Type="datetime" />
+    <Property Name="NNH_DeleteFlag" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tbl_Price">
+    <Key>
+      <PropertyRef Name="Price_ID" />
+    </Key>
+    <Property Name="Price_ID" Type="nvarchar" MaxLength="900" Nullable="false" />
+    <Property Name="sku_barcode" Type="float" />
+    <Property Name="Shop_GroupPrice" Type="nvarchar(max)" />
+    <Property Name="Price_Value" Type="int" />
+    <Property Name="Price_Status" Type="bit" />
+    <Property Name="Price_DateUpdate" Type="datetime" />
+    <Property Name="Price_SyncFlag" Type="datetime" />
+    <Property Name="Price_DeleteFlag" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tbl_RulesChuongTrinhDoiQua">
+    <Key>
+      <PropertyRef Name="RCTDQ_ID" />
+    </Key>
+    <Property Name="CTDQ_ID" Type="nvarchar" MaxLength="900" />
+    <Property Name="RCTDQ_ID" Type="nvarchar" MaxLength="900" Nullable="false" />
+    <Property Name="RCTDQ_Value" Type="int" />
+    <Property Name="RCTDQ_And" Type="nvarchar(max)" />
+    <Property Name="RCTDQ_Or" Type="nvarchar(max)" />
+    <Property Name="RCTDQ_SyncFlag" Type="datetime" />
+    <Property Name="RCTDQ_Delete" Type="datetime" />
+    <Property Name="RCTDQ_NhomNganhHang" Type="nvarchar(max)" />
+    <Property Name="RCTDQ_NganhHang" Type="nvarchar(max)" />
+    <Property Name="RCTDQ_NhanHang" Type="nvarchar(max)" />
+    <Property Name="RCTDQ_ValueNhomNganhNhanHang" Type="int" />
+    <Property Name="RCTDQ_ValueNganhHang" Type="int" />
+    <Property Name="RCTDQ_ValueNhanHang" Type="int" />
+    <Property Name="RCTDQ_SanPham" Type="nvarchar(max)" />
+    <Property Name="RCTDQ_ValueSanPham" Type="int" />
+  </EntityType>
+  <EntityType Name="tbl_shop">
+    <Key>
+      <PropertyRef Name="Shop_id" />
+    </Key>
+    <Property Name="Shop_id" Type="nvarchar" MaxLength="900" Nullable="false" />
+    <Property Name="Shop_name" Type="nvarchar(max)" />
+    <Property Name="Shop_detail" Type="nvarchar(max)" />
+    <Property Name="Shop_npp" Type="nvarchar(max)" />
+    <Property Name="Shop_nppcode" Type="nvarchar(max)" />
+    <Property Name="Shop_Ngcode" Type="nvarchar(max)" />
+    <Property Name="Shop_LoaiCHCurrent" Type="nvarchar(max)" />
+    <Property Name="Shop_LoaiCHFuture" Type="nvarchar(max)" />
+    <Property Name="Shop_latidue" Type="float" />
+    <Property Name="Shop_Longtidue" Type="float" />
+    <Property Name="Shop_phone" Type="nvarchar(max)" />
+    <Property Name="Shop_Sup" Type="nvarchar(max)" />
+    <Property Name="Shop_GroupPrice" Type="nvarchar(max)" />
+    <Property Name="Shop_text2" Type="nvarchar(max)" />
+    <Property Name="Shop_text3" Type="nvarchar(max)" />
+    <Property Name="Shop_text4" Type="nvarchar(max)" />
+    <Property Name="Shop_float1" Type="float" />
+    <Property Name="Shop_float2" Type="float" />
+    <Property Name="Shop_float3" Type="float" />
+    <Property Name="Shop_float4" Type="float" />
+    <Property Name="Shop_bit" Type="bit" />
+    <Property Name="Shop_datetime1" Type="datetime" />
+    <Property Name="Shop_datetime2" Type="datetime" />
+    <Property Name="Shop_datetime3" Type="datetime" />
+    <Property Name="Shop_datetime4" Type="datetime" />
+    <Property Name="Shop_deleteflag" Type="datetime" />
+    <Property Name="Shop_SyncFlag" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tbl_sku">
+    <Key>
+      <PropertyRef Name="sku_barcode" />
+    </Key>
+    <Property Name="sku_barcode" Type="float" Nullable="false" />
+    <Property Name="sku_name" Type="nvarchar(max)" />
+    <Property Name="sku_detail" Type="nvarchar(max)" />
+    <Property Name="sku_txtname" Type="nvarchar(max)" />
+    <Property Name="sku_txtPrice" Type="float" />
+    <Property Name="Target_Group" Type="nvarchar(max)" />
+    <Property Name="sku_text1" Type="nvarchar(max)" />
+    <Property Name="sku_text2" Type="nvarchar(max)" />
+    <Property Name="sku_text3" Type="nvarchar(max)" />
+    <Property Name="sku_text4" Type="nvarchar(max)" />
+    <Property Name="sku_text5" Type="nvarchar(max)" />
+    <Property Name="sku_float1" Type="float" />
+    <Property Name="sku_float2" Type="float" />
+    <Property Name="sku_float3" Type="float" />
+    <Property Name="sku_float4" Type="float" />
+    <Property Name="sku_float5" Type="float" />
+    <Property Name="sku_float6" Type="float" />
+    <Property Name="sku_datetime1" Type="datetime" />
+    <Property Name="sku_datetime2" Type="datetime" />
+    <Property Name="sku_datetime3" Type="datetime" />
+    <Property Name="sku_datetime4" Type="datetime" />
+    <Property Name="sku_bit" Type="bit" />
+    <Property Name="sku_deleteflag" Type="datetime" />
+    <Property Name="sku_SyncFlag" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tbl_SupBigPlan">
+    <Key>
+      <PropertyRef Name="SupBigPlan_id" />
+    </Key>
+    <Property Name="SupBigPlan_id" Type="nvarchar" MaxLength="900" Nullable="false" />
+    <Property Name="Us_id" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Shop_id" Type="nvarchar" MaxLength="900" Nullable="false" />
+    <Property Name="SupBigPlan_date" Type="datetime" Nullable="false" />
+    <Property Name="SupBigPlan_NXkehoachLanNay" Type="nvarchar(max)" />
+    <Property Name="SupBigPlan_KeHoachLanToi" Type="nvarchar(max)" />
+    <Property Name="SupBigPlan_GroupPlan" Type="nvarchar(max)" />
+    <Property Name="SupBigPlan_UserAccept" Type="int" />
+    <Property Name="SupBigPlan_UserNote" Type="nvarchar(max)" />
+    <Property Name="SupBigPlan_DeleteFlag" Type="datetime" />
+    <Property Name="SupBigPlan_SyncFlag" Type="datetime" />
+    <Property Name="SupBigPlan_SupName" Type="nvarchar(max)" />
+    <Property Name="SupBigPlan_SupUsername" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="tbl_SupChamDiem">
+    <Key>
+      <PropertyRef Name="SupChamDiem_id" />
+    </Key>
+    <Property Name="SupChamDiem_id" Type="nvarchar" MaxLength="900" Nullable="false" />
+    <Property Name="SupBigPlan_id" Type="nvarchar" MaxLength="900" Nullable="false" />
+    <Property Name="SupChamDiem_TimeCD" Type="datetime" />
+    <Property Name="SupChamDiem_UserAccept" Type="nvarchar(max)" />
+    <Property Name="SupChamDiem_UserNote" Type="nvarchar(max)" />
+    <Property Name="SupChamDiem_DeleteFlag" Type="datetime" />
+    <Property Name="SupChamDiem_SyncFlag" Type="datetime" />
+    <Property Name="SupChamDiem_Lannay" Type="nvarchar(max)" />
+    <Property Name="SupChamDiem_LanToi" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="tbl_SupCheckIn">
+    <Key>
+      <PropertyRef Name="SupCheckIn_id" />
+    </Key>
+    <Property Name="SupCheckIn_id" Type="nvarchar" MaxLength="900" Nullable="false" />
+    <Property Name="SupBigPlan_id" Type="nvarchar" MaxLength="900" Nullable="false" />
+    <Property Name="SupCheckIn_date" Type="datetime" Nullable="false" />
+    <Property Name="SupCheckIn_Latidue" Type="float" />
+    <Property Name="SupCheckIn_Longtidue" Type="float" />
+    <Property Name="SupCheckIn_ImageCI" Type="nvarchar(max)" />
+    <Property Name="SupCheckIn_ImageCO" Type="nvarchar(max)" />
+    <Property Name="SupCheckIn_AdminAccept" Type="int" />
+    <Property Name="SupCheckIn_AdminNote" Type="nvarchar(max)" />
+    <Property Name="SupCheckIn_TimeCI" Type="datetime" />
+    <Property Name="SupCheckIn_TimeCO" Type="datetime" />
+    <Property Name="SupCheckIn_Count" Type="float" />
+    <Property Name="SupCheckIn_DeleteFlag" Type="datetime" />
+    <Property Name="SupCheckIn_SyncFlag" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Tbl_SupName">
+    <Key>
+      <PropertyRef Name="Sup_ID" />
+    </Key>
+    <Property Name="Sup_ID" Type="nvarchar" MaxLength="900" Nullable="false" />
+    <Property Name="Sup_name" Type="nvarchar(max)" />
+    <Property Name="Sup_Status" Type="bit" />
+  </EntityType>
+  <EntityType Name="tbl_Target">
+    <Key>
+      <PropertyRef Name="Target_ID" />
+    </Key>
+    <Property Name="Target_ID" Type="nvarchar" MaxLength="900" Nullable="false" />
+    <Property Name="Target_Name" Type="nvarchar(max)" />
+    <Property Name="Us_id" Type="nvarchar" MaxLength="900" />
+    <Property Name="Shop_id" Type="nvarchar" MaxLength="900" />
+    <Property Name="Target_Group" Type="nvarchar(max)" />
+    <Property Name="Target_Value" Type="int" />
+    <Property Name="Target_DayStart" Type="datetime" />
+    <Property Name="Target_DayEnd" Type="datetime" />
+    <Property Name="Target_SyncFlag" Type="datetime" />
+    <Property Name="Target_DeleteFlag" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tbl_TieuChiBaoCaoHinhAnh">
+    <Key>
+      <PropertyRef Name="TCBCHA_ID" />
+    </Key>
+    <Property Name="TCBCHA_ID" Type="nvarchar" MaxLength="900" Nullable="false" />
+    <Property Name="TCBCHA_Role" Type="nvarchar(max)" />
+    <Property Name="TCBCHA_Name" Type="nvarchar(max)" />
+    <Property Name="TCBCHA_Status" Type="bit" />
+    <Property Name="TCBCHA_SyncFlag" Type="datetime" />
+    <Property Name="TCBCHA_DeleteFlag" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tbl_TieuChiChamDiem">
+    <Key>
+      <PropertyRef Name="TieuChiCD_id" />
+    </Key>
+    <Property Name="TieuChiCD_id" Type="nvarchar" MaxLength="900" Nullable="false" />
+    <Property Name="TieuChiCD_Name" Type="nvarchar(max)" />
+    <Property Name="TieuChiCD_Min" Type="int" />
+    <Property Name="TieuChiCD_Max" Type="int" />
+    <Property Name="TieuChiCD_Group" Type="nvarchar(max)" />
+    <Property Name="TieuChiCD_text1" Type="nvarchar(max)" />
+    <Property Name="TieuChiCD_text2" Type="nvarchar(max)" />
+    <Property Name="TieuChiCD_text3" Type="nvarchar(max)" />
+    <Property Name="TieuChiCD_text4" Type="nvarchar(max)" />
+    <Property Name="TieuChiCD_float1" Type="float" />
+    <Property Name="TieuChiCD_float2" Type="float" />
+    <Property Name="TieuChiCD_float3" Type="float" />
+    <Property Name="TieuChiCD_float4" Type="float" />
+    <Property Name="TieuChiCD_bit" Type="bit" />
+    <Property Name="TieuChiCD_DeleteFlag" Type="datetime" />
+    <Property Name="TieuChiCD_SyncFlag" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tbl_user">
+    <Key>
+      <PropertyRef Name="Us_id" />
+    </Key>
+    <Property Name="Us_id" Type="nvarchar" MaxLength="900" Nullable="false" />
+    <Property Name="Us_name" Type="nvarchar(max)" />
+    <Property Name="Us_username" Type="nvarchar(max)" />
+    <Property Name="Us_password" Type="nvarchar(max)" />
+    <Property Name="Us_Role" Type="nvarchar(max)" />
+    <Property Name="Us_SupGroup" Type="nvarchar(max)" />
+    <Property Name="Us_text1" Type="nvarchar(max)" />
+    <Property Name="Us_text2" Type="nvarchar(max)" />
+    <Property Name="Us_text3" Type="nvarchar(max)" />
+    <Property Name="Us_text4" Type="nvarchar(max)" />
+    <Property Name="Us_text5" Type="nvarchar(max)" />
+    <Property Name="Us_text6" Type="nvarchar(max)" />
+    <Property Name="Us_text7" Type="nvarchar(max)" />
+    <Property Name="Us_float1" Type="float" />
+    <Property Name="Us_float2" Type="float" />
+    <Property Name="Us_float3" Type="float" />
+    <Property Name="Us_float4" Type="float" />
+    <Property Name="Us_datetime1" Type="datetime" />
+    <Property Name="Us_datetime2" Type="datetime" />
+    <Property Name="Us_datetime3" Type="datetime" />
+    <Property Name="Us_datetime4" Type="datetime" />
+    <Property Name="Us_datetime5" Type="datetime" />
+    <Property Name="Us_bit" Type="bit" />
+    <Property Name="Us_deleteflag" Type="datetime" />
+    <Property Name="Us_SyncFlag" Type="datetime" />
+    <Property Name="US_TypeKho" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="tbl_UserCheckInOut">
+    <Key>
+      <PropertyRef Name="UserCheckInOut_ID" />
+    </Key>
+    <Property Name="UserCheckInOut_ID" Type="nvarchar" MaxLength="900" Nullable="false" />
+    <Property Name="Bigplan_id" Type="nvarchar" MaxLength="900" Nullable="false" />
+    <Property Name="UserCheckInOut_date" Type="datetime" Nullable="false" />
+    <Property Name="UserCheckInOut_ImageCI" Type="nvarchar(max)" />
+    <Property Name="UserCheckInOut_ImageCO" Type="nvarchar(max)" />
+    <Property Name="UserCheckInOut_TimeCI" Type="datetime" />
+    <Property Name="UserCheckInOut_TimeCO" Type="datetime" />
+    <Property Name="UserCheckInOut_LatidueCI" Type="float" />
+    <Property Name="UserCheckInOut_LongtidueCI" Type="float" />
+    <Property Name="UserCheckInOut_LatidueCO" Type="float" />
+    <Property Name="UserCheckInOut_LongtidueCO" Type="float" />
+    <Property Name="UserCheckInOut_AdminCheck" Type="int" />
+    <Property Name="UserCheckInOut_AdminNote" Type="nvarchar(max)" />
+    <Property Name="UserCheckInOut_UserNote" Type="nvarchar(max)" />
+    <Property Name="UserCheckInOut_Count" Type="float" />
+    <Property Name="UserCheckInOut_DeleteFlag" Type="datetime" />
+    <Property Name="UserCheckInOut_SyncFlag" Type="datetime" />
+    <Property Name="UserCheckInOut_ImageCI1" Type="nvarchar(max)" />
+    <Property Name="UserCheckInOut_ImageCI2" Type="nvarchar(max)" />
+    <Property Name="UserCheckInOut_ImageCI3" Type="nvarchar(max)" />
+    <Property Name="UserCheckInOut_ImageCO1" Type="nvarchar(max)" />
+    <Property Name="UserCheckInOut_ImageCO2" Type="nvarchar(max)" />
+    <Property Name="UserCheckInOut_ImageCO3" Type="nvarchar(max)" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'DBMOBILEAPPBA.dbo.VW_banhang' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="VW_banhang">
+    <Key>
+      <PropertyRef Name="Us_id" />
+      <PropertyRef Name="Shop_id" />
+      <PropertyRef Name="sku_barcode" />
+      <PropertyRef Name="Bill_id" />
+    </Key>
+    <Property Name="Us_id" Type="nvarchar" MaxLength="900" Nullable="false" />
+    <Property Name="Us_name" Type="nvarchar(max)" />
+    <Property Name="Us_username" Type="nvarchar(max)" />
+    <Property Name="Us_password" Type="nvarchar(max)" />
+    <Property Name="Us_Role" Type="nvarchar(max)" />
+    <Property Name="Us_SupGroup" Type="nvarchar(max)" />
+    <Property Name="Us_text1" Type="nvarchar(max)" />
+    <Property Name="Us_text2" Type="nvarchar(max)" />
+    <Property Name="Us_text3" Type="nvarchar(max)" />
+    <Property Name="Us_text4" Type="nvarchar(max)" />
+    <Property Name="Us_text5" Type="nvarchar(max)" />
+    <Property Name="Us_text6" Type="nvarchar(max)" />
+    <Property Name="Us_text7" Type="nvarchar(max)" />
+    <Property Name="Us_float1" Type="float" />
+    <Property Name="Us_float2" Type="float" />
+    <Property Name="Us_float3" Type="float" />
+    <Property Name="Us_float4" Type="float" />
+    <Property Name="Us_datetime1" Type="datetime" />
+    <Property Name="Us_datetime2" Type="datetime" />
+    <Property Name="Us_datetime3" Type="datetime" />
+    <Property Name="Us_datetime4" Type="datetime" />
+    <Property Name="Us_datetime5" Type="datetime" />
+    <Property Name="Us_bit" Type="bit" />
+    <Property Name="Us_deleteflag" Type="datetime" />
+    <Property Name="Us_SyncFlag" Type="datetime" />
+    <Property Name="US_TypeKho" Type="nvarchar(max)" />
+    <Property Name="Shop_id" Type="nvarchar" MaxLength="900" Nullable="false" />
+    <Property Name="Shop_name" Type="nvarchar(max)" />
+    <Property Name="Shop_detail" Type="nvarchar(max)" />
+    <Property Name="Shop_npp" Type="nvarchar(max)" />
+    <Property Name="Shop_nppcode" Type="nvarchar(max)" />
+    <Property Name="Shop_Ngcode" Type="nvarchar(max)" />
+    <Property Name="Shop_LoaiCHCurrent" Type="nvarchar(max)" />
+    <Property Name="Shop_LoaiCHFuture" Type="nvarchar(max)" />
+    <Property Name="Shop_latidue" Type="float" />
+    <Property Name="Shop_Longtidue" Type="float" />
+    <Property Name="Shop_phone" Type="nvarchar(max)" />
+    <Property Name="Shop_Sup" Type="nvarchar(max)" />
+    <Property Name="Shop_GroupPrice" Type="nvarchar(max)" />
+    <Property Name="Shop_text2" Type="nvarchar(max)" />
+    <Property Name="Shop_text3" Type="nvarchar(max)" />
+    <Property Name="Shop_text4" Type="nvarchar(max)" />
+    <Property Name="Shop_float1" Type="float" />
+    <Property Name="Shop_float2" Type="float" />
+    <Property Name="Shop_float3" Type="float" />
+    <Property Name="Shop_float4" Type="float" />
+    <Property Name="Shop_bit" Type="bit" />
+    <Property Name="Shop_datetime1" Type="datetime" />
+    <Property Name="Shop_datetime2" Type="datetime" />
+    <Property Name="Shop_datetime3" Type="datetime" />
+    <Property Name="Shop_datetime4" Type="datetime" />
+    <Property Name="Shop_deleteflag" Type="datetime" />
+    <Property Name="Shop_SyncFlag" Type="datetime" />
+    <Property Name="sku_barcode" Type="float" Nullable="false" />
+    <Property Name="sku_name" Type="nvarchar(max)" />
+    <Property Name="sku_detail" Type="nvarchar(max)" />
+    <Property Name="sku_txtname" Type="nvarchar(max)" />
+    <Property Name="sku_txtPrice" Type="float" />
+    <Property Name="Target_Group" Type="nvarchar(max)" />
+    <Property Name="sku_text1" Type="nvarchar(max)" />
+    <Property Name="sku_text2" Type="nvarchar(max)" />
+    <Property Name="sku_text3" Type="nvarchar(max)" />
+    <Property Name="sku_text4" Type="nvarchar(max)" />
+    <Property Name="sku_text5" Type="nvarchar(max)" />
+    <Property Name="sku_float1" Type="float" />
+    <Property Name="sku_float2" Type="float" />
+    <Property Name="sku_float3" Type="float" />
+    <Property Name="sku_float4" Type="float" />
+    <Property Name="sku_float5" Type="float" />
+    <Property Name="sku_float6" Type="float" />
+    <Property Name="sku_datetime1" Type="datetime" />
+    <Property Name="sku_datetime2" Type="datetime" />
+    <Property Name="sku_datetime3" Type="datetime" />
+    <Property Name="sku_datetime4" Type="datetime" />
+    <Property Name="sku_bit" Type="bit" />
+    <Property Name="sku_deleteflag" Type="datetime" />
+    <Property Name="sku_SyncFlag" Type="datetime" />
+    <Property Name="Bill_date" Type="datetime" />
+    <Property Name="Bill_deleteFlag" Type="datetime" />
+    <Property Name="Bill_id" Type="nvarchar" MaxLength="900" Nullable="false" />
+    <Property Name="Bill_ImageKH" Type="nvarchar(max)" />
+    <Property Name="Bill_SDTKH" Type="nvarchar(max)" />
+    <Property Name="Bill_SyncFlag" Type="datetime" />
+    <Property Name="Bill_TenKH" Type="nvarchar(max)" />
+    <Property Name="BillDetail_deleteFlag" Type="datetime" />
+    <Property Name="BillDetail_dongia" Type="float" />
+    <Property Name="BillDetail_soluong" Type="int" />
+    <Property Name="BillDetail_SyncFlag" Type="datetime" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'DBMOBILEAPPBA.dbo.VW_BCHINHANH' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="VW_BCHINHANH">
+    <Key>
+      <PropertyRef Name="Us_id" />
+      <PropertyRef Name="Shop_id" />
+      <PropertyRef Name="TCBCHA_ID" />
+      <PropertyRef Name="BCHA_ID" />
+    </Key>
+    <Property Name="Us_id" Type="nvarchar" MaxLength="900" Nullable="false" />
+    <Property Name="Us_name" Type="nvarchar(max)" />
+    <Property Name="Us_username" Type="nvarchar(max)" />
+    <Property Name="Us_password" Type="nvarchar(max)" />
+    <Property Name="Us_Role" Type="nvarchar(max)" />
+    <Property Name="Us_SupGroup" Type="nvarchar(max)" />
+    <Property Name="Us_text1" Type="nvarchar(max)" />
+    <Property Name="Us_text2" Type="nvarchar(max)" />
+    <Property Name="Us_text3" Type="nvarchar(max)" />
+    <Property Name="Us_text4" Type="nvarchar(max)" />
+    <Property Name="Us_text5" Type="nvarchar(max)" />
+    <Property Name="Us_text6" Type="nvarchar(max)" />
+    <Property Name="Us_text7" Type="nvarchar(max)" />
+    <Property Name="Us_float1" Type="float" />
+    <Property Name="Us_float2" Type="float" />
+    <Property Name="Us_float3" Type="float" />
+    <Property Name="Us_float4" Type="float" />
+    <Property Name="Us_datetime1" Type="datetime" />
+    <Property Name="Us_datetime2" Type="datetime" />
+    <Property Name="Us_datetime3" Type="datetime" />
+    <Property Name="Us_datetime4" Type="datetime" />
+    <Property Name="Us_datetime5" Type="datetime" />
+    <Property Name="Us_bit" Type="bit" />
+    <Property Name="Us_deleteflag" Type="datetime" />
+    <Property Name="Us_SyncFlag" Type="datetime" />
+    <Property Name="US_TypeKho" Type="nvarchar(max)" />
+    <Property Name="Shop_id" Type="nvarchar" MaxLength="900" Nullable="false" />
+    <Property Name="Shop_name" Type="nvarchar(max)" />
+    <Property Name="Shop_detail" Type="nvarchar(max)" />
+    <Property Name="Shop_npp" Type="nvarchar(max)" />
+    <Property Name="Shop_nppcode" Type="nvarchar(max)" />
+    <Property Name="Shop_Ngcode" Type="nvarchar(max)" />
+    <Property Name="Shop_LoaiCHCurrent" Type="nvarchar(max)" />
+    <Property Name="Shop_LoaiCHFuture" Type="nvarchar(max)" />
+    <Property Name="Shop_latidue" Type="float" />
+    <Property Name="Shop_Longtidue" Type="float" />
+    <Property Name="Shop_phone" Type="nvarchar(max)" />
+    <Property Name="Shop_Sup" Type="nvarchar(max)" />
+    <Property Name="Shop_GroupPrice" Type="nvarchar(max)" />
+    <Property Name="Shop_text2" Type="nvarchar(max)" />
+    <Property Name="Shop_text3" Type="nvarchar(max)" />
+    <Property Name="Shop_text4" Type="nvarchar(max)" />
+    <Property Name="Shop_float1" Type="float" />
+    <Property Name="Shop_float2" Type="float" />
+    <Property Name="Shop_float3" Type="float" />
+    <Property Name="Shop_float4" Type="float" />
+    <Property Name="Shop_bit" Type="bit" />
+    <Property Name="Shop_datetime1" Type="datetime" />
+    <Property Name="Shop_datetime2" Type="datetime" />
+    <Property Name="Shop_datetime3" Type="datetime" />
+    <Property Name="Shop_datetime4" Type="datetime" />
+    <Property Name="Shop_deleteflag" Type="datetime" />
+    <Property Name="Shop_SyncFlag" Type="datetime" />
+    <Property Name="TCBCHA_ID" Type="nvarchar" MaxLength="900" Nullable="false" />
+    <Property Name="TCBCHA_Role" Type="nvarchar(max)" />
+    <Property Name="TCBCHA_Name" Type="nvarchar(max)" />
+    <Property Name="TCBCHA_Status" Type="bit" />
+    <Property Name="TCBCHA_SyncFlag" Type="datetime" />
+    <Property Name="TCBCHA_DeleteFlag" Type="datetime" />
+    <Property Name="bigplan_id" Type="nvarchar" MaxLength="900" />
+    <Property Name="BCHA_DeleteFlag" Type="datetime" />
+    <Property Name="BCHA_ID" Type="nvarchar" MaxLength="900" Nullable="false" />
+    <Property Name="BCHA_SyncFlag" Type="datetime" />
+    <Property Name="BCHA_Time" Type="datetime" />
+    <Property Name="DBCHA_DeleteFlag" Type="datetime" />
+    <Property Name="DBCHA_Image" Type="nvarchar(max)" />
+    <Property Name="DBCHA_SyncFlag" Type="datetime" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'DBMOBILEAPPBA.dbo.VW_Bigplan' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="VW_Bigplan">
+    <Key>
+      <PropertyRef Name="Us_id" />
+      <PropertyRef Name="Shop_id" />
+      <PropertyRef Name="CaLamViecDetail_id" />
+      <PropertyRef Name="Bigplan_date" />
+      <PropertyRef Name="Bigplan_id" />
+    </Key>
+    <Property Name="Us_id" Type="nvarchar" MaxLength="900" Nullable="false" />
+    <Property Name="Us_name" Type="nvarchar(max)" />
+    <Property Name="Us_username" Type="nvarchar(max)" />
+    <Property Name="Us_password" Type="nvarchar(max)" />
+    <Property Name="Us_Role" Type="nvarchar(max)" />
+    <Property Name="Us_SupGroup" Type="nvarchar(max)" />
+    <Property Name="Us_text1" Type="nvarchar(max)" />
+    <Property Name="Us_text2" Type="nvarchar(max)" />
+    <Property Name="Us_text3" Type="nvarchar(max)" />
+    <Property Name="Us_text4" Type="nvarchar(max)" />
+    <Property Name="Us_text5" Type="nvarchar(max)" />
+    <Property Name="Us_text6" Type="nvarchar(max)" />
+    <Property Name="Us_text7" Type="nvarchar(max)" />
+    <Property Name="Us_float1" Type="float" />
+    <Property Name="Us_float2" Type="float" />
+    <Property Name="Us_float3" Type="float" />
+    <Property Name="Us_float4" Type="float" />
+    <Property Name="Us_datetime1" Type="datetime" />
+    <Property Name="Us_datetime2" Type="datetime" />
+    <Property Name="Us_datetime3" Type="datetime" />
+    <Property Name="Us_datetime4" Type="datetime" />
+    <Property Name="Us_datetime5" Type="datetime" />
+    <Property Name="Us_bit" Type="bit" />
+    <Property Name="Us_deleteflag" Type="datetime" />
+    <Property Name="Us_SyncFlag" Type="datetime" />
+    <Property Name="US_TypeKho" Type="nvarchar(max)" />
+    <Property Name="Shop_id" Type="nvarchar" MaxLength="900" Nullable="false" />
+    <Property Name="Shop_name" Type="nvarchar(max)" />
+    <Property Name="Shop_detail" Type="nvarchar(max)" />
+    <Property Name="Shop_npp" Type="nvarchar(max)" />
+    <Property Name="Shop_nppcode" Type="nvarchar(max)" />
+    <Property Name="Shop_Ngcode" Type="nvarchar(max)" />
+    <Property Name="Shop_LoaiCHCurrent" Type="nvarchar(max)" />
+    <Property Name="Shop_LoaiCHFuture" Type="nvarchar(max)" />
+    <Property Name="Shop_latidue" Type="float" />
+    <Property Name="Shop_Longtidue" Type="float" />
+    <Property Name="Shop_phone" Type="nvarchar(max)" />
+    <Property Name="Shop_Sup" Type="nvarchar(max)" />
+    <Property Name="Shop_GroupPrice" Type="nvarchar(max)" />
+    <Property Name="Shop_text2" Type="nvarchar(max)" />
+    <Property Name="Shop_text3" Type="nvarchar(max)" />
+    <Property Name="Shop_text4" Type="nvarchar(max)" />
+    <Property Name="Shop_float1" Type="float" />
+    <Property Name="Shop_float2" Type="float" />
+    <Property Name="Shop_float3" Type="float" />
+    <Property Name="Shop_float4" Type="float" />
+    <Property Name="Shop_bit" Type="bit" />
+    <Property Name="Shop_datetime1" Type="datetime" />
+    <Property Name="Shop_datetime2" Type="datetime" />
+    <Property Name="Shop_datetime3" Type="datetime" />
+    <Property Name="Shop_datetime4" Type="datetime" />
+    <Property Name="Shop_deleteflag" Type="datetime" />
+    <Property Name="Shop_SyncFlag" Type="datetime" />
+    <Property Name="CaLamViecDetail_id" Type="nvarchar" MaxLength="900" Nullable="false" />
+    <Property Name="CaLamViecDetail_Name" Type="nvarchar(max)" />
+    <Property Name="CaLamViecDetail_TGBD" Type="time" Precision="7" />
+    <Property Name="CaLamViecDetail_TGKT" Type="time" Precision="7" />
+    <Property Name="CaLamViecDetail_CHAMCONG" Type="float" />
+    <Property Name="CaLamViecDetail_DeleteFlag" Type="datetime" />
+    <Property Name="CaLamViecDetail_SyncFlag" Type="datetime" />
+    <Property Name="Bigplan_date" Type="datetime" Nullable="false" />
+    <Property Name="Bigplan_deleteFlag" Type="datetime" />
+    <Property Name="Bigplan_id" Type="nvarchar" MaxLength="900" Nullable="false" />
+    <Property Name="BigPlan_SyncFlag" Type="datetime" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'DBMOBILEAPPBA.dbo.VW_DatHang' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="VW_DatHang">
+    <Key>
+      <PropertyRef Name="Us_id" />
+      <PropertyRef Name="Shop_id" />
+      <PropertyRef Name="sku_barcode" />
+      <PropertyRef Name="DDH_ID" />
+    </Key>
+    <Property Name="Us_id" Type="nvarchar" MaxLength="900" Nullable="false" />
+    <Property Name="Us_name" Type="nvarchar(max)" />
+    <Property Name="Us_username" Type="nvarchar(max)" />
+    <Property Name="Us_password" Type="nvarchar(max)" />
+    <Property Name="Us_Role" Type="nvarchar(max)" />
+    <Property Name="Us_SupGroup" Type="nvarchar(max)" />
+    <Property Name="Us_text1" Type="nvarchar(max)" />
+    <Property Name="Us_text2" Type="nvarchar(max)" />
+    <Property Name="Us_text3" Type="nvarchar(max)" />
+    <Property Name="Us_text4" Type="nvarchar(max)" />
+    <Property Name="Us_text5" Type="nvarchar(max)" />
+    <Property Name="Us_text6" Type="nvarchar(max)" />
+    <Property Name="Us_text7" Type="nvarchar(max)" />
+    <Property Name="Us_float1" Type="float" />
+    <Property Name="Us_float2" Type="float" />
+    <Property Name="Us_float3" Type="float" />
+    <Property Name="Us_float4" Type="float" />
+    <Property Name="Us_datetime1" Type="datetime" />
+    <Property Name="Us_datetime2" Type="datetime" />
+    <Property Name="Us_datetime3" Type="datetime" />
+    <Property Name="Us_datetime4" Type="datetime" />
+    <Property Name="Us_datetime5" Type="datetime" />
+    <Property Name="Us_bit" Type="bit" />
+    <Property Name="Us_deleteflag" Type="datetime" />
+    <Property Name="Us_SyncFlag" Type="datetime" />
+    <Property Name="US_TypeKho" Type="nvarchar(max)" />
+    <Property Name="Shop_id" Type="nvarchar" MaxLength="900" Nullable="false" />
+    <Property Name="Shop_name" Type="nvarchar(max)" />
+    <Property Name="Shop_detail" Type="nvarchar(max)" />
+    <Property Name="Shop_npp" Type="nvarchar(max)" />
+    <Property Name="Shop_nppcode" Type="nvarchar(max)" />
+    <Property Name="Shop_Ngcode" Type="nvarchar(max)" />
+    <Property Name="Shop_LoaiCHCurrent" Type="nvarchar(max)" />
+    <Property Name="Shop_LoaiCHFuture" Type="nvarchar(max)" />
+    <Property Name="Shop_latidue" Type="float" />
+    <Property Name="Shop_Longtidue" Type="float" />
+    <Property Name="Shop_phone" Type="nvarchar(max)" />
+    <Property Name="Shop_Sup" Type="nvarchar(max)" />
+    <Property Name="Shop_GroupPrice" Type="nvarchar(max)" />
+    <Property Name="Shop_text2" Type="nvarchar(max)" />
+    <Property Name="Shop_text3" Type="nvarchar(max)" />
+    <Property Name="Shop_text4" Type="nvarchar(max)" />
+    <Property Name="Shop_float1" Type="float" />
+    <Property Name="Shop_float2" Type="float" />
+    <Property Name="Shop_float3" Type="float" />
+    <Property Name="Shop_float4" Type="float" />
+    <Property Name="Shop_bit" Type="bit" />
+    <Property Name="Shop_datetime1" Type="datetime" />
+    <Property Name="Shop_datetime2" Type="datetime" />
+    <Property Name="Shop_datetime3" Type="datetime" />
+    <Property Name="Shop_datetime4" Type="datetime" />
+    <Property Name="Shop_deleteflag" Type="datetime" />
+    <Property Name="Shop_SyncFlag" Type="datetime" />
+    <Property Name="sku_barcode" Type="float" Nullable="false" />
+    <Property Name="sku_name" Type="nvarchar(max)" />
+    <Property Name="sku_detail" Type="nvarchar(max)" />
+    <Property Name="sku_txtname" Type="nvarchar(max)" />
+    <Property Name="sku_txtPrice" Type="float" />
+    <Property Name="Target_Group" Type="nvarchar(max)" />
+    <Property Name="sku_text1" Type="nvarchar(max)" />
+    <Property Name="sku_text2" Type="nvarchar(max)" />
+    <Property Name="sku_text3" Type="nvarchar(max)" />
+    <Property Name="sku_text4" Type="nvarchar(max)" />
+    <Property Name="sku_text5" Type="nvarchar(max)" />
+    <Property Name="sku_float1" Type="float" />
+    <Property Name="sku_float2" Type="float" />
+    <Property Name="sku_float3" Type="float" />
+    <Property Name="sku_float4" Type="float" />
+    <Property Name="sku_float5" Type="float" />
+    <Property Name="sku_float6" Type="float" />
+    <Property Name="sku_datetime1" Type="datetime" />
+    <Property Name="sku_datetime2" Type="datetime" />
+    <Property Name="sku_datetime3" Type="datetime" />
+    <Property Name="sku_datetime4" Type="datetime" />
+    <Property Name="sku_bit" Type="bit" />
+    <Property Name="sku_deleteflag" Type="datetime" />
+    <Property Name="sku_SyncFlag" Type="datetime" />
+    <Property Name="DDH_DeleteFlag" Type="datetime" />
+    <Property Name="DDH_ID" Type="nvarchar" MaxLength="900" Nullable="false" />
+    <Property Name="DDH_Syncflag" Type="datetime" />
+    <Property Name="DDH_time" Type="datetime" />
+    <Property Name="CTDDH_DeleteFlag" Type="datetime" />
+    <Property Name="CTDDH_Soluong" Type="float" />
+    <Property Name="CTDDH_SyncFlag" Type="datetime" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'DBMOBILEAPPBA.dbo.VW_DeXuatNhapHang' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="VW_DeXuatNhapHang">
+    <Key>
+      <PropertyRef Name="Us_id" />
+      <PropertyRef Name="Shop_id" />
+      <PropertyRef Name="sku_barcode" />
+      <PropertyRef Name="DDH_ID" />
+    </Key>
+    <Property Name="Us_id" Type="nvarchar" MaxLength="900" Nullable="false" />
+    <Property Name="Us_name" Type="nvarchar(max)" />
+    <Property Name="Us_username" Type="nvarchar(max)" />
+    <Property Name="Us_password" Type="nvarchar(max)" />
+    <Property Name="Us_Role" Type="nvarchar(max)" />
+    <Property Name="Us_SupGroup" Type="nvarchar(max)" />
+    <Property Name="Us_text1" Type="nvarchar(max)" />
+    <Property Name="Us_text2" Type="nvarchar(max)" />
+    <Property Name="Us_text3" Type="nvarchar(max)" />
+    <Property Name="Us_text4" Type="nvarchar(max)" />
+    <Property Name="Us_text5" Type="nvarchar(max)" />
+    <Property Name="Us_text6" Type="nvarchar(max)" />
+    <Property Name="Us_text7" Type="nvarchar(max)" />
+    <Property Name="Us_float1" Type="float" />
+    <Property Name="Us_float2" Type="float" />
+    <Property Name="Us_float3" Type="float" />
+    <Property Name="Us_float4" Type="float" />
+    <Property Name="Us_datetime1" Type="datetime" />
+    <Property Name="Us_datetime2" Type="datetime" />
+    <Property Name="Us_datetime3" Type="datetime" />
+    <Property Name="Us_datetime4" Type="datetime" />
+    <Property Name="Us_datetime5" Type="datetime" />
+    <Property Name="Us_bit" Type="bit" />
+    <Property Name="Us_deleteflag" Type="datetime" />
+    <Property Name="Us_SyncFlag" Type="datetime" />
+    <Property Name="US_TypeKho" Type="nvarchar(max)" />
+    <Property Name="Shop_id" Type="nvarchar" MaxLength="900" Nullable="false" />
+    <Property Name="Shop_name" Type="nvarchar(max)" />
+    <Property Name="Shop_detail" Type="nvarchar(max)" />
+    <Property Name="Shop_npp" Type="nvarchar(max)" />
+    <Property Name="Shop_nppcode" Type="nvarchar(max)" />
+    <Property Name="Shop_Ngcode" Type="nvarchar(max)" />
+    <Property Name="Shop_LoaiCHCurrent" Type="nvarchar(max)" />
+    <Property Name="Shop_LoaiCHFuture" Type="nvarchar(max)" />
+    <Property Name="Shop_latidue" Type="float" />
+    <Property Name="Shop_Longtidue" Type="float" />
+    <Property Name="Shop_phone" Type="nvarchar(max)" />
+    <Property Name="Shop_Sup" Type="nvarchar(max)" />
+    <Property Name="Shop_GroupPrice" Type="nvarchar(max)" />
+    <Property Name="Shop_text2" Type="nvarchar(max)" />
+    <Property Name="Shop_text3" Type="nvarchar(max)" />
+    <Property Name="Shop_text4" Type="nvarchar(max)" />
+    <Property Name="Shop_float1" Type="float" />
+    <Property Name="Shop_float2" Type="float" />
+    <Property Name="Shop_float3" Type="float" />
+    <Property Name="Shop_float4" Type="float" />
+    <Property Name="Shop_bit" Type="bit" />
+    <Property Name="Shop_datetime1" Type="datetime" />
+    <Property Name="Shop_datetime2" Type="datetime" />
+    <Property Name="Shop_datetime3" Type="datetime" />
+    <Property Name="Shop_datetime4" Type="datetime" />
+    <Property Name="Shop_deleteflag" Type="datetime" />
+    <Property Name="Shop_SyncFlag" Type="datetime" />
+    <Property Name="sku_barcode" Type="float" Nullable="false" />
+    <Property Name="sku_name" Type="nvarchar(max)" />
+    <Property Name="sku_detail" Type="nvarchar(max)" />
+    <Property Name="sku_txtname" Type="nvarchar(max)" />
+    <Property Name="sku_txtPrice" Type="float" />
+    <Property Name="Target_Group" Type="nvarchar(max)" />
+    <Property Name="sku_text1" Type="nvarchar(max)" />
+    <Property Name="sku_text2" Type="nvarchar(max)" />
+    <Property Name="sku_text3" Type="nvarchar(max)" />
+    <Property Name="sku_text4" Type="nvarchar(max)" />
+    <Property Name="sku_text5" Type="nvarchar(max)" />
+    <Property Name="sku_float1" Type="float" />
+    <Property Name="sku_float2" Type="float" />
+    <Property Name="sku_float3" Type="float" />
+    <Property Name="sku_float4" Type="float" />
+    <Property Name="sku_float5" Type="float" />
+    <Property Name="sku_float6" Type="float" />
+    <Property Name="sku_datetime1" Type="datetime" />
+    <Property Name="sku_datetime2" Type="datetime" />
+    <Property Name="sku_datetime3" Type="datetime" />
+    <Property Name="sku_datetime4" Type="datetime" />
+    <Property Name="sku_bit" Type="bit" />
+    <Property Name="sku_deleteflag" Type="datetime" />
+    <Property Name="sku_SyncFlag" Type="datetime" />
+    <Property Name="DDH_DeleteFlag" Type="datetime" />
+    <Property Name="DDH_ID" Type="nvarchar" MaxLength="900" Nullable="false" />
+    <Property Name="DDH_Syncflag" Type="datetime" />
+    <Property Name="DDH_time" Type="datetime" />
+    <Property Name="CTDDH_DeleteFlag" Type="datetime" />
+    <Property Name="CTDDH_Soluong" Type="float" />
+    <Property Name="CTDDH_SyncFlag" Type="datetime" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'DBMOBILEAPPBA.dbo.VW_DOIQUA' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="VW_DOIQUA">
+    <Key>
+      <PropertyRef Name="DMQT_Barcode" />
+      <PropertyRef Name="CTDQ_ID" />
+      <PropertyRef Name="Bill_id" />
+      <PropertyRef Name="Shop_id" />
+      <PropertyRef Name="Us_id" />
+    </Key>
+    <Property Name="DMQT_Barcode" Type="float" Nullable="false" />
+    <Property Name="DMQT_Name" Type="nvarchar(max)" />
+    <Property Name="DMQT_Detail" Type="nvarchar(max)" />
+    <Property Name="DMQT_Status" Type="bit" />
+    <Property Name="DMQT_SyncFlag" Type="datetime" />
+    <Property Name="DMQT_DeleteFlag" Type="datetime" />
+    <Property Name="CTDQ_ID" Type="nvarchar" MaxLength="900" Nullable="false" />
+    <Property Name="CTDQ_Name" Type="nvarchar(max)" />
+    <Property Name="CTDQ_Detail" Type="nvarchar(max)" />
+    <Property Name="CTDQ_APPLYROLE" Type="nvarchar(max)" />
+    <Property Name="CTDQ_DateBatDau" Type="datetime" />
+    <Property Name="CTDQ_DateKetThuc" Type="datetime" />
+    <Property Name="CTDQ_SyncFlag" Type="datetime" />
+    <Property Name="CTDQ_DeleteFlag" Type="datetime" />
+    <Property Name="DoiQua_DeleteFlag" Type="datetime" />
+    <Property Name="DoiQua_SyncFlag" Type="datetime" />
+    <Property Name="DoiQua_Value" Type="int" />
+    <Property Name="Bill_date" Type="datetime" />
+    <Property Name="Bill_deleteFlag" Type="datetime" />
+    <Property Name="Bill_id" Type="nvarchar" MaxLength="900" Nullable="false" />
+    <Property Name="Bill_ImageKH" Type="nvarchar(max)" />
+    <Property Name="Bill_SDTKH" Type="nvarchar(max)" />
+    <Property Name="Bill_SyncFlag" Type="datetime" />
+    <Property Name="Bill_TenKH" Type="nvarchar(max)" />
+    <Property Name="Shop_id" Type="nvarchar" MaxLength="900" Nullable="false" />
+    <Property Name="Us_id" Type="nvarchar" MaxLength="900" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'DBMOBILEAPPBA.dbo.vw_doithucanhtranh' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vw_doithucanhtranh">
+    <Key>
+      <PropertyRef Name="Us_id" />
+      <PropertyRef Name="Shop_id" />
+      <PropertyRef Name="dt_id" />
+    </Key>
+    <Property Name="Us_id" Type="nvarchar" MaxLength="900" Nullable="false" />
+    <Property Name="Us_name" Type="nvarchar(max)" />
+    <Property Name="Us_username" Type="nvarchar(max)" />
+    <Property Name="Us_password" Type="nvarchar(max)" />
+    <Property Name="Us_Role" Type="nvarchar(max)" />
+    <Property Name="Us_SupGroup" Type="nvarchar(max)" />
+    <Property Name="Us_text1" Type="nvarchar(max)" />
+    <Property Name="Us_text2" Type="nvarchar(max)" />
+    <Property Name="Us_text3" Type="nvarchar(max)" />
+    <Property Name="Us_text4" Type="nvarchar(max)" />
+    <Property Name="Us_text5" Type="nvarchar(max)" />
+    <Property Name="Us_text6" Type="nvarchar(max)" />
+    <Property Name="Us_text7" Type="nvarchar(max)" />
+    <Property Name="Us_float1" Type="float" />
+    <Property Name="Us_float2" Type="float" />
+    <Property Name="Us_float3" Type="float" />
+    <Property Name="Us_float4" Type="float" />
+    <Property Name="Us_datetime1" Type="datetime" />
+    <Property Name="Us_datetime2" Type="datetime" />
+    <Property Name="Us_datetime3" Type="datetime" />
+    <Property Name="Us_datetime4" Type="datetime" />
+    <Property Name="Us_datetime5" Type="datetime" />
+    <Property Name="Us_bit" Type="bit" />
+    <Property Name="Us_deleteflag" Type="datetime" />
+    <Property Name="Us_SyncFlag" Type="datetime" />
+    <Property Name="US_TypeKho" Type="nvarchar(max)" />
+    <Property Name="Shop_id" Type="nvarchar" MaxLength="900" Nullable="false" />
+    <Property Name="Shop_name" Type="nvarchar(max)" />
+    <Property Name="Shop_detail" Type="nvarchar(max)" />
+    <Property Name="Shop_npp" Type="nvarchar(max)" />
+    <Property Name="Shop_nppcode" Type="nvarchar(max)" />
+    <Property Name="Shop_Ngcode" Type="nvarchar(max)" />
+    <Property Name="Shop_LoaiCHCurrent" Type="nvarchar(max)" />
+    <Property Name="Shop_LoaiCHFuture" Type="nvarchar(max)" />
+    <Property Name="Shop_latidue" Type="float" />
+    <Property Name="Shop_Longtidue" Type="float" />
+    <Property Name="Shop_phone" Type="nvarchar(max)" />
+    <Property Name="Shop_Sup" Type="nvarchar(max)" />
+    <Property Name="Shop_GroupPrice" Type="nvarchar(max)" />
+    <Property Name="Shop_text2" Type="nvarchar(max)" />
+    <Property Name="Shop_text3" Type="nvarchar(max)" />
+    <Property Name="Shop_text4" Type="nvarchar(max)" />
+    <Property Name="Shop_float1" Type="float" />
+    <Property Name="Shop_float2" Type="float" />
+    <Property Name="Shop_float3" Type="float" />
+    <Property Name="Shop_float4" Type="float" />
+    <Property Name="Shop_bit" Type="bit" />
+    <Property Name="Shop_datetime1" Type="datetime" />
+    <Property Name="Shop_datetime2" Type="datetime" />
+    <Property Name="Shop_datetime3" Type="datetime" />
+    <Property Name="Shop_datetime4" Type="datetime" />
+    <Property Name="Shop_deleteflag" Type="datetime" />
+    <Property Name="Shop_SyncFlag" Type="datetime" />
+    <Property Name="dt_brand" Type="nvarchar(max)" />
+    <Property Name="dt_crmrange" Type="nvarchar(max)" />
+    <Property Name="dt_cty" Type="nvarchar(max)" />
+    <Property Name="dt_DeleteFlag" Type="datetime" />
+    <Property Name="dt_ffrange" Type="nvarchar(max)" />
+    <Property Name="dt_fortmat" Type="nvarchar(max)" />
+    <Property Name="dt_giagoc" Type="int" />
+    <Property Name="dt_giahangtang" Type="int" />
+    <Property Name="dt_giakm" Type="int" />
+    <Property Name="dt_hangtang" Type="nvarchar(max)" />
+    <Property Name="dt_id" Type="nvarchar" MaxLength="900" Nullable="false" />
+    <Property Name="dt_keyacc" Type="nvarchar(max)" />
+    <Property Name="dt_ltnrange" Type="nvarchar(max)" />
+    <Property Name="dt_nam" Type="int" />
+    <Property Name="dt_noidung" Type="nvarchar(max)" />
+    <Property Name="dt_OnPostOffPost" Type="nvarchar(max)" />
+    <Property Name="dt_post" Type="nvarchar(max)" />
+    <Property Name="dt_SyncFlag" Type="datetime" />
+    <Property Name="dt_tenpost" Type="nvarchar(max)" />
+    <Property Name="dt_thoigianbd" Type="datetime" />
+    <Property Name="dt_thoigiankt" Type="datetime" />
+    <Property Name="dt_type" Type="nvarchar(max)" />
+    <Property Name="dt_variant" Type="nvarchar(max)" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'DBMOBILEAPPBA.dbo.VW_doithucanhtranhdongian' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="VW_doithucanhtranhdongian">
+    <Key>
+      <PropertyRef Name="DTCTIMAGE_ID" />
+      <PropertyRef Name="US_ID" />
+      <PropertyRef Name="Shop_ID" />
+      <PropertyRef Name="DTCTIMAGED_ID" />
+    </Key>
+    <Property Name="DTCTIMAGE_ID" Type="nvarchar" MaxLength="900" Nullable="false" />
+    <Property Name="DTCTIMAGE_Date" Type="datetime" />
+    <Property Name="US_ID" Type="nvarchar" MaxLength="900" Nullable="false" />
+    <Property Name="Shop_ID" Type="nvarchar" MaxLength="900" Nullable="false" />
+    <Property Name="DTCTIMAGE_Note" Type="nvarchar(max)" />
+    <Property Name="DTCTIMAGE_SyncFlag" Type="datetime" />
+    <Property Name="DTCTIMAGE_DeleteFlag" Type="datetime" />
+    <Property Name="DTCTIMAGED_DeleteFlag" Type="datetime" />
+    <Property Name="DTCTIMAGED_ID" Type="nvarchar" MaxLength="900" Nullable="false" />
+    <Property Name="DTCTIMAGED_Image" Type="nvarchar(max)" />
+    <Property Name="DTCTIMAGED_ImagePublish" Type="nvarchar(max)" />
+    <Property Name="DTCTIMAGED_Note" Type="nvarchar(max)" />
+    <Property Name="DTCTIMAGED_SyncFlag" Type="datetime" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'DBMOBILEAPPBA.dbo.VW_DoithucanhtranhImage' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="VW_DoithucanhtranhImage">
+    <Key>
+      <PropertyRef Name="Us_id" />
+      <PropertyRef Name="Shop_id" />
+      <PropertyRef Name="DTCTIMAGE_ID" />
+    </Key>
+    <Property Name="Us_id" Type="nvarchar" MaxLength="900" Nullable="false" />
+    <Property Name="Us_name" Type="nvarchar(max)" />
+    <Property Name="Us_username" Type="nvarchar(max)" />
+    <Property Name="Us_password" Type="nvarchar(max)" />
+    <Property Name="Us_Role" Type="nvarchar(max)" />
+    <Property Name="Us_SupGroup" Type="nvarchar(max)" />
+    <Property Name="Us_text1" Type="nvarchar(max)" />
+    <Property Name="Us_text2" Type="nvarchar(max)" />
+    <Property Name="Us_text3" Type="nvarchar(max)" />
+    <Property Name="Us_text4" Type="nvarchar(max)" />
+    <Property Name="Us_text5" Type="nvarchar(max)" />
+    <Property Name="Us_text6" Type="nvarchar(max)" />
+    <Property Name="Us_text7" Type="nvarchar(max)" />
+    <Property Name="Us_float1" Type="float" />
+    <Property Name="Us_float2" Type="float" />
+    <Property Name="Us_float3" Type="float" />
+    <Property Name="Us_float4" Type="float" />
+    <Property Name="Us_datetime1" Type="datetime" />
+    <Property Name="Us_datetime2" Type="datetime" />
+    <Property Name="Us_datetime3" Type="datetime" />
+    <Property Name="Us_datetime4" Type="datetime" />
+    <Property Name="Us_datetime5" Type="datetime" />
+    <Property Name="Us_bit" Type="bit" />
+    <Property Name="Us_deleteflag" Type="datetime" />
+    <Property Name="Us_SyncFlag" Type="datetime" />
+    <Property Name="US_TypeKho" Type="nvarchar(max)" />
+    <Property Name="Shop_id" Type="nvarchar" MaxLength="900" Nullable="false" />
+    <Property Name="Shop_name" Type="nvarchar(max)" />
+    <Property Name="Shop_detail" Type="nvarchar(max)" />
+    <Property Name="Shop_npp" Type="nvarchar(max)" />
+    <Property Name="Shop_nppcode" Type="nvarchar(max)" />
+    <Property Name="Shop_Ngcode" Type="nvarchar(max)" />
+    <Property Name="Shop_LoaiCHCurrent" Type="nvarchar(max)" />
+    <Property Name="Shop_LoaiCHFuture" Type="nvarchar(max)" />
+    <Property Name="Shop_latidue" Type="float" />
+    <Property Name="Shop_Longtidue" Type="float" />
+    <Property Name="Shop_phone" Type="nvarchar(max)" />
+    <Property Name="Shop_Sup" Type="nvarchar(max)" />
+    <Property Name="Shop_GroupPrice" Type="nvarchar(max)" />
+    <Property Name="Shop_text2" Type="nvarchar(max)" />
+    <Property Name="Shop_text3" Type="nvarchar(max)" />
+    <Property Name="Shop_text4" Type="nvarchar(max)" />
+    <Property Name="Shop_float1" Type="float" />
+    <Property Name="Shop_float2" Type="float" />
+    <Property Name="Shop_float3" Type="float" />
+    <Property Name="Shop_float4" Type="float" />
+    <Property Name="Shop_bit" Type="bit" />
+    <Property Name="Shop_datetime1" Type="datetime" />
+    <Property Name="Shop_datetime2" Type="datetime" />
+    <Property Name="Shop_datetime3" Type="datetime" />
+    <Property Name="Shop_datetime4" Type="datetime" />
+    <Property Name="Shop_deleteflag" Type="datetime" />
+    <Property Name="Shop_SyncFlag" Type="datetime" />
+    <Property Name="DTCTIMAGE_Date" Type="datetime" />
+    <Property Name="DTCTIMAGE_DeleteFlag" Type="datetime" />
+    <Property Name="DTCTIMAGE_ID" Type="nvarchar" MaxLength="900" Nullable="false" />
+    <Property Name="DTCTIMAGE_Note" Type="nvarchar(max)" />
+    <Property Name="DTCTIMAGE_SyncFlag" Type="datetime" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'DBMOBILEAPPBA.dbo.VW_KHO' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="VW_KHO">
+    <Key>
+      <PropertyRef Name="Shop_id" />
+      <PropertyRef Name="DMQT_Barcode" />
+    </Key>
+    <Property Name="Shop_id" Type="nvarchar" MaxLength="900" Nullable="false" />
+    <Property Name="Shop_name" Type="nvarchar(max)" />
+    <Property Name="Shop_detail" Type="nvarchar(max)" />
+    <Property Name="Shop_npp" Type="nvarchar(max)" />
+    <Property Name="Shop_nppcode" Type="nvarchar(max)" />
+    <Property Name="Shop_Ngcode" Type="nvarchar(max)" />
+    <Property Name="Shop_LoaiCHCurrent" Type="nvarchar(max)" />
+    <Property Name="Shop_LoaiCHFuture" Type="nvarchar(max)" />
+    <Property Name="Shop_latidue" Type="float" />
+    <Property Name="Shop_Longtidue" Type="float" />
+    <Property Name="Shop_phone" Type="nvarchar(max)" />
+    <Property Name="Shop_Sup" Type="nvarchar(max)" />
+    <Property Name="Shop_GroupPrice" Type="nvarchar(max)" />
+    <Property Name="Shop_text2" Type="nvarchar(max)" />
+    <Property Name="Shop_text3" Type="nvarchar(max)" />
+    <Property Name="Shop_text4" Type="nvarchar(max)" />
+    <Property Name="Shop_float1" Type="float" />
+    <Property Name="Shop_float2" Type="float" />
+    <Property Name="Shop_float3" Type="float" />
+    <Property Name="Shop_float4" Type="float" />
+    <Property Name="Shop_bit" Type="bit" />
+    <Property Name="Shop_datetime1" Type="datetime" />
+    <Property Name="Shop_datetime2" Type="datetime" />
+    <Property Name="Shop_datetime3" Type="datetime" />
+    <Property Name="Shop_datetime4" Type="datetime" />
+    <Property Name="Shop_deleteflag" Type="datetime" />
+    <Property Name="Shop_SyncFlag" Type="datetime" />
+    <Property Name="DMQT_Barcode" Type="float" Nullable="false" />
+    <Property Name="DMQT_Name" Type="nvarchar(max)" />
+    <Property Name="DMQT_Detail" Type="nvarchar(max)" />
+    <Property Name="DMQT_Status" Type="bit" />
+    <Property Name="DMQT_SyncFlag" Type="datetime" />
+    <Property Name="DMQT_DeleteFlag" Type="datetime" />
+    <Property Name="SL" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'DBMOBILEAPPBA.dbo.VW_NHAPHANG' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="VW_NHAPHANG">
+    <Key>
+      <PropertyRef Name="Us_id" />
+      <PropertyRef Name="Shop_id" />
+      <PropertyRef Name="sku_barcode" />
+      <PropertyRef Name="DNH_ID" />
+      <PropertyRef Name="CTDNH_ID" />
+    </Key>
+    <Property Name="Us_id" Type="nvarchar" MaxLength="900" Nullable="false" />
+    <Property Name="Us_name" Type="nvarchar(max)" />
+    <Property Name="Us_username" Type="nvarchar(max)" />
+    <Property Name="Us_password" Type="nvarchar(max)" />
+    <Property Name="Us_Role" Type="nvarchar(max)" />
+    <Property Name="Us_SupGroup" Type="nvarchar(max)" />
+    <Property Name="Us_text1" Type="nvarchar(max)" />
+    <Property Name="Us_text2" Type="nvarchar(max)" />
+    <Property Name="Us_text3" Type="nvarchar(max)" />
+    <Property Name="Us_text4" Type="nvarchar(max)" />
+    <Property Name="Us_text5" Type="nvarchar(max)" />
+    <Property Name="Us_text6" Type="nvarchar(max)" />
+    <Property Name="Us_text7" Type="nvarchar(max)" />
+    <Property Name="Us_float1" Type="float" />
+    <Property Name="Us_float2" Type="float" />
+    <Property Name="Us_float3" Type="float" />
+    <Property Name="Us_float4" Type="float" />
+    <Property Name="Us_datetime1" Type="datetime" />
+    <Property Name="Us_datetime2" Type="datetime" />
+    <Property Name="Us_datetime3" Type="datetime" />
+    <Property Name="Us_datetime4" Type="datetime" />
+    <Property Name="Us_datetime5" Type="datetime" />
+    <Property Name="Us_bit" Type="bit" />
+    <Property Name="Us_deleteflag" Type="datetime" />
+    <Property Name="Us_SyncFlag" Type="datetime" />
+    <Property Name="US_TypeKho" Type="nvarchar(max)" />
+    <Property Name="Shop_id" Type="nvarchar" MaxLength="900" Nullable="false" />
+    <Property Name="Shop_name" Type="nvarchar(max)" />
+    <Property Name="Shop_detail" Type="nvarchar(max)" />
+    <Property Name="Shop_npp" Type="nvarchar(max)" />
+    <Property Name="Shop_nppcode" Type="nvarchar(max)" />
+    <Property Name="Shop_Ngcode" Type="nvarchar(max)" />
+    <Property Name="Shop_LoaiCHCurrent" Type="nvarchar(max)" />
+    <Property Name="Shop_LoaiCHFuture" Type="nvarchar(max)" />
+    <Property Name="Shop_latidue" Type="float" />
+    <Property Name="Shop_Longtidue" Type="float" />
+    <Property Name="Shop_phone" Type="nvarchar(max)" />
+    <Property Name="Shop_Sup" Type="nvarchar(max)" />
+    <Property Name="Shop_GroupPrice" Type="nvarchar(max)" />
+    <Property Name="Shop_text2" Type="nvarchar(max)" />
+    <Property Name="Shop_text3" Type="nvarchar(max)" />
+    <Property Name="Shop_text4" Type="nvarchar(max)" />
+    <Property Name="Shop_float1" Type="float" />
+    <Property Name="Shop_float2" Type="float" />
+    <Property Name="Shop_float3" Type="float" />
+    <Property Name="Shop_float4" Type="float" />
+    <Property Name="Shop_bit" Type="bit" />
+    <Property Name="Shop_datetime1" Type="datetime" />
+    <Property Name="Shop_datetime2" Type="datetime" />
+    <Property Name="Shop_datetime3" Type="datetime" />
+    <Property Name="Shop_datetime4" Type="datetime" />
+    <Property Name="Shop_deleteflag" Type="datetime" />
+    <Property Name="Shop_SyncFlag" Type="datetime" />
+    <Property Name="sku_barcode" Type="float" Nullable="false" />
+    <Property Name="sku_name" Type="nvarchar(max)" />
+    <Property Name="sku_detail" Type="nvarchar(max)" />
+    <Property Name="sku_txtname" Type="nvarchar(max)" />
+    <Property Name="sku_txtPrice" Type="float" />
+    <Property Name="Target_Group" Type="nvarchar(max)" />
+    <Property Name="sku_text1" Type="nvarchar(max)" />
+    <Property Name="sku_text2" Type="nvarchar(max)" />
+    <Property Name="sku_text3" Type="nvarchar(max)" />
+    <Property Name="sku_text4" Type="nvarchar(max)" />
+    <Property Name="sku_text5" Type="nvarchar(max)" />
+    <Property Name="sku_float1" Type="float" />
+    <Property Name="sku_float2" Type="float" />
+    <Property Name="sku_float3" Type="float" />
+    <Property Name="sku_float4" Type="float" />
+    <Property Name="sku_float5" Type="float" />
+    <Property Name="sku_float6" Type="float" />
+    <Property Name="sku_datetime1" Type="datetime" />
+    <Property Name="sku_datetime2" Type="datetime" />
+    <Property Name="sku_datetime3" Type="datetime" />
+    <Property Name="sku_datetime4" Type="datetime" />
+    <Property Name="sku_bit" Type="bit" />
+    <Property Name="sku_deleteflag" Type="datetime" />
+    <Property Name="sku_SyncFlag" Type="datetime" />
+    <Property Name="DNH_Date" Type="datetime" />
+    <Property Name="DNH_DeleteFlag" Type="datetime" />
+    <Property Name="DNH_ID" Type="nvarchar" MaxLength="900" Nullable="false" />
+    <Property Name="DNH_Image" Type="nvarchar(max)" />
+    <Property Name="DNH_ImagePublish" Type="nvarchar(max)" />
+    <Property Name="DNH_SyncFlag" Type="datetime" />
+    <Property Name="CTDNH_Date" Type="datetime" />
+    <Property Name="CTDNH_DeleteFlag" Type="datetime" />
+    <Property Name="CTDNH_ID" Type="nvarchar" MaxLength="900" Nullable="false" />
+    <Property Name="CTDNH_Soluong" Type="float" />
+    <Property Name="CTDNH_SyncFlag" Type="datetime" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'DBMOBILEAPPBA.dbo.VW_Supchamdiem' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="VW_Supchamdiem">
+    <Key>
+      <PropertyRef Name="Us_id" />
+      <PropertyRef Name="Shop_id" />
+      <PropertyRef Name="TieuChiCD_id" />
+      <PropertyRef Name="SupChamDiem_id" />
+      <PropertyRef Name="SupBigPlan_date" />
+      <PropertyRef Name="SupBigPlan_id" />
+      <PropertyRef Name="ChitietSupChamDiem_ID" />
+    </Key>
+    <Property Name="Us_id" Type="nvarchar" MaxLength="900" Nullable="false" />
+    <Property Name="Us_name" Type="nvarchar(max)" />
+    <Property Name="Us_username" Type="nvarchar(max)" />
+    <Property Name="Us_password" Type="nvarchar(max)" />
+    <Property Name="Us_Role" Type="nvarchar(max)" />
+    <Property Name="Us_SupGroup" Type="nvarchar(max)" />
+    <Property Name="Us_text1" Type="nvarchar(max)" />
+    <Property Name="Us_text2" Type="nvarchar(max)" />
+    <Property Name="Us_text3" Type="nvarchar(max)" />
+    <Property Name="Us_text4" Type="nvarchar(max)" />
+    <Property Name="Us_text5" Type="nvarchar(max)" />
+    <Property Name="Us_text6" Type="nvarchar(max)" />
+    <Property Name="Us_text7" Type="nvarchar(max)" />
+    <Property Name="Us_float1" Type="float" />
+    <Property Name="Us_float2" Type="float" />
+    <Property Name="Us_float3" Type="float" />
+    <Property Name="Us_float4" Type="float" />
+    <Property Name="Us_datetime1" Type="datetime" />
+    <Property Name="Us_datetime2" Type="datetime" />
+    <Property Name="Us_datetime3" Type="datetime" />
+    <Property Name="Us_datetime4" Type="datetime" />
+    <Property Name="Us_datetime5" Type="datetime" />
+    <Property Name="Us_bit" Type="bit" />
+    <Property Name="Us_deleteflag" Type="datetime" />
+    <Property Name="Us_SyncFlag" Type="datetime" />
+    <Property Name="US_TypeKho" Type="nvarchar(max)" />
+    <Property Name="Shop_id" Type="nvarchar" MaxLength="900" Nullable="false" />
+    <Property Name="Shop_name" Type="nvarchar(max)" />
+    <Property Name="Shop_detail" Type="nvarchar(max)" />
+    <Property Name="Shop_npp" Type="nvarchar(max)" />
+    <Property Name="Shop_nppcode" Type="nvarchar(max)" />
+    <Property Name="Shop_Ngcode" Type="nvarchar(max)" />
+    <Property Name="Shop_LoaiCHCurrent" Type="nvarchar(max)" />
+    <Property Name="Shop_LoaiCHFuture" Type="nvarchar(max)" />
+    <Property Name="Shop_latidue" Type="float" />
+    <Property Name="Shop_Longtidue" Type="float" />
+    <Property Name="Shop_phone" Type="nvarchar(max)" />
+    <Property Name="Shop_Sup" Type="nvarchar(max)" />
+    <Property Name="Shop_GroupPrice" Type="nvarchar(max)" />
+    <Property Name="Shop_text2" Type="nvarchar(max)" />
+    <Property Name="Shop_text3" Type="nvarchar(max)" />
+    <Property Name="Shop_text4" Type="nvarchar(max)" />
+    <Property Name="Shop_float1" Type="float" />
+    <Property Name="Shop_float2" Type="float" />
+    <Property Name="Shop_float3" Type="float" />
+    <Property Name="Shop_float4" Type="float" />
+    <Property Name="Shop_bit" Type="bit" />
+    <Property Name="Shop_datetime1" Type="datetime" />
+    <Property Name="Shop_datetime2" Type="datetime" />
+    <Property Name="Shop_datetime3" Type="datetime" />
+    <Property Name="Shop_datetime4" Type="datetime" />
+    <Property Name="Shop_deleteflag" Type="datetime" />
+    <Property Name="Shop_SyncFlag" Type="datetime" />
+    <Property Name="TieuChiCD_id" Type="nvarchar" MaxLength="900" Nullable="false" />
+    <Property Name="TieuChiCD_Name" Type="nvarchar(max)" />
+    <Property Name="TieuChiCD_Min" Type="int" />
+    <Property Name="TieuChiCD_Max" Type="int" />
+    <Property Name="TieuChiCD_Group" Type="nvarchar(max)" />
+    <Property Name="TieuChiCD_text1" Type="nvarchar(max)" />
+    <Property Name="TieuChiCD_text2" Type="nvarchar(max)" />
+    <Property Name="TieuChiCD_text3" Type="nvarchar(max)" />
+    <Property Name="TieuChiCD_text4" Type="nvarchar(max)" />
+    <Property Name="TieuChiCD_float1" Type="float" />
+    <Property Name="TieuChiCD_float2" Type="float" />
+    <Property Name="TieuChiCD_float3" Type="float" />
+    <Property Name="TieuChiCD_float4" Type="float" />
+    <Property Name="TieuChiCD_bit" Type="bit" />
+    <Property Name="TieuChiCD_DeleteFlag" Type="datetime" />
+    <Property Name="TieuChiCD_SyncFlag" Type="datetime" />
+    <Property Name="SupChamDiem_DeleteFlag" Type="datetime" />
+    <Property Name="SupChamDiem_id" Type="nvarchar" MaxLength="900" Nullable="false" />
+    <Property Name="SupChamDiem_Lannay" Type="nvarchar(max)" />
+    <Property Name="SupChamDiem_LanToi" Type="nvarchar(max)" />
+    <Property Name="SupChamDiem_SyncFlag" Type="datetime" />
+    <Property Name="SupChamDiem_TimeCD" Type="datetime" />
+    <Property Name="SupChamDiem_UserAccept" Type="nvarchar(max)" />
+    <Property Name="SupChamDiem_UserNote" Type="nvarchar(max)" />
+    <Property Name="SupBigPlan_date" Type="datetime" Nullable="false" />
+    <Property Name="SupBigPlan_DeleteFlag" Type="datetime" />
+    <Property Name="SupBigPlan_GroupPlan" Type="nvarchar(max)" />
+    <Property Name="SupBigPlan_id" Type="nvarchar" MaxLength="900" Nullable="false" />
+    <Property Name="SupBigPlan_KeHoachLanToi" Type="nvarchar(max)" />
+    <Property Name="SupBigPlan_NXkehoachLanNay" Type="nvarchar(max)" />
+    <Property Name="SupBigPlan_SupName" Type="nvarchar(max)" />
+    <Property Name="SupBigPlan_SupUsername" Type="nvarchar(max)" />
+    <Property Name="SupBigPlan_SyncFlag" Type="datetime" />
+    <Property Name="SupBigPlan_UserAccept" Type="int" />
+    <Property Name="SupBigPlan_UserNote" Type="nvarchar(max)" />
+    <Property Name="ChitietSupChamDiem_DeleteFlag" Type="datetime" />
+    <Property Name="ChitietSupChamDiem_ID" Type="nvarchar" MaxLength="900" Nullable="false" />
+    <Property Name="ChitietSupChamDiem_SyncFlag" Type="datetime" />
+    <Property Name="ChitietSupChamDiem_value" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'DBMOBILEAPPBA.dbo.VW_SupCheckin' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="VW_SupCheckin">
+    <Key>
+      <PropertyRef Name="Us_id" />
+      <PropertyRef Name="Shop_id" />
+      <PropertyRef Name="SupBigPlan_date" />
+      <PropertyRef Name="SupBigPlan_id" />
+      <PropertyRef Name="SupCheckIn_date" />
+      <PropertyRef Name="SupCheckIn_id" />
+    </Key>
+    <Property Name="Us_id" Type="nvarchar" MaxLength="900" Nullable="false" />
+    <Property Name="Us_name" Type="nvarchar(max)" />
+    <Property Name="Us_username" Type="nvarchar(max)" />
+    <Property Name="Us_password" Type="nvarchar(max)" />
+    <Property Name="Us_Role" Type="nvarchar(max)" />
+    <Property Name="Us_SupGroup" Type="nvarchar(max)" />
+    <Property Name="Us_text1" Type="nvarchar(max)" />
+    <Property Name="Us_text2" Type="nvarchar(max)" />
+    <Property Name="Us_text3" Type="nvarchar(max)" />
+    <Property Name="Us_text4" Type="nvarchar(max)" />
+    <Property Name="Us_text5" Type="nvarchar(max)" />
+    <Property Name="Us_text6" Type="nvarchar(max)" />
+    <Property Name="Us_text7" Type="nvarchar(max)" />
+    <Property Name="Us_float1" Type="float" />
+    <Property Name="Us_float2" Type="float" />
+    <Property Name="Us_float3" Type="float" />
+    <Property Name="Us_float4" Type="float" />
+    <Property Name="Us_datetime1" Type="datetime" />
+    <Property Name="Us_datetime2" Type="datetime" />
+    <Property Name="Us_datetime3" Type="datetime" />
+    <Property Name="Us_datetime4" Type="datetime" />
+    <Property Name="Us_datetime5" Type="datetime" />
+    <Property Name="Us_bit" Type="bit" />
+    <Property Name="Us_deleteflag" Type="datetime" />
+    <Property Name="Us_SyncFlag" Type="datetime" />
+    <Property Name="US_TypeKho" Type="nvarchar(max)" />
+    <Property Name="Shop_id" Type="nvarchar" MaxLength="900" Nullable="false" />
+    <Property Name="Shop_name" Type="nvarchar(max)" />
+    <Property Name="Shop_detail" Type="nvarchar(max)" />
+    <Property Name="Shop_npp" Type="nvarchar(max)" />
+    <Property Name="Shop_nppcode" Type="nvarchar(max)" />
+    <Property Name="Shop_Ngcode" Type="nvarchar(max)" />
+    <Property Name="Shop_LoaiCHCurrent" Type="nvarchar(max)" />
+    <Property Name="Shop_LoaiCHFuture" Type="nvarchar(max)" />
+    <Property Name="Shop_latidue" Type="float" />
+    <Property Name="Shop_Longtidue" Type="float" />
+    <Property Name="Shop_phone" Type="nvarchar(max)" />
+    <Property Name="Shop_Sup" Type="nvarchar(max)" />
+    <Property Name="Shop_GroupPrice" Type="nvarchar(max)" />
+    <Property Name="Shop_text2" Type="nvarchar(max)" />
+    <Property Name="Shop_text3" Type="nvarchar(max)" />
+    <Property Name="Shop_text4" Type="nvarchar(max)" />
+    <Property Name="Shop_float1" Type="float" />
+    <Property Name="Shop_float2" Type="float" />
+    <Property Name="Shop_float3" Type="float" />
+    <Property Name="Shop_float4" Type="float" />
+    <Property Name="Shop_bit" Type="bit" />
+    <Property Name="Shop_datetime1" Type="datetime" />
+    <Property Name="Shop_datetime2" Type="datetime" />
+    <Property Name="Shop_datetime3" Type="datetime" />
+    <Property Name="Shop_datetime4" Type="datetime" />
+    <Property Name="Shop_deleteflag" Type="datetime" />
+    <Property Name="Shop_SyncFlag" Type="datetime" />
+    <Property Name="SupBigPlan_date" Type="datetime" Nullable="false" />
+    <Property Name="SupBigPlan_DeleteFlag" Type="datetime" />
+    <Property Name="SupBigPlan_GroupPlan" Type="nvarchar(max)" />
+    <Property Name="SupBigPlan_id" Type="nvarchar" MaxLength="900" Nullable="false" />
+    <Property Name="SupBigPlan_KeHoachLanToi" Type="nvarchar(max)" />
+    <Property Name="SupBigPlan_NXkehoachLanNay" Type="nvarchar(max)" />
+    <Property Name="SupBigPlan_SupName" Type="nvarchar(max)" />
+    <Property Name="SupBigPlan_SupUsername" Type="nvarchar(max)" />
+    <Property Name="SupBigPlan_SyncFlag" Type="datetime" />
+    <Property Name="SupBigPlan_UserAccept" Type="int" />
+    <Property Name="SupBigPlan_UserNote" Type="nvarchar(max)" />
+    <Property Name="SupCheckIn_AdminAccept" Type="int" />
+    <Property Name="SupCheckIn_AdminNote" Type="nvarchar(max)" />
+    <Property Name="SupCheckIn_Count" Type="float" />
+    <Property Name="SupCheckIn_date" Type="datetime" Nullable="false" />
+    <Property Name="SupCheckIn_DeleteFlag" Type="datetime" />
+    <Property Name="SupCheckIn_id" Type="nvarchar" MaxLength="900" Nullable="false" />
+    <Property Name="SupCheckIn_ImageCI" Type="nvarchar(max)" />
+    <Property Name="SupCheckIn_ImageCO" Type="nvarchar(max)" />
+    <Property Name="SupCheckIn_Latidue" Type="float" />
+    <Property Name="SupCheckIn_Longtidue" Type="float" />
+    <Property Name="SupCheckIn_SyncFlag" Type="datetime" />
+    <Property Name="SupCheckIn_TimeCI" Type="datetime" />
+    <Property Name="SupCheckIn_TimeCO" Type="datetime" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'DBMOBILEAPPBA.dbo.VW_SUPCHECKINOUT' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="VW_SUPCHECKINOUT">
+    <Key>
+      <PropertyRef Name="Us_id" />
+      <PropertyRef Name="Shop_id" />
+      <PropertyRef Name="SupBigPlan_date" />
+      <PropertyRef Name="SupBigPlan_id" />
+      <PropertyRef Name="SupCheckIn_date" />
+      <PropertyRef Name="SupCheckIn_id" />
+    </Key>
+    <Property Name="Us_id" Type="nvarchar" MaxLength="900" Nullable="false" />
+    <Property Name="Us_name" Type="nvarchar(max)" />
+    <Property Name="Us_username" Type="nvarchar(max)" />
+    <Property Name="Us_password" Type="nvarchar(max)" />
+    <Property Name="Us_Role" Type="nvarchar(max)" />
+    <Property Name="Us_SupGroup" Type="nvarchar(max)" />
+    <Property Name="Us_text1" Type="nvarchar(max)" />
+    <Property Name="Us_text2" Type="nvarchar(max)" />
+    <Property Name="Us_text3" Type="nvarchar(max)" />
+    <Property Name="Us_text4" Type="nvarchar(max)" />
+    <Property Name="Us_text5" Type="nvarchar(max)" />
+    <Property Name="Us_text6" Type="nvarchar(max)" />
+    <Property Name="Us_text7" Type="nvarchar(max)" />
+    <Property Name="Us_float1" Type="float" />
+    <Property Name="Us_float2" Type="float" />
+    <Property Name="Us_float3" Type="float" />
+    <Property Name="Us_float4" Type="float" />
+    <Property Name="Us_datetime1" Type="datetime" />
+    <Property Name="Us_datetime2" Type="datetime" />
+    <Property Name="Us_datetime3" Type="datetime" />
+    <Property Name="Us_datetime4" Type="datetime" />
+    <Property Name="Us_datetime5" Type="datetime" />
+    <Property Name="Us_bit" Type="bit" />
+    <Property Name="Us_deleteflag" Type="datetime" />
+    <Property Name="Us_SyncFlag" Type="datetime" />
+    <Property Name="US_TypeKho" Type="nvarchar(max)" />
+    <Property Name="Shop_id" Type="nvarchar" MaxLength="900" Nullable="false" />
+    <Property Name="Shop_name" Type="nvarchar(max)" />
+    <Property Name="Shop_detail" Type="nvarchar(max)" />
+    <Property Name="Shop_npp" Type="nvarchar(max)" />
+    <Property Name="Shop_nppcode" Type="nvarchar(max)" />
+    <Property Name="Shop_Ngcode" Type="nvarchar(max)" />
+    <Property Name="Shop_LoaiCHCurrent" Type="nvarchar(max)" />
+    <Property Name="Shop_LoaiCHFuture" Type="nvarchar(max)" />
+    <Property Name="Shop_latidue" Type="float" />
+    <Property Name="Shop_Longtidue" Type="float" />
+    <Property Name="Shop_phone" Type="nvarchar(max)" />
+    <Property Name="Shop_Sup" Type="nvarchar(max)" />
+    <Property Name="Shop_GroupPrice" Type="nvarchar(max)" />
+    <Property Name="Shop_text2" Type="nvarchar(max)" />
+    <Property Name="Shop_text3" Type="nvarchar(max)" />
+    <Property Name="Shop_text4" Type="nvarchar(max)" />
+    <Property Name="Shop_float1" Type="float" />
+    <Property Name="Shop_float2" Type="float" />
+    <Property Name="Shop_float3" Type="float" />
+    <Property Name="Shop_float4" Type="float" />
+    <Property Name="Shop_bit" Type="bit" />
+    <Property Name="Shop_datetime1" Type="datetime" />
+    <Property Name="Shop_datetime2" Type="datetime" />
+    <Property Name="Shop_datetime3" Type="datetime" />
+    <Property Name="Shop_datetime4" Type="datetime" />
+    <Property Name="Shop_deleteflag" Type="datetime" />
+    <Property Name="Shop_SyncFlag" Type="datetime" />
+    <Property Name="SupBigPlan_date" Type="datetime" Nullable="false" />
+    <Property Name="SupBigPlan_DeleteFlag" Type="datetime" />
+    <Property Name="SupBigPlan_GroupPlan" Type="nvarchar(max)" />
+    <Property Name="SupBigPlan_id" Type="nvarchar" MaxLength="900" Nullable="false" />
+    <Property Name="SupBigPlan_KeHoachLanToi" Type="nvarchar(max)" />
+    <Property Name="SupBigPlan_NXkehoachLanNay" Type="nvarchar(max)" />
+    <Property Name="SupBigPlan_SupName" Type="nvarchar(max)" />
+    <Property Name="SupBigPlan_SupUsername" Type="nvarchar(max)" />
+    <Property Name="SupBigPlan_SyncFlag" Type="datetime" />
+    <Property Name="SupBigPlan_UserAccept" Type="int" />
+    <Property Name="SupBigPlan_UserNote" Type="nvarchar(max)" />
+    <Property Name="SupCheckIn_AdminAccept" Type="int" />
+    <Property Name="SupCheckIn_AdminNote" Type="nvarchar(max)" />
+    <Property Name="SupCheckIn_Count" Type="float" />
+    <Property Name="SupCheckIn_date" Type="datetime" Nullable="false" />
+    <Property Name="SupCheckIn_DeleteFlag" Type="datetime" />
+    <Property Name="SupCheckIn_id" Type="nvarchar" MaxLength="900" Nullable="false" />
+    <Property Name="SupCheckIn_ImageCI" Type="nvarchar(max)" />
+    <Property Name="SupCheckIn_ImageCO" Type="nvarchar(max)" />
+    <Property Name="SupCheckIn_Latidue" Type="float" />
+    <Property Name="SupCheckIn_Longtidue" Type="float" />
+    <Property Name="SupCheckIn_SyncFlag" Type="datetime" />
+    <Property Name="SupCheckIn_TimeCI" Type="datetime" />
+    <Property Name="SupCheckIn_TimeCO" Type="datetime" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'DBMOBILEAPPBA.dbo.VW_UsercheckInout' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="VW_UsercheckInout">
+    <Key>
+      <PropertyRef Name="Us_id" />
+      <PropertyRef Name="Shop_id" />
+      <PropertyRef Name="Bigplan_date" />
+      <PropertyRef Name="Bigplan_id" />
+      <PropertyRef Name="CaLamViecDetail_id" />
+      <PropertyRef Name="UserCheckInOut_date" />
+      <PropertyRef Name="UserCheckInOut_ID" />
+    </Key>
+    <Property Name="Us_id" Type="nvarchar" MaxLength="900" Nullable="false" />
+    <Property Name="Us_name" Type="nvarchar(max)" />
+    <Property Name="Us_username" Type="nvarchar(max)" />
+    <Property Name="Us_password" Type="nvarchar(max)" />
+    <Property Name="Us_Role" Type="nvarchar(max)" />
+    <Property Name="Us_SupGroup" Type="nvarchar(max)" />
+    <Property Name="Us_text1" Type="nvarchar(max)" />
+    <Property Name="Us_text2" Type="nvarchar(max)" />
+    <Property Name="Us_text3" Type="nvarchar(max)" />
+    <Property Name="Us_text4" Type="nvarchar(max)" />
+    <Property Name="Us_text5" Type="nvarchar(max)" />
+    <Property Name="Us_text6" Type="nvarchar(max)" />
+    <Property Name="Us_text7" Type="nvarchar(max)" />
+    <Property Name="Us_float1" Type="float" />
+    <Property Name="Us_float2" Type="float" />
+    <Property Name="Us_float3" Type="float" />
+    <Property Name="Us_float4" Type="float" />
+    <Property Name="Us_datetime1" Type="datetime" />
+    <Property Name="Us_datetime2" Type="datetime" />
+    <Property Name="Us_datetime3" Type="datetime" />
+    <Property Name="Us_datetime4" Type="datetime" />
+    <Property Name="Us_datetime5" Type="datetime" />
+    <Property Name="Us_bit" Type="bit" />
+    <Property Name="Us_deleteflag" Type="datetime" />
+    <Property Name="Us_SyncFlag" Type="datetime" />
+    <Property Name="US_TypeKho" Type="nvarchar(max)" />
+    <Property Name="Shop_id" Type="nvarchar" MaxLength="900" Nullable="false" />
+    <Property Name="Shop_name" Type="nvarchar(max)" />
+    <Property Name="Shop_detail" Type="nvarchar(max)" />
+    <Property Name="Shop_npp" Type="nvarchar(max)" />
+    <Property Name="Shop_nppcode" Type="nvarchar(max)" />
+    <Property Name="Shop_Ngcode" Type="nvarchar(max)" />
+    <Property Name="Shop_LoaiCHCurrent" Type="nvarchar(max)" />
+    <Property Name="Shop_LoaiCHFuture" Type="nvarchar(max)" />
+    <Property Name="Shop_latidue" Type="float" />
+    <Property Name="Shop_Longtidue" Type="float" />
+    <Property Name="Shop_phone" Type="nvarchar(max)" />
+    <Property Name="Shop_Sup" Type="nvarchar(max)" />
+    <Property Name="Shop_GroupPrice" Type="nvarchar(max)" />
+    <Property Name="Shop_text2" Type="nvarchar(max)" />
+    <Property Name="Shop_text3" Type="nvarchar(max)" />
+    <Property Name="Shop_text4" Type="nvarchar(max)" />
+    <Property Name="Shop_float1" Type="float" />
+    <Property Name="Shop_float2" Type="float" />
+    <Property Name="Shop_float3" Type="float" />
+    <Property Name="Shop_float4" Type="float" />
+    <Property Name="Shop_bit" Type="bit" />
+    <Property Name="Shop_datetime1" Type="datetime" />
+    <Property Name="Shop_datetime2" Type="datetime" />
+    <Property Name="Shop_datetime3" Type="datetime" />
+    <Property Name="Shop_datetime4" Type="datetime" />
+    <Property Name="Shop_deleteflag" Type="datetime" />
+    <Property Name="Shop_SyncFlag" Type="datetime" />
+    <Property Name="Bigplan_date" Type="datetime" Nullable="false" />
+    <Property Name="Bigplan_deleteFlag" Type="datetime" />
+    <Property Name="Bigplan_id" Type="nvarchar" MaxLength="900" Nullable="false" />
+    <Property Name="BigPlan_SyncFlag" Type="datetime" />
+    <Property Name="CaLamViecDetail_id" Type="nvarchar" MaxLength="900" Nullable="false" />
+    <Property Name="UserCheckInOut_AdminCheck" Type="int" />
+    <Property Name="UserCheckInOut_AdminNote" Type="nvarchar(max)" />
+    <Property Name="UserCheckInOut_Count" Type="float" />
+    <Property Name="UserCheckInOut_date" Type="datetime" Nullable="false" />
+    <Property Name="UserCheckInOut_DeleteFlag" Type="datetime" />
+    <Property Name="UserCheckInOut_ID" Type="nvarchar" MaxLength="900" Nullable="false" />
+    <Property Name="UserCheckInOut_ImageCI" Type="nvarchar(max)" />
+    <Property Name="UserCheckInOut_ImageCO" Type="nvarchar(max)" />
+    <Property Name="UserCheckInOut_LatidueCI" Type="float" />
+    <Property Name="UserCheckInOut_LatidueCO" Type="float" />
+    <Property Name="UserCheckInOut_LongtidueCI" Type="float" />
+    <Property Name="UserCheckInOut_LongtidueCO" Type="float" />
+    <Property Name="UserCheckInOut_SyncFlag" Type="datetime" />
+    <Property Name="UserCheckInOut_TimeCI" Type="datetime" />
+    <Property Name="UserCheckInOut_TimeCO" Type="datetime" />
+    <Property Name="UserCheckInOut_UserNote" Type="nvarchar(max)" />
+    <Property Name="UserCheckInOut_ImageCI1" Type="nvarchar(max)" />
+    <Property Name="UserCheckInOut_ImageCO1" Type="nvarchar(max)" />
+    <Property Name="UserCheckInOut_ImageCI2" Type="nvarchar(max)" />
+    <Property Name="UserCheckInOut_ImageCO2" Type="nvarchar(max)" />
+    <Property Name="UserCheckInOut_ImageCI3" Type="nvarchar(max)" />
+    <Property Name="UserCheckInOut_ImageCO3" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityContainer Name="DBMOBILEAPPBAModelStoreContainer">
+    <EntitySet Name="tbl_BaoCaoHinhAnh" EntityType="Self.tbl_BaoCaoHinhAnh" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_bigplan" EntityType="Self.tbl_bigplan" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_bill" EntityType="Self.tbl_bill" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_BillCNKDetail" EntityType="Self.Tbl_BillCNKDetail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_BillChuyenNhanKho" EntityType="Self.Tbl_BillChuyenNhanKho" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_billDetail" EntityType="Self.tbl_billDetail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_CaLamViecDetail" EntityType="Self.tbl_CaLamViecDetail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_chitietDondathang" EntityType="Self.tbl_chitietDondathang" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_ChitietDonNhapHang" EntityType="Self.Tbl_ChitietDonNhapHang" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_ChitietSupChamDiem" EntityType="Self.tbl_ChitietSupChamDiem" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_chucnangphu" EntityType="Self.tbl_chucnangphu" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_ChuongTrinhDoiQua" EntityType="Self.tbl_ChuongTrinhDoiQua" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_DanhMucQuaTang" EntityType="Self.tbl_DanhMucQuaTang" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_DetailBaoCaoHinhAnh" EntityType="Self.tbl_DetailBaoCaoHinhAnh" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_DMQT_CTDQ" EntityType="Self.tbl_DMQT_CTDQ" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_DoiQua" EntityType="Self.tbl_DoiQua" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_doithucanhtranh" EntityType="Self.tbl_doithucanhtranh" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_DoithucanhtranhIMAGE" EntityType="Self.Tbl_DoithucanhtranhIMAGE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_DoithucanhtranhIMAGEDetail" EntityType="Self.Tbl_DoithucanhtranhIMAGEDetail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_Dondathang" EntityType="Self.tbl_Dondathang" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_DonNhapHang" EntityType="Self.Tbl_DonNhapHang" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_DTCTBrand" EntityType="Self.tbl_DTCTBrand" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_DTCTcrmrange" EntityType="Self.tbl_DTCTcrmrange" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_DTCTCty" EntityType="Self.tbl_DTCTCty" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_DTCTffrange" EntityType="Self.tbl_DTCTffrange" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_DTCTformat" EntityType="Self.tbl_DTCTformat" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_DTCTltmrange" EntityType="Self.tbl_DTCTltmrange" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_DTCTonpostoffpost" EntityType="Self.tbl_DTCTonpostoffpost" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_DTCTtype" EntityType="Self.tbl_DTCTtype" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_DTCTVARIANT" EntityType="Self.tbl_DTCTVARIANT" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_HsSms" EntityType="Self.Tbl_HsSms" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_ImageDonNhapHang" EntityType="Self.Tbl_ImageDonNhapHang" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_Kho" EntityType="Self.tbl_Kho" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_KhoChiNhanh" EntityType="Self.Tbl_KhoChiNhanh" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_KhoChuyenNhan" EntityType="Self.Tbl_KhoChuyenNhan" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_KhoDoi" EntityType="Self.Tbl_KhoDoi" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_KHOQUA" EntityType="Self.Tbl_KHOQUA" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_KhoXe" EntityType="Self.Tbl_KhoXe" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_menu" EntityType="Self.tbl_menu" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_NganhHang" EntityType="Self.tbl_NganhHang" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_NhanHang" EntityType="Self.tbl_NhanHang" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_NhomNganhHang" EntityType="Self.tbl_NhomNganhHang" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_Price" EntityType="Self.tbl_Price" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_RulesChuongTrinhDoiQua" EntityType="Self.tbl_RulesChuongTrinhDoiQua" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_shop" EntityType="Self.tbl_shop" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_sku" EntityType="Self.tbl_sku" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_SupBigPlan" EntityType="Self.tbl_SupBigPlan" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_SupChamDiem" EntityType="Self.tbl_SupChamDiem" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_SupCheckIn" EntityType="Self.tbl_SupCheckIn" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_SupName" EntityType="Self.Tbl_SupName" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_Target" EntityType="Self.tbl_Target" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_TieuChiBaoCaoHinhAnh" EntityType="Self.tbl_TieuChiBaoCaoHinhAnh" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_TieuChiChamDiem" EntityType="Self.tbl_TieuChiChamDiem" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_user" EntityType="Self.tbl_user" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_UserCheckInOut" EntityType="Self.tbl_UserCheckInOut" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="VW_banhang" EntityType="Self.VW_banhang" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [VW_banhang].[Us_id] AS [Us_id], 
+    [VW_banhang].[Us_name] AS [Us_name], 
+    [VW_banhang].[Us_username] AS [Us_username], 
+    [VW_banhang].[Us_password] AS [Us_password], 
+    [VW_banhang].[Us_Role] AS [Us_Role], 
+    [VW_banhang].[Us_SupGroup] AS [Us_SupGroup], 
+    [VW_banhang].[Us_text1] AS [Us_text1], 
+    [VW_banhang].[Us_text2] AS [Us_text2], 
+    [VW_banhang].[Us_text3] AS [Us_text3], 
+    [VW_banhang].[Us_text4] AS [Us_text4], 
+    [VW_banhang].[Us_text5] AS [Us_text5], 
+    [VW_banhang].[Us_text6] AS [Us_text6], 
+    [VW_banhang].[Us_text7] AS [Us_text7], 
+    [VW_banhang].[Us_float1] AS [Us_float1], 
+    [VW_banhang].[Us_float2] AS [Us_float2], 
+    [VW_banhang].[Us_float3] AS [Us_float3], 
+    [VW_banhang].[Us_float4] AS [Us_float4], 
+    [VW_banhang].[Us_datetime1] AS [Us_datetime1], 
+    [VW_banhang].[Us_datetime2] AS [Us_datetime2], 
+    [VW_banhang].[Us_datetime3] AS [Us_datetime3], 
+    [VW_banhang].[Us_datetime4] AS [Us_datetime4], 
+    [VW_banhang].[Us_datetime5] AS [Us_datetime5], 
+    [VW_banhang].[Us_bit] AS [Us_bit], 
+    [VW_banhang].[Us_deleteflag] AS [Us_deleteflag], 
+    [VW_banhang].[Us_SyncFlag] AS [Us_SyncFlag], 
+    [VW_banhang].[US_TypeKho] AS [US_TypeKho], 
+    [VW_banhang].[Shop_id] AS [Shop_id], 
+    [VW_banhang].[Shop_name] AS [Shop_name], 
+    [VW_banhang].[Shop_detail] AS [Shop_detail], 
+    [VW_banhang].[Shop_npp] AS [Shop_npp], 
+    [VW_banhang].[Shop_nppcode] AS [Shop_nppcode], 
+    [VW_banhang].[Shop_Ngcode] AS [Shop_Ngcode], 
+    [VW_banhang].[Shop_LoaiCHCurrent] AS [Shop_LoaiCHCurrent], 
+    [VW_banhang].[Shop_LoaiCHFuture] AS [Shop_LoaiCHFuture], 
+    [VW_banhang].[Shop_latidue] AS [Shop_latidue], 
+    [VW_banhang].[Shop_Longtidue] AS [Shop_Longtidue], 
+    [VW_banhang].[Shop_phone] AS [Shop_phone], 
+    [VW_banhang].[Shop_Sup] AS [Shop_Sup], 
+    [VW_banhang].[Shop_GroupPrice] AS [Shop_GroupPrice], 
+    [VW_banhang].[Shop_text2] AS [Shop_text2], 
+    [VW_banhang].[Shop_text3] AS [Shop_text3], 
+    [VW_banhang].[Shop_text4] AS [Shop_text4], 
+    [VW_banhang].[Shop_float1] AS [Shop_float1], 
+    [VW_banhang].[Shop_float2] AS [Shop_float2], 
+    [VW_banhang].[Shop_float3] AS [Shop_float3], 
+    [VW_banhang].[Shop_float4] AS [Shop_float4], 
+    [VW_banhang].[Shop_bit] AS [Shop_bit], 
+    [VW_banhang].[Shop_datetime1] AS [Shop_datetime1], 
+    [VW_banhang].[Shop_datetime2] AS [Shop_datetime2], 
+    [VW_banhang].[Shop_datetime3] AS [Shop_datetime3], 
+    [VW_banhang].[Shop_datetime4] AS [Shop_datetime4], 
+    [VW_banhang].[Shop_deleteflag] AS [Shop_deleteflag], 
+    [VW_banhang].[Shop_SyncFlag] AS [Shop_SyncFlag], 
+    [VW_banhang].[sku_barcode] AS [sku_barcode], 
+    [VW_banhang].[sku_name] AS [sku_name], 
+    [VW_banhang].[sku_detail] AS [sku_detail], 
+    [VW_banhang].[sku_txtname] AS [sku_txtname], 
+    [VW_banhang].[sku_txtPrice] AS [sku_txtPrice], 
+    [VW_banhang].[Target_Group] AS [Target_Group], 
+    [VW_banhang].[sku_text1] AS [sku_text1], 
+    [VW_banhang].[sku_text2] AS [sku_text2], 
+    [VW_banhang].[sku_text3] AS [sku_text3], 
+    [VW_banhang].[sku_text4] AS [sku_text4], 
+    [VW_banhang].[sku_text5] AS [sku_text5], 
+    [VW_banhang].[sku_float1] AS [sku_float1], 
+    [VW_banhang].[sku_float2] AS [sku_float2], 
+    [VW_banhang].[sku_float3] AS [sku_float3], 
+    [VW_banhang].[sku_float4] AS [sku_float4], 
+    [VW_banhang].[sku_float5] AS [sku_float5], 
+    [VW_banhang].[sku_float6] AS [sku_float6], 
+    [VW_banhang].[sku_datetime1] AS [sku_datetime1], 
+    [VW_banhang].[sku_datetime2] AS [sku_datetime2], 
+    [VW_banhang].[sku_datetime3] AS [sku_datetime3], 
+    [VW_banhang].[sku_datetime4] AS [sku_datetime4], 
+    [VW_banhang].[sku_bit] AS [sku_bit], 
+    [VW_banhang].[sku_deleteflag] AS [sku_deleteflag], 
+    [VW_banhang].[sku_SyncFlag] AS [sku_SyncFlag], 
+    [VW_banhang].[Bill_date] AS [Bill_date], 
+    [VW_banhang].[Bill_deleteFlag] AS [Bill_deleteFlag], 
+    [VW_banhang].[Bill_id] AS [Bill_id], 
+    [VW_banhang].[Bill_ImageKH] AS [Bill_ImageKH], 
+    [VW_banhang].[Bill_SDTKH] AS [Bill_SDTKH], 
+    [VW_banhang].[Bill_SyncFlag] AS [Bill_SyncFlag], 
+    [VW_banhang].[Bill_TenKH] AS [Bill_TenKH], 
+    [VW_banhang].[BillDetail_deleteFlag] AS [BillDetail_deleteFlag], 
+    [VW_banhang].[BillDetail_dongia] AS [BillDetail_dongia], 
+    [VW_banhang].[BillDetail_soluong] AS [BillDetail_soluong], 
+    [VW_banhang].[BillDetail_SyncFlag] AS [BillDetail_SyncFlag]
+    FROM [dbo].[VW_banhang] AS [VW_banhang]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="VW_BCHINHANH" EntityType="Self.VW_BCHINHANH" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [VW_BCHINHANH].[Us_id] AS [Us_id], 
+    [VW_BCHINHANH].[Us_name] AS [Us_name], 
+    [VW_BCHINHANH].[Us_username] AS [Us_username], 
+    [VW_BCHINHANH].[Us_password] AS [Us_password], 
+    [VW_BCHINHANH].[Us_Role] AS [Us_Role], 
+    [VW_BCHINHANH].[Us_SupGroup] AS [Us_SupGroup], 
+    [VW_BCHINHANH].[Us_text1] AS [Us_text1], 
+    [VW_BCHINHANH].[Us_text2] AS [Us_text2], 
+    [VW_BCHINHANH].[Us_text3] AS [Us_text3], 
+    [VW_BCHINHANH].[Us_text4] AS [Us_text4], 
+    [VW_BCHINHANH].[Us_text5] AS [Us_text5], 
+    [VW_BCHINHANH].[Us_text6] AS [Us_text6], 
+    [VW_BCHINHANH].[Us_text7] AS [Us_text7], 
+    [VW_BCHINHANH].[Us_float1] AS [Us_float1], 
+    [VW_BCHINHANH].[Us_float2] AS [Us_float2], 
+    [VW_BCHINHANH].[Us_float3] AS [Us_float3], 
+    [VW_BCHINHANH].[Us_float4] AS [Us_float4], 
+    [VW_BCHINHANH].[Us_datetime1] AS [Us_datetime1], 
+    [VW_BCHINHANH].[Us_datetime2] AS [Us_datetime2], 
+    [VW_BCHINHANH].[Us_datetime3] AS [Us_datetime3], 
+    [VW_BCHINHANH].[Us_datetime4] AS [Us_datetime4], 
+    [VW_BCHINHANH].[Us_datetime5] AS [Us_datetime5], 
+    [VW_BCHINHANH].[Us_bit] AS [Us_bit], 
+    [VW_BCHINHANH].[Us_deleteflag] AS [Us_deleteflag], 
+    [VW_BCHINHANH].[Us_SyncFlag] AS [Us_SyncFlag], 
+    [VW_BCHINHANH].[US_TypeKho] AS [US_TypeKho], 
+    [VW_BCHINHANH].[Shop_id] AS [Shop_id], 
+    [VW_BCHINHANH].[Shop_name] AS [Shop_name], 
+    [VW_BCHINHANH].[Shop_detail] AS [Shop_detail], 
+    [VW_BCHINHANH].[Shop_npp] AS [Shop_npp], 
+    [VW_BCHINHANH].[Shop_nppcode] AS [Shop_nppcode], 
+    [VW_BCHINHANH].[Shop_Ngcode] AS [Shop_Ngcode], 
+    [VW_BCHINHANH].[Shop_LoaiCHCurrent] AS [Shop_LoaiCHCurrent], 
+    [VW_BCHINHANH].[Shop_LoaiCHFuture] AS [Shop_LoaiCHFuture], 
+    [VW_BCHINHANH].[Shop_latidue] AS [Shop_latidue], 
+    [VW_BCHINHANH].[Shop_Longtidue] AS [Shop_Longtidue], 
+    [VW_BCHINHANH].[Shop_phone] AS [Shop_phone], 
+    [VW_BCHINHANH].[Shop_Sup] AS [Shop_Sup], 
+    [VW_BCHINHANH].[Shop_GroupPrice] AS [Shop_GroupPrice], 
+    [VW_BCHINHANH].[Shop_text2] AS [Shop_text2], 
+    [VW_BCHINHANH].[Shop_text3] AS [Shop_text3], 
+    [VW_BCHINHANH].[Shop_text4] AS [Shop_text4], 
+    [VW_BCHINHANH].[Shop_float1] AS [Shop_float1], 
+    [VW_BCHINHANH].[Shop_float2] AS [Shop_float2], 
+    [VW_BCHINHANH].[Shop_float3] AS [Shop_float3], 
+    [VW_BCHINHANH].[Shop_float4] AS [Shop_float4], 
+    [VW_BCHINHANH].[Shop_bit] AS [Shop_bit], 
+    [VW_BCHINHANH].[Shop_datetime1] AS [Shop_datetime1], 
+    [VW_BCHINHANH].[Shop_datetime2] AS [Shop_datetime2], 
+    [VW_BCHINHANH].[Shop_datetime3] AS [Shop_datetime3], 
+    [VW_BCHINHANH].[Shop_datetime4] AS [Shop_datetime4], 
+    [VW_BCHINHANH].[Shop_deleteflag] AS [Shop_deleteflag], 
+    [VW_BCHINHANH].[Shop_SyncFlag] AS [Shop_SyncFlag], 
+    [VW_BCHINHANH].[TCBCHA_ID] AS [TCBCHA_ID], 
+    [VW_BCHINHANH].[TCBCHA_Role] AS [TCBCHA_Role], 
+    [VW_BCHINHANH].[TCBCHA_Name] AS [TCBCHA_Name], 
+    [VW_BCHINHANH].[TCBCHA_Status] AS [TCBCHA_Status], 
+    [VW_BCHINHANH].[TCBCHA_SyncFlag] AS [TCBCHA_SyncFlag], 
+    [VW_BCHINHANH].[TCBCHA_DeleteFlag] AS [TCBCHA_DeleteFlag], 
+    [VW_BCHINHANH].[bigplan_id] AS [bigplan_id], 
+    [VW_BCHINHANH].[BCHA_DeleteFlag] AS [BCHA_DeleteFlag], 
+    [VW_BCHINHANH].[BCHA_ID] AS [BCHA_ID], 
+    [VW_BCHINHANH].[BCHA_SyncFlag] AS [BCHA_SyncFlag], 
+    [VW_BCHINHANH].[BCHA_Time] AS [BCHA_Time], 
+    [VW_BCHINHANH].[DBCHA_DeleteFlag] AS [DBCHA_DeleteFlag], 
+    [VW_BCHINHANH].[DBCHA_Image] AS [DBCHA_Image], 
+    [VW_BCHINHANH].[DBCHA_SyncFlag] AS [DBCHA_SyncFlag]
+    FROM [dbo].[VW_BCHINHANH] AS [VW_BCHINHANH]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="VW_Bigplan" EntityType="Self.VW_Bigplan" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [VW_Bigplan].[Us_id] AS [Us_id], 
+    [VW_Bigplan].[Us_name] AS [Us_name], 
+    [VW_Bigplan].[Us_username] AS [Us_username], 
+    [VW_Bigplan].[Us_password] AS [Us_password], 
+    [VW_Bigplan].[Us_Role] AS [Us_Role], 
+    [VW_Bigplan].[Us_SupGroup] AS [Us_SupGroup], 
+    [VW_Bigplan].[Us_text1] AS [Us_text1], 
+    [VW_Bigplan].[Us_text2] AS [Us_text2], 
+    [VW_Bigplan].[Us_text3] AS [Us_text3], 
+    [VW_Bigplan].[Us_text4] AS [Us_text4], 
+    [VW_Bigplan].[Us_text5] AS [Us_text5], 
+    [VW_Bigplan].[Us_text6] AS [Us_text6], 
+    [VW_Bigplan].[Us_text7] AS [Us_text7], 
+    [VW_Bigplan].[Us_float1] AS [Us_float1], 
+    [VW_Bigplan].[Us_float2] AS [Us_float2], 
+    [VW_Bigplan].[Us_float3] AS [Us_float3], 
+    [VW_Bigplan].[Us_float4] AS [Us_float4], 
+    [VW_Bigplan].[Us_datetime1] AS [Us_datetime1], 
+    [VW_Bigplan].[Us_datetime2] AS [Us_datetime2], 
+    [VW_Bigplan].[Us_datetime3] AS [Us_datetime3], 
+    [VW_Bigplan].[Us_datetime4] AS [Us_datetime4], 
+    [VW_Bigplan].[Us_datetime5] AS [Us_datetime5], 
+    [VW_Bigplan].[Us_bit] AS [Us_bit], 
+    [VW_Bigplan].[Us_deleteflag] AS [Us_deleteflag], 
+    [VW_Bigplan].[Us_SyncFlag] AS [Us_SyncFlag], 
+    [VW_Bigplan].[US_TypeKho] AS [US_TypeKho], 
+    [VW_Bigplan].[Shop_id] AS [Shop_id], 
+    [VW_Bigplan].[Shop_name] AS [Shop_name], 
+    [VW_Bigplan].[Shop_detail] AS [Shop_detail], 
+    [VW_Bigplan].[Shop_npp] AS [Shop_npp], 
+    [VW_Bigplan].[Shop_nppcode] AS [Shop_nppcode], 
+    [VW_Bigplan].[Shop_Ngcode] AS [Shop_Ngcode], 
+    [VW_Bigplan].[Shop_LoaiCHCurrent] AS [Shop_LoaiCHCurrent], 
+    [VW_Bigplan].[Shop_LoaiCHFuture] AS [Shop_LoaiCHFuture], 
+    [VW_Bigplan].[Shop_latidue] AS [Shop_latidue], 
+    [VW_Bigplan].[Shop_Longtidue] AS [Shop_Longtidue], 
+    [VW_Bigplan].[Shop_phone] AS [Shop_phone], 
+    [VW_Bigplan].[Shop_Sup] AS [Shop_Sup], 
+    [VW_Bigplan].[Shop_GroupPrice] AS [Shop_GroupPrice], 
+    [VW_Bigplan].[Shop_text2] AS [Shop_text2], 
+    [VW_Bigplan].[Shop_text3] AS [Shop_text3], 
+    [VW_Bigplan].[Shop_text4] AS [Shop_text4], 
+    [VW_Bigplan].[Shop_float1] AS [Shop_float1], 
+    [VW_Bigplan].[Shop_float2] AS [Shop_float2], 
+    [VW_Bigplan].[Shop_float3] AS [Shop_float3], 
+    [VW_Bigplan].[Shop_float4] AS [Shop_float4], 
+    [VW_Bigplan].[Shop_bit] AS [Shop_bit], 
+    [VW_Bigplan].[Shop_datetime1] AS [Shop_datetime1], 
+    [VW_Bigplan].[Shop_datetime2] AS [Shop_datetime2], 
+    [VW_Bigplan].[Shop_datetime3] AS [Shop_datetime3], 
+    [VW_Bigplan].[Shop_datetime4] AS [Shop_datetime4], 
+    [VW_Bigplan].[Shop_deleteflag] AS [Shop_deleteflag], 
+    [VW_Bigplan].[Shop_SyncFlag] AS [Shop_SyncFlag], 
+    [VW_Bigplan].[CaLamViecDetail_id] AS [CaLamViecDetail_id], 
+    [VW_Bigplan].[CaLamViecDetail_Name] AS [CaLamViecDetail_Name], 
+    [VW_Bigplan].[CaLamViecDetail_TGBD] AS [CaLamViecDetail_TGBD], 
+    [VW_Bigplan].[CaLamViecDetail_TGKT] AS [CaLamViecDetail_TGKT], 
+    [VW_Bigplan].[CaLamViecDetail_CHAMCONG] AS [CaLamViecDetail_CHAMCONG], 
+    [VW_Bigplan].[CaLamViecDetail_DeleteFlag] AS [CaLamViecDetail_DeleteFlag], 
+    [VW_Bigplan].[CaLamViecDetail_SyncFlag] AS [CaLamViecDetail_SyncFlag], 
+    [VW_Bigplan].[Bigplan_date] AS [Bigplan_date], 
+    [VW_Bigplan].[Bigplan_deleteFlag] AS [Bigplan_deleteFlag], 
+    [VW_Bigplan].[Bigplan_id] AS [Bigplan_id], 
+    [VW_Bigplan].[BigPlan_SyncFlag] AS [BigPlan_SyncFlag]
+    FROM [dbo].[VW_Bigplan] AS [VW_Bigplan]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="VW_DatHang" EntityType="Self.VW_DatHang" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [VW_DatHang].[Us_id] AS [Us_id], 
+    [VW_DatHang].[Us_name] AS [Us_name], 
+    [VW_DatHang].[Us_username] AS [Us_username], 
+    [VW_DatHang].[Us_password] AS [Us_password], 
+    [VW_DatHang].[Us_Role] AS [Us_Role], 
+    [VW_DatHang].[Us_SupGroup] AS [Us_SupGroup], 
+    [VW_DatHang].[Us_text1] AS [Us_text1], 
+    [VW_DatHang].[Us_text2] AS [Us_text2], 
+    [VW_DatHang].[Us_text3] AS [Us_text3], 
+    [VW_DatHang].[Us_text4] AS [Us_text4], 
+    [VW_DatHang].[Us_text5] AS [Us_text5], 
+    [VW_DatHang].[Us_text6] AS [Us_text6], 
+    [VW_DatHang].[Us_text7] AS [Us_text7], 
+    [VW_DatHang].[Us_float1] AS [Us_float1], 
+    [VW_DatHang].[Us_float2] AS [Us_float2], 
+    [VW_DatHang].[Us_float3] AS [Us_float3], 
+    [VW_DatHang].[Us_float4] AS [Us_float4], 
+    [VW_DatHang].[Us_datetime1] AS [Us_datetime1], 
+    [VW_DatHang].[Us_datetime2] AS [Us_datetime2], 
+    [VW_DatHang].[Us_datetime3] AS [Us_datetime3], 
+    [VW_DatHang].[Us_datetime4] AS [Us_datetime4], 
+    [VW_DatHang].[Us_datetime5] AS [Us_datetime5], 
+    [VW_DatHang].[Us_bit] AS [Us_bit], 
+    [VW_DatHang].[Us_deleteflag] AS [Us_deleteflag], 
+    [VW_DatHang].[Us_SyncFlag] AS [Us_SyncFlag], 
+    [VW_DatHang].[US_TypeKho] AS [US_TypeKho], 
+    [VW_DatHang].[Shop_id] AS [Shop_id], 
+    [VW_DatHang].[Shop_name] AS [Shop_name], 
+    [VW_DatHang].[Shop_detail] AS [Shop_detail], 
+    [VW_DatHang].[Shop_npp] AS [Shop_npp], 
+    [VW_DatHang].[Shop_nppcode] AS [Shop_nppcode], 
+    [VW_DatHang].[Shop_Ngcode] AS [Shop_Ngcode], 
+    [VW_DatHang].[Shop_LoaiCHCurrent] AS [Shop_LoaiCHCurrent], 
+    [VW_DatHang].[Shop_LoaiCHFuture] AS [Shop_LoaiCHFuture], 
+    [VW_DatHang].[Shop_latidue] AS [Shop_latidue], 
+    [VW_DatHang].[Shop_Longtidue] AS [Shop_Longtidue], 
+    [VW_DatHang].[Shop_phone] AS [Shop_phone], 
+    [VW_DatHang].[Shop_Sup] AS [Shop_Sup], 
+    [VW_DatHang].[Shop_GroupPrice] AS [Shop_GroupPrice], 
+    [VW_DatHang].[Shop_text2] AS [Shop_text2], 
+    [VW_DatHang].[Shop_text3] AS [Shop_text3], 
+    [VW_DatHang].[Shop_text4] AS [Shop_text4], 
+    [VW_DatHang].[Shop_float1] AS [Shop_float1], 
+    [VW_DatHang].[Shop_float2] AS [Shop_float2], 
+    [VW_DatHang].[Shop_float3] AS [Shop_float3], 
+    [VW_DatHang].[Shop_float4] AS [Shop_float4], 
+    [VW_DatHang].[Shop_bit] AS [Shop_bit], 
+    [VW_DatHang].[Shop_datetime1] AS [Shop_datetime1], 
+    [VW_DatHang].[Shop_datetime2] AS [Shop_datetime2], 
+    [VW_DatHang].[Shop_datetime3] AS [Shop_datetime3], 
+    [VW_DatHang].[Shop_datetime4] AS [Shop_datetime4], 
+    [VW_DatHang].[Shop_deleteflag] AS [Shop_deleteflag], 
+    [VW_DatHang].[Shop_SyncFlag] AS [Shop_SyncFlag], 
+    [VW_DatHang].[sku_barcode] AS [sku_barcode], 
+    [VW_DatHang].[sku_name] AS [sku_name], 
+    [VW_DatHang].[sku_detail] AS [sku_detail], 
+    [VW_DatHang].[sku_txtname] AS [sku_txtname], 
+    [VW_DatHang].[sku_txtPrice] AS [sku_txtPrice], 
+    [VW_DatHang].[Target_Group] AS [Target_Group], 
+    [VW_DatHang].[sku_text1] AS [sku_text1], 
+    [VW_DatHang].[sku_text2] AS [sku_text2], 
+    [VW_DatHang].[sku_text3] AS [sku_text3], 
+    [VW_DatHang].[sku_text4] AS [sku_text4], 
+    [VW_DatHang].[sku_text5] AS [sku_text5], 
+    [VW_DatHang].[sku_float1] AS [sku_float1], 
+    [VW_DatHang].[sku_float2] AS [sku_float2], 
+    [VW_DatHang].[sku_float3] AS [sku_float3], 
+    [VW_DatHang].[sku_float4] AS [sku_float4], 
+    [VW_DatHang].[sku_float5] AS [sku_float5], 
+    [VW_DatHang].[sku_float6] AS [sku_float6], 
+    [VW_DatHang].[sku_datetime1] AS [sku_datetime1], 
+    [VW_DatHang].[sku_datetime2] AS [sku_datetime2], 
+    [VW_DatHang].[sku_datetime3] AS [sku_datetime3], 
+    [VW_DatHang].[sku_datetime4] AS [sku_datetime4], 
+    [VW_DatHang].[sku_bit] AS [sku_bit], 
+    [VW_DatHang].[sku_deleteflag] AS [sku_deleteflag], 
+    [VW_DatHang].[sku_SyncFlag] AS [sku_SyncFlag], 
+    [VW_DatHang].[DDH_DeleteFlag] AS [DDH_DeleteFlag], 
+    [VW_DatHang].[DDH_ID] AS [DDH_ID], 
+    [VW_DatHang].[DDH_Syncflag] AS [DDH_Syncflag], 
+    [VW_DatHang].[DDH_time] AS [DDH_time], 
+    [VW_DatHang].[CTDDH_DeleteFlag] AS [CTDDH_DeleteFlag], 
+    [VW_DatHang].[CTDDH_Soluong] AS [CTDDH_Soluong], 
+    [VW_DatHang].[CTDDH_SyncFlag] AS [CTDDH_SyncFlag]
+    FROM [dbo].[VW_DatHang] AS [VW_DatHang]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="VW_DeXuatNhapHang" EntityType="Self.VW_DeXuatNhapHang" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [VW_DeXuatNhapHang].[Us_id] AS [Us_id], 
+    [VW_DeXuatNhapHang].[Us_name] AS [Us_name], 
+    [VW_DeXuatNhapHang].[Us_username] AS [Us_username], 
+    [VW_DeXuatNhapHang].[Us_password] AS [Us_password], 
+    [VW_DeXuatNhapHang].[Us_Role] AS [Us_Role], 
+    [VW_DeXuatNhapHang].[Us_SupGroup] AS [Us_SupGroup], 
+    [VW_DeXuatNhapHang].[Us_text1] AS [Us_text1], 
+    [VW_DeXuatNhapHang].[Us_text2] AS [Us_text2], 
+    [VW_DeXuatNhapHang].[Us_text3] AS [Us_text3], 
+    [VW_DeXuatNhapHang].[Us_text4] AS [Us_text4], 
+    [VW_DeXuatNhapHang].[Us_text5] AS [Us_text5], 
+    [VW_DeXuatNhapHang].[Us_text6] AS [Us_text6], 
+    [VW_DeXuatNhapHang].[Us_text7] AS [Us_text7], 
+    [VW_DeXuatNhapHang].[Us_float1] AS [Us_float1], 
+    [VW_DeXuatNhapHang].[Us_float2] AS [Us_float2], 
+    [VW_DeXuatNhapHang].[Us_float3] AS [Us_float3], 
+    [VW_DeXuatNhapHang].[Us_float4] AS [Us_float4], 
+    [VW_DeXuatNhapHang].[Us_datetime1] AS [Us_datetime1], 
+    [VW_DeXuatNhapHang].[Us_datetime2] AS [Us_datetime2], 
+    [VW_DeXuatNhapHang].[Us_datetime3] AS [Us_datetime3], 
+    [VW_DeXuatNhapHang].[Us_datetime4] AS [Us_datetime4], 
+    [VW_DeXuatNhapHang].[Us_datetime5] AS [Us_datetime5], 
+    [VW_DeXuatNhapHang].[Us_bit] AS [Us_bit], 
+    [VW_DeXuatNhapHang].[Us_deleteflag] AS [Us_deleteflag], 
+    [VW_DeXuatNhapHang].[Us_SyncFlag] AS [Us_SyncFlag], 
+    [VW_DeXuatNhapHang].[US_TypeKho] AS [US_TypeKho], 
+    [VW_DeXuatNhapHang].[Shop_id] AS [Shop_id], 
+    [VW_DeXuatNhapHang].[Shop_name] AS [Shop_name], 
+    [VW_DeXuatNhapHang].[Shop_detail] AS [Shop_detail], 
+    [VW_DeXuatNhapHang].[Shop_npp] AS [Shop_npp], 
+    [VW_DeXuatNhapHang].[Shop_nppcode] AS [Shop_nppcode], 
+    [VW_DeXuatNhapHang].[Shop_Ngcode] AS [Shop_Ngcode], 
+    [VW_DeXuatNhapHang].[Shop_LoaiCHCurrent] AS [Shop_LoaiCHCurrent], 
+    [VW_DeXuatNhapHang].[Shop_LoaiCHFuture] AS [Shop_LoaiCHFuture], 
+    [VW_DeXuatNhapHang].[Shop_latidue] AS [Shop_latidue], 
+    [VW_DeXuatNhapHang].[Shop_Longtidue] AS [Shop_Longtidue], 
+    [VW_DeXuatNhapHang].[Shop_phone] AS [Shop_phone], 
+    [VW_DeXuatNhapHang].[Shop_Sup] AS [Shop_Sup], 
+    [VW_DeXuatNhapHang].[Shop_GroupPrice] AS [Shop_GroupPrice], 
+    [VW_DeXuatNhapHang].[Shop_text2] AS [Shop_text2], 
+    [VW_DeXuatNhapHang].[Shop_text3] AS [Shop_text3], 
+    [VW_DeXuatNhapHang].[Shop_text4] AS [Shop_text4], 
+    [VW_DeXuatNhapHang].[Shop_float1] AS [Shop_float1], 
+    [VW_DeXuatNhapHang].[Shop_float2] AS [Shop_float2], 
+    [VW_DeXuatNhapHang].[Shop_float3] AS [Shop_float3], 
+    [VW_DeXuatNhapHang].[Shop_float4] AS [Shop_float4], 
+    [VW_DeXuatNhapHang].[Shop_bit] AS [Shop_bit], 
+    [VW_DeXuatNhapHang].[Shop_datetime1] AS [Shop_datetime1], 
+    [VW_DeXuatNhapHang].[Shop_datetime2] AS [Shop_datetime2], 
+    [VW_DeXuatNhapHang].[Shop_datetime3] AS [Shop_datetime3], 
+    [VW_DeXuatNhapHang].[Shop_datetime4] AS [Shop_datetime4], 
+    [VW_DeXuatNhapHang].[Shop_deleteflag] AS [Shop_deleteflag], 
+    [VW_DeXuatNhapHang].[Shop_SyncFlag] AS [Shop_SyncFlag], 
+    [VW_DeXuatNhapHang].[sku_barcode] AS [sku_barcode], 
+    [VW_DeXuatNhapHang].[sku_name] AS [sku_name], 
+    [VW_DeXuatNhapHang].[sku_detail] AS [sku_detail], 
+    [VW_DeXuatNhapHang].[sku_txtname] AS [sku_txtname], 
+    [VW_DeXuatNhapHang].[sku_txtPrice] AS [sku_txtPrice], 
+    [VW_DeXuatNhapHang].[Target_Group] AS [Target_Group], 
+    [VW_DeXuatNhapHang].[sku_text1] AS [sku_text1], 
+    [VW_DeXuatNhapHang].[sku_text2] AS [sku_text2], 
+    [VW_DeXuatNhapHang].[sku_text3] AS [sku_text3], 
+    [VW_DeXuatNhapHang].[sku_text4] AS [sku_text4], 
+    [VW_DeXuatNhapHang].[sku_text5] AS [sku_text5], 
+    [VW_DeXuatNhapHang].[sku_float1] AS [sku_float1], 
+    [VW_DeXuatNhapHang].[sku_float2] AS [sku_float2], 
+    [VW_DeXuatNhapHang].[sku_float3] AS [sku_float3], 
+    [VW_DeXuatNhapHang].[sku_float4] AS [sku_float4], 
+    [VW_DeXuatNhapHang].[sku_float5] AS [sku_float5], 
+    [VW_DeXuatNhapHang].[sku_float6] AS [sku_float6], 
+    [VW_DeXuatNhapHang].[sku_datetime1] AS [sku_datetime1], 
+    [VW_DeXuatNhapHang].[sku_datetime2] AS [sku_datetime2], 
+    [VW_DeXuatNhapHang].[sku_datetime3] AS [sku_datetime3], 
+    [VW_DeXuatNhapHang].[sku_datetime4] AS [sku_datetime4], 
+    [VW_DeXuatNhapHang].[sku_bit] AS [sku_bit], 
+    [VW_DeXuatNhapHang].[sku_deleteflag] AS [sku_deleteflag], 
+    [VW_DeXuatNhapHang].[sku_SyncFlag] AS [sku_SyncFlag], 
+    [VW_DeXuatNhapHang].[DDH_DeleteFlag] AS [DDH_DeleteFlag], 
+    [VW_DeXuatNhapHang].[DDH_ID] AS [DDH_ID], 
+    [VW_DeXuatNhapHang].[DDH_Syncflag] AS [DDH_Syncflag], 
+    [VW_DeXuatNhapHang].[DDH_time] AS [DDH_time], 
+    [VW_DeXuatNhapHang].[CTDDH_DeleteFlag] AS [CTDDH_DeleteFlag], 
+    [VW_DeXuatNhapHang].[CTDDH_Soluong] AS [CTDDH_Soluong], 
+    [VW_DeXuatNhapHang].[CTDDH_SyncFlag] AS [CTDDH_SyncFlag]
+    FROM [dbo].[VW_DeXuatNhapHang] AS [VW_DeXuatNhapHang]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="VW_DOIQUA" EntityType="Self.VW_DOIQUA" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [VW_DOIQUA].[DMQT_Barcode] AS [DMQT_Barcode], 
+    [VW_DOIQUA].[DMQT_Name] AS [DMQT_Name], 
+    [VW_DOIQUA].[DMQT_Detail] AS [DMQT_Detail], 
+    [VW_DOIQUA].[DMQT_Status] AS [DMQT_Status], 
+    [VW_DOIQUA].[DMQT_SyncFlag] AS [DMQT_SyncFlag], 
+    [VW_DOIQUA].[DMQT_DeleteFlag] AS [DMQT_DeleteFlag], 
+    [VW_DOIQUA].[CTDQ_ID] AS [CTDQ_ID], 
+    [VW_DOIQUA].[CTDQ_Name] AS [CTDQ_Name], 
+    [VW_DOIQUA].[CTDQ_Detail] AS [CTDQ_Detail], 
+    [VW_DOIQUA].[CTDQ_APPLYROLE] AS [CTDQ_APPLYROLE], 
+    [VW_DOIQUA].[CTDQ_DateBatDau] AS [CTDQ_DateBatDau], 
+    [VW_DOIQUA].[CTDQ_DateKetThuc] AS [CTDQ_DateKetThuc], 
+    [VW_DOIQUA].[CTDQ_SyncFlag] AS [CTDQ_SyncFlag], 
+    [VW_DOIQUA].[CTDQ_DeleteFlag] AS [CTDQ_DeleteFlag], 
+    [VW_DOIQUA].[DoiQua_DeleteFlag] AS [DoiQua_DeleteFlag], 
+    [VW_DOIQUA].[DoiQua_SyncFlag] AS [DoiQua_SyncFlag], 
+    [VW_DOIQUA].[DoiQua_Value] AS [DoiQua_Value], 
+    [VW_DOIQUA].[Bill_date] AS [Bill_date], 
+    [VW_DOIQUA].[Bill_deleteFlag] AS [Bill_deleteFlag], 
+    [VW_DOIQUA].[Bill_id] AS [Bill_id], 
+    [VW_DOIQUA].[Bill_ImageKH] AS [Bill_ImageKH], 
+    [VW_DOIQUA].[Bill_SDTKH] AS [Bill_SDTKH], 
+    [VW_DOIQUA].[Bill_SyncFlag] AS [Bill_SyncFlag], 
+    [VW_DOIQUA].[Bill_TenKH] AS [Bill_TenKH], 
+    [VW_DOIQUA].[Shop_id] AS [Shop_id], 
+    [VW_DOIQUA].[Us_id] AS [Us_id]
+    FROM [dbo].[VW_DOIQUA] AS [VW_DOIQUA]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vw_doithucanhtranh" EntityType="Self.vw_doithucanhtranh" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vw_doithucanhtranh].[Us_id] AS [Us_id], 
+    [vw_doithucanhtranh].[Us_name] AS [Us_name], 
+    [vw_doithucanhtranh].[Us_username] AS [Us_username], 
+    [vw_doithucanhtranh].[Us_password] AS [Us_password], 
+    [vw_doithucanhtranh].[Us_Role] AS [Us_Role], 
+    [vw_doithucanhtranh].[Us_SupGroup] AS [Us_SupGroup], 
+    [vw_doithucanhtranh].[Us_text1] AS [Us_text1], 
+    [vw_doithucanhtranh].[Us_text2] AS [Us_text2], 
+    [vw_doithucanhtranh].[Us_text3] AS [Us_text3], 
+    [vw_doithucanhtranh].[Us_text4] AS [Us_text4], 
+    [vw_doithucanhtranh].[Us_text5] AS [Us_text5], 
+    [vw_doithucanhtranh].[Us_text6] AS [Us_text6], 
+    [vw_doithucanhtranh].[Us_text7] AS [Us_text7], 
+    [vw_doithucanhtranh].[Us_float1] AS [Us_float1], 
+    [vw_doithucanhtranh].[Us_float2] AS [Us_float2], 
+    [vw_doithucanhtranh].[Us_float3] AS [Us_float3], 
+    [vw_doithucanhtranh].[Us_float4] AS [Us_float4], 
+    [vw_doithucanhtranh].[Us_datetime1] AS [Us_datetime1], 
+    [vw_doithucanhtranh].[Us_datetime2] AS [Us_datetime2], 
+    [vw_doithucanhtranh].[Us_datetime3] AS [Us_datetime3], 
+    [vw_doithucanhtranh].[Us_datetime4] AS [Us_datetime4], 
+    [vw_doithucanhtranh].[Us_datetime5] AS [Us_datetime5], 
+    [vw_doithucanhtranh].[Us_bit] AS [Us_bit], 
+    [vw_doithucanhtranh].[Us_deleteflag] AS [Us_deleteflag], 
+    [vw_doithucanhtranh].[Us_SyncFlag] AS [Us_SyncFlag], 
+    [vw_doithucanhtranh].[US_TypeKho] AS [US_TypeKho], 
+    [vw_doithucanhtranh].[Shop_id] AS [Shop_id], 
+    [vw_doithucanhtranh].[Shop_name] AS [Shop_name], 
+    [vw_doithucanhtranh].[Shop_detail] AS [Shop_detail], 
+    [vw_doithucanhtranh].[Shop_npp] AS [Shop_npp], 
+    [vw_doithucanhtranh].[Shop_nppcode] AS [Shop_nppcode], 
+    [vw_doithucanhtranh].[Shop_Ngcode] AS [Shop_Ngcode], 
+    [vw_doithucanhtranh].[Shop_LoaiCHCurrent] AS [Shop_LoaiCHCurrent], 
+    [vw_doithucanhtranh].[Shop_LoaiCHFuture] AS [Shop_LoaiCHFuture], 
+    [vw_doithucanhtranh].[Shop_latidue] AS [Shop_latidue], 
+    [vw_doithucanhtranh].[Shop_Longtidue] AS [Shop_Longtidue], 
+    [vw_doithucanhtranh].[Shop_phone] AS [Shop_phone], 
+    [vw_doithucanhtranh].[Shop_Sup] AS [Shop_Sup], 
+    [vw_doithucanhtranh].[Shop_GroupPrice] AS [Shop_GroupPrice], 
+    [vw_doithucanhtranh].[Shop_text2] AS [Shop_text2], 
+    [vw_doithucanhtranh].[Shop_text3] AS [Shop_text3], 
+    [vw_doithucanhtranh].[Shop_text4] AS [Shop_text4], 
+    [vw_doithucanhtranh].[Shop_float1] AS [Shop_float1], 
+    [vw_doithucanhtranh].[Shop_float2] AS [Shop_float2], 
+    [vw_doithucanhtranh].[Shop_float3] AS [Shop_float3], 
+    [vw_doithucanhtranh].[Shop_float4] AS [Shop_float4], 
+    [vw_doithucanhtranh].[Shop_bit] AS [Shop_bit], 
+    [vw_doithucanhtranh].[Shop_datetime1] AS [Shop_datetime1], 
+    [vw_doithucanhtranh].[Shop_datetime2] AS [Shop_datetime2], 
+    [vw_doithucanhtranh].[Shop_datetime3] AS [Shop_datetime3], 
+    [vw_doithucanhtranh].[Shop_datetime4] AS [Shop_datetime4], 
+    [vw_doithucanhtranh].[Shop_deleteflag] AS [Shop_deleteflag], 
+    [vw_doithucanhtranh].[Shop_SyncFlag] AS [Shop_SyncFlag], 
+    [vw_doithucanhtranh].[dt_brand] AS [dt_brand], 
+    [vw_doithucanhtranh].[dt_crmrange] AS [dt_crmrange], 
+    [vw_doithucanhtranh].[dt_cty] AS [dt_cty], 
+    [vw_doithucanhtranh].[dt_DeleteFlag] AS [dt_DeleteFlag], 
+    [vw_doithucanhtranh].[dt_ffrange] AS [dt_ffrange], 
+    [vw_doithucanhtranh].[dt_fortmat] AS [dt_fortmat], 
+    [vw_doithucanhtranh].[dt_giagoc] AS [dt_giagoc], 
+    [vw_doithucanhtranh].[dt_giahangtang] AS [dt_giahangtang], 
+    [vw_doithucanhtranh].[dt_giakm] AS [dt_giakm], 
+    [vw_doithucanhtranh].[dt_hangtang] AS [dt_hangtang], 
+    [vw_doithucanhtranh].[dt_id] AS [dt_id], 
+    [vw_doithucanhtranh].[dt_keyacc] AS [dt_keyacc], 
+    [vw_doithucanhtranh].[dt_ltnrange] AS [dt_ltnrange], 
+    [vw_doithucanhtranh].[dt_nam] AS [dt_nam], 
+    [vw_doithucanhtranh].[dt_noidung] AS [dt_noidung], 
+    [vw_doithucanhtranh].[dt_OnPostOffPost] AS [dt_OnPostOffPost], 
+    [vw_doithucanhtranh].[dt_post] AS [dt_post], 
+    [vw_doithucanhtranh].[dt_SyncFlag] AS [dt_SyncFlag], 
+    [vw_doithucanhtranh].[dt_tenpost] AS [dt_tenpost], 
+    [vw_doithucanhtranh].[dt_thoigianbd] AS [dt_thoigianbd], 
+    [vw_doithucanhtranh].[dt_thoigiankt] AS [dt_thoigiankt], 
+    [vw_doithucanhtranh].[dt_type] AS [dt_type], 
+    [vw_doithucanhtranh].[dt_variant] AS [dt_variant]
+    FROM [dbo].[vw_doithucanhtranh] AS [vw_doithucanhtranh]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="VW_doithucanhtranhdongian" EntityType="Self.VW_doithucanhtranhdongian" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [VW_doithucanhtranhdongian].[DTCTIMAGE_ID] AS [DTCTIMAGE_ID], 
+    [VW_doithucanhtranhdongian].[DTCTIMAGE_Date] AS [DTCTIMAGE_Date], 
+    [VW_doithucanhtranhdongian].[US_ID] AS [US_ID], 
+    [VW_doithucanhtranhdongian].[Shop_ID] AS [Shop_ID], 
+    [VW_doithucanhtranhdongian].[DTCTIMAGE_Note] AS [DTCTIMAGE_Note], 
+    [VW_doithucanhtranhdongian].[DTCTIMAGE_SyncFlag] AS [DTCTIMAGE_SyncFlag], 
+    [VW_doithucanhtranhdongian].[DTCTIMAGE_DeleteFlag] AS [DTCTIMAGE_DeleteFlag], 
+    [VW_doithucanhtranhdongian].[DTCTIMAGED_DeleteFlag] AS [DTCTIMAGED_DeleteFlag], 
+    [VW_doithucanhtranhdongian].[DTCTIMAGED_ID] AS [DTCTIMAGED_ID], 
+    [VW_doithucanhtranhdongian].[DTCTIMAGED_Image] AS [DTCTIMAGED_Image], 
+    [VW_doithucanhtranhdongian].[DTCTIMAGED_ImagePublish] AS [DTCTIMAGED_ImagePublish], 
+    [VW_doithucanhtranhdongian].[DTCTIMAGED_Note] AS [DTCTIMAGED_Note], 
+    [VW_doithucanhtranhdongian].[DTCTIMAGED_SyncFlag] AS [DTCTIMAGED_SyncFlag]
+    FROM [dbo].[VW_doithucanhtranhdongian] AS [VW_doithucanhtranhdongian]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="VW_DoithucanhtranhImage" EntityType="Self.VW_DoithucanhtranhImage" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [VW_DoithucanhtranhImage].[Us_id] AS [Us_id], 
+    [VW_DoithucanhtranhImage].[Us_name] AS [Us_name], 
+    [VW_DoithucanhtranhImage].[Us_username] AS [Us_username], 
+    [VW_DoithucanhtranhImage].[Us_password] AS [Us_password], 
+    [VW_DoithucanhtranhImage].[Us_Role] AS [Us_Role], 
+    [VW_DoithucanhtranhImage].[Us_SupGroup] AS [Us_SupGroup], 
+    [VW_DoithucanhtranhImage].[Us_text1] AS [Us_text1], 
+    [VW_DoithucanhtranhImage].[Us_text2] AS [Us_text2], 
+    [VW_DoithucanhtranhImage].[Us_text3] AS [Us_text3], 
+    [VW_DoithucanhtranhImage].[Us_text4] AS [Us_text4], 
+    [VW_DoithucanhtranhImage].[Us_text5] AS [Us_text5], 
+    [VW_DoithucanhtranhImage].[Us_text6] AS [Us_text6], 
+    [VW_DoithucanhtranhImage].[Us_text7] AS [Us_text7], 
+    [VW_DoithucanhtranhImage].[Us_float1] AS [Us_float1], 
+    [VW_DoithucanhtranhImage].[Us_float2] AS [Us_float2], 
+    [VW_DoithucanhtranhImage].[Us_float3] AS [Us_float3], 
+    [VW_DoithucanhtranhImage].[Us_float4] AS [Us_float4], 
+    [VW_DoithucanhtranhImage].[Us_datetime1] AS [Us_datetime1], 
+    [VW_DoithucanhtranhImage].[Us_datetime2] AS [Us_datetime2], 
+    [VW_DoithucanhtranhImage].[Us_datetime3] AS [Us_datetime3], 
+    [VW_DoithucanhtranhImage].[Us_datetime4] AS [Us_datetime4], 
+    [VW_DoithucanhtranhImage].[Us_datetime5] AS [Us_datetime5], 
+    [VW_DoithucanhtranhImage].[Us_bit] AS [Us_bit], 
+    [VW_DoithucanhtranhImage].[Us_deleteflag] AS [Us_deleteflag], 
+    [VW_DoithucanhtranhImage].[Us_SyncFlag] AS [Us_SyncFlag], 
+    [VW_DoithucanhtranhImage].[US_TypeKho] AS [US_TypeKho], 
+    [VW_DoithucanhtranhImage].[Shop_id] AS [Shop_id], 
+    [VW_DoithucanhtranhImage].[Shop_name] AS [Shop_name], 
+    [VW_DoithucanhtranhImage].[Shop_detail] AS [Shop_detail], 
+    [VW_DoithucanhtranhImage].[Shop_npp] AS [Shop_npp], 
+    [VW_DoithucanhtranhImage].[Shop_nppcode] AS [Shop_nppcode], 
+    [VW_DoithucanhtranhImage].[Shop_Ngcode] AS [Shop_Ngcode], 
+    [VW_DoithucanhtranhImage].[Shop_LoaiCHCurrent] AS [Shop_LoaiCHCurrent], 
+    [VW_DoithucanhtranhImage].[Shop_LoaiCHFuture] AS [Shop_LoaiCHFuture], 
+    [VW_DoithucanhtranhImage].[Shop_latidue] AS [Shop_latidue], 
+    [VW_DoithucanhtranhImage].[Shop_Longtidue] AS [Shop_Longtidue], 
+    [VW_DoithucanhtranhImage].[Shop_phone] AS [Shop_phone], 
+    [VW_DoithucanhtranhImage].[Shop_Sup] AS [Shop_Sup], 
+    [VW_DoithucanhtranhImage].[Shop_GroupPrice] AS [Shop_GroupPrice], 
+    [VW_DoithucanhtranhImage].[Shop_text2] AS [Shop_text2], 
+    [VW_DoithucanhtranhImage].[Shop_text3] AS [Shop_text3], 
+    [VW_DoithucanhtranhImage].[Shop_text4] AS [Shop_text4], 
+    [VW_DoithucanhtranhImage].[Shop_float1] AS [Shop_float1], 
+    [VW_DoithucanhtranhImage].[Shop_float2] AS [Shop_float2], 
+    [VW_DoithucanhtranhImage].[Shop_float3] AS [Shop_float3], 
+    [VW_DoithucanhtranhImage].[Shop_float4] AS [Shop_float4], 
+    [VW_DoithucanhtranhImage].[Shop_bit] AS [Shop_bit], 
+    [VW_DoithucanhtranhImage].[Shop_datetime1] AS [Shop_datetime1], 
+    [VW_DoithucanhtranhImage].[Shop_datetime2] AS [Shop_datetime2], 
+    [VW_DoithucanhtranhImage].[Shop_datetime3] AS [Shop_datetime3], 
+    [VW_DoithucanhtranhImage].[Shop_datetime4] AS [Shop_datetime4], 
+    [VW_DoithucanhtranhImage].[Shop_deleteflag] AS [Shop_deleteflag], 
+    [VW_DoithucanhtranhImage].[Shop_SyncFlag] AS [Shop_SyncFlag], 
+    [VW_DoithucanhtranhImage].[DTCTIMAGE_Date] AS [DTCTIMAGE_Date], 
+    [VW_DoithucanhtranhImage].[DTCTIMAGE_DeleteFlag] AS [DTCTIMAGE_DeleteFlag], 
+    [VW_DoithucanhtranhImage].[DTCTIMAGE_ID] AS [DTCTIMAGE_ID], 
+    [VW_DoithucanhtranhImage].[DTCTIMAGE_Note] AS [DTCTIMAGE_Note], 
+    [VW_DoithucanhtranhImage].[DTCTIMAGE_SyncFlag] AS [DTCTIMAGE_SyncFlag]
+    FROM [dbo].[VW_DoithucanhtranhImage] AS [VW_DoithucanhtranhImage]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="VW_KHO" EntityType="Self.VW_KHO" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [VW_KHO].[Shop_id] AS [Shop_id], 
+    [VW_KHO].[Shop_name] AS [Shop_name], 
+    [VW_KHO].[Shop_detail] AS [Shop_detail], 
+    [VW_KHO].[Shop_npp] AS [Shop_npp], 
+    [VW_KHO].[Shop_nppcode] AS [Shop_nppcode], 
+    [VW_KHO].[Shop_Ngcode] AS [Shop_Ngcode], 
+    [VW_KHO].[Shop_LoaiCHCurrent] AS [Shop_LoaiCHCurrent], 
+    [VW_KHO].[Shop_LoaiCHFuture] AS [Shop_LoaiCHFuture], 
+    [VW_KHO].[Shop_latidue] AS [Shop_latidue], 
+    [VW_KHO].[Shop_Longtidue] AS [Shop_Longtidue], 
+    [VW_KHO].[Shop_phone] AS [Shop_phone], 
+    [VW_KHO].[Shop_Sup] AS [Shop_Sup], 
+    [VW_KHO].[Shop_GroupPrice] AS [Shop_GroupPrice], 
+    [VW_KHO].[Shop_text2] AS [Shop_text2], 
+    [VW_KHO].[Shop_text3] AS [Shop_text3], 
+    [VW_KHO].[Shop_text4] AS [Shop_text4], 
+    [VW_KHO].[Shop_float1] AS [Shop_float1], 
+    [VW_KHO].[Shop_float2] AS [Shop_float2], 
+    [VW_KHO].[Shop_float3] AS [Shop_float3], 
+    [VW_KHO].[Shop_float4] AS [Shop_float4], 
+    [VW_KHO].[Shop_bit] AS [Shop_bit], 
+    [VW_KHO].[Shop_datetime1] AS [Shop_datetime1], 
+    [VW_KHO].[Shop_datetime2] AS [Shop_datetime2], 
+    [VW_KHO].[Shop_datetime3] AS [Shop_datetime3], 
+    [VW_KHO].[Shop_datetime4] AS [Shop_datetime4], 
+    [VW_KHO].[Shop_deleteflag] AS [Shop_deleteflag], 
+    [VW_KHO].[Shop_SyncFlag] AS [Shop_SyncFlag], 
+    [VW_KHO].[DMQT_Barcode] AS [DMQT_Barcode], 
+    [VW_KHO].[DMQT_Name] AS [DMQT_Name], 
+    [VW_KHO].[DMQT_Detail] AS [DMQT_Detail], 
+    [VW_KHO].[DMQT_Status] AS [DMQT_Status], 
+    [VW_KHO].[DMQT_SyncFlag] AS [DMQT_SyncFlag], 
+    [VW_KHO].[DMQT_DeleteFlag] AS [DMQT_DeleteFlag], 
+    [VW_KHO].[SL] AS [SL]
+    FROM [dbo].[VW_KHO] AS [VW_KHO]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="VW_NHAPHANG" EntityType="Self.VW_NHAPHANG" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [VW_NHAPHANG].[Us_id] AS [Us_id], 
+    [VW_NHAPHANG].[Us_name] AS [Us_name], 
+    [VW_NHAPHANG].[Us_username] AS [Us_username], 
+    [VW_NHAPHANG].[Us_password] AS [Us_password], 
+    [VW_NHAPHANG].[Us_Role] AS [Us_Role], 
+    [VW_NHAPHANG].[Us_SupGroup] AS [Us_SupGroup], 
+    [VW_NHAPHANG].[Us_text1] AS [Us_text1], 
+    [VW_NHAPHANG].[Us_text2] AS [Us_text2], 
+    [VW_NHAPHANG].[Us_text3] AS [Us_text3], 
+    [VW_NHAPHANG].[Us_text4] AS [Us_text4], 
+    [VW_NHAPHANG].[Us_text5] AS [Us_text5], 
+    [VW_NHAPHANG].[Us_text6] AS [Us_text6], 
+    [VW_NHAPHANG].[Us_text7] AS [Us_text7], 
+    [VW_NHAPHANG].[Us_float1] AS [Us_float1], 
+    [VW_NHAPHANG].[Us_float2] AS [Us_float2], 
+    [VW_NHAPHANG].[Us_float3] AS [Us_float3], 
+    [VW_NHAPHANG].[Us_float4] AS [Us_float4], 
+    [VW_NHAPHANG].[Us_datetime1] AS [Us_datetime1], 
+    [VW_NHAPHANG].[Us_datetime2] AS [Us_datetime2], 
+    [VW_NHAPHANG].[Us_datetime3] AS [Us_datetime3], 
+    [VW_NHAPHANG].[Us_datetime4] AS [Us_datetime4], 
+    [VW_NHAPHANG].[Us_datetime5] AS [Us_datetime5], 
+    [VW_NHAPHANG].[Us_bit] AS [Us_bit], 
+    [VW_NHAPHANG].[Us_deleteflag] AS [Us_deleteflag], 
+    [VW_NHAPHANG].[Us_SyncFlag] AS [Us_SyncFlag], 
+    [VW_NHAPHANG].[US_TypeKho] AS [US_TypeKho], 
+    [VW_NHAPHANG].[Shop_id] AS [Shop_id], 
+    [VW_NHAPHANG].[Shop_name] AS [Shop_name], 
+    [VW_NHAPHANG].[Shop_detail] AS [Shop_detail], 
+    [VW_NHAPHANG].[Shop_npp] AS [Shop_npp], 
+    [VW_NHAPHANG].[Shop_nppcode] AS [Shop_nppcode], 
+    [VW_NHAPHANG].[Shop_Ngcode] AS [Shop_Ngcode], 
+    [VW_NHAPHANG].[Shop_LoaiCHCurrent] AS [Shop_LoaiCHCurrent], 
+    [VW_NHAPHANG].[Shop_LoaiCHFuture] AS [Shop_LoaiCHFuture], 
+    [VW_NHAPHANG].[Shop_latidue] AS [Shop_latidue], 
+    [VW_NHAPHANG].[Shop_Longtidue] AS [Shop_Longtidue], 
+    [VW_NHAPHANG].[Shop_phone] AS [Shop_phone], 
+    [VW_NHAPHANG].[Shop_Sup] AS [Shop_Sup], 
+    [VW_NHAPHANG].[Shop_GroupPrice] AS [Shop_GroupPrice], 
+    [VW_NHAPHANG].[Shop_text2] AS [Shop_text2], 
+    [VW_NHAPHANG].[Shop_text3] AS [Shop_text3], 
+    [VW_NHAPHANG].[Shop_text4] AS [Shop_text4], 
+    [VW_NHAPHANG].[Shop_float1] AS [Shop_float1], 
+    [VW_NHAPHANG].[Shop_float2] AS [Shop_float2], 
+    [VW_NHAPHANG].[Shop_float3] AS [Shop_float3], 
+    [VW_NHAPHANG].[Shop_float4] AS [Shop_float4], 
+    [VW_NHAPHANG].[Shop_bit] AS [Shop_bit], 
+    [VW_NHAPHANG].[Shop_datetime1] AS [Shop_datetime1], 
+    [VW_NHAPHANG].[Shop_datetime2] AS [Shop_datetime2], 
+    [VW_NHAPHANG].[Shop_datetime3] AS [Shop_datetime3], 
+    [VW_NHAPHANG].[Shop_datetime4] AS [Shop_datetime4], 
+    [VW_NHAPHANG].[Shop_deleteflag] AS [Shop_deleteflag], 
+    [VW_NHAPHANG].[Shop_SyncFlag] AS [Shop_SyncFlag], 
+    [VW_NHAPHANG].[sku_barcode] AS [sku_barcode], 
+    [VW_NHAPHANG].[sku_name] AS [sku_name], 
+    [VW_NHAPHANG].[sku_detail] AS [sku_detail], 
+    [VW_NHAPHANG].[sku_txtname] AS [sku_txtname], 
+    [VW_NHAPHANG].[sku_txtPrice] AS [sku_txtPrice], 
+    [VW_NHAPHANG].[Target_Group] AS [Target_Group], 
+    [VW_NHAPHANG].[sku_text1] AS [sku_text1], 
+    [VW_NHAPHANG].[sku_text2] AS [sku_text2], 
+    [VW_NHAPHANG].[sku_text3] AS [sku_text3], 
+    [VW_NHAPHANG].[sku_text4] AS [sku_text4], 
+    [VW_NHAPHANG].[sku_text5] AS [sku_text5], 
+    [VW_NHAPHANG].[sku_float1] AS [sku_float1], 
+    [VW_NHAPHANG].[sku_float2] AS [sku_float2], 
+    [VW_NHAPHANG].[sku_float3] AS [sku_float3], 
+    [VW_NHAPHANG].[sku_float4] AS [sku_float4], 
+    [VW_NHAPHANG].[sku_float5] AS [sku_float5], 
+    [VW_NHAPHANG].[sku_float6] AS [sku_float6], 
+    [VW_NHAPHANG].[sku_datetime1] AS [sku_datetime1], 
+    [VW_NHAPHANG].[sku_datetime2] AS [sku_datetime2], 
+    [VW_NHAPHANG].[sku_datetime3] AS [sku_datetime3], 
+    [VW_NHAPHANG].[sku_datetime4] AS [sku_datetime4], 
+    [VW_NHAPHANG].[sku_bit] AS [sku_bit], 
+    [VW_NHAPHANG].[sku_deleteflag] AS [sku_deleteflag], 
+    [VW_NHAPHANG].[sku_SyncFlag] AS [sku_SyncFlag], 
+    [VW_NHAPHANG].[DNH_Date] AS [DNH_Date], 
+    [VW_NHAPHANG].[DNH_DeleteFlag] AS [DNH_DeleteFlag], 
+    [VW_NHAPHANG].[DNH_ID] AS [DNH_ID], 
+    [VW_NHAPHANG].[DNH_Image] AS [DNH_Image], 
+    [VW_NHAPHANG].[DNH_ImagePublish] AS [DNH_ImagePublish], 
+    [VW_NHAPHANG].[DNH_SyncFlag] AS [DNH_SyncFlag], 
+    [VW_NHAPHANG].[CTDNH_Date] AS [CTDNH_Date], 
+    [VW_NHAPHANG].[CTDNH_DeleteFlag] AS [CTDNH_DeleteFlag], 
+    [VW_NHAPHANG].[CTDNH_ID] AS [CTDNH_ID], 
+    [VW_NHAPHANG].[CTDNH_Soluong] AS [CTDNH_Soluong], 
+    [VW_NHAPHANG].[CTDNH_SyncFlag] AS [CTDNH_SyncFlag]
+    FROM [dbo].[VW_NHAPHANG] AS [VW_NHAPHANG]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="VW_Supchamdiem" EntityType="Self.VW_Supchamdiem" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [VW_Supchamdiem].[Us_id] AS [Us_id], 
+    [VW_Supchamdiem].[Us_name] AS [Us_name], 
+    [VW_Supchamdiem].[Us_username] AS [Us_username], 
+    [VW_Supchamdiem].[Us_password] AS [Us_password], 
+    [VW_Supchamdiem].[Us_Role] AS [Us_Role], 
+    [VW_Supchamdiem].[Us_SupGroup] AS [Us_SupGroup], 
+    [VW_Supchamdiem].[Us_text1] AS [Us_text1], 
+    [VW_Supchamdiem].[Us_text2] AS [Us_text2], 
+    [VW_Supchamdiem].[Us_text3] AS [Us_text3], 
+    [VW_Supchamdiem].[Us_text4] AS [Us_text4], 
+    [VW_Supchamdiem].[Us_text5] AS [Us_text5], 
+    [VW_Supchamdiem].[Us_text6] AS [Us_text6], 
+    [VW_Supchamdiem].[Us_text7] AS [Us_text7], 
+    [VW_Supchamdiem].[Us_float1] AS [Us_float1], 
+    [VW_Supchamdiem].[Us_float2] AS [Us_float2], 
+    [VW_Supchamdiem].[Us_float3] AS [Us_float3], 
+    [VW_Supchamdiem].[Us_float4] AS [Us_float4], 
+    [VW_Supchamdiem].[Us_datetime1] AS [Us_datetime1], 
+    [VW_Supchamdiem].[Us_datetime2] AS [Us_datetime2], 
+    [VW_Supchamdiem].[Us_datetime3] AS [Us_datetime3], 
+    [VW_Supchamdiem].[Us_datetime4] AS [Us_datetime4], 
+    [VW_Supchamdiem].[Us_datetime5] AS [Us_datetime5], 
+    [VW_Supchamdiem].[Us_bit] AS [Us_bit], 
+    [VW_Supchamdiem].[Us_deleteflag] AS [Us_deleteflag], 
+    [VW_Supchamdiem].[Us_SyncFlag] AS [Us_SyncFlag], 
+    [VW_Supchamdiem].[US_TypeKho] AS [US_TypeKho], 
+    [VW_Supchamdiem].[Shop_id] AS [Shop_id], 
+    [VW_Supchamdiem].[Shop_name] AS [Shop_name], 
+    [VW_Supchamdiem].[Shop_detail] AS [Shop_detail], 
+    [VW_Supchamdiem].[Shop_npp] AS [Shop_npp], 
+    [VW_Supchamdiem].[Shop_nppcode] AS [Shop_nppcode], 
+    [VW_Supchamdiem].[Shop_Ngcode] AS [Shop_Ngcode], 
+    [VW_Supchamdiem].[Shop_LoaiCHCurrent] AS [Shop_LoaiCHCurrent], 
+    [VW_Supchamdiem].[Shop_LoaiCHFuture] AS [Shop_LoaiCHFuture], 
+    [VW_Supchamdiem].[Shop_latidue] AS [Shop_latidue], 
+    [VW_Supchamdiem].[Shop_Longtidue] AS [Shop_Longtidue], 
+    [VW_Supchamdiem].[Shop_phone] AS [Shop_phone], 
+    [VW_Supchamdiem].[Shop_Sup] AS [Shop_Sup], 
+    [VW_Supchamdiem].[Shop_GroupPrice] AS [Shop_GroupPrice], 
+    [VW_Supchamdiem].[Shop_text2] AS [Shop_text2], 
+    [VW_Supchamdiem].[Shop_text3] AS [Shop_text3], 
+    [VW_Supchamdiem].[Shop_text4] AS [Shop_text4], 
+    [VW_Supchamdiem].[Shop_float1] AS [Shop_float1], 
+    [VW_Supchamdiem].[Shop_float2] AS [Shop_float2], 
+    [VW_Supchamdiem].[Shop_float3] AS [Shop_float3], 
+    [VW_Supchamdiem].[Shop_float4] AS [Shop_float4], 
+    [VW_Supchamdiem].[Shop_bit] AS [Shop_bit], 
+    [VW_Supchamdiem].[Shop_datetime1] AS [Shop_datetime1], 
+    [VW_Supchamdiem].[Shop_datetime2] AS [Shop_datetime2], 
+    [VW_Supchamdiem].[Shop_datetime3] AS [Shop_datetime3], 
+    [VW_Supchamdiem].[Shop_datetime4] AS [Shop_datetime4], 
+    [VW_Supchamdiem].[Shop_deleteflag] AS [Shop_deleteflag], 
+    [VW_Supchamdiem].[Shop_SyncFlag] AS [Shop_SyncFlag], 
+    [VW_Supchamdiem].[TieuChiCD_id] AS [TieuChiCD_id], 
+    [VW_Supchamdiem].[TieuChiCD_Name] AS [TieuChiCD_Name], 
+    [VW_Supchamdiem].[TieuChiCD_Min] AS [TieuChiCD_Min], 
+    [VW_Supchamdiem].[TieuChiCD_Max] AS [TieuChiCD_Max], 
+    [VW_Supchamdiem].[TieuChiCD_Group] AS [TieuChiCD_Group], 
+    [VW_Supchamdiem].[TieuChiCD_text1] AS [TieuChiCD_text1], 
+    [VW_Supchamdiem].[TieuChiCD_text2] AS [TieuChiCD_text2], 
+    [VW_Supchamdiem].[TieuChiCD_text3] AS [TieuChiCD_text3], 
+    [VW_Supchamdiem].[TieuChiCD_text4] AS [TieuChiCD_text4], 
+    [VW_Supchamdiem].[TieuChiCD_float1] AS [TieuChiCD_float1], 
+    [VW_Supchamdiem].[TieuChiCD_float2] AS [TieuChiCD_float2], 
+    [VW_Supchamdiem].[TieuChiCD_float3] AS [TieuChiCD_float3], 
+    [VW_Supchamdiem].[TieuChiCD_float4] AS [TieuChiCD_float4], 
+    [VW_Supchamdiem].[TieuChiCD_bit] AS [TieuChiCD_bit], 
+    [VW_Supchamdiem].[TieuChiCD_DeleteFlag] AS [TieuChiCD_DeleteFlag], 
+    [VW_Supchamdiem].[TieuChiCD_SyncFlag] AS [TieuChiCD_SyncFlag], 
+    [VW_Supchamdiem].[SupChamDiem_DeleteFlag] AS [SupChamDiem_DeleteFlag], 
+    [VW_Supchamdiem].[SupChamDiem_id] AS [SupChamDiem_id], 
+    [VW_Supchamdiem].[SupChamDiem_Lannay] AS [SupChamDiem_Lannay], 
+    [VW_Supchamdiem].[SupChamDiem_LanToi] AS [SupChamDiem_LanToi], 
+    [VW_Supchamdiem].[SupChamDiem_SyncFlag] AS [SupChamDiem_SyncFlag], 
+    [VW_Supchamdiem].[SupChamDiem_TimeCD] AS [SupChamDiem_TimeCD], 
+    [VW_Supchamdiem].[SupChamDiem_UserAccept] AS [SupChamDiem_UserAccept], 
+    [VW_Supchamdiem].[SupChamDiem_UserNote] AS [SupChamDiem_UserNote], 
+    [VW_Supchamdiem].[SupBigPlan_date] AS [SupBigPlan_date], 
+    [VW_Supchamdiem].[SupBigPlan_DeleteFlag] AS [SupBigPlan_DeleteFlag], 
+    [VW_Supchamdiem].[SupBigPlan_GroupPlan] AS [SupBigPlan_GroupPlan], 
+    [VW_Supchamdiem].[SupBigPlan_id] AS [SupBigPlan_id], 
+    [VW_Supchamdiem].[SupBigPlan_KeHoachLanToi] AS [SupBigPlan_KeHoachLanToi], 
+    [VW_Supchamdiem].[SupBigPlan_NXkehoachLanNay] AS [SupBigPlan_NXkehoachLanNay], 
+    [VW_Supchamdiem].[SupBigPlan_SupName] AS [SupBigPlan_SupName], 
+    [VW_Supchamdiem].[SupBigPlan_SupUsername] AS [SupBigPlan_SupUsername], 
+    [VW_Supchamdiem].[SupBigPlan_SyncFlag] AS [SupBigPlan_SyncFlag], 
+    [VW_Supchamdiem].[SupBigPlan_UserAccept] AS [SupBigPlan_UserAccept], 
+    [VW_Supchamdiem].[SupBigPlan_UserNote] AS [SupBigPlan_UserNote], 
+    [VW_Supchamdiem].[ChitietSupChamDiem_DeleteFlag] AS [ChitietSupChamDiem_DeleteFlag], 
+    [VW_Supchamdiem].[ChitietSupChamDiem_ID] AS [ChitietSupChamDiem_ID], 
+    [VW_Supchamdiem].[ChitietSupChamDiem_SyncFlag] AS [ChitietSupChamDiem_SyncFlag], 
+    [VW_Supchamdiem].[ChitietSupChamDiem_value] AS [ChitietSupChamDiem_value]
+    FROM [dbo].[VW_Supchamdiem] AS [VW_Supchamdiem]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="VW_SupCheckin" EntityType="Self.VW_SupCheckin" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [VW_SupCheckin].[Us_id] AS [Us_id], 
+    [VW_SupCheckin].[Us_name] AS [Us_name], 
+    [VW_SupCheckin].[Us_username] AS [Us_username], 
+    [VW_SupCheckin].[Us_password] AS [Us_password], 
+    [VW_SupCheckin].[Us_Role] AS [Us_Role], 
+    [VW_SupCheckin].[Us_SupGroup] AS [Us_SupGroup], 
+    [VW_SupCheckin].[Us_text1] AS [Us_text1], 
+    [VW_SupCheckin].[Us_text2] AS [Us_text2], 
+    [VW_SupCheckin].[Us_text3] AS [Us_text3], 
+    [VW_SupCheckin].[Us_text4] AS [Us_text4], 
+    [VW_SupCheckin].[Us_text5] AS [Us_text5], 
+    [VW_SupCheckin].[Us_text6] AS [Us_text6], 
+    [VW_SupCheckin].[Us_text7] AS [Us_text7], 
+    [VW_SupCheckin].[Us_float1] AS [Us_float1], 
+    [VW_SupCheckin].[Us_float2] AS [Us_float2], 
+    [VW_SupCheckin].[Us_float3] AS [Us_float3], 
+    [VW_SupCheckin].[Us_float4] AS [Us_float4], 
+    [VW_SupCheckin].[Us_datetime1] AS [Us_datetime1], 
+    [VW_SupCheckin].[Us_datetime2] AS [Us_datetime2], 
+    [VW_SupCheckin].[Us_datetime3] AS [Us_datetime3], 
+    [VW_SupCheckin].[Us_datetime4] AS [Us_datetime4], 
+    [VW_SupCheckin].[Us_datetime5] AS [Us_datetime5], 
+    [VW_SupCheckin].[Us_bit] AS [Us_bit], 
+    [VW_SupCheckin].[Us_deleteflag] AS [Us_deleteflag], 
+    [VW_SupCheckin].[Us_SyncFlag] AS [Us_SyncFlag], 
+    [VW_SupCheckin].[US_TypeKho] AS [US_TypeKho], 
+    [VW_SupCheckin].[Shop_id] AS [Shop_id], 
+    [VW_SupCheckin].[Shop_name] AS [Shop_name], 
+    [VW_SupCheckin].[Shop_detail] AS [Shop_detail], 
+    [VW_SupCheckin].[Shop_npp] AS [Shop_npp], 
+    [VW_SupCheckin].[Shop_nppcode] AS [Shop_nppcode], 
+    [VW_SupCheckin].[Shop_Ngcode] AS [Shop_Ngcode], 
+    [VW_SupCheckin].[Shop_LoaiCHCurrent] AS [Shop_LoaiCHCurrent], 
+    [VW_SupCheckin].[Shop_LoaiCHFuture] AS [Shop_LoaiCHFuture], 
+    [VW_SupCheckin].[Shop_latidue] AS [Shop_latidue], 
+    [VW_SupCheckin].[Shop_Longtidue] AS [Shop_Longtidue], 
+    [VW_SupCheckin].[Shop_phone] AS [Shop_phone], 
+    [VW_SupCheckin].[Shop_Sup] AS [Shop_Sup], 
+    [VW_SupCheckin].[Shop_GroupPrice] AS [Shop_GroupPrice], 
+    [VW_SupCheckin].[Shop_text2] AS [Shop_text2], 
+    [VW_SupCheckin].[Shop_text3] AS [Shop_text3], 
+    [VW_SupCheckin].[Shop_text4] AS [Shop_text4], 
+    [VW_SupCheckin].[Shop_float1] AS [Shop_float1], 
+    [VW_SupCheckin].[Shop_float2] AS [Shop_float2], 
+    [VW_SupCheckin].[Shop_float3] AS [Shop_float3], 
+    [VW_SupCheckin].[Shop_float4] AS [Shop_float4], 
+    [VW_SupCheckin].[Shop_bit] AS [Shop_bit], 
+    [VW_SupCheckin].[Shop_datetime1] AS [Shop_datetime1], 
+    [VW_SupCheckin].[Shop_datetime2] AS [Shop_datetime2], 
+    [VW_SupCheckin].[Shop_datetime3] AS [Shop_datetime3], 
+    [VW_SupCheckin].[Shop_datetime4] AS [Shop_datetime4], 
+    [VW_SupCheckin].[Shop_deleteflag] AS [Shop_deleteflag], 
+    [VW_SupCheckin].[Shop_SyncFlag] AS [Shop_SyncFlag], 
+    [VW_SupCheckin].[SupBigPlan_date] AS [SupBigPlan_date], 
+    [VW_SupCheckin].[SupBigPlan_DeleteFlag] AS [SupBigPlan_DeleteFlag], 
+    [VW_SupCheckin].[SupBigPlan_GroupPlan] AS [SupBigPlan_GroupPlan], 
+    [VW_SupCheckin].[SupBigPlan_id] AS [SupBigPlan_id], 
+    [VW_SupCheckin].[SupBigPlan_KeHoachLanToi] AS [SupBigPlan_KeHoachLanToi], 
+    [VW_SupCheckin].[SupBigPlan_NXkehoachLanNay] AS [SupBigPlan_NXkehoachLanNay], 
+    [VW_SupCheckin].[SupBigPlan_SupName] AS [SupBigPlan_SupName], 
+    [VW_SupCheckin].[SupBigPlan_SupUsername] AS [SupBigPlan_SupUsername], 
+    [VW_SupCheckin].[SupBigPlan_SyncFlag] AS [SupBigPlan_SyncFlag], 
+    [VW_SupCheckin].[SupBigPlan_UserAccept] AS [SupBigPlan_UserAccept], 
+    [VW_SupCheckin].[SupBigPlan_UserNote] AS [SupBigPlan_UserNote], 
+    [VW_SupCheckin].[SupCheckIn_AdminAccept] AS [SupCheckIn_AdminAccept], 
+    [VW_SupCheckin].[SupCheckIn_AdminNote] AS [SupCheckIn_AdminNote], 
+    [VW_SupCheckin].[SupCheckIn_Count] AS [SupCheckIn_Count], 
+    [VW_SupCheckin].[SupCheckIn_date] AS [SupCheckIn_date], 
+    [VW_SupCheckin].[SupCheckIn_DeleteFlag] AS [SupCheckIn_DeleteFlag], 
+    [VW_SupCheckin].[SupCheckIn_id] AS [SupCheckIn_id], 
+    [VW_SupCheckin].[SupCheckIn_ImageCI] AS [SupCheckIn_ImageCI], 
+    [VW_SupCheckin].[SupCheckIn_ImageCO] AS [SupCheckIn_ImageCO], 
+    [VW_SupCheckin].[SupCheckIn_Latidue] AS [SupCheckIn_Latidue], 
+    [VW_SupCheckin].[SupCheckIn_Longtidue] AS [SupCheckIn_Longtidue], 
+    [VW_SupCheckin].[SupCheckIn_SyncFlag] AS [SupCheckIn_SyncFlag], 
+    [VW_SupCheckin].[SupCheckIn_TimeCI] AS [SupCheckIn_TimeCI], 
+    [VW_SupCheckin].[SupCheckIn_TimeCO] AS [SupCheckIn_TimeCO]
+    FROM [dbo].[VW_SupCheckin] AS [VW_SupCheckin]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="VW_SUPCHECKINOUT" EntityType="Self.VW_SUPCHECKINOUT" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [VW_SUPCHECKINOUT].[Us_id] AS [Us_id], 
+    [VW_SUPCHECKINOUT].[Us_name] AS [Us_name], 
+    [VW_SUPCHECKINOUT].[Us_username] AS [Us_username], 
+    [VW_SUPCHECKINOUT].[Us_password] AS [Us_password], 
+    [VW_SUPCHECKINOUT].[Us_Role] AS [Us_Role], 
+    [VW_SUPCHECKINOUT].[Us_SupGroup] AS [Us_SupGroup], 
+    [VW_SUPCHECKINOUT].[Us_text1] AS [Us_text1], 
+    [VW_SUPCHECKINOUT].[Us_text2] AS [Us_text2], 
+    [VW_SUPCHECKINOUT].[Us_text3] AS [Us_text3], 
+    [VW_SUPCHECKINOUT].[Us_text4] AS [Us_text4], 
+    [VW_SUPCHECKINOUT].[Us_text5] AS [Us_text5], 
+    [VW_SUPCHECKINOUT].[Us_text6] AS [Us_text6], 
+    [VW_SUPCHECKINOUT].[Us_text7] AS [Us_text7], 
+    [VW_SUPCHECKINOUT].[Us_float1] AS [Us_float1], 
+    [VW_SUPCHECKINOUT].[Us_float2] AS [Us_float2], 
+    [VW_SUPCHECKINOUT].[Us_float3] AS [Us_float3], 
+    [VW_SUPCHECKINOUT].[Us_float4] AS [Us_float4], 
+    [VW_SUPCHECKINOUT].[Us_datetime1] AS [Us_datetime1], 
+    [VW_SUPCHECKINOUT].[Us_datetime2] AS [Us_datetime2], 
+    [VW_SUPCHECKINOUT].[Us_datetime3] AS [Us_datetime3], 
+    [VW_SUPCHECKINOUT].[Us_datetime4] AS [Us_datetime4], 
+    [VW_SUPCHECKINOUT].[Us_datetime5] AS [Us_datetime5], 
+    [VW_SUPCHECKINOUT].[Us_bit] AS [Us_bit], 
+    [VW_SUPCHECKINOUT].[Us_deleteflag] AS [Us_deleteflag], 
+    [VW_SUPCHECKINOUT].[Us_SyncFlag] AS [Us_SyncFlag], 
+    [VW_SUPCHECKINOUT].[US_TypeKho] AS [US_TypeKho], 
+    [VW_SUPCHECKINOUT].[Shop_id] AS [Shop_id], 
+    [VW_SUPCHECKINOUT].[Shop_name] AS [Shop_name], 
+    [VW_SUPCHECKINOUT].[Shop_detail] AS [Shop_detail], 
+    [VW_SUPCHECKINOUT].[Shop_npp] AS [Shop_npp], 
+    [VW_SUPCHECKINOUT].[Shop_nppcode] AS [Shop_nppcode], 
+    [VW_SUPCHECKINOUT].[Shop_Ngcode] AS [Shop_Ngcode], 
+    [VW_SUPCHECKINOUT].[Shop_LoaiCHCurrent] AS [Shop_LoaiCHCurrent], 
+    [VW_SUPCHECKINOUT].[Shop_LoaiCHFuture] AS [Shop_LoaiCHFuture], 
+    [VW_SUPCHECKINOUT].[Shop_latidue] AS [Shop_latidue], 
+    [VW_SUPCHECKINOUT].[Shop_Longtidue] AS [Shop_Longtidue], 
+    [VW_SUPCHECKINOUT].[Shop_phone] AS [Shop_phone], 
+    [VW_SUPCHECKINOUT].[Shop_Sup] AS [Shop_Sup], 
+    [VW_SUPCHECKINOUT].[Shop_GroupPrice] AS [Shop_GroupPrice], 
+    [VW_SUPCHECKINOUT].[Shop_text2] AS [Shop_text2], 
+    [VW_SUPCHECKINOUT].[Shop_text3] AS [Shop_text3], 
+    [VW_SUPCHECKINOUT].[Shop_text4] AS [Shop_text4], 
+    [VW_SUPCHECKINOUT].[Shop_float1] AS [Shop_float1], 
+    [VW_SUPCHECKINOUT].[Shop_float2] AS [Shop_float2], 
+    [VW_SUPCHECKINOUT].[Shop_float3] AS [Shop_float3], 
+    [VW_SUPCHECKINOUT].[Shop_float4] AS [Shop_float4], 
+    [VW_SUPCHECKINOUT].[Shop_bit] AS [Shop_bit], 
+    [VW_SUPCHECKINOUT].[Shop_datetime1] AS [Shop_datetime1], 
+    [VW_SUPCHECKINOUT].[Shop_datetime2] AS [Shop_datetime2], 
+    [VW_SUPCHECKINOUT].[Shop_datetime3] AS [Shop_datetime3], 
+    [VW_SUPCHECKINOUT].[Shop_datetime4] AS [Shop_datetime4], 
+    [VW_SUPCHECKINOUT].[Shop_deleteflag] AS [Shop_deleteflag], 
+    [VW_SUPCHECKINOUT].[Shop_SyncFlag] AS [Shop_SyncFlag], 
+    [VW_SUPCHECKINOUT].[SupBigPlan_date] AS [SupBigPlan_date], 
+    [VW_SUPCHECKINOUT].[SupBigPlan_DeleteFlag] AS [SupBigPlan_DeleteFlag], 
+    [VW_SUPCHECKINOUT].[SupBigPlan_GroupPlan] AS [SupBigPlan_GroupPlan], 
+    [VW_SUPCHECKINOUT].[SupBigPlan_id] AS [SupBigPlan_id], 
+    [VW_SUPCHECKINOUT].[SupBigPlan_KeHoachLanToi] AS [SupBigPlan_KeHoachLanToi], 
+    [VW_SUPCHECKINOUT].[SupBigPlan_NXkehoachLanNay] AS [SupBigPlan_NXkehoachLanNay], 
+    [VW_SUPCHECKINOUT].[SupBigPlan_SupName] AS [SupBigPlan_SupName], 
+    [VW_SUPCHECKINOUT].[SupBigPlan_SupUsername] AS [SupBigPlan_SupUsername], 
+    [VW_SUPCHECKINOUT].[SupBigPlan_SyncFlag] AS [SupBigPlan_SyncFlag], 
+    [VW_SUPCHECKINOUT].[SupBigPlan_UserAccept] AS [SupBigPlan_UserAccept], 
+    [VW_SUPCHECKINOUT].[SupBigPlan_UserNote] AS [SupBigPlan_UserNote], 
+    [VW_SUPCHECKINOUT].[SupCheckIn_AdminAccept] AS [SupCheckIn_AdminAccept], 
+    [VW_SUPCHECKINOUT].[SupCheckIn_AdminNote] AS [SupCheckIn_AdminNote], 
+    [VW_SUPCHECKINOUT].[SupCheckIn_Count] AS [SupCheckIn_Count], 
+    [VW_SUPCHECKINOUT].[SupCheckIn_date] AS [SupCheckIn_date], 
+    [VW_SUPCHECKINOUT].[SupCheckIn_DeleteFlag] AS [SupCheckIn_DeleteFlag], 
+    [VW_SUPCHECKINOUT].[SupCheckIn_id] AS [SupCheckIn_id], 
+    [VW_SUPCHECKINOUT].[SupCheckIn_ImageCI] AS [SupCheckIn_ImageCI], 
+    [VW_SUPCHECKINOUT].[SupCheckIn_ImageCO] AS [SupCheckIn_ImageCO], 
+    [VW_SUPCHECKINOUT].[SupCheckIn_Latidue] AS [SupCheckIn_Latidue], 
+    [VW_SUPCHECKINOUT].[SupCheckIn_Longtidue] AS [SupCheckIn_Longtidue], 
+    [VW_SUPCHECKINOUT].[SupCheckIn_SyncFlag] AS [SupCheckIn_SyncFlag], 
+    [VW_SUPCHECKINOUT].[SupCheckIn_TimeCI] AS [SupCheckIn_TimeCI], 
+    [VW_SUPCHECKINOUT].[SupCheckIn_TimeCO] AS [SupCheckIn_TimeCO]
+    FROM [dbo].[VW_SUPCHECKINOUT] AS [VW_SUPCHECKINOUT]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="VW_UsercheckInout" EntityType="Self.VW_UsercheckInout" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [VW_UsercheckInout].[Us_id] AS [Us_id], 
+    [VW_UsercheckInout].[Us_name] AS [Us_name], 
+    [VW_UsercheckInout].[Us_username] AS [Us_username], 
+    [VW_UsercheckInout].[Us_password] AS [Us_password], 
+    [VW_UsercheckInout].[Us_Role] AS [Us_Role], 
+    [VW_UsercheckInout].[Us_SupGroup] AS [Us_SupGroup], 
+    [VW_UsercheckInout].[Us_text1] AS [Us_text1], 
+    [VW_UsercheckInout].[Us_text2] AS [Us_text2], 
+    [VW_UsercheckInout].[Us_text3] AS [Us_text3], 
+    [VW_UsercheckInout].[Us_text4] AS [Us_text4], 
+    [VW_UsercheckInout].[Us_text5] AS [Us_text5], 
+    [VW_UsercheckInout].[Us_text6] AS [Us_text6], 
+    [VW_UsercheckInout].[Us_text7] AS [Us_text7], 
+    [VW_UsercheckInout].[Us_float1] AS [Us_float1], 
+    [VW_UsercheckInout].[Us_float2] AS [Us_float2], 
+    [VW_UsercheckInout].[Us_float3] AS [Us_float3], 
+    [VW_UsercheckInout].[Us_float4] AS [Us_float4], 
+    [VW_UsercheckInout].[Us_datetime1] AS [Us_datetime1], 
+    [VW_UsercheckInout].[Us_datetime2] AS [Us_datetime2], 
+    [VW_UsercheckInout].[Us_datetime3] AS [Us_datetime3], 
+    [VW_UsercheckInout].[Us_datetime4] AS [Us_datetime4], 
+    [VW_UsercheckInout].[Us_datetime5] AS [Us_datetime5], 
+    [VW_UsercheckInout].[Us_bit] AS [Us_bit], 
+    [VW_UsercheckInout].[Us_deleteflag] AS [Us_deleteflag], 
+    [VW_UsercheckInout].[Us_SyncFlag] AS [Us_SyncFlag], 
+    [VW_UsercheckInout].[US_TypeKho] AS [US_TypeKho], 
+    [VW_UsercheckInout].[Shop_id] AS [Shop_id], 
+    [VW_UsercheckInout].[Shop_name] AS [Shop_name], 
+    [VW_UsercheckInout].[Shop_detail] AS [Shop_detail], 
+    [VW_UsercheckInout].[Shop_npp] AS [Shop_npp], 
+    [VW_UsercheckInout].[Shop_nppcode] AS [Shop_nppcode], 
+    [VW_UsercheckInout].[Shop_Ngcode] AS [Shop_Ngcode], 
+    [VW_UsercheckInout].[Shop_LoaiCHCurrent] AS [Shop_LoaiCHCurrent], 
+    [VW_UsercheckInout].[Shop_LoaiCHFuture] AS [Shop_LoaiCHFuture], 
+    [VW_UsercheckInout].[Shop_latidue] AS [Shop_latidue], 
+    [VW_UsercheckInout].[Shop_Longtidue] AS [Shop_Longtidue], 
+    [VW_UsercheckInout].[Shop_phone] AS [Shop_phone], 
+    [VW_UsercheckInout].[Shop_Sup] AS [Shop_Sup], 
+    [VW_UsercheckInout].[Shop_GroupPrice] AS [Shop_GroupPrice], 
+    [VW_UsercheckInout].[Shop_text2] AS [Shop_text2], 
+    [VW_UsercheckInout].[Shop_text3] AS [Shop_text3], 
+    [VW_UsercheckInout].[Shop_text4] AS [Shop_text4], 
+    [VW_UsercheckInout].[Shop_float1] AS [Shop_float1], 
+    [VW_UsercheckInout].[Shop_float2] AS [Shop_float2], 
+    [VW_UsercheckInout].[Shop_float3] AS [Shop_float3], 
+    [VW_UsercheckInout].[Shop_float4] AS [Shop_float4], 
+    [VW_UsercheckInout].[Shop_bit] AS [Shop_bit], 
+    [VW_UsercheckInout].[Shop_datetime1] AS [Shop_datetime1], 
+    [VW_UsercheckInout].[Shop_datetime2] AS [Shop_datetime2], 
+    [VW_UsercheckInout].[Shop_datetime3] AS [Shop_datetime3], 
+    [VW_UsercheckInout].[Shop_datetime4] AS [Shop_datetime4], 
+    [VW_UsercheckInout].[Shop_deleteflag] AS [Shop_deleteflag], 
+    [VW_UsercheckInout].[Shop_SyncFlag] AS [Shop_SyncFlag], 
+    [VW_UsercheckInout].[Bigplan_date] AS [Bigplan_date], 
+    [VW_UsercheckInout].[Bigplan_deleteFlag] AS [Bigplan_deleteFlag], 
+    [VW_UsercheckInout].[Bigplan_id] AS [Bigplan_id], 
+    [VW_UsercheckInout].[BigPlan_SyncFlag] AS [BigPlan_SyncFlag], 
+    [VW_UsercheckInout].[CaLamViecDetail_id] AS [CaLamViecDetail_id], 
+    [VW_UsercheckInout].[UserCheckInOut_AdminCheck] AS [UserCheckInOut_AdminCheck], 
+    [VW_UsercheckInout].[UserCheckInOut_AdminNote] AS [UserCheckInOut_AdminNote], 
+    [VW_UsercheckInout].[UserCheckInOut_Count] AS [UserCheckInOut_Count], 
+    [VW_UsercheckInout].[UserCheckInOut_date] AS [UserCheckInOut_date], 
+    [VW_UsercheckInout].[UserCheckInOut_DeleteFlag] AS [UserCheckInOut_DeleteFlag], 
+    [VW_UsercheckInout].[UserCheckInOut_ID] AS [UserCheckInOut_ID], 
+    [VW_UsercheckInout].[UserCheckInOut_ImageCI] AS [UserCheckInOut_ImageCI], 
+    [VW_UsercheckInout].[UserCheckInOut_ImageCO] AS [UserCheckInOut_ImageCO], 
+    [VW_UsercheckInout].[UserCheckInOut_LatidueCI] AS [UserCheckInOut_LatidueCI], 
+    [VW_UsercheckInout].[UserCheckInOut_LatidueCO] AS [UserCheckInOut_LatidueCO], 
+    [VW_UsercheckInout].[UserCheckInOut_LongtidueCI] AS [UserCheckInOut_LongtidueCI], 
+    [VW_UsercheckInout].[UserCheckInOut_LongtidueCO] AS [UserCheckInOut_LongtidueCO], 
+    [VW_UsercheckInout].[UserCheckInOut_SyncFlag] AS [UserCheckInOut_SyncFlag], 
+    [VW_UsercheckInout].[UserCheckInOut_TimeCI] AS [UserCheckInOut_TimeCI], 
+    [VW_UsercheckInout].[UserCheckInOut_TimeCO] AS [UserCheckInOut_TimeCO], 
+    [VW_UsercheckInout].[UserCheckInOut_UserNote] AS [UserCheckInOut_UserNote], 
+    [VW_UsercheckInout].[UserCheckInOut_ImageCI1] AS [UserCheckInOut_ImageCI1], 
+    [VW_UsercheckInout].[UserCheckInOut_ImageCO1] AS [UserCheckInOut_ImageCO1], 
+    [VW_UsercheckInout].[UserCheckInOut_ImageCI2] AS [UserCheckInOut_ImageCI2], 
+    [VW_UsercheckInout].[UserCheckInOut_ImageCO2] AS [UserCheckInOut_ImageCO2], 
+    [VW_UsercheckInout].[UserCheckInOut_ImageCI3] AS [UserCheckInOut_ImageCI3], 
+    [VW_UsercheckInout].[UserCheckInOut_ImageCO3] AS [UserCheckInOut_ImageCO3]
+    FROM [dbo].[VW_UsercheckInout] AS [VW_UsercheckInout]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>

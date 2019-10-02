@@ -1,0 +1,223 @@
+﻿@using WEBREPORTMOBILEAPP.Models
+@model List<VW_banhang>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutPageAdmin.cshtml";
+    var sku = ViewBag.sku as List<tbl_sku>;
+    int i = 1;
+    var nnh = ViewBag.nhomnh as List<tbl_NhomNganhHang>;
+    var nh = ViewBag.nganhh as List<tbl_NganhHang>;
+    var nhanh = ViewBag.nhanh as List<tbl_NhanHang>;
+}
+<script>
+    $(function () {
+        $("#startdate").datepicker({
+            dateFormat: "yy-mm-dd",
+            ignoreReadonly: true,
+            allowInputToggle: true
+        }).val()
+        $("#enddate").datepicker({
+            dateFormat: "yy-mm-dd",
+            ignoreReadonly: true,
+            allowInputToggle: true
+        }).val()
+    });
+    function submitform() {
+        $('#BATestForm').submit();
+    }
+</script>
+
+<div class="card mb-3">
+    <div class="card-header">
+        <i class="fas fa-table"></i>
+        @using (Html.BeginForm("Index", "HOME", FormMethod.Post, new { id = "BATestForm", name = "BATestForm" }))
+        {
+            <table>
+                <thead>
+                    <tr>
+                        <th>Ngày bắt đầu</th>
+                        <th><input id="startdate" name="txt_bd" value="@ViewBag.bd" class="form-control" onchange="submitform();" type="date" /></th>
+                    </tr>
+                    <tr>
+                        <th>Ngày kết thúc</th>
+                        <th><input id="enddate" name="txt_kt" value="@ViewBag.kt" class="form-control" onchange="submitform();" type="date" /></th>
+                    </tr>
+                </thead>
+            </table>
+        }
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable1" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Nhóm Ngành Hàng</th>
+                        <th>Số lượng</th>
+                        <th>Thành Tiền</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in nnh)
+                    {
+                        <tr>
+                            <td>@item.NNH_Name</td>
+                            @if (Model.Where(n => n.sku_text1 == item.NNH_Name).Count() > 0)
+                            {
+                                <td>
+                                    @Model.Where(n => n.sku_text1 == item.NNH_Name).Sum(n => n.BillDetail_soluong).Value.ToString("#,##")
+                                </td>
+                                <td>
+                                    @Model.Where(n => n.sku_text1 == item.NNH_Name).Sum(n => n.BillDetail_soluong * n.BillDetail_dongia).Value.ToString("#,##")
+                                </td>
+                            }
+                            else
+                            {
+                                <td>0</td>
+                                <td>0</td>
+                            }
+                        </tr>
+
+                    }
+                </tbody>
+
+            </table>
+        </div>
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable2" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Ngành Hàng</th>
+                        <th>Số lượng</th>
+                        <th>Thành Tiền</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in nh)
+                    {
+                        <tr>
+                            <td>@item.NH_Name</td>
+                            @if (Model.Where(n => n.sku_text2 == item.NH_Name).Count() > 0)
+                            {
+                                <td>
+                                    @Model.Where(n => n.sku_text2 == item.NH_Name).Sum(n => n.BillDetail_soluong).Value.ToString("#,##")
+                                </td>
+                                <td>
+                                    @Model.Where(n => n.sku_text2 == item.NH_Name).Sum(n => n.BillDetail_soluong * n.BillDetail_dongia).Value.ToString("#,##")
+                                </td>
+                            }
+                            else
+                            {
+                                <td>0</td>
+                                <td>0</td>
+                            }
+                        </tr>
+
+                    }
+                </tbody>
+
+            </table>
+        </div>
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable3" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Nhãn Hàng</th>
+                        <th>Số lượng</th>
+                        <th>Thành Tiền</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in nhanh)
+                    {
+                        <tr>
+                            <td>@item.NhanH_Name</td>
+                            @if (Model.Where(n => n.sku_text3 == item.NhanH_Name).Count() > 0)
+                            {
+                                <td>
+                                    @Model.Where(n => n.sku_text3 == item.NhanH_Name).Sum(n => n.BillDetail_soluong).Value.ToString("#,##")
+                                </td>
+                                <td>
+                                    @Model.Where(n => n.sku_text3 == item.NhanH_Name).Sum(n => n.BillDetail_soluong * n.BillDetail_dongia).Value.ToString("#,##")
+                                </td>
+                            }
+                            else
+                            {
+                                <td>0</td>
+                                <td>0</td>
+                            }
+                        </tr>
+
+                    }
+                </tbody>
+
+            </table>
+        </div>
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Nhóm ngành hàng</th>
+                        <th>Ngành Hàng</th>
+                        <th>Nhãn Hàng</th>
+                        <th>Mô Tả</th>
+                        <th>Trọng Lượng</th>
+                        <th>Số Lượng</th>
+                        <th>Thành Tiền</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in sku)
+                    {
+                        <tr>
+                            <td>@i</td>
+                            <td>
+                                @item.sku_text1
+                            </td>
+                            <td>
+                                @item.sku_text2
+                            </td>
+                            <td>
+                                @item.sku_text3
+                            </td>
+                            <td>@item.sku_name</td>
+                            <td>@item.sku_detail</td>
+                            @if (Model.Where(n => n.sku_barcode == item.sku_barcode).Count() > 0)
+                            {
+                                <td>@Model.Where(n => n.sku_barcode == item.sku_barcode).Sum(n => n.BillDetail_soluong).Value.ToString("#,##")</td>
+                                <td>@Model.Where(n => n.sku_barcode == item.sku_barcode).Sum(n => n.BillDetail_soluong * n.BillDetail_dongia).Value.ToString("#,##")</td>
+                            }
+                            else
+                            {
+                                <td>0</td>
+                                <td>0</td>
+                            }
+                        </tr>
+                        i++;
+                    }
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+</div>
+<script>
+    $(document).ready(function () {
+        $('#dataTable').DataTable(
+            {
+                dom: 'Bfrtip',
+                buttons: [
+                    'copy', 'csv', 'excel', 'pdf', 'print'
+                ],
+                paging: false,
+                searching: false,
+                "ordering": false,
+                "info": false
+            });
+        $('#dataTable1').DataTable();
+        $('#dataTable2').DataTable();
+        $('#dataTable3').DataTable();
+    });
+</script>
+

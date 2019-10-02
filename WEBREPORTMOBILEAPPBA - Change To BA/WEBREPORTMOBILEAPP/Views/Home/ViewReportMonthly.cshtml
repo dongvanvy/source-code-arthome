@@ -1,0 +1,185 @@
+﻿@using WEBREPORTMOBILEAPP.Models
+@model List<VW_banhang>
+@{
+    ViewBag.Title = "ViewReportMonthly";
+    Layout = "~/Views/Shared/_LayoutPageAdmin.cshtml";
+    DateTime ngaymuon = Convert.ToDateTime(ViewBag.bd);
+    DateTime ngaytra = Convert.ToDateTime(ViewBag.kt);
+    TimeSpan Time = ngaytra - ngaymuon;
+    int TongSoNgay = Time.Days;
+    var user = ViewBag.user as List<tbl_user>;
+    var target = ViewBag.target as List<tbl_Target>;
+    var kh = ViewBag.kh as List<VW_KHTIEPCAN>;
+    var shop = ViewBag.shop as List<tbl_shop>;
+    var bigplan = ViewBag.bigplan as List<tbl_bigplan>;
+}
+<script>
+    $(function () {
+        $("#startdate").datepicker({
+            dateFormat: "yy-mm-dd",
+            ignoreReadonly: true,
+            allowInputToggle: true
+        }).val()
+        $("#enddate").datepicker({
+            dateFormat: "yy-mm-dd",
+            ignoreReadonly: true,
+            allowInputToggle: true
+        }).val()
+    });
+    function submitform() {
+        $('#BATestForm').submit();
+    }
+</script>
+<div class="card mb-3">
+    <div class="card-header">
+        <i class="fas fa-table"></i>
+        @using (Html.BeginForm("ViewReportMonthly", "HOME", FormMethod.Post, new { id = "BATestForm", name = "BATestForm" }))
+        {
+            <table>
+                <thead>
+                    <tr>
+                        <th>Ngày bắt đầu</th>
+                        <th><input id="startdate" name="txt_bd" value="@ViewBag.bd" class="form-control" onchange="submitform();" type="date" /></th>
+                    </tr>
+                    <tr>
+                        <th>Ngày kết thúc</th>
+                        <th><input id="enddate" name="txt_kt" value="@ViewBag.kt" class="form-control" onchange="submitform();" type="date" /></th>
+                    </tr>
+                </thead>
+            </table>
+        }
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th rowspan="2">Store</th>
+                        <th rowspan="2">Sup</th>
+                        <th rowspan="2">BA</th>
+                        <th rowspan="2">BA CODE</th>
+                        <th rowspan="2">Target SKIN FACE</th>
+                        <th rowspan="2">Target LOTION</th>
+                        <th rowspan="2">BA'S TOTAL TARGET</th>
+                        @for (int p = 0; p <= TongSoNgay; p++)
+                        {
+                            <th colspan="4">
+                                @ngaymuon.AddDays(p).ToString("dd/MM/yyyy")
+                            </th>
+                        }
+                            <th colspan="9">TOTAL MONTHLY</th>
+                    </tr>
+                    <tr>
+                        @for (int p = 0; p <= TongSoNgay; p++)
+                        {
+                        <th>
+                            Shopper tiếp cận
+                        </th>
+                        <th>
+                            Shopper thành công
+                        </th>
+                            <th>
+                                Actual sales Face
+                            </th>
+                            <th>
+                                Actual sales Lotion
+                            </th>
+                        }
+                            <th>
+                                Shopper tiếp cận
+                            </th>
+                        <th>
+                            Shopper thành công
+                        </th>
+                        <th>
+                            Actual sales Face
+                        </th>
+                        <th>
+                            Actual sales Lotion
+                        </th>
+                        <th>
+                            Total actual
+                        </th>
+                        <th>
+                            Giá Trị Giỏ Hàng
+                        </th>
+                        <th>
+                            % Achievement Skin
+                        </th>
+                        <th>
+                            % Achievement Lotion
+                        </th>
+                        <th>
+                            Final % Achievement BA
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in user)
+                    {
+                        foreach( var item1 in shop)
+                        {
+                            if (bigplan.Where(n=>n.Shop_id==item1.Shop_id && n.Us_id==item.Us_id).Count()>0)
+                            {
+                    <tr>
+                        <td>@item1.Shop_name</td>
+                        <td>@item.Us_SupGroup</td>
+                        <td>@item.Us_name</td>
+                        <td>@item.Us_username</td>
+                        <td>@target.Where(n => n.Us_id == item.Us_id && n.Shop_id == item1.Shop_id && n.Target_Group.ToLower() == "skin-face").Sum(n => n.Target_Value).Value.ToString("#,##")</td>
+                        <td>@target.Where(n => n.Us_id == item.Us_id && n.Shop_id == item1.Shop_id && n.Target_Group.ToLower() == "lotion").Sum(n => n.Target_Value).Value.ToString("#,##")</td>
+                        <td>@target.Where(n => n.Us_id == item.Us_id && n.Shop_id == item1.Shop_id).Sum(n => n.Target_Value).Value.ToString("#,##")</td>
+                        @for (int p = 0; p <= TongSoNgay; p++)
+                        {
+                            <th>
+                                @kh.Where(n => n.KHTC_Datereport.Value.ToString("yyyy/MM/dd") == ngaymuon.AddDays(p).ToString("yyyy/MM/dd") && n.Us_id == item.Us_id && n.Shop_id == item1.Shop_id).Sum(n => n.KHTC_TC).Value.ToString("#,##")
+                            </th>
+                            <th>
+                                @kh.Where(n => n.KHTC_Datereport.Value.ToString("yyyy/MM/dd") == ngaymuon.AddDays(p).ToString("yyyy/MM/dd") && n.Us_id == item.Us_id && n.Shop_id == item1.Shop_id).Sum(n => n.KHTC_TCTC).Value.ToString("#,##")
+                            </th>
+                            <th>
+                                @Model.Where(n => n.Us_id == item.Us_id && n.Shop_id == item1.Shop_id && n.Bill_date.Value.ToString("yyyy/MM/dd") == ngaymuon.AddDays(p).ToString("yyyy/MM/dd") && n.Target_Group.ToLower() == "skin-face").Sum(n => n.BillDetail_soluong * n.BillDetail_dongia).Value.ToString("#,##")
+                            </th>
+                            <th>
+                                @Model.Where(n => n.Us_id == item.Us_id && n.Shop_id == item1.Shop_id && n.Bill_date.Value.ToString("yyyy/MM/dd") == ngaymuon.AddDays(p).ToString("yyyy/MM/dd") && n.Target_Group.ToLower() == "lotion").Sum(n => n.BillDetail_soluong * n.BillDetail_dongia).Value.ToString("#,##")
+                            </th>
+                        }
+                        <th>
+                            @kh.Where(n=>n.Us_id==item.Us_id && n.Shop_id==item1.Shop_id).Sum(n=>n.KHTC_TC).Value.ToString("#,##")
+                        </th>
+                        <th>
+                            @kh.Where(n => n.Us_id == item.Us_id && n.Shop_id == item1.Shop_id).Sum(n => n.KHTC_TCTC).Value.ToString("#,##")
+                        </th>
+                        <th>
+                           @Model.Where(n=>n.Shop_id==item1.Shop_id && n.Us_id==item.Us_id && n.Target_Group.ToLower()=="skin-face" ).Sum(n=>n.BillDetail_dongia*n.BillDetail_soluong).Value.ToString("#,##")
+                        </th>
+                        <th>
+                            @Model.Where(n => n.Shop_id == item1.Shop_id && n.Us_id == item.Us_id && n.Target_Group.ToLower() == "lotion").Sum(n => n.BillDetail_dongia * n.BillDetail_soluong).Value.ToString("#,##")
+                        </th>
+                        <th>
+                            @Model.Where(n => n.Shop_id == item1.Shop_id && n.Us_id == item.Us_id).Sum(n => n.BillDetail_dongia * n.BillDetail_soluong).Value.ToString("#,##")
+                        </th>
+                        <th>
+                            @((Model.Where(n => n.Shop_id == item1.Shop_id && n.Us_id == item.Us_id).Sum(n => n.BillDetail_dongia * n.BillDetail_soluong)/ kh.Where(n => n.Us_id == item.Us_id && n.Shop_id == item1.Shop_id).Sum(n => n.KHTC_TCTC)).Value.ToString("#,##"))
+                        </th>
+                        <th>
+                            @(((Model.Where(n => n.Shop_id == item1.Shop_id && n.Us_id == item.Us_id && n.Target_Group.ToLower() == "skin-face").Sum(n => n.BillDetail_dongia * n.BillDetail_soluong)/ target.Where(n => n.Us_id == item.Us_id && n.Shop_id == item1.Shop_id && n.Target_Group.ToLower() == "skin-face").Sum(n => n.Target_Value))*100).Value.ToString("#,##"))
+                        </th>
+                        <th>
+                            @(((Model.Where(n => n.Shop_id == item1.Shop_id && n.Us_id == item.Us_id && n.Target_Group.ToLower() == "lotion").Sum(n => n.BillDetail_dongia * n.BillDetail_soluong) / target.Where(n => n.Us_id == item.Us_id && n.Shop_id == item1.Shop_id && n.Target_Group.ToLower() == "lotion").Sum(n => n.Target_Value)) * 100).Value.ToString("#,##"))
+                        </th>
+                        <th>
+                            @(((Model.Where(n => n.Shop_id == item1.Shop_id && n.Us_id == item.Us_id).Sum(n => n.BillDetail_dongia * n.BillDetail_soluong) / target.Where(n => n.Us_id == item.Us_id && n.Shop_id == item1.Shop_id).Sum(n => n.Target_Value)) * 100).Value.ToString("#,##"))
+                        </th>
+                    </tr>
+                            }
+                        }
+
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+    @*<div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>*@
+</div>
+

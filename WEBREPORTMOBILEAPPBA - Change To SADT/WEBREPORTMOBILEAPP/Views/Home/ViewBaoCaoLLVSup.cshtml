@@ -1,0 +1,102 @@
+﻿@using WEBREPORTMOBILEAPP.Models
+@model List<tbl_SupBigPlan>
+@{
+    ViewBag.Title = "ViewBaoCaoLLVSup";
+    Layout = "~/Views/Shared/_LayoutPageAdmin.cshtml";
+    var check = ViewBag.check as List<tbl_SupCheckIn>;
+    var sup = ViewBag.sup as List<Tbl_SupName>;
+    DateTime ngaymuon = Convert.ToDateTime(ViewBag.bd);
+    DateTime ngaytra = Convert.ToDateTime(ViewBag.kt);
+    TimeSpan Time = ngaytra - ngaymuon;
+    int TongSoNgay = Time.Days;
+    int i = 1;
+}
+<script>
+    $(function () {
+        $("#startdate").datepicker({
+            dateFormat: "yy-mm-dd",
+            ignoreReadonly: true,
+            allowInputToggle: true
+        }).val()
+        $("#enddate").datepicker({
+            dateFormat: "yy-mm-dd",
+            ignoreReadonly: true,
+            allowInputToggle: true
+        }).val()
+    });
+    function submitform() {
+        $('#BATestForm').submit();
+    }
+</script>
+<div class="card mb-3">
+    <div class="card-header">
+        <i class="fas fa-table"></i>
+        @using (Html.BeginForm("ViewBaoCaoLLVSup", "HOME", FormMethod.Post, new { id = "BATestForm", name = "BATestForm" }))
+        {
+            <table>
+                <thead>
+                    <tr>
+                        <th>Ngày bắt đầu</th>
+                        <th><input id="startdate" name="txt_bd" value="@ViewBag.bd" class="form-control" onchange="submitform();" type="date" /></th>
+                    </tr>
+                    <tr>
+                        <th>Ngày kết thúc</th>
+                        <th><input id="enddate" name="txt_kt" value="@ViewBag.kt" class="form-control" onchange="submitform();" type="date" /></th>
+                    </tr>
+                </thead>
+            </table>
+        }
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Tên Sup</th>
+                        @for (int p = 0; p <= TongSoNgay; p++)
+                        {
+                            <th>
+                                @ngaymuon.AddDays(p).ToString("dd/MM/yyyy")
+                            </th>
+                        }
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in sup)
+                    {
+                        <tr>
+                            <td>@item.Sup_name</td>
+                            @for (int p = 0; p <= TongSoNgay; p++)
+                            {
+                            <td>
+                                @foreach (var item1 in Model)
+                                {
+                                    if (item1.SupBigPlan_SupUsername.ToLower() == item.Sup_ID.ToLower() && item1.SupBigPlan_date.ToString("dd/MM/yyyy") == ngaymuon.AddDays(p).ToString("dd/MM/yyyy"))
+                                    {
+                                        if (check.FirstOrDefault(n => n.SupBigPlan_id == item1.SupBigPlan_id) == null)
+                                        {
+                                            <p class="btn-success">
+                                                @item1.Us_id - @item1.Shop_id                                             </p>
+                                        }
+                                        else
+                                        {
+                                            <p class="btn-warning">
+                                                <a href="@Url.Action("ViewShowLocationSup","Home",new { ID=check.FirstOrDefault(n=>n.SupBigPlan_id==item1.SupBigPlan_id).SupCheckIn_id})">@item1.Us_id - @item1.Shop_id</a>
+                                            </p>
+                                        }
+
+                                    }
+                                }
+                            </td>
+                            }
+                        </tr>
+
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+</div>
+
+

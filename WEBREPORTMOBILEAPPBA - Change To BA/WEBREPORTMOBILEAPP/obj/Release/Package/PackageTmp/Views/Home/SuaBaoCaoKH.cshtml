@@ -1,0 +1,131 @@
+﻿@using WEBREPORTMOBILEAPP.Models
+@model VW_KHTIEPCAN
+@{
+    ViewBag.Title = "ViewEditBill";
+    Layout = "~/Views/Shared/_LayoutPageAdmin.cshtml";
+    int i = 1;
+}
+<script>
+    $(function () {
+        $("#startdate").datepicker({
+            dateFormat: "yy-mm-dd",
+            ignoreReadonly: true,
+            allowInputToggle: true
+        }).val()
+        $("#enddate").datepicker({
+            dateFormat: "yy-mm-dd",
+            ignoreReadonly: true,
+            allowInputToggle: true
+        }).val()
+        $("#txt_date").datepicker({
+            dateFormat: "yy-mm-dd",
+            ignoreReadonly: true,
+            allowInputToggle: true
+        }).val()
+    });
+    function submitform() {
+        $('#BATestForm').submit();
+    }
+</script>
+
+<div class="card mb-3">
+    <div class="card-header">
+        <i class="fas fa-table"></i>
+        <br />
+        <form name="themkh" id="themkh">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Thêm báo cáo</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            Username
+                        </td>
+                        <td>
+                            <input type="text" value="@Model.KHTC_ID" hidden name="txt_khtcid" />
+                            <input type="text" placeholder="BaCode" required name="txt_bacode" value="@Model.Us_id" readonly="readonly"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Mã Siêu thị
+                        </td>
+                        <td>
+                            <input type="text" placeholder="Mã Siêu Thị" required name="txt_shopid" value="@Model.Shop_id" readonly="readonly"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Thời gian</td>
+                        <td>
+                            <input type="date" name="txt_date" id="txt_date" value="@Model.KHTC_Datereport.Value.ToString("yyyy-MM-dd")" required />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Tiếp cận</td>
+                        <td>
+                            <input type="number" inputmode="numeric" name="txt_tc" required value="@Model.KHTC_TC"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Tiếp cận thành công</td>
+                        <td>
+                            <input type="number" inputmode="numeric" name="txt_tctc" required value="@Model.KHTC_TCTC" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Tiếp cận</td>
+                        <td>
+                            <input type="number" inputmode="numeric" name="txt_dt" required value="@Model.KHTC_Doithu"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <a onclick="ThemBill()" href="javascript:void(0)">Sửa</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </form>
+    </div>
+    <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+</div>
+
+<script>
+    function buy_item_webshop(id) {
+        if (confirm("Bạn đã chắc chắn chưa?")) {
+            $.post('@Url.Action("XoaBaoCaoKH", "Home")', { id: id }, function (res) {
+            if (res.status != undefined && res.status == "1") {
+                //mua item thanh cong, lam mot viec gi do sau do, vi du: thong bao mua hang thanh cong va dong' popup
+                alert(res.message);
+                location.reload(true);
+            } else {
+                //thong bao loi ra cho nguoi dung hoặc thông báo validate data gì đó
+                alert(res.message);
+            }
+        }, 'json');//kiểu dữ liệu trả về là json
+        }
+        return false;
+    }
+</script>
+<script>
+    function ThemBill() {
+        var datapost = $('#themkh').serialize();
+                    $.post('@Url.Action("Suabaocaokhac", "Home")', datapost, function (res) {
+                        if (res.status != undefined && res.status == "1") {
+                            //mua item thanh cong, lam mot viec gi do sau do, vi du: thong bao mua hang thanh cong va dong' popup
+                                    alert(res.message);
+                                    location.reload(true);
+                        } else {
+                            //thong bao loi ra cho nguoi dung hoặc thông báo validate data gì đó
+                            alert(res.message);
+                        }
+                    }, 'json');//kiểu dữ liệu trả về là json
+                    return false;
+                }
+</script>
+
+
+

@@ -1,0 +1,159 @@
+﻿@using WEBREPORTMOBILEAPP.Models
+@model List<VW_banhang>
+@{
+    ViewBag.Title = "ViewDetailBill";
+    Layout = "~/Views/Shared/_LayoutPageAdmin.cshtml";
+    int i = 1;
+    string billid = ViewBag.billid;
+}
+<div class="card mb-3">
+    <div class="card-header">
+        <i class="fas fa-table"></i>
+        <table>
+            <tr>
+                <th>
+                    <a href="@Url.Action("DoiQuaEdit","Home",new { id = billid })" target="_blank">
+                        Thêm Quà vào đơn hàng
+                    </a>
+
+                </th>
+            </tr>
+        </table>
+            <form name="themsp" id="themsp">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Thêm sản phẩm vào đơn hàng</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                SKUBARCODE
+                            </td>
+                            <td>
+                                <input hidden type="text" name="Txt_id" value="@billid"/>
+                                <input type="number" inputmode="numeric" name="Txt_barcode" required="required" placeholder="Barcode sản phẩm"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Số lượng</td>
+                            <td>
+                                <input type="number" inputmode="numeric" required="required" name="Txt_sl" placeholder="Số lượng" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Đơn giá</td>
+                            <td>
+                                <input type="number" inputmode="numeric" required="required" name="Txt_dongia" placeholder="Đơn giá"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <input type="button" value="Thêm" onclick="ThemSp()"/>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </form>
+        @*@using (Html.BeginForm("ViewEditBill", "HOME", FormMethod.Post, new { id = "BATestForm", name = "BATestForm" }))
+        {
+            <table>
+                <thead>
+                    <tr>
+                        <th>Ngày bắt đầu</th>
+                        <th><input id="startdate" name="txt_bd" value="@ViewBag.bd" class="form-control" onchange="submitform();" type="date" /></th>
+                    </tr>
+                    <tr>
+                        <th>Ngày kết thúc</th>
+                        <th><input id="enddate" name="txt_kt" value="@ViewBag.kt" class="form-control" onchange="submitform();" type="date" /></th>
+                    </tr>
+                </thead>
+            </table>
+        }*@
+        <br />
+    </div>
+    <form>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Bill_ID</th>
+                            <th>Ngày</th>
+                            <th>Nhân viên</th>
+                            <th>Cửa hàng</th>
+                            <th>Sku Barcode</th>
+                            <th>Sku Name</th>
+                            <th>Số lượng</th>
+                            <th>Đơn Giá</th>
+                            <th>Xóa</th>
+                            <th>Sửa</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@i</td>
+                                <td>@item.Bill_id</td>
+                                <td>@item.Bill_date.Value.ToString("HH:mm:ss dd/MM/yyyy")</td>
+                                <td>@item.Us_id</td>
+                                <td>@item.Shop_id</td>
+                                <td>
+                                    @item.sku_barcode
+                                </td>
+                                <td>@item.sku_name</td>
+                                <td>@item.BillDetail_soluong.Value.ToString("#,##")</td>
+                                <td>@item.BillDetail_dongia.Value.ToString("#,##")</td>
+                                <th>
+                                    <a onclick="deletebilldetail('@item.Bill_id',@item.sku_barcode)" href="javascript:void(0)" >Xóa</a>
+                                </th>
+                                <th>
+                                    <a href="@Url.Action("EditBillDetail","Home",new { id=item.Bill_id,ba=item.sku_barcode})" target="_blank">Sửa</a>
+                                </th>
+                            </tr>
+                            //i++;
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </form>
+    @*<div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>*@
+</div>
+<script>
+          function ThemSp()
+                {
+                    var datapost = $('#themsp').serialize();
+                    $.post('@Url.Action("AddSPBilldetail", "Home")', datapost, function (res) {
+                        if (res.status != undefined && res.status == "1") {
+                            //mua item thanh cong, lam mot viec gi do sau do, vi du: thong bao mua hang thanh cong va dong' popup
+                                    alert(res.message);
+                                    location.reload(true);
+                        } else {
+                            //thong bao loi ra cho nguoi dung hoặc thông báo validate data gì đó
+                            alert(res.message);
+                        }
+                    }, 'json');//kiểu dữ liệu trả về là json
+                    return false;
+                }
+            function deletebilldetail(id,ba) {
+                if (confirm("Bạn đã chắc chắn chưa?")) {
+                     $.post('@Url.Action("DeleteSpBillDetail", "Home")', { id: id, ba: ba }, function (res) {
+                        if (res.status != undefined && res.status == "1") {
+                            //mua item thanh cong, lam mot viec gi do sau do, vi du: thong bao mua hang thanh cong va dong' popup
+                            alert(res.message);
+                            location.reload(true);
+                        } else {
+                            //thong bao loi ra cho nguoi dung hoặc thông báo validate data gì đó
+                            alert(res.message);
+                        }
+                    }, 'json');//kiểu dữ liệu trả về là json
+                    return false;
+                }
+        
+          };
+</script>
+

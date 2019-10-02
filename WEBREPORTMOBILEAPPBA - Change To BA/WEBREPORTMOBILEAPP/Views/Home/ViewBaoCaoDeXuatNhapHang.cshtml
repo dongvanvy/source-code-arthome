@@ -1,0 +1,133 @@
+﻿@using WEBREPORTMOBILEAPP.Models
+@model List<VW_DeXuatNhapHang>
+@{
+    ViewBag.Title = "ViewBaoCaoDeXuatNhapHang";
+    Layout = "~/Views/Shared/_LayoutPageAdmin.cshtml";
+    int i = 1;
+    var user = ViewBag.user as List<tbl_user>;
+    var shop = ViewBag.shop as List<tbl_shop>;
+    var sku = ViewBag.sku as List<tbl_sku>;
+    var ddh = ViewBag.ddh as List<tbl_Dondathang>;
+}
+
+<script>
+    $(function () {
+        $("#startdate").datepicker({
+            dateFormat: "yy-mm-dd",
+            ignoreReadonly: true,
+            allowInputToggle: true
+        }).val()
+        $("#enddate").datepicker({
+            dateFormat: "yy-mm-dd",
+            ignoreReadonly: true,
+            allowInputToggle: true
+        }).val()
+    });
+    function submitform() {
+        $('#BATestForm').submit();
+    }
+</script>
+
+<div class="card mb-3">
+    <div class="card-header">
+        <i class="fas fa-table"></i>
+        @using (Html.BeginForm("ViewBaoCaoDeXuatNhapHang", "HOME", FormMethod.Post, new { id = "BATestForm", name = "BATestForm" }))
+        {
+            <table>
+                <thead>
+                    <tr>
+                        <th>Ngày bắt đầu</th>
+                        <th><input id="startdate" name="txt_bd" value="@ViewBag.bd" class="form-control" onchange="submitform();" type="date" /></th>
+                    </tr>
+                    <tr>
+                        <th>Ngày kết thúc</th>
+                        <th><input id="enddate" name="txt_kt" value="@ViewBag.kt" class="form-control" onchange="submitform();" type="date" /></th>
+                    </tr>
+                </thead>
+            </table>
+        }
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Thời gian</th>
+                        <th>Nhân viên</th>
+                        <th>Cửa hàng</th>
+                        <th>Chi tiết</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in ddh)
+                    {
+                        <tr>
+                            <td>
+                                @item.DDH_time.Value.ToString("dd/MM/yyyy")
+                            </td>
+                            <td>
+                                @if (user.FirstOrDefault(n => n.Us_id == item.Us_id) == null)
+                                {
+                                    /**/
+                                }
+                                else
+                                {
+                                <span>
+                                    @user.FirstOrDefault(n => n.Us_id == item.Us_id).Us_name.ToString()
+                                </span>
+                                    
+                                }
+                                </td>
+                            <td>
+                                @if (shop.FirstOrDefault(n => n.Shop_id == item.Shop_id) == null)
+                                {
+                                    /**/
+                                }
+                                else
+                                {
+                                <span>@shop.FirstOrDefault(n => n.Shop_id == item.Shop_id).Shop_name.ToString()</span> 
+                                }
+
+                            </td>
+                            <td>
+                                <table>
+                                    @foreach (var item1 in Model)
+                                    {
+                                        if (item1.DDH_ID == item.DDH_ID)
+                                        {
+                                            <tr>
+                                                <td>@item1.sku_barcode</td>
+                                                <td>@item1.sku_name</td>
+                                                <td>@item1.CTDDH_Soluong</td>
+                                            </tr>
+                                        }
+                                    }
+
+                                </table>
+                            </td>
+                        </tr>
+                        i++;
+                    }
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+</div>
+<script>
+    $(document).ready(function () {
+        $('#dataTable').DataTable(
+            {
+                dom: 'Bfrtip',
+                buttons: [
+                    'copy', 'csv', 'excel', 'pdf', 'print'
+                ],
+                paging: false,
+                searching: false,
+                "ordering": false,
+                "info": false
+            });
+    });
+</script>
+

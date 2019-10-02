@@ -1,0 +1,135 @@
+﻿@using WEBREPORTMOBILEAPP.Models
+@model List<VW_DOIQUA>
+@{
+    ViewBag.Title = "ViewBaoCaoDoiQua";
+    Layout = "~/Views/Shared/_LayoutPageAdmin.cshtml";
+    var user = ViewBag.user as List<tbl_user>;
+    var shop = ViewBag.shop as List<tbl_shop>;
+    var dmqt = ViewBag.dmqt as List<tbl_DanhMucQuaTang>;
+}
+<script>
+    $(function () {
+        $("#startdate").datepicker({
+            dateFormat: "yy-mm-dd",
+            ignoreReadonly: true,
+            allowInputToggle: true
+        }).val()
+        $("#enddate").datepicker({
+            dateFormat: "yy-mm-dd",
+            ignoreReadonly: true,
+            allowInputToggle: true
+        }).val()
+    });
+    function submitform() {
+        $('#BATestForm').submit();
+    }
+</script>
+<div class="card mb-3">
+    <div class="card-header">
+
+        @using (Html.BeginForm("ViewBaoCaoDoiQua", "HOME", FormMethod.Post, new { id = "BATestForm", name = "BATestForm" }))
+        {
+            <table>
+                <thead>
+                    <tr>
+                        <th>Ngày bắt đầu</th>
+                        <th><input id="startdate" name="txt_bd" value="@ViewBag.bd" class="form-control" onchange="submitform();" type="date" /></th>
+                    </tr>
+                    <tr>
+                        <th>Ngày kết thúc</th>
+                        <th><input id="enddate" name="txt_kt" value="@ViewBag.kt" class="form-control" onchange="submitform();" type="date" /></th>
+                    </tr>
+                </thead>
+            </table>
+        }
+        <i class="fas fa-table"></i> CỬA HÀNG - ĐỔI QUÀ
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Tên cửa hàng</th>
+                        <th>Mã cửa hàng</th>
+                        <th>Phần quà</th>
+                        <th>Số lượng</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in shop)
+                    {
+                        foreach (var item1 in dmqt)
+                        {
+                            if (Model.Where(n => n.Shop_id == item.Shop_id && n.DMQT_Barcode == item1.DMQT_Barcode).Count() > 0)
+                            {
+                                <tr>
+                                    <td>@item.Shop_name</td>
+                                    <td>@item.Shop_id</td>
+                                    <td>@item1.DMQT_Name</td>
+                                    <td>
+                                        @Model.Where(n => n.Shop_id == item.Shop_id && n.DMQT_Barcode == item1.DMQT_Barcode).Sum(n => n.DoiQua_Value).Value.ToString("#,##")
+                                    </td>
+                                </tr>
+                            }
+                        }
+                    }
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+    @*<div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>*@
+</div>
+@*<div class="card mb-3">
+    <div class="card-header">
+        <i class="fas fa-table"></i> NHÂN VIÊN - ĐỔI QUÀ
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Tên nhân viên</th>
+                        <th>Chi tiết</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in user)
+                    {
+                        <tr>
+                            <td>@item.Us_name</td>
+                            <td>
+                                <table>
+                                    <tr>
+                                        <td>Tên quà tặng</td>
+                                        <td>Số lượng</td>
+                                    </tr>
+                                    @foreach (var item1 in dmqt)
+                                    {
+                                        <tr>
+                                            <td>@item1.DMQT_Name</td>
+                                            <td>
+                                                @if (Model.Where(n => n.Us_id == item.Us_id && n.DMQT_Barcode == item1.DMQT_Barcode).Count() == 0)
+                                                {
+                                                    <span>0</span>
+                                                }
+                                                else
+                                                {
+                                                    <span>@Model.Where(n => n.Us_id == item.Us_id && n.DMQT_Barcode == item1.DMQT_Barcode).Sum(n => n.DoiQua_Value).Value.ToString("#,##")</span>
+                                                }
+                                            </td>
+                                        </tr>
+                                    }
+                                </table>
+                            </td>
+                        </tr>
+                        i++;
+                    }
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+    @*<div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>*@
+@*</div>*@
+

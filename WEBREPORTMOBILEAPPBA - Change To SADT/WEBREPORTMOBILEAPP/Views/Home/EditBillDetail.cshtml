@@ -1,0 +1,84 @@
+﻿@using WEBREPORTMOBILEAPP.Models
+@model tbl_billDetail
+@{
+    ViewBag.Title = "EditBillDetail";
+    Layout = "~/Views/Shared/_LayoutPageAdmin.cshtml";
+}
+
+<div class="card mb-3">
+    <div class="card-header">
+        <i class="fas fa-table"></i>
+        <form name="themsp" id="themsp">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Sửa sản phẩm vào đơn hàng</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            SKUBARCODE
+                        </td>
+                        <td>
+                            <input hidden type="text" name="Txt_id" value="@Model.Bill_id" />
+                            <input type="number" inputmode="numeric" name="Txt_barcode" required="required" placeholder="Barcode sản phẩm" readonly="readonly" value="@Model.sku_barcode"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Số lượng</td>
+                        <td>
+                            <input type="number" inputmode="numeric" required="required" name="Txt_sl" placeholder="Số lượng" value="@Model.BillDetail_soluong"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Đơn giá</td>
+                        <td>
+                            <input type="number" inputmode="numeric" required="required" name="Txt_dongia" placeholder="Đơn giá" value="@Model.BillDetail_dongia"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <input type="button" value="Sửa" onclick="ThemSp()"/>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </form>
+        @*@using (Html.BeginForm("ViewEditBill", "HOME", FormMethod.Post, new { id = "BATestForm", name = "BATestForm" }))
+            {
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Ngày bắt đầu</th>
+                            <th><input id="startdate" name="txt_bd" value="@ViewBag.bd" class="form-control" onchange="submitform();" type="date" /></th>
+                        </tr>
+                        <tr>
+                            <th>Ngày kết thúc</th>
+                            <th><input id="enddate" name="txt_kt" value="@ViewBag.kt" class="form-control" onchange="submitform();" type="date" /></th>
+                        </tr>
+                    </thead>
+                </table>
+            }*@
+        <br />
+    </div>
+</div>
+<script>
+       function ThemSp()
+                {
+                    var datapost = $('#themsp').serialize();
+                    $.post('@Url.Action("AddSPBilldetail", "Home")', datapost, function (res) {
+                        if (res.status != undefined && res.status == "1") {
+                            //mua item thanh cong, lam mot viec gi do sau do, vi du: thong bao mua hang thanh cong va dong' popup
+                                    alert(res.message);
+                                    location.reload(true);
+                        } else {
+                            //thong bao loi ra cho nguoi dung hoặc thông báo validate data gì đó
+                            alert(res.message);
+                        }
+                    }, 'json');//kiểu dữ liệu trả về là json
+                    return false;
+                }
+</script>
+
+

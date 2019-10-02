@@ -1,0 +1,25 @@
+﻿<Properties StartupConfiguration="{ECCCA72D-9933-466D-AB87-0C4109796FB9}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="WEBREPORTMOBILEAPP/Controllers/HomeController.cs">
+    <Files>
+      <File FileName="WEBREPORTMOBILEAPP/Controllers/HomeController.cs" Line="12" Column="35" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="WEBREPORTMOBILEAPP" expanded="True">
+            <Node name="WEBREPORTMOBILEAPP" expanded="True">
+              <Node name="References" expanded="True" selected="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.WEBREPORTMOBILEAPP PreferredExecutionTarget="MonoDevelop.Default" />
+</Properties>

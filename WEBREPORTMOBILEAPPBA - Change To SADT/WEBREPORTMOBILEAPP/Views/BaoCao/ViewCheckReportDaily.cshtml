@@ -1,0 +1,144 @@
+﻿
+@using WEBREPORTMOBILEAPP.Models
+@model List<VW_BCHINHANH>
+@{
+   ViewBag.Title = "ViewCheckReportDaily";
+    Layout = "~/Views/Shared/_LayoutPageAdmin.cshtml";
+    var user = ViewBag.user as List<tbl_user>;
+    var shop = ViewBag.shop as List<tbl_shop>;
+    var bigplan = ViewBag.big as List<tbl_bigplan>;
+    int i = 1;
+    DateTime ngaymuon = Convert.ToDateTime(ViewBag.bd);
+    DateTime ngaytra = Convert.ToDateTime(ViewBag.kt);
+    TimeSpan Time = ngaytra - ngaymuon;
+    int TongSoNgay = Time.Days;
+}
+
+
+<script>
+    $(function () {
+        $("#startdate").datepicker({
+            dateFormat: "yy-mm-dd",
+            ignoreReadonly: true,
+            allowInputToggle: true
+        }).val()
+        $("#enddate").datepicker({
+            dateFormat: "yy-mm-dd",
+            ignoreReadonly: true,
+            allowInputToggle: true
+        }).val()
+    });
+    function submitform() {
+        $('#BATestForm').submit();
+    }
+</script>
+
+<div class="card mb-3">
+    <div class="card-header">
+        <i class="fas fa-table"></i>
+        @using (Html.BeginForm("ViewCheckReportDaily", "BaoCao", FormMethod.Post, new { id = "BATestForm", name = "BATestForm" }))
+        {
+            <table>
+                <thead>
+                    <tr>
+                        <th>Ngày bắt đầu</th>
+                        <th><input id="startdate" name="txt_bd" value="@ViewBag.bd" class="form-control" onchange="submitform();" type="date" /></th>
+                    </tr>
+                    <tr>
+                        <th>Ngày kết thúc</th>
+                        <th><input id="enddate" name="txt_kt" value="@ViewBag.kt" class="form-control" onchange="submitform();" type="date" /></th>
+                    </tr>
+                </thead>
+            </table>
+        }
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="tableImg" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Ngày</th>
+                        <th>Nhân viên</th>
+                        <th>Cửa hàng</th>
+                        <th>Loại CH</th>
+                        <th>Hình ảnh</th>
+                        <th>SUP</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in bigplan)
+                    {
+                        <tr>
+                            <td>@i</td>
+                            <td>@item.Bigplan_date.ToString("dd/MM/yyyy")</td>
+                            <td>@user.FirstOrDefault(n => n.Us_id.ToLower() == item.Us_id.ToLower()).Us_name.ToString()</td>
+                            <td>@shop.FirstOrDefault(n => n.Shop_id.ToLower() == item.Shop_id.ToLower()).Shop_name.ToString()</td>
+                            <td>@shop.FirstOrDefault(n => n.Shop_id.ToLower() == item.Shop_id.ToLower()).Shop_LoaiCHCurrent.ToString()</td>
+                            <td>
+                                <table>
+                                    @foreach (var item1 in Model)
+                                    {
+
+                                        if (item.Bigplan_id.ToLower() == item1.bigplan_id.ToLower() && item1.DBCHA_Image == null)
+                                        {
+                                            <tr>
+                                                <td>
+                                                    <a class="image-popup" href="@item1.DBCHA_Image"><img id="myImg" src="@item1.DBCHA_Image" style="width:70px;height:auto;" /></a>
+                                                    <p class="image-popup" href="@item1.DBCHA_Image">@item1.DBCHA_Image</p>
+                                                </td>
+                                                <td>
+                                                    @item1.TCBCHA_Name <br />
+                                                    @item1.BCHA_Time
+                                                </td>
+                                                <td>@item1.Us_SupGroup</td>
+                                            </tr>
+                                        }
+
+                                    }
+                                </table>
+
+                            </td>
+                           
+
+
+                        </tr>
+                        i++;
+                    }
+
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+    <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+</div>
+
+<script>
+    $(document).ready(function () {
+
+        $('.image-popup').magnificPopup({
+            type: 'image',
+            closeOnContentClick: true,
+            mainClass: 'mfp-img-mobile',
+            image: {
+                verticalFit: true
+            }
+        });
+        $('#tableImg').DataTable(
+            {
+                dom: 'Bfrtip',
+                buttons: [
+                    'copy', 'csv', 'excel', 'pdf', 'print'
+                ],
+                paging: false,
+                searching: true,
+                "ordering": false,
+                "info": false
+            });
+        //$('#dataTable1').DataTable();
+        //$('#dataTable2').DataTable();
+        //$('#dataTable3').DataTable();
+    });
+</script>
+

@@ -1,0 +1,2085 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DBMOBILEAPPModelStoreContainer" CdmEntityContainer="DBMOBILEAPPEntities">
+    <EntitySetMapping Name="tbl_BaoCaoHinhAnh">
+      <EntityTypeMapping TypeName="DBMOBILEAPPModel.tbl_BaoCaoHinhAnh">
+        <MappingFragment StoreEntitySet="tbl_BaoCaoHinhAnh">
+          <ScalarProperty Name="BCHA_ID" ColumnName="BCHA_ID" />
+          <ScalarProperty Name="Shop_id" ColumnName="Shop_id" />
+          <ScalarProperty Name="Us_id" ColumnName="Us_id" />
+          <ScalarProperty Name="BCHA_Time" ColumnName="BCHA_Time" />
+          <ScalarProperty Name="BCHA_SyncFlag" ColumnName="BCHA_SyncFlag" />
+          <ScalarProperty Name="BCHA_DeleteFlag" ColumnName="BCHA_DeleteFlag" />
+          <ScalarProperty Name="Bigplan_id" ColumnName="Bigplan_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_bigplan">
+      <EntityTypeMapping TypeName="DBMOBILEAPPModel.tbl_bigplan">
+        <MappingFragment StoreEntitySet="tbl_bigplan">
+          <ScalarProperty Name="Bigplan_id" ColumnName="Bigplan_id" />
+          <ScalarProperty Name="Us_id" ColumnName="Us_id" />
+          <ScalarProperty Name="CaLamViecDetail_id" ColumnName="CaLamViecDetail_id" />
+          <ScalarProperty Name="Shop_id" ColumnName="Shop_id" />
+          <ScalarProperty Name="Bigplan_date" ColumnName="Bigplan_date" />
+          <ScalarProperty Name="Bigplan_deleteFlag" ColumnName="Bigplan_deleteFlag" />
+          <ScalarProperty Name="BigPlan_SyncFlag" ColumnName="BigPlan_SyncFlag" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_bill">
+      <EntityTypeMapping TypeName="DBMOBILEAPPModel.tbl_bill">
+        <MappingFragment StoreEntitySet="tbl_bill">
+          <ScalarProperty Name="Bill_id" ColumnName="Bill_id" />
+          <ScalarProperty Name="Us_id" ColumnName="Us_id" />
+          <ScalarProperty Name="Shop_id" ColumnName="Shop_id" />
+          <ScalarProperty Name="Bill_date" ColumnName="Bill_date" />
+          <ScalarProperty Name="Bill_deleteFlag" ColumnName="Bill_deleteFlag" />
+          <ScalarProperty Name="Bill_SyncFlag" ColumnName="Bill_SyncFlag" />
+          <ScalarProperty Name="Bill_SDTKH" ColumnName="Bill_SDTKH" />
+          <ScalarProperty Name="Bill_TenKH" ColumnName="Bill_TenKH" />
+          <ScalarProperty Name="Bill_ImageKH" ColumnName="Bill_ImageKH" />
+          <ScalarProperty Name="Bill_OTP" ColumnName="Bill_OTP" />
+          <ScalarProperty Name="Bill_OTPConfirm" ColumnName="Bill_OTPConfirm" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_BillChuyenNhanKho">
+      <EntityTypeMapping TypeName="DBMOBILEAPPModel.Tbl_BillChuyenNhanKho">
+        <MappingFragment StoreEntitySet="Tbl_BillChuyenNhanKho">
+          <ScalarProperty Name="BCNK_ID" ColumnName="BCNK_ID" />
+          <ScalarProperty Name="Us_IDChuyen" ColumnName="Us_IDChuyen" />
+          <ScalarProperty Name="Us_NameChuyen" ColumnName="Us_NameChuyen" />
+          <ScalarProperty Name="BCNK_Time" ColumnName="BCNK_Time" />
+          <ScalarProperty Name="BCNK_SyncFlag" ColumnName="BCNK_SyncFlag" />
+          <ScalarProperty Name="BCNK_DeleteFlag" ColumnName="BCNK_DeleteFlag" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_BillCNKDetail">
+      <EntityTypeMapping TypeName="DBMOBILEAPPModel.Tbl_BillCNKDetail">
+        <MappingFragment StoreEntitySet="Tbl_BillCNKDetail">
+          <ScalarProperty Name="DBCNK_ID" ColumnName="DBCNK_ID" />
+          <ScalarProperty Name="BCNK_ID" ColumnName="BCNK_ID" />
+          <ScalarProperty Name="DMQT_Barcode" ColumnName="DMQT_Barcode" />
+          <ScalarProperty Name="Us_IDnhan" ColumnName="Us_IDnhan" />
+          <ScalarProperty Name="Us_NameNhan" ColumnName="Us_NameNhan" />
+          <ScalarProperty Name="DBCNK_SoluongChuyen" ColumnName="DBCNK_SoluongChuyen" />
+          <ScalarProperty Name="DBCNK_SoluongNhan" ColumnName="DBCNK_SoluongNhan" />
+          <ScalarProperty Name="DBCNK_XacNhanNhan" ColumnName="DBCNK_XacNhanNhan" />
+          <ScalarProperty Name="DBCNK_XacNhanChuyen" ColumnName="DBCNK_XacNhanChuyen" />
+          <ScalarProperty Name="DBCNK_NoteXacNhanNhan" ColumnName="DBCNK_NoteXacNhanNhan" />
+          <ScalarProperty Name="DBCNK_NoteXacNhanChuyen" ColumnName="DBCNK_NoteXacNhanChuyen" />
+          <ScalarProperty Name="DBCNK_SyncFlag" ColumnName="DBCNK_SyncFlag" />
+          <ScalarProperty Name="DBCNK_DeleteFlag" ColumnName="DBCNK_DeleteFlag" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_billDetail">
+      <EntityTypeMapping TypeName="DBMOBILEAPPModel.tbl_billDetail">
+        <MappingFragment StoreEntitySet="tbl_billDetail">
+          <ScalarProperty Name="Bill_id" ColumnName="Bill_id" />
+          <ScalarProperty Name="sku_barcode" ColumnName="sku_barcode" />
+          <ScalarProperty Name="BillDetail_soluong" ColumnName="BillDetail_soluong" />
+          <ScalarProperty Name="BillDetail_dongia" ColumnName="BillDetail_dongia" />
+          <ScalarProperty Name="BillDetail_deleteFlag" ColumnName="BillDetail_deleteFlag" />
+          <ScalarProperty Name="BillDetail_SyncFlag" ColumnName="BillDetail_SyncFlag" />
+          <ScalarProperty Name="Bigplan_id" ColumnName="Bigplan_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_CaLamViecDetail">
+      <EntityTypeMapping TypeName="DBMOBILEAPPModel.tbl_CaLamViecDetail">
+        <MappingFragment StoreEntitySet="tbl_CaLamViecDetail">
+          <ScalarProperty Name="CaLamViecDetail_id" ColumnName="CaLamViecDetail_id" />
+          <ScalarProperty Name="CaLamViecDetail_Name" ColumnName="CaLamViecDetail_Name" />
+          <ScalarProperty Name="CaLamViecDetail_TGBD" ColumnName="CaLamViecDetail_TGBD" />
+          <ScalarProperty Name="CaLamViecDetail_TGKT" ColumnName="CaLamViecDetail_TGKT" />
+          <ScalarProperty Name="CaLamViecDetail_CHAMCONG" ColumnName="CaLamViecDetail_CHAMCONG" />
+          <ScalarProperty Name="CaLamViecDetail_DeleteFlag" ColumnName="CaLamViecDetail_DeleteFlag" />
+          <ScalarProperty Name="CaLamViecDetail_SyncFlag" ColumnName="CaLamViecDetail_SyncFlag" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_chitietDondathang">
+      <EntityTypeMapping TypeName="DBMOBILEAPPModel.tbl_chitietDondathang">
+        <MappingFragment StoreEntitySet="tbl_chitietDondathang">
+          <ScalarProperty Name="DDH_ID" ColumnName="DDH_ID" />
+          <ScalarProperty Name="sku_barcode" ColumnName="sku_barcode" />
+          <ScalarProperty Name="CTDDH_Soluong" ColumnName="CTDDH_Soluong" />
+          <ScalarProperty Name="CTDDH_SyncFlag" ColumnName="CTDDH_SyncFlag" />
+          <ScalarProperty Name="CTDDH_DeleteFlag" ColumnName="CTDDH_DeleteFlag" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_ChitietDonNhapHang">
+      <EntityTypeMapping TypeName="DBMOBILEAPPModel.Tbl_ChitietDonNhapHang">
+        <MappingFragment StoreEntitySet="Tbl_ChitietDonNhapHang">
+          <ScalarProperty Name="CTDNH_ID" ColumnName="CTDNH_ID" />
+          <ScalarProperty Name="DNH_ID" ColumnName="DNH_ID" />
+          <ScalarProperty Name="sku_id" ColumnName="sku_id" />
+          <ScalarProperty Name="CTDNH_Soluong" ColumnName="CTDNH_Soluong" />
+          <ScalarProperty Name="CTDNH_Date" ColumnName="CTDNH_Date" />
+          <ScalarProperty Name="CTDNH_SyncFlag" ColumnName="CTDNH_SyncFlag" />
+          <ScalarProperty Name="CTDNH_DeleteFlag" ColumnName="CTDNH_DeleteFlag" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_ChitietSupChamDiem">
+      <EntityTypeMapping TypeName="DBMOBILEAPPModel.tbl_ChitietSupChamDiem">
+        <MappingFragment StoreEntitySet="tbl_ChitietSupChamDiem">
+          <ScalarProperty Name="ChitietSupChamDiem_ID" ColumnName="ChitietSupChamDiem_ID" />
+          <ScalarProperty Name="SupChamDiem_id" ColumnName="SupChamDiem_id" />
+          <ScalarProperty Name="TieuChiCD_id" ColumnName="TieuChiCD_id" />
+          <ScalarProperty Name="ChitietSupChamDiem_value" ColumnName="ChitietSupChamDiem_value" />
+          <ScalarProperty Name="ChitietSupChamDiem_DeleteFlag" ColumnName="ChitietSupChamDiem_DeleteFlag" />
+          <ScalarProperty Name="ChitietSupChamDiem_SyncFlag" ColumnName="ChitietSupChamDiem_SyncFlag" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_chucnangphu">
+      <EntityTypeMapping TypeName="DBMOBILEAPPModel.tbl_chucnangphu">
+        <MappingFragment StoreEntitySet="tbl_chucnangphu">
+          <ScalarProperty Name="CNP_ID" ColumnName="CNP_ID" />
+          <ScalarProperty Name="CNP_NAME" ColumnName="CNP_NAME" />
+          <ScalarProperty Name="CNP_Detail" ColumnName="CNP_Detail" />
+          <ScalarProperty Name="CNP_value" ColumnName="CNP_value" />
+          <ScalarProperty Name="CNP_Status" ColumnName="CNP_Status" />
+          <ScalarProperty Name="CNP_SyncFlag" ColumnName="CNP_SyncFlag" />
+          <ScalarProperty Name="CNP_DeleteFlag" ColumnName="CNP_DeleteFlag" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_ChuongTrinhDoiQua">
+      <EntityTypeMapping TypeName="DBMOBILEAPPModel.tbl_ChuongTrinhDoiQua">
+        <MappingFragment StoreEntitySet="tbl_ChuongTrinhDoiQua">
+          <ScalarProperty Name="CTDQ_ID" ColumnName="CTDQ_ID" />
+          <ScalarProperty Name="CTDQ_Name" ColumnName="CTDQ_Name" />
+          <ScalarProperty Name="CTDQ_Detail" ColumnName="CTDQ_Detail" />
+          <ScalarProperty Name="CTDQ_APPLYROLE" ColumnName="CTDQ_APPLYROLE" />
+          <ScalarProperty Name="CTDQ_DateBatDau" ColumnName="CTDQ_DateBatDau" />
+          <ScalarProperty Name="CTDQ_DateKetThuc" ColumnName="CTDQ_DateKetThuc" />
+          <ScalarProperty Name="CTDQ_SyncFlag" ColumnName="CTDQ_SyncFlag" />
+          <ScalarProperty Name="CTDQ_DeleteFlag" ColumnName="CTDQ_DeleteFlag" />
+          <ScalarProperty Name="CTDQ_SoLuongToiDaPhanQua" ColumnName="CTDQ_SoLuongToiDaPhanQua" />
+          <ScalarProperty Name="CTdQ_SoluongToiDaSDT" ColumnName="CTdQ_SoluongToiDaSDT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_DanhMucQuaTang">
+      <EntityTypeMapping TypeName="DBMOBILEAPPModel.tbl_DanhMucQuaTang">
+        <MappingFragment StoreEntitySet="tbl_DanhMucQuaTang">
+          <ScalarProperty Name="DMQT_Barcode" ColumnName="DMQT_Barcode" />
+          <ScalarProperty Name="DMQT_Name" ColumnName="DMQT_Name" />
+          <ScalarProperty Name="DMQT_Detail" ColumnName="DMQT_Detail" />
+          <ScalarProperty Name="DMQT_Status" ColumnName="DMQT_Status" />
+          <ScalarProperty Name="DMQT_SyncFlag" ColumnName="DMQT_SyncFlag" />
+          <ScalarProperty Name="DMQT_DeleteFlag" ColumnName="DMQT_DeleteFlag" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_DetailBaoCaoHinhAnh">
+      <EntityTypeMapping TypeName="DBMOBILEAPPModel.tbl_DetailBaoCaoHinhAnh">
+        <MappingFragment StoreEntitySet="tbl_DetailBaoCaoHinhAnh">
+          <ScalarProperty Name="BCHA_ID" ColumnName="BCHA_ID" />
+          <ScalarProperty Name="TCBCHA_ID" ColumnName="TCBCHA_ID" />
+          <ScalarProperty Name="DBCHA_Image" ColumnName="DBCHA_Image" />
+          <ScalarProperty Name="DBCHA_SyncFlag" ColumnName="DBCHA_SyncFlag" />
+          <ScalarProperty Name="DBCHA_DeleteFlag" ColumnName="DBCHA_DeleteFlag" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_DMQT_CTDQ">
+      <EntityTypeMapping TypeName="DBMOBILEAPPModel.tbl_DMQT_CTDQ">
+        <MappingFragment StoreEntitySet="tbl_DMQT_CTDQ">
+          <ScalarProperty Name="DMCT_ID" ColumnName="DMCT_ID" />
+          <ScalarProperty Name="DMQT_Barcode" ColumnName="DMQT_Barcode" />
+          <ScalarProperty Name="CTDQ_ID" ColumnName="CTDQ_ID" />
+          <ScalarProperty Name="DMCT_Status" ColumnName="DMCT_Status" />
+          <ScalarProperty Name="DMCT_SyncFlag" ColumnName="DMCT_SyncFlag" />
+          <ScalarProperty Name="DMCT_DeleteFlag" ColumnName="DMCT_DeleteFlag" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_DoiQua">
+      <EntityTypeMapping TypeName="DBMOBILEAPPModel.tbl_DoiQua">
+        <MappingFragment StoreEntitySet="tbl_DoiQua">
+          <ScalarProperty Name="DoiQua_ID" ColumnName="DoiQua_ID" />
+          <ScalarProperty Name="Bill_id" ColumnName="Bill_id" />
+          <ScalarProperty Name="RCTDQ_ID" ColumnName="RCTDQ_ID" />
+          <ScalarProperty Name="DMQT_Barcode" ColumnName="DMQT_Barcode" />
+          <ScalarProperty Name="DoiQua_Value" ColumnName="DoiQua_Value" />
+          <ScalarProperty Name="DoiQua_SyncFlag" ColumnName="DoiQua_SyncFlag" />
+          <ScalarProperty Name="DoiQua_DeleteFlag" ColumnName="DoiQua_DeleteFlag" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_doithucanhtranh">
+      <EntityTypeMapping TypeName="DBMOBILEAPPModel.tbl_doithucanhtranh">
+        <MappingFragment StoreEntitySet="tbl_doithucanhtranh">
+          <ScalarProperty Name="dt_id" ColumnName="dt_id" />
+          <ScalarProperty Name="US_ID" ColumnName="US_ID" />
+          <ScalarProperty Name="Shop_id" ColumnName="Shop_id" />
+          <ScalarProperty Name="dt_keyacc" ColumnName="dt_keyacc" />
+          <ScalarProperty Name="dt_cty" ColumnName="dt_cty" />
+          <ScalarProperty Name="dt_fortmat" ColumnName="dt_fortmat" />
+          <ScalarProperty Name="dt_brand" ColumnName="dt_brand" />
+          <ScalarProperty Name="dt_variant" ColumnName="dt_variant" />
+          <ScalarProperty Name="dt_crmrange" ColumnName="dt_crmrange" />
+          <ScalarProperty Name="dt_ffrange" ColumnName="dt_ffrange" />
+          <ScalarProperty Name="dt_ltnrange" ColumnName="dt_ltnrange" />
+          <ScalarProperty Name="dt_noidung" ColumnName="dt_noidung" />
+          <ScalarProperty Name="dt_OnPostOffPost" ColumnName="dt_OnPostOffPost" />
+          <ScalarProperty Name="dt_giagoc" ColumnName="dt_giagoc" />
+          <ScalarProperty Name="dt_giakm" ColumnName="dt_giakm" />
+          <ScalarProperty Name="dt_hangtang" ColumnName="dt_hangtang" />
+          <ScalarProperty Name="dt_giahangtang" ColumnName="dt_giahangtang" />
+          <ScalarProperty Name="dt_post" ColumnName="dt_post" />
+          <ScalarProperty Name="dt_tenpost" ColumnName="dt_tenpost" />
+          <ScalarProperty Name="dt_thoigianbd" ColumnName="dt_thoigianbd" />
+          <ScalarProperty Name="dt_thoigiankt" ColumnName="dt_thoigiankt" />
+          <ScalarProperty Name="dt_nam" ColumnName="dt_nam" />
+          <ScalarProperty Name="dt_type" ColumnName="dt_type" />
+          <ScalarProperty Name="dt_SyncFlag" ColumnName="dt_SyncFlag" />
+          <ScalarProperty Name="dt_DeleteFlag" ColumnName="dt_DeleteFlag" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_DoithucanhtranhIMAGE">
+      <EntityTypeMapping TypeName="DBMOBILEAPPModel.Tbl_DoithucanhtranhIMAGE">
+        <MappingFragment StoreEntitySet="Tbl_DoithucanhtranhIMAGE">
+          <ScalarProperty Name="DTCTIMAGE_ID" ColumnName="DTCTIMAGE_ID" />
+          <ScalarProperty Name="DTCTIMAGE_Date" ColumnName="DTCTIMAGE_Date" />
+          <ScalarProperty Name="US_ID" ColumnName="US_ID" />
+          <ScalarProperty Name="Shop_ID" ColumnName="Shop_ID" />
+          <ScalarProperty Name="DTCTIMAGE_Note" ColumnName="DTCTIMAGE_Note" />
+          <ScalarProperty Name="DTCTIMAGE_SyncFlag" ColumnName="DTCTIMAGE_SyncFlag" />
+          <ScalarProperty Name="DTCTIMAGE_DeleteFlag" ColumnName="DTCTIMAGE_DeleteFlag" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_DoithucanhtranhIMAGEDetail">
+      <EntityTypeMapping TypeName="DBMOBILEAPPModel.Tbl_DoithucanhtranhIMAGEDetail">
+        <MappingFragment StoreEntitySet="Tbl_DoithucanhtranhIMAGEDetail">
+          <ScalarProperty Name="DTCTIMAGED_ID" ColumnName="DTCTIMAGED_ID" />
+          <ScalarProperty Name="DTCTIMAGE_ID" ColumnName="DTCTIMAGE_ID" />
+          <ScalarProperty Name="DTCTIMAGED_Note" ColumnName="DTCTIMAGED_Note" />
+          <ScalarProperty Name="DTCTIMAGED_SyncFlag" ColumnName="DTCTIMAGED_SyncFlag" />
+          <ScalarProperty Name="DTCTIMAGED_DeleteFlag" ColumnName="DTCTIMAGED_DeleteFlag" />
+          <ScalarProperty Name="DTCTIMAGED_Image" ColumnName="DTCTIMAGED_Image" />
+          <ScalarProperty Name="DTCTIMAGED_ImagePublish" ColumnName="DTCTIMAGED_ImagePublish" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Dondathang">
+      <EntityTypeMapping TypeName="DBMOBILEAPPModel.tbl_Dondathang">
+        <MappingFragment StoreEntitySet="tbl_Dondathang">
+          <ScalarProperty Name="DDH_ID" ColumnName="DDH_ID" />
+          <ScalarProperty Name="Us_id" ColumnName="Us_id" />
+          <ScalarProperty Name="Shop_id" ColumnName="Shop_id" />
+          <ScalarProperty Name="DDH_time" ColumnName="DDH_time" />
+          <ScalarProperty Name="DDH_Syncflag" ColumnName="DDH_Syncflag" />
+          <ScalarProperty Name="DDH_DeleteFlag" ColumnName="DDH_DeleteFlag" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_DonNhapHang">
+      <EntityTypeMapping TypeName="DBMOBILEAPPModel.Tbl_DonNhapHang">
+        <MappingFragment StoreEntitySet="Tbl_DonNhapHang">
+          <ScalarProperty Name="DNH_ID" ColumnName="DNH_ID" />
+          <ScalarProperty Name="US_ID" ColumnName="US_ID" />
+          <ScalarProperty Name="Shop_id" ColumnName="Shop_id" />
+          <ScalarProperty Name="DNH_Image" ColumnName="DNH_Image" />
+          <ScalarProperty Name="DNH_ImagePublish" ColumnName="DNH_ImagePublish" />
+          <ScalarProperty Name="DNH_Date" ColumnName="DNH_Date" />
+          <ScalarProperty Name="DNH_SyncFlag" ColumnName="DNH_SyncFlag" />
+          <ScalarProperty Name="DNH_DeleteFlag" ColumnName="DNH_DeleteFlag" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_DTCTBrand">
+      <EntityTypeMapping TypeName="DBMOBILEAPPModel.tbl_DTCTBrand">
+        <MappingFragment StoreEntitySet="tbl_DTCTBrand">
+          <ScalarProperty Name="Brand_id" ColumnName="Brand_id" />
+          <ScalarProperty Name="cty_id" ColumnName="cty_id" />
+          <ScalarProperty Name="Brand_name" ColumnName="Brand_name" />
+          <ScalarProperty Name="Brand_details" ColumnName="Brand_details" />
+          <ScalarProperty Name="Brand_status" ColumnName="Brand_status" />
+          <ScalarProperty Name="Brand_SyncFlag" ColumnName="Brand_SyncFlag" />
+          <ScalarProperty Name="Brand_DeleteFlag" ColumnName="Brand_DeleteFlag" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_DTCTcrmrange">
+      <EntityTypeMapping TypeName="DBMOBILEAPPModel.tbl_DTCTcrmrange">
+        <MappingFragment StoreEntitySet="tbl_DTCTcrmrange">
+          <ScalarProperty Name="crm_id" ColumnName="crm_id" />
+          <ScalarProperty Name="crm_name" ColumnName="crm_name" />
+          <ScalarProperty Name="crm_detail" ColumnName="crm_detail" />
+          <ScalarProperty Name="crm_status" ColumnName="crm_status" />
+          <ScalarProperty Name="crm_SyncFlag" ColumnName="crm_SyncFlag" />
+          <ScalarProperty Name="crm_DeleteFlag" ColumnName="crm_DeleteFlag" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_DTCTCty">
+      <EntityTypeMapping TypeName="DBMOBILEAPPModel.tbl_DTCTCty">
+        <MappingFragment StoreEntitySet="tbl_DTCTCty">
+          <ScalarProperty Name="cty_id" ColumnName="cty_id" />
+          <ScalarProperty Name="cty_name" ColumnName="cty_name" />
+          <ScalarProperty Name="cty_detail" ColumnName="cty_detail" />
+          <ScalarProperty Name="cty_status" ColumnName="cty_status" />
+          <ScalarProperty Name="cty_SyncFlag" ColumnName="cty_SyncFlag" />
+          <ScalarProperty Name="cty_DeleteFlag" ColumnName="cty_DeleteFlag" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_DTCTffrange">
+      <EntityTypeMapping TypeName="DBMOBILEAPPModel.tbl_DTCTffrange">
+        <MappingFragment StoreEntitySet="tbl_DTCTffrange">
+          <ScalarProperty Name="ff_id" ColumnName="ff_id" />
+          <ScalarProperty Name="ff_name" ColumnName="ff_name" />
+          <ScalarProperty Name="ff_detail" ColumnName="ff_detail" />
+          <ScalarProperty Name="ff_status" ColumnName="ff_status" />
+          <ScalarProperty Name="ff_SyncFlag" ColumnName="ff_SyncFlag" />
+          <ScalarProperty Name="ff_DeleteFlag" ColumnName="ff_DeleteFlag" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_DTCTformat">
+      <EntityTypeMapping TypeName="DBMOBILEAPPModel.tbl_DTCTformat">
+        <MappingFragment StoreEntitySet="tbl_DTCTformat">
+          <ScalarProperty Name="bf_id" ColumnName="bf_id" />
+          <ScalarProperty Name="bf_name" ColumnName="bf_name" />
+          <ScalarProperty Name="bf_details" ColumnName="bf_details" />
+          <ScalarProperty Name="bf_status" ColumnName="bf_status" />
+          <ScalarProperty Name="bf_SyncFlag" ColumnName="bf_SyncFlag" />
+          <ScalarProperty Name="bf_DeleteFlag" ColumnName="bf_DeleteFlag" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_DTCTltmrange">
+      <EntityTypeMapping TypeName="DBMOBILEAPPModel.tbl_DTCTltmrange">
+        <MappingFragment StoreEntitySet="tbl_DTCTltmrange">
+          <ScalarProperty Name="ltm_id" ColumnName="ltm_id" />
+          <ScalarProperty Name="ltm_name" ColumnName="ltm_name" />
+          <ScalarProperty Name="ltm_detail" ColumnName="ltm_detail" />
+          <ScalarProperty Name="ltm_status" ColumnName="ltm_status" />
+          <ScalarProperty Name="ltm_SyncFlag" ColumnName="ltm_SyncFlag" />
+          <ScalarProperty Name="ltm_DeleteFlag" ColumnName="ltm_DeleteFlag" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_DTCTonpostoffpost">
+      <EntityTypeMapping TypeName="DBMOBILEAPPModel.tbl_DTCTonpostoffpost">
+        <MappingFragment StoreEntitySet="tbl_DTCTonpostoffpost">
+          <ScalarProperty Name="ofpost_id" ColumnName="ofpost_id" />
+          <ScalarProperty Name="ofpost_name" ColumnName="ofpost_name" />
+          <ScalarProperty Name="ofpost_detail" ColumnName="ofpost_detail" />
+          <ScalarProperty Name="ofpost_status" ColumnName="ofpost_status" />
+          <ScalarProperty Name="ofpost_SyncFlag" ColumnName="ofpost_SyncFlag" />
+          <ScalarProperty Name="ofpost_DeleteFlag" ColumnName="ofpost_DeleteFlag" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_DTCTtype">
+      <EntityTypeMapping TypeName="DBMOBILEAPPModel.tbl_DTCTtype">
+        <MappingFragment StoreEntitySet="tbl_DTCTtype">
+          <ScalarProperty Name="ty_id" ColumnName="ty_id" />
+          <ScalarProperty Name="ty_name" ColumnName="ty_name" />
+          <ScalarProperty Name="ty_details" ColumnName="ty_details" />
+          <ScalarProperty Name="ty_status" ColumnName="ty_status" />
+          <ScalarProperty Name="ty_SyncFlag" ColumnName="ty_SyncFlag" />
+          <ScalarProperty Name="ty_DeleteFlag" ColumnName="ty_DeleteFlag" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_DTCTVARIANT">
+      <EntityTypeMapping TypeName="DBMOBILEAPPModel.tbl_DTCTVARIANT">
+        <MappingFragment StoreEntitySet="tbl_DTCTVARIANT">
+          <ScalarProperty Name="va_id" ColumnName="va_id" />
+          <ScalarProperty Name="va_name" ColumnName="va_name" />
+          <ScalarProperty Name="va_detail" ColumnName="va_detail" />
+          <ScalarProperty Name="va_status" ColumnName="va_status" />
+          <ScalarProperty Name="va_SyncFlag" ColumnName="va_SyncFlag" />
+          <ScalarProperty Name="va_DeleteFlag" ColumnName="va_DeleteFlag" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_HsSms">
+      <EntityTypeMapping TypeName="DBMOBILEAPPModel.Tbl_HsSms">
+        <MappingFragment StoreEntitySet="Tbl_HsSms">
+          <ScalarProperty Name="HSsms_ID" ColumnName="HSsms_ID" />
+          <ScalarProperty Name="Bill_id" ColumnName="Bill_id" />
+          <ScalarProperty Name="HSsms_OTP" ColumnName="HSsms_OTP" />
+          <ScalarProperty Name="HSsms_OTPConfirm" ColumnName="HSsms_OTPConfirm" />
+          <ScalarProperty Name="HSsms_Time" ColumnName="HSsms_Time" />
+          <ScalarProperty Name="HSsms_Status" ColumnName="HSsms_Status" />
+          <ScalarProperty Name="HSsms_Code" ColumnName="HSsms_Code" />
+          <ScalarProperty Name="HSsms_Phone" ColumnName="HSsms_Phone" />
+          <ScalarProperty Name="HSsms_SyncFlag" ColumnName="HSsms_SyncFlag" />
+          <ScalarProperty Name="HSsms_DeleteFlag" ColumnName="HSsms_DeleteFlag" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_ImageDonNhapHang">
+      <EntityTypeMapping TypeName="DBMOBILEAPPModel.Tbl_ImageDonNhapHang">
+        <MappingFragment StoreEntitySet="Tbl_ImageDonNhapHang">
+          <ScalarProperty Name="IDNH_ID" ColumnName="IDNH_ID" />
+          <ScalarProperty Name="DNH_ID" ColumnName="DNH_ID" />
+          <ScalarProperty Name="IDNH_Image" ColumnName="IDNH_Image" />
+          <ScalarProperty Name="IDNH_ImagePublish" ColumnName="IDNH_ImagePublish" />
+          <ScalarProperty Name="IDNH_Note" ColumnName="IDNH_Note" />
+          <ScalarProperty Name="IDNH_SyncFlag" ColumnName="IDNH_SyncFlag" />
+          <ScalarProperty Name="IDNH_DeleteFlag" ColumnName="IDNH_DeleteFlag" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Kho">
+      <EntityTypeMapping TypeName="DBMOBILEAPPModel.tbl_Kho">
+        <MappingFragment StoreEntitySet="tbl_Kho">
+          <ScalarProperty Name="KHO_ID" ColumnName="KHO_ID" />
+          <ScalarProperty Name="Shop_IDNguon" ColumnName="Shop_IDNguon" />
+          <ScalarProperty Name="KHO_ACTION" ColumnName="KHO_ACTION" />
+          <ScalarProperty Name="Shop_IDDICH" ColumnName="Shop_IDDICH" />
+          <ScalarProperty Name="DMQT_Barcode" ColumnName="DMQT_Barcode" />
+          <ScalarProperty Name="KHO_SOLUONG" ColumnName="KHO_SOLUONG" />
+          <ScalarProperty Name="KHO_Time" ColumnName="KHO_Time" />
+          <ScalarProperty Name="KHO_ACCEPT" ColumnName="KHO_ACCEPT" />
+          <ScalarProperty Name="KHO_SyncFlag" ColumnName="KHO_SyncFlag" />
+          <ScalarProperty Name="KHO_DeleteFlag" ColumnName="KHO_DeleteFlag" />
+          <ScalarProperty Name="KHO_UsIDDich" ColumnName="KHO_UsIDDich" />
+          <ScalarProperty Name="KHO_USNameDich" ColumnName="KHO_USNameDich" />
+          <ScalarProperty Name="KHO_UsIDNguon" ColumnName="KHO_UsIDNguon" />
+          <ScalarProperty Name="KHO_USNameNguon" ColumnName="KHO_USNameNguon" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_KhoChiNhanh">
+      <EntityTypeMapping TypeName="DBMOBILEAPPModel.Tbl_KhoChiNhanh">
+        <MappingFragment StoreEntitySet="Tbl_KhoChiNhanh">
+          <ScalarProperty Name="KCN_ID" ColumnName="KCN_ID" />
+          <ScalarProperty Name="KCN_Name" ColumnName="KCN_Name" />
+          <ScalarProperty Name="KCN_Adress" ColumnName="KCN_Adress" />
+          <ScalarProperty Name="KCN_Phone" ColumnName="KCN_Phone" />
+          <ScalarProperty Name="KCN_TenNguoiGiuKho" ColumnName="KCN_TenNguoiGiuKho" />
+          <ScalarProperty Name="KCN_UserQL" ColumnName="KCN_UserQL" />
+          <ScalarProperty Name="KCN_Type" ColumnName="KCN_Type" />
+          <ScalarProperty Name="KCN_SyncFlag" ColumnName="KCN_SyncFlag" />
+          <ScalarProperty Name="KCN_DeleteFlag" ColumnName="KCN_DeleteFlag" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_KhoChuyenNhan">
+      <EntityTypeMapping TypeName="DBMOBILEAPPModel.Tbl_KhoChuyenNhan">
+        <MappingFragment StoreEntitySet="Tbl_KhoChuyenNhan">
+          <ScalarProperty Name="CNK_ID" ColumnName="CNK_ID" />
+          <ScalarProperty Name="CNK_TypeChuyen" ColumnName="CNK_TypeChuyen" />
+          <ScalarProperty Name="CNK_TypeNhan" ColumnName="CNK_TypeNhan" />
+          <ScalarProperty Name="CNK_IDChuyen" ColumnName="CNK_IDChuyen" />
+          <ScalarProperty Name="CNK_NameChuyen" ColumnName="CNK_NameChuyen" />
+          <ScalarProperty Name="CNK_IDNhan" ColumnName="CNK_IDNhan" />
+          <ScalarProperty Name="CNK_NameNhan" ColumnName="CNK_NameNhan" />
+          <ScalarProperty Name="BCNK_ID" ColumnName="BCNK_ID" />
+          <ScalarProperty Name="CNK_SyncFlag" ColumnName="CNK_SyncFlag" />
+          <ScalarProperty Name="CNK_DeleteFlag" ColumnName="CNK_DeleteFlag" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_KhoDoi">
+      <EntityTypeMapping TypeName="DBMOBILEAPPModel.Tbl_KhoDoi">
+        <MappingFragment StoreEntitySet="Tbl_KhoDoi">
+          <ScalarProperty Name="KD_ID" ColumnName="KD_ID" />
+          <ScalarProperty Name="KD_Name" ColumnName="KD_Name" />
+          <ScalarProperty Name="KD_Adress" ColumnName="KD_Adress" />
+          <ScalarProperty Name="KD_Phone" ColumnName="KD_Phone" />
+          <ScalarProperty Name="KD_TenNguoiGiuKho" ColumnName="KD_TenNguoiGiuKho" />
+          <ScalarProperty Name="KD_UserQL" ColumnName="KD_UserQL" />
+          <ScalarProperty Name="KD_Type" ColumnName="KD_Type" />
+          <ScalarProperty Name="KD_SyncFlag" ColumnName="KD_SyncFlag" />
+          <ScalarProperty Name="KD_DeleteFlag" ColumnName="KD_DeleteFlag" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_KHOQUA">
+      <EntityTypeMapping TypeName="DBMOBILEAPPModel.Tbl_KHOQUA">
+        <MappingFragment StoreEntitySet="Tbl_KHOQUA">
+          <ScalarProperty Name="KV_ID" ColumnName="KV_ID" />
+          <ScalarProperty Name="KV_Name" ColumnName="KV_Name" />
+          <ScalarProperty Name="KV_Adress" ColumnName="KV_Adress" />
+          <ScalarProperty Name="KV_Phone" ColumnName="KV_Phone" />
+          <ScalarProperty Name="KV_TenNguoiGiuKho" ColumnName="KV_TenNguoiGiuKho" />
+          <ScalarProperty Name="KV_UserQL" ColumnName="KV_UserQL" />
+          <ScalarProperty Name="KV_Type" ColumnName="KV_Type" />
+          <ScalarProperty Name="KV_SyncFlag" ColumnName="KV_SyncFlag" />
+          <ScalarProperty Name="KV_DeleteFlag" ColumnName="KV_DeleteFlag" />
+          <ScalarProperty Name="KV_TypeKhoChuyen" ColumnName="KV_TypeKhoChuyen" />
+          <ScalarProperty Name="KV_TypeKhoNhan" ColumnName="KV_TypeKhoNhan" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_KhoXe">
+      <EntityTypeMapping TypeName="DBMOBILEAPPModel.Tbl_KhoXe">
+        <MappingFragment StoreEntitySet="Tbl_KhoXe">
+          <ScalarProperty Name="KX_ID" ColumnName="KX_ID" />
+          <ScalarProperty Name="KX_Name" ColumnName="KX_Name" />
+          <ScalarProperty Name="KX_Adress" ColumnName="KX_Adress" />
+          <ScalarProperty Name="KX_Phone" ColumnName="KX_Phone" />
+          <ScalarProperty Name="KX_TenNguoiGiuKho" ColumnName="KX_TenNguoiGiuKho" />
+          <ScalarProperty Name="KX_UserQuanLy" ColumnName="KX_UserQuanLy" />
+          <ScalarProperty Name="KX_Type" ColumnName="KX_Type" />
+          <ScalarProperty Name="KX_SyncFlag" ColumnName="KX_SyncFlag" />
+          <ScalarProperty Name="KX_DeleteFlag" ColumnName="KX_DeleteFlag" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_KHtiepcan">
+      <EntityTypeMapping TypeName="DBMOBILEAPPModel.Tbl_KHtiepcan">
+        <MappingFragment StoreEntitySet="Tbl_KHtiepcan">
+          <ScalarProperty Name="KHTC_ID" ColumnName="KHTC_ID" />
+          <ScalarProperty Name="Bigplan_id" ColumnName="Bigplan_id" />
+          <ScalarProperty Name="KHTC_TC" ColumnName="KHTC_TC" />
+          <ScalarProperty Name="KHTC_TCTC" ColumnName="KHTC_TCTC" />
+          <ScalarProperty Name="KHTC_Datereport" ColumnName="KHTC_Datereport" />
+          <ScalarProperty Name="KHTC_SyncFlag" ColumnName="KHTC_SyncFlag" />
+          <ScalarProperty Name="KHTC_DeleteFlag" ColumnName="KHTC_DeleteFlag" />
+          <ScalarProperty Name="KHTC_Doithu" ColumnName="KHTC_Doithu" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_menu">
+      <EntityTypeMapping TypeName="DBMOBILEAPPModel.tbl_menu">
+        <MappingFragment StoreEntitySet="tbl_menu">
+          <ScalarProperty Name="Menu_id" ColumnName="Menu_id" />
+          <ScalarProperty Name="Menu_Name" ColumnName="Menu_Name" />
+          <ScalarProperty Name="Menu_code" ColumnName="Menu_code" />
+          <ScalarProperty Name="Menu_Role" ColumnName="Menu_Role" />
+          <ScalarProperty Name="Menu_DeleteFlag" ColumnName="Menu_DeleteFlag" />
+          <ScalarProperty Name="Menu_SyncFlag" ColumnName="Menu_SyncFlag" />
+          <ScalarProperty Name="Menu_Status" ColumnName="Menu_Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_NganhHang">
+      <EntityTypeMapping TypeName="DBMOBILEAPPModel.tbl_NganhHang">
+        <MappingFragment StoreEntitySet="tbl_NganhHang">
+          <ScalarProperty Name="NH_ID" ColumnName="NH_ID" />
+          <ScalarProperty Name="NH_Name" ColumnName="NH_Name" />
+          <ScalarProperty Name="NH_Status" ColumnName="NH_Status" />
+          <ScalarProperty Name="NH_SyncFlag" ColumnName="NH_SyncFlag" />
+          <ScalarProperty Name="NH_DeleteFlag" ColumnName="NH_DeleteFlag" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_NhanHang">
+      <EntityTypeMapping TypeName="DBMOBILEAPPModel.tbl_NhanHang">
+        <MappingFragment StoreEntitySet="tbl_NhanHang">
+          <ScalarProperty Name="NhanH_ID" ColumnName="NhanH_ID" />
+          <ScalarProperty Name="NhanH_Name" ColumnName="NhanH_Name" />
+          <ScalarProperty Name="NhanH_Status" ColumnName="NhanH_Status" />
+          <ScalarProperty Name="NhanH_SyncFlag" ColumnName="NhanH_SyncFlag" />
+          <ScalarProperty Name="NhanH_DeleteFlag" ColumnName="NhanH_DeleteFlag" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_NhomNganhHang">
+      <EntityTypeMapping TypeName="DBMOBILEAPPModel.tbl_NhomNganhHang">
+        <MappingFragment StoreEntitySet="tbl_NhomNganhHang">
+          <ScalarProperty Name="NNH_ID" ColumnName="NNH_ID" />
+          <ScalarProperty Name="NNH_Name" ColumnName="NNH_Name" />
+          <ScalarProperty Name="NNH_Status" ColumnName="NNH_Status" />
+          <ScalarProperty Name="NNH_SyncFlag" ColumnName="NNH_SyncFlag" />
+          <ScalarProperty Name="NNH_DeleteFlag" ColumnName="NNH_DeleteFlag" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Price">
+      <EntityTypeMapping TypeName="DBMOBILEAPPModel.tbl_Price">
+        <MappingFragment StoreEntitySet="tbl_Price">
+          <ScalarProperty Name="Price_ID" ColumnName="Price_ID" />
+          <ScalarProperty Name="sku_barcode" ColumnName="sku_barcode" />
+          <ScalarProperty Name="Shop_GroupPrice" ColumnName="Shop_GroupPrice" />
+          <ScalarProperty Name="Price_Value" ColumnName="Price_Value" />
+          <ScalarProperty Name="Price_Status" ColumnName="Price_Status" />
+          <ScalarProperty Name="Price_DateUpdate" ColumnName="Price_DateUpdate" />
+          <ScalarProperty Name="Price_SyncFlag" ColumnName="Price_SyncFlag" />
+          <ScalarProperty Name="Price_DeleteFlag" ColumnName="Price_DeleteFlag" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_ReportDQN">
+      <EntityTypeMapping TypeName="DBMOBILEAPPModel.Tbl_ReportDQN">
+        <MappingFragment StoreEntitySet="Tbl_ReportDQN">
+          <ScalarProperty Name="RP_ID" ColumnName="RP_ID" />
+          <ScalarProperty Name="PG_Phone" ColumnName="PG_Phone" />
+          <ScalarProperty Name="PG_Name" ColumnName="PG_Name" />
+          <ScalarProperty Name="Store_code" ColumnName="Store_code" />
+          <ScalarProperty Name="Store_Name" ColumnName="Store_Name" />
+          <ScalarProperty Name="Name_KH" ColumnName="Name_KH" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="Total_Bill" ColumnName="Total_Bill" />
+          <ScalarProperty Name="Total_Bill_ULV" ColumnName="Total_Bill_ULV" />
+          <ScalarProperty Name="Num_voucher" ColumnName="Num_voucher" />
+          <ScalarProperty Name="IsDove" ColumnName="IsDove" />
+          <ScalarProperty Name="Created_At" ColumnName="Created_At" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_RulesChuongTrinhDoiQua">
+      <EntityTypeMapping TypeName="DBMOBILEAPPModel.tbl_RulesChuongTrinhDoiQua">
+        <MappingFragment StoreEntitySet="tbl_RulesChuongTrinhDoiQua">
+          <ScalarProperty Name="CTDQ_ID" ColumnName="CTDQ_ID" />
+          <ScalarProperty Name="RCTDQ_ID" ColumnName="RCTDQ_ID" />
+          <ScalarProperty Name="RCTDQ_Value" ColumnName="RCTDQ_Value" />
+          <ScalarProperty Name="RCTDQ_And" ColumnName="RCTDQ_And" />
+          <ScalarProperty Name="RCTDQ_Or" ColumnName="RCTDQ_Or" />
+          <ScalarProperty Name="RCTDQ_SyncFlag" ColumnName="RCTDQ_SyncFlag" />
+          <ScalarProperty Name="RCTDQ_Delete" ColumnName="RCTDQ_Delete" />
+          <ScalarProperty Name="RCTDQ_NhomNganhHang" ColumnName="RCTDQ_NhomNganhHang" />
+          <ScalarProperty Name="RCTDQ_NganhHang" ColumnName="RCTDQ_NganhHang" />
+          <ScalarProperty Name="RCTDQ_NhanHang" ColumnName="RCTDQ_NhanHang" />
+          <ScalarProperty Name="RCTDQ_ValueNhomNganhNhanHang" ColumnName="RCTDQ_ValueNhomNganhNhanHang" />
+          <ScalarProperty Name="RCTDQ_ValueNganhHang" ColumnName="RCTDQ_ValueNganhHang" />
+          <ScalarProperty Name="RCTDQ_ValueNhanHang" ColumnName="RCTDQ_ValueNhanHang" />
+          <ScalarProperty Name="RCTDQ_SanPham" ColumnName="RCTDQ_SanPham" />
+          <ScalarProperty Name="RCTDQ_ValueSanPham" ColumnName="RCTDQ_ValueSanPham" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_shop">
+      <EntityTypeMapping TypeName="DBMOBILEAPPModel.tbl_shop">
+        <MappingFragment StoreEntitySet="tbl_shop">
+          <ScalarProperty Name="Shop_id" ColumnName="Shop_id" />
+          <ScalarProperty Name="Shop_name" ColumnName="Shop_name" />
+          <ScalarProperty Name="Shop_detail" ColumnName="Shop_detail" />
+          <ScalarProperty Name="Shop_npp" ColumnName="Shop_npp" />
+          <ScalarProperty Name="Shop_nppcode" ColumnName="Shop_nppcode" />
+          <ScalarProperty Name="Shop_Ngcode" ColumnName="Shop_Ngcode" />
+          <ScalarProperty Name="Shop_LoaiCHCurrent" ColumnName="Shop_LoaiCHCurrent" />
+          <ScalarProperty Name="Shop_LoaiCHFuture" ColumnName="Shop_LoaiCHFuture" />
+          <ScalarProperty Name="Shop_latidue" ColumnName="Shop_latidue" />
+          <ScalarProperty Name="Shop_Longtidue" ColumnName="Shop_Longtidue" />
+          <ScalarProperty Name="Shop_phone" ColumnName="Shop_phone" />
+          <ScalarProperty Name="Shop_Sup" ColumnName="Shop_Sup" />
+          <ScalarProperty Name="Shop_GroupPrice" ColumnName="Shop_GroupPrice" />
+          <ScalarProperty Name="Shop_text2" ColumnName="Shop_text2" />
+          <ScalarProperty Name="Shop_text3" ColumnName="Shop_text3" />
+          <ScalarProperty Name="Shop_text4" ColumnName="Shop_text4" />
+          <ScalarProperty Name="Shop_float1" ColumnName="Shop_float1" />
+          <ScalarProperty Name="Shop_float2" ColumnName="Shop_float2" />
+          <ScalarProperty Name="Shop_float3" ColumnName="Shop_float3" />
+          <ScalarProperty Name="Shop_float4" ColumnName="Shop_float4" />
+          <ScalarProperty Name="Shop_bit" ColumnName="Shop_bit" />
+          <ScalarProperty Name="Shop_datetime1" ColumnName="Shop_datetime1" />
+          <ScalarProperty Name="Shop_datetime2" ColumnName="Shop_datetime2" />
+          <ScalarProperty Name="Shop_datetime3" ColumnName="Shop_datetime3" />
+          <ScalarProperty Name="Shop_datetime4" ColumnName="Shop_datetime4" />
+          <ScalarProperty Name="Shop_deleteflag" ColumnName="Shop_deleteflag" />
+          <ScalarProperty Name="Shop_SyncFlag" ColumnName="Shop_SyncFlag" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_shopbackup">
+      <EntityTypeMapping TypeName="DBMOBILEAPPModel.tbl_shopbackup">
+        <MappingFragment StoreEntitySet="tbl_shopbackup">
+          <ScalarProperty Name="Shop_id" ColumnName="Shop_id" />
+          <ScalarProperty Name="Shop_name" ColumnName="Shop_name" />
+          <ScalarProperty Name="Shop_detail" ColumnName="Shop_detail" />
+          <ScalarProperty Name="Shop_npp" ColumnName="Shop_npp" />
+          <ScalarProperty Name="Shop_nppcode" ColumnName="Shop_nppcode" />
+          <ScalarProperty Name="Shop_Ngcode" ColumnName="Shop_Ngcode" />
+          <ScalarProperty Name="Shop_LoaiCHCurrent" ColumnName="Shop_LoaiCHCurrent" />
+          <ScalarProperty Name="Shop_LoaiCHFuture" ColumnName="Shop_LoaiCHFuture" />
+          <ScalarProperty Name="Shop_latidue" ColumnName="Shop_latidue" />
+          <ScalarProperty Name="Shop_Longtidue" ColumnName="Shop_Longtidue" />
+          <ScalarProperty Name="Shop_phone" ColumnName="Shop_phone" />
+          <ScalarProperty Name="Shop_Sup" ColumnName="Shop_Sup" />
+          <ScalarProperty Name="Shop_GroupPrice" ColumnName="Shop_GroupPrice" />
+          <ScalarProperty Name="Shop_text2" ColumnName="Shop_text2" />
+          <ScalarProperty Name="Shop_text3" ColumnName="Shop_text3" />
+          <ScalarProperty Name="Shop_text4" ColumnName="Shop_text4" />
+          <ScalarProperty Name="Shop_float1" ColumnName="Shop_float1" />
+          <ScalarProperty Name="Shop_float2" ColumnName="Shop_float2" />
+          <ScalarProperty Name="Shop_float3" ColumnName="Shop_float3" />
+          <ScalarProperty Name="Shop_float4" ColumnName="Shop_float4" />
+          <ScalarProperty Name="Shop_bit" ColumnName="Shop_bit" />
+          <ScalarProperty Name="Shop_datetime1" ColumnName="Shop_datetime1" />
+          <ScalarProperty Name="Shop_datetime2" ColumnName="Shop_datetime2" />
+          <ScalarProperty Name="Shop_datetime3" ColumnName="Shop_datetime3" />
+          <ScalarProperty Name="Shop_datetime4" ColumnName="Shop_datetime4" />
+          <ScalarProperty Name="Shop_deleteflag" ColumnName="Shop_deleteflag" />
+          <ScalarProperty Name="Shop_SyncFlag" ColumnName="Shop_SyncFlag" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_shopTemp">
+      <EntityTypeMapping TypeName="DBMOBILEAPPModel.tbl_shopTemp">
+        <MappingFragment StoreEntitySet="tbl_shopTemp">
+          <ScalarProperty Name="Shop_id" ColumnName="Shop_id" />
+          <ScalarProperty Name="Shop_name" ColumnName="Shop_name" />
+          <ScalarProperty Name="Shop_detail" ColumnName="Shop_detail" />
+          <ScalarProperty Name="Shop_npp" ColumnName="Shop_npp" />
+          <ScalarProperty Name="Shop_nppcode" ColumnName="Shop_nppcode" />
+          <ScalarProperty Name="Shop_Ngcode" ColumnName="Shop_Ngcode" />
+          <ScalarProperty Name="Shop_LoaiCHCurrent" ColumnName="Shop_LoaiCHCurrent" />
+          <ScalarProperty Name="Shop_LoaiCHFuture" ColumnName="Shop_LoaiCHFuture" />
+          <ScalarProperty Name="Shop_latidue" ColumnName="Shop_latidue" />
+          <ScalarProperty Name="Shop_Longtidue" ColumnName="Shop_Longtidue" />
+          <ScalarProperty Name="Shop_phone" ColumnName="Shop_phone" />
+          <ScalarProperty Name="Shop_Sup" ColumnName="Shop_Sup" />
+          <ScalarProperty Name="Shop_GroupPrice" ColumnName="Shop_GroupPrice" />
+          <ScalarProperty Name="Shop_text2" ColumnName="Shop_text2" />
+          <ScalarProperty Name="Shop_text3" ColumnName="Shop_text3" />
+          <ScalarProperty Name="Shop_text4" ColumnName="Shop_text4" />
+          <ScalarProperty Name="Shop_float1" ColumnName="Shop_float1" />
+          <ScalarProperty Name="Shop_float2" ColumnName="Shop_float2" />
+          <ScalarProperty Name="Shop_float3" ColumnName="Shop_float3" />
+          <ScalarProperty Name="Shop_float4" ColumnName="Shop_float4" />
+          <ScalarProperty Name="Shop_bit" ColumnName="Shop_bit" />
+          <ScalarProperty Name="Shop_datetime1" ColumnName="Shop_datetime1" />
+          <ScalarProperty Name="Shop_datetime2" ColumnName="Shop_datetime2" />
+          <ScalarProperty Name="Shop_datetime3" ColumnName="Shop_datetime3" />
+          <ScalarProperty Name="Shop_datetime4" ColumnName="Shop_datetime4" />
+          <ScalarProperty Name="Shop_deleteflag" ColumnName="Shop_deleteflag" />
+          <ScalarProperty Name="Shop_SyncFlag" ColumnName="Shop_SyncFlag" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_sku">
+      <EntityTypeMapping TypeName="DBMOBILEAPPModel.tbl_sku">
+        <MappingFragment StoreEntitySet="tbl_sku">
+          <ScalarProperty Name="sku_barcode" ColumnName="sku_barcode" />
+          <ScalarProperty Name="sku_name" ColumnName="sku_name" />
+          <ScalarProperty Name="sku_detail" ColumnName="sku_detail" />
+          <ScalarProperty Name="sku_txtname" ColumnName="sku_txtname" />
+          <ScalarProperty Name="sku_txtPrice" ColumnName="sku_txtPrice" />
+          <ScalarProperty Name="Target_Group" ColumnName="Target_Group" />
+          <ScalarProperty Name="sku_text1" ColumnName="sku_text1" />
+          <ScalarProperty Name="sku_text2" ColumnName="sku_text2" />
+          <ScalarProperty Name="sku_text3" ColumnName="sku_text3" />
+          <ScalarProperty Name="sku_text4" ColumnName="sku_text4" />
+          <ScalarProperty Name="sku_text5" ColumnName="sku_text5" />
+          <ScalarProperty Name="sku_float1" ColumnName="sku_float1" />
+          <ScalarProperty Name="sku_float2" ColumnName="sku_float2" />
+          <ScalarProperty Name="sku_float3" ColumnName="sku_float3" />
+          <ScalarProperty Name="sku_float4" ColumnName="sku_float4" />
+          <ScalarProperty Name="sku_float5" ColumnName="sku_float5" />
+          <ScalarProperty Name="sku_float6" ColumnName="sku_float6" />
+          <ScalarProperty Name="sku_datetime1" ColumnName="sku_datetime1" />
+          <ScalarProperty Name="sku_datetime2" ColumnName="sku_datetime2" />
+          <ScalarProperty Name="sku_datetime3" ColumnName="sku_datetime3" />
+          <ScalarProperty Name="sku_datetime4" ColumnName="sku_datetime4" />
+          <ScalarProperty Name="sku_bit" ColumnName="sku_bit" />
+          <ScalarProperty Name="sku_deleteflag" ColumnName="sku_deleteflag" />
+          <ScalarProperty Name="sku_SyncFlag" ColumnName="sku_SyncFlag" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_SupBigPlan">
+      <EntityTypeMapping TypeName="DBMOBILEAPPModel.tbl_SupBigPlan">
+        <MappingFragment StoreEntitySet="tbl_SupBigPlan">
+          <ScalarProperty Name="SupBigPlan_id" ColumnName="SupBigPlan_id" />
+          <ScalarProperty Name="Us_id" ColumnName="Us_id" />
+          <ScalarProperty Name="Shop_id" ColumnName="Shop_id" />
+          <ScalarProperty Name="SupBigPlan_date" ColumnName="SupBigPlan_date" />
+          <ScalarProperty Name="SupBigPlan_NXkehoachLanNay" ColumnName="SupBigPlan_NXkehoachLanNay" />
+          <ScalarProperty Name="SupBigPlan_KeHoachLanToi" ColumnName="SupBigPlan_KeHoachLanToi" />
+          <ScalarProperty Name="SupBigPlan_GroupPlan" ColumnName="SupBigPlan_GroupPlan" />
+          <ScalarProperty Name="SupBigPlan_UserAccept" ColumnName="SupBigPlan_UserAccept" />
+          <ScalarProperty Name="SupBigPlan_UserNote" ColumnName="SupBigPlan_UserNote" />
+          <ScalarProperty Name="SupBigPlan_DeleteFlag" ColumnName="SupBigPlan_DeleteFlag" />
+          <ScalarProperty Name="SupBigPlan_SyncFlag" ColumnName="SupBigPlan_SyncFlag" />
+          <ScalarProperty Name="SupBigPlan_SupName" ColumnName="SupBigPlan_SupName" />
+          <ScalarProperty Name="SupBigPlan_SupUsername" ColumnName="SupBigPlan_SupUsername" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_SupChamDiem">
+      <EntityTypeMapping TypeName="DBMOBILEAPPModel.tbl_SupChamDiem">
+        <MappingFragment StoreEntitySet="tbl_SupChamDiem">
+          <ScalarProperty Name="SupChamDiem_id" ColumnName="SupChamDiem_id" />
+          <ScalarProperty Name="SupBigPlan_id" ColumnName="SupBigPlan_id" />
+          <ScalarProperty Name="SupChamDiem_TimeCD" ColumnName="SupChamDiem_TimeCD" />
+          <ScalarProperty Name="SupChamDiem_UserAccept" ColumnName="SupChamDiem_UserAccept" />
+          <ScalarProperty Name="SupChamDiem_UserNote" ColumnName="SupChamDiem_UserNote" />
+          <ScalarProperty Name="SupChamDiem_DeleteFlag" ColumnName="SupChamDiem_DeleteFlag" />
+          <ScalarProperty Name="SupChamDiem_SyncFlag" ColumnName="SupChamDiem_SyncFlag" />
+          <ScalarProperty Name="SupChamDiem_Lannay" ColumnName="SupChamDiem_Lannay" />
+          <ScalarProperty Name="SupChamDiem_LanToi" ColumnName="SupChamDiem_LanToi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_SupCheckIn">
+      <EntityTypeMapping TypeName="DBMOBILEAPPModel.tbl_SupCheckIn">
+        <MappingFragment StoreEntitySet="tbl_SupCheckIn">
+          <ScalarProperty Name="SupCheckIn_id" ColumnName="SupCheckIn_id" />
+          <ScalarProperty Name="SupBigPlan_id" ColumnName="SupBigPlan_id" />
+          <ScalarProperty Name="SupCheckIn_date" ColumnName="SupCheckIn_date" />
+          <ScalarProperty Name="SupCheckIn_Latidue" ColumnName="SupCheckIn_Latidue" />
+          <ScalarProperty Name="SupCheckIn_Longtidue" ColumnName="SupCheckIn_Longtidue" />
+          <ScalarProperty Name="SupCheckIn_ImageCI" ColumnName="SupCheckIn_ImageCI" />
+          <ScalarProperty Name="SupCheckIn_ImageCO" ColumnName="SupCheckIn_ImageCO" />
+          <ScalarProperty Name="SupCheckIn_AdminAccept" ColumnName="SupCheckIn_AdminAccept" />
+          <ScalarProperty Name="SupCheckIn_AdminNote" ColumnName="SupCheckIn_AdminNote" />
+          <ScalarProperty Name="SupCheckIn_TimeCI" ColumnName="SupCheckIn_TimeCI" />
+          <ScalarProperty Name="SupCheckIn_TimeCO" ColumnName="SupCheckIn_TimeCO" />
+          <ScalarProperty Name="SupCheckIn_Count" ColumnName="SupCheckIn_Count" />
+          <ScalarProperty Name="SupCheckIn_DeleteFlag" ColumnName="SupCheckIn_DeleteFlag" />
+          <ScalarProperty Name="SupCheckIn_SyncFlag" ColumnName="SupCheckIn_SyncFlag" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_SupName">
+      <EntityTypeMapping TypeName="DBMOBILEAPPModel.Tbl_SupName">
+        <MappingFragment StoreEntitySet="Tbl_SupName">
+          <ScalarProperty Name="Sup_ID" ColumnName="Sup_ID" />
+          <ScalarProperty Name="Sup_name" ColumnName="Sup_name" />
+          <ScalarProperty Name="Sup_Status" ColumnName="Sup_Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Target">
+      <EntityTypeMapping TypeName="DBMOBILEAPPModel.tbl_Target">
+        <MappingFragment StoreEntitySet="tbl_Target">
+          <ScalarProperty Name="Target_ID" ColumnName="Target_ID" />
+          <ScalarProperty Name="Target_Name" ColumnName="Target_Name" />
+          <ScalarProperty Name="Us_id" ColumnName="Us_id" />
+          <ScalarProperty Name="Shop_id" ColumnName="Shop_id" />
+          <ScalarProperty Name="Target_Group" ColumnName="Target_Group" />
+          <ScalarProperty Name="Target_Value" ColumnName="Target_Value" />
+          <ScalarProperty Name="Target_DayStart" ColumnName="Target_DayStart" />
+          <ScalarProperty Name="Target_DayEnd" ColumnName="Target_DayEnd" />
+          <ScalarProperty Name="Target_SyncFlag" ColumnName="Target_SyncFlag" />
+          <ScalarProperty Name="Target_DeleteFlag" ColumnName="Target_DeleteFlag" />
+          <ScalarProperty Name="Target_Class" ColumnName="Target_Class" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_TieuChiBaoCaoHinhAnh">
+      <EntityTypeMapping TypeName="DBMOBILEAPPModel.tbl_TieuChiBaoCaoHinhAnh">
+        <MappingFragment StoreEntitySet="tbl_TieuChiBaoCaoHinhAnh">
+          <ScalarProperty Name="TCBCHA_ID" ColumnName="TCBCHA_ID" />
+          <ScalarProperty Name="TCBCHA_Role" ColumnName="TCBCHA_Role" />
+          <ScalarProperty Name="TCBCHA_Name" ColumnName="TCBCHA_Name" />
+          <ScalarProperty Name="TCBCHA_Status" ColumnName="TCBCHA_Status" />
+          <ScalarProperty Name="TCBCHA_SyncFlag" ColumnName="TCBCHA_SyncFlag" />
+          <ScalarProperty Name="TCBCHA_DeleteFlag" ColumnName="TCBCHA_DeleteFlag" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_TieuChiChamDiem">
+      <EntityTypeMapping TypeName="DBMOBILEAPPModel.tbl_TieuChiChamDiem">
+        <MappingFragment StoreEntitySet="tbl_TieuChiChamDiem">
+          <ScalarProperty Name="TieuChiCD_id" ColumnName="TieuChiCD_id" />
+          <ScalarProperty Name="TieuChiCD_Name" ColumnName="TieuChiCD_Name" />
+          <ScalarProperty Name="TieuChiCD_Min" ColumnName="TieuChiCD_Min" />
+          <ScalarProperty Name="TieuChiCD_Max" ColumnName="TieuChiCD_Max" />
+          <ScalarProperty Name="TieuChiCD_Group" ColumnName="TieuChiCD_Group" />
+          <ScalarProperty Name="TieuChiCD_text1" ColumnName="TieuChiCD_text1" />
+          <ScalarProperty Name="TieuChiCD_text2" ColumnName="TieuChiCD_text2" />
+          <ScalarProperty Name="TieuChiCD_text3" ColumnName="TieuChiCD_text3" />
+          <ScalarProperty Name="TieuChiCD_text4" ColumnName="TieuChiCD_text4" />
+          <ScalarProperty Name="TieuChiCD_float1" ColumnName="TieuChiCD_float1" />
+          <ScalarProperty Name="TieuChiCD_float2" ColumnName="TieuChiCD_float2" />
+          <ScalarProperty Name="TieuChiCD_float3" ColumnName="TieuChiCD_float3" />
+          <ScalarProperty Name="TieuChiCD_float4" ColumnName="TieuChiCD_float4" />
+          <ScalarProperty Name="TieuChiCD_bit" ColumnName="TieuChiCD_bit" />
+          <ScalarProperty Name="TieuChiCD_DeleteFlag" ColumnName="TieuChiCD_DeleteFlag" />
+          <ScalarProperty Name="TieuChiCD_SyncFlag" ColumnName="TieuChiCD_SyncFlag" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_user">
+      <EntityTypeMapping TypeName="DBMOBILEAPPModel.tbl_user">
+        <MappingFragment StoreEntitySet="tbl_user">
+          <ScalarProperty Name="Us_id" ColumnName="Us_id" />
+          <ScalarProperty Name="Us_name" ColumnName="Us_name" />
+          <ScalarProperty Name="Us_username" ColumnName="Us_username" />
+          <ScalarProperty Name="Us_password" ColumnName="Us_password" />
+          <ScalarProperty Name="Us_Role" ColumnName="Us_Role" />
+          <ScalarProperty Name="Us_SupGroup" ColumnName="Us_SupGroup" />
+          <ScalarProperty Name="Us_text1" ColumnName="Us_text1" />
+          <ScalarProperty Name="Us_text2" ColumnName="Us_text2" />
+          <ScalarProperty Name="Us_text3" ColumnName="Us_text3" />
+          <ScalarProperty Name="Us_text4" ColumnName="Us_text4" />
+          <ScalarProperty Name="Us_text5" ColumnName="Us_text5" />
+          <ScalarProperty Name="Us_text6" ColumnName="Us_text6" />
+          <ScalarProperty Name="Us_text7" ColumnName="Us_text7" />
+          <ScalarProperty Name="Us_float1" ColumnName="Us_float1" />
+          <ScalarProperty Name="Us_float2" ColumnName="Us_float2" />
+          <ScalarProperty Name="Us_float3" ColumnName="Us_float3" />
+          <ScalarProperty Name="Us_float4" ColumnName="Us_float4" />
+          <ScalarProperty Name="Us_datetime1" ColumnName="Us_datetime1" />
+          <ScalarProperty Name="Us_datetime2" ColumnName="Us_datetime2" />
+          <ScalarProperty Name="Us_datetime3" ColumnName="Us_datetime3" />
+          <ScalarProperty Name="Us_datetime4" ColumnName="Us_datetime4" />
+          <ScalarProperty Name="Us_datetime5" ColumnName="Us_datetime5" />
+          <ScalarProperty Name="Us_bit" ColumnName="Us_bit" />
+          <ScalarProperty Name="Us_deleteflag" ColumnName="Us_deleteflag" />
+          <ScalarProperty Name="Us_SyncFlag" ColumnName="Us_SyncFlag" />
+          <ScalarProperty Name="US_TypeKho" ColumnName="US_TypeKho" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_UserCheckInOut">
+      <EntityTypeMapping TypeName="DBMOBILEAPPModel.tbl_UserCheckInOut">
+        <MappingFragment StoreEntitySet="tbl_UserCheckInOut">
+          <ScalarProperty Name="UserCheckInOut_ID" ColumnName="UserCheckInOut_ID" />
+          <ScalarProperty Name="Bigplan_id" ColumnName="Bigplan_id" />
+          <ScalarProperty Name="UserCheckInOut_date" ColumnName="UserCheckInOut_date" />
+          <ScalarProperty Name="UserCheckInOut_ImageCI" ColumnName="UserCheckInOut_ImageCI" />
+          <ScalarProperty Name="UserCheckInOut_ImageCO" ColumnName="UserCheckInOut_ImageCO" />
+          <ScalarProperty Name="UserCheckInOut_TimeCI" ColumnName="UserCheckInOut_TimeCI" />
+          <ScalarProperty Name="UserCheckInOut_TimeCO" ColumnName="UserCheckInOut_TimeCO" />
+          <ScalarProperty Name="UserCheckInOut_LatidueCI" ColumnName="UserCheckInOut_LatidueCI" />
+          <ScalarProperty Name="UserCheckInOut_LongtidueCI" ColumnName="UserCheckInOut_LongtidueCI" />
+          <ScalarProperty Name="UserCheckInOut_LatidueCO" ColumnName="UserCheckInOut_LatidueCO" />
+          <ScalarProperty Name="UserCheckInOut_LongtidueCO" ColumnName="UserCheckInOut_LongtidueCO" />
+          <ScalarProperty Name="UserCheckInOut_AdminCheck" ColumnName="UserCheckInOut_AdminCheck" />
+          <ScalarProperty Name="UserCheckInOut_AdminNote" ColumnName="UserCheckInOut_AdminNote" />
+          <ScalarProperty Name="UserCheckInOut_UserNote" ColumnName="UserCheckInOut_UserNote" />
+          <ScalarProperty Name="UserCheckInOut_Count" ColumnName="UserCheckInOut_Count" />
+          <ScalarProperty Name="UserCheckInOut_DeleteFlag" ColumnName="UserCheckInOut_DeleteFlag" />
+          <ScalarProperty Name="UserCheckInOut_SyncFlag" ColumnName="UserCheckInOut_SyncFlag" />
+          <ScalarProperty Name="UserCheckInOut_ImageCI1" ColumnName="UserCheckInOut_ImageCI1" />
+          <ScalarProperty Name="UserCheckInOut_ImageCI2" ColumnName="UserCheckInOut_ImageCI2" />
+          <ScalarProperty Name="UserCheckInOut_ImageCI3" ColumnName="UserCheckInOut_ImageCI3" />
+          <ScalarProperty Name="UserCheckInOut_ImageCO1" ColumnName="UserCheckInOut_ImageCO1" />
+          <ScalarProperty Name="UserCheckInOut_ImageCO2" ColumnName="UserCheckInOut_ImageCO2" />
+          <ScalarProperty Name="UserCheckInOut_ImageCO3" ColumnName="UserCheckInOut_ImageCO3" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VW_banhang">
+      <EntityTypeMapping TypeName="DBMOBILEAPPModel.VW_banhang">
+        <MappingFragment StoreEntitySet="VW_banhang">
+          <ScalarProperty Name="Us_id" ColumnName="Us_id" />
+          <ScalarProperty Name="Us_name" ColumnName="Us_name" />
+          <ScalarProperty Name="Us_username" ColumnName="Us_username" />
+          <ScalarProperty Name="Us_password" ColumnName="Us_password" />
+          <ScalarProperty Name="Us_Role" ColumnName="Us_Role" />
+          <ScalarProperty Name="Us_SupGroup" ColumnName="Us_SupGroup" />
+          <ScalarProperty Name="Us_text1" ColumnName="Us_text1" />
+          <ScalarProperty Name="Us_text2" ColumnName="Us_text2" />
+          <ScalarProperty Name="Us_text3" ColumnName="Us_text3" />
+          <ScalarProperty Name="Us_text4" ColumnName="Us_text4" />
+          <ScalarProperty Name="Us_text5" ColumnName="Us_text5" />
+          <ScalarProperty Name="Us_text6" ColumnName="Us_text6" />
+          <ScalarProperty Name="Us_text7" ColumnName="Us_text7" />
+          <ScalarProperty Name="Us_float1" ColumnName="Us_float1" />
+          <ScalarProperty Name="Us_float2" ColumnName="Us_float2" />
+          <ScalarProperty Name="Us_float3" ColumnName="Us_float3" />
+          <ScalarProperty Name="Us_float4" ColumnName="Us_float4" />
+          <ScalarProperty Name="Us_datetime1" ColumnName="Us_datetime1" />
+          <ScalarProperty Name="Us_datetime2" ColumnName="Us_datetime2" />
+          <ScalarProperty Name="Us_datetime3" ColumnName="Us_datetime3" />
+          <ScalarProperty Name="Us_datetime4" ColumnName="Us_datetime4" />
+          <ScalarProperty Name="Us_datetime5" ColumnName="Us_datetime5" />
+          <ScalarProperty Name="Us_bit" ColumnName="Us_bit" />
+          <ScalarProperty Name="Us_deleteflag" ColumnName="Us_deleteflag" />
+          <ScalarProperty Name="Us_SyncFlag" ColumnName="Us_SyncFlag" />
+          <ScalarProperty Name="US_TypeKho" ColumnName="US_TypeKho" />
+          <ScalarProperty Name="Shop_id" ColumnName="Shop_id" />
+          <ScalarProperty Name="Shop_name" ColumnName="Shop_name" />
+          <ScalarProperty Name="Shop_detail" ColumnName="Shop_detail" />
+          <ScalarProperty Name="Shop_npp" ColumnName="Shop_npp" />
+          <ScalarProperty Name="Shop_nppcode" ColumnName="Shop_nppcode" />
+          <ScalarProperty Name="Shop_Ngcode" ColumnName="Shop_Ngcode" />
+          <ScalarProperty Name="Shop_LoaiCHCurrent" ColumnName="Shop_LoaiCHCurrent" />
+          <ScalarProperty Name="Shop_LoaiCHFuture" ColumnName="Shop_LoaiCHFuture" />
+          <ScalarProperty Name="Shop_latidue" ColumnName="Shop_latidue" />
+          <ScalarProperty Name="Shop_Longtidue" ColumnName="Shop_Longtidue" />
+          <ScalarProperty Name="Shop_phone" ColumnName="Shop_phone" />
+          <ScalarProperty Name="Shop_Sup" ColumnName="Shop_Sup" />
+          <ScalarProperty Name="Shop_GroupPrice" ColumnName="Shop_GroupPrice" />
+          <ScalarProperty Name="Shop_text2" ColumnName="Shop_text2" />
+          <ScalarProperty Name="Shop_text3" ColumnName="Shop_text3" />
+          <ScalarProperty Name="Shop_text4" ColumnName="Shop_text4" />
+          <ScalarProperty Name="Shop_float1" ColumnName="Shop_float1" />
+          <ScalarProperty Name="Shop_float2" ColumnName="Shop_float2" />
+          <ScalarProperty Name="Shop_float3" ColumnName="Shop_float3" />
+          <ScalarProperty Name="Shop_float4" ColumnName="Shop_float4" />
+          <ScalarProperty Name="Shop_bit" ColumnName="Shop_bit" />
+          <ScalarProperty Name="Shop_datetime1" ColumnName="Shop_datetime1" />
+          <ScalarProperty Name="Shop_datetime2" ColumnName="Shop_datetime2" />
+          <ScalarProperty Name="Shop_datetime3" ColumnName="Shop_datetime3" />
+          <ScalarProperty Name="Shop_datetime4" ColumnName="Shop_datetime4" />
+          <ScalarProperty Name="Shop_deleteflag" ColumnName="Shop_deleteflag" />
+          <ScalarProperty Name="Shop_SyncFlag" ColumnName="Shop_SyncFlag" />
+          <ScalarProperty Name="sku_barcode" ColumnName="sku_barcode" />
+          <ScalarProperty Name="sku_name" ColumnName="sku_name" />
+          <ScalarProperty Name="sku_detail" ColumnName="sku_detail" />
+          <ScalarProperty Name="sku_txtname" ColumnName="sku_txtname" />
+          <ScalarProperty Name="sku_txtPrice" ColumnName="sku_txtPrice" />
+          <ScalarProperty Name="Target_Group" ColumnName="Target_Group" />
+          <ScalarProperty Name="sku_text1" ColumnName="sku_text1" />
+          <ScalarProperty Name="sku_text2" ColumnName="sku_text2" />
+          <ScalarProperty Name="sku_text3" ColumnName="sku_text3" />
+          <ScalarProperty Name="sku_text4" ColumnName="sku_text4" />
+          <ScalarProperty Name="sku_text5" ColumnName="sku_text5" />
+          <ScalarProperty Name="sku_float1" ColumnName="sku_float1" />
+          <ScalarProperty Name="sku_float2" ColumnName="sku_float2" />
+          <ScalarProperty Name="sku_float3" ColumnName="sku_float3" />
+          <ScalarProperty Name="sku_float4" ColumnName="sku_float4" />
+          <ScalarProperty Name="sku_float5" ColumnName="sku_float5" />
+          <ScalarProperty Name="sku_float6" ColumnName="sku_float6" />
+          <ScalarProperty Name="sku_datetime1" ColumnName="sku_datetime1" />
+          <ScalarProperty Name="sku_datetime2" ColumnName="sku_datetime2" />
+          <ScalarProperty Name="sku_datetime3" ColumnName="sku_datetime3" />
+          <ScalarProperty Name="sku_datetime4" ColumnName="sku_datetime4" />
+          <ScalarProperty Name="sku_bit" ColumnName="sku_bit" />
+          <ScalarProperty Name="sku_deleteflag" ColumnName="sku_deleteflag" />
+          <ScalarProperty Name="sku_SyncFlag" ColumnName="sku_SyncFlag" />
+          <ScalarProperty Name="Bill_date" ColumnName="Bill_date" />
+          <ScalarProperty Name="Bill_deleteFlag" ColumnName="Bill_deleteFlag" />
+          <ScalarProperty Name="Bill_id" ColumnName="Bill_id" />
+          <ScalarProperty Name="Bill_ImageKH" ColumnName="Bill_ImageKH" />
+          <ScalarProperty Name="Bill_SDTKH" ColumnName="Bill_SDTKH" />
+          <ScalarProperty Name="Bill_SyncFlag" ColumnName="Bill_SyncFlag" />
+          <ScalarProperty Name="Bill_TenKH" ColumnName="Bill_TenKH" />
+          <ScalarProperty Name="BillDetail_deleteFlag" ColumnName="BillDetail_deleteFlag" />
+          <ScalarProperty Name="BillDetail_dongia" ColumnName="BillDetail_dongia" />
+          <ScalarProperty Name="BillDetail_soluong" ColumnName="BillDetail_soluong" />
+          <ScalarProperty Name="BillDetail_SyncFlag" ColumnName="BillDetail_SyncFlag" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VW_BCHINHANH">
+      <EntityTypeMapping TypeName="DBMOBILEAPPModel.VW_BCHINHANH">
+        <MappingFragment StoreEntitySet="VW_BCHINHANH">
+          <ScalarProperty Name="Us_id" ColumnName="Us_id" />
+          <ScalarProperty Name="Us_name" ColumnName="Us_name" />
+          <ScalarProperty Name="Us_username" ColumnName="Us_username" />
+          <ScalarProperty Name="Us_password" ColumnName="Us_password" />
+          <ScalarProperty Name="Us_Role" ColumnName="Us_Role" />
+          <ScalarProperty Name="Us_SupGroup" ColumnName="Us_SupGroup" />
+          <ScalarProperty Name="Us_text1" ColumnName="Us_text1" />
+          <ScalarProperty Name="Us_text2" ColumnName="Us_text2" />
+          <ScalarProperty Name="Us_text3" ColumnName="Us_text3" />
+          <ScalarProperty Name="Us_text4" ColumnName="Us_text4" />
+          <ScalarProperty Name="Us_text5" ColumnName="Us_text5" />
+          <ScalarProperty Name="Us_text6" ColumnName="Us_text6" />
+          <ScalarProperty Name="Us_text7" ColumnName="Us_text7" />
+          <ScalarProperty Name="Us_float1" ColumnName="Us_float1" />
+          <ScalarProperty Name="Us_float2" ColumnName="Us_float2" />
+          <ScalarProperty Name="Us_float3" ColumnName="Us_float3" />
+          <ScalarProperty Name="Us_float4" ColumnName="Us_float4" />
+          <ScalarProperty Name="Us_datetime1" ColumnName="Us_datetime1" />
+          <ScalarProperty Name="Us_datetime2" ColumnName="Us_datetime2" />
+          <ScalarProperty Name="Us_datetime3" ColumnName="Us_datetime3" />
+          <ScalarProperty Name="Us_datetime4" ColumnName="Us_datetime4" />
+          <ScalarProperty Name="Us_datetime5" ColumnName="Us_datetime5" />
+          <ScalarProperty Name="Us_bit" ColumnName="Us_bit" />
+          <ScalarProperty Name="Us_deleteflag" ColumnName="Us_deleteflag" />
+          <ScalarProperty Name="Us_SyncFlag" ColumnName="Us_SyncFlag" />
+          <ScalarProperty Name="US_TypeKho" ColumnName="US_TypeKho" />
+          <ScalarProperty Name="Shop_id" ColumnName="Shop_id" />
+          <ScalarProperty Name="Shop_name" ColumnName="Shop_name" />
+          <ScalarProperty Name="Shop_detail" ColumnName="Shop_detail" />
+          <ScalarProperty Name="Shop_npp" ColumnName="Shop_npp" />
+          <ScalarProperty Name="Shop_nppcode" ColumnName="Shop_nppcode" />
+          <ScalarProperty Name="Shop_Ngcode" ColumnName="Shop_Ngcode" />
+          <ScalarProperty Name="Shop_LoaiCHCurrent" ColumnName="Shop_LoaiCHCurrent" />
+          <ScalarProperty Name="Shop_LoaiCHFuture" ColumnName="Shop_LoaiCHFuture" />
+          <ScalarProperty Name="Shop_latidue" ColumnName="Shop_latidue" />
+          <ScalarProperty Name="Shop_Longtidue" ColumnName="Shop_Longtidue" />
+          <ScalarProperty Name="Shop_phone" ColumnName="Shop_phone" />
+          <ScalarProperty Name="Shop_Sup" ColumnName="Shop_Sup" />
+          <ScalarProperty Name="Shop_GroupPrice" ColumnName="Shop_GroupPrice" />
+          <ScalarProperty Name="Shop_text2" ColumnName="Shop_text2" />
+          <ScalarProperty Name="Shop_text3" ColumnName="Shop_text3" />
+          <ScalarProperty Name="Shop_text4" ColumnName="Shop_text4" />
+          <ScalarProperty Name="Shop_float1" ColumnName="Shop_float1" />
+          <ScalarProperty Name="Shop_float2" ColumnName="Shop_float2" />
+          <ScalarProperty Name="Shop_float3" ColumnName="Shop_float3" />
+          <ScalarProperty Name="Shop_float4" ColumnName="Shop_float4" />
+          <ScalarProperty Name="Shop_bit" ColumnName="Shop_bit" />
+          <ScalarProperty Name="Shop_datetime1" ColumnName="Shop_datetime1" />
+          <ScalarProperty Name="Shop_datetime2" ColumnName="Shop_datetime2" />
+          <ScalarProperty Name="Shop_datetime3" ColumnName="Shop_datetime3" />
+          <ScalarProperty Name="Shop_datetime4" ColumnName="Shop_datetime4" />
+          <ScalarProperty Name="Shop_deleteflag" ColumnName="Shop_deleteflag" />
+          <ScalarProperty Name="Shop_SyncFlag" ColumnName="Shop_SyncFlag" />
+          <ScalarProperty Name="TCBCHA_ID" ColumnName="TCBCHA_ID" />
+          <ScalarProperty Name="TCBCHA_Role" ColumnName="TCBCHA_Role" />
+          <ScalarProperty Name="TCBCHA_Name" ColumnName="TCBCHA_Name" />
+          <ScalarProperty Name="TCBCHA_Status" ColumnName="TCBCHA_Status" />
+          <ScalarProperty Name="TCBCHA_SyncFlag" ColumnName="TCBCHA_SyncFlag" />
+          <ScalarProperty Name="TCBCHA_DeleteFlag" ColumnName="TCBCHA_DeleteFlag" />
+          <ScalarProperty Name="bigplan_id" ColumnName="bigplan_id" />
+          <ScalarProperty Name="BCHA_DeleteFlag" ColumnName="BCHA_DeleteFlag" />
+          <ScalarProperty Name="BCHA_ID" ColumnName="BCHA_ID" />
+          <ScalarProperty Name="BCHA_SyncFlag" ColumnName="BCHA_SyncFlag" />
+          <ScalarProperty Name="BCHA_Time" ColumnName="BCHA_Time" />
+          <ScalarProperty Name="DBCHA_DeleteFlag" ColumnName="DBCHA_DeleteFlag" />
+          <ScalarProperty Name="DBCHA_Image" ColumnName="DBCHA_Image" />
+          <ScalarProperty Name="DBCHA_SyncFlag" ColumnName="DBCHA_SyncFlag" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VW_Bigplan">
+      <EntityTypeMapping TypeName="DBMOBILEAPPModel.VW_Bigplan">
+        <MappingFragment StoreEntitySet="VW_Bigplan">
+          <ScalarProperty Name="Us_id" ColumnName="Us_id" />
+          <ScalarProperty Name="Us_name" ColumnName="Us_name" />
+          <ScalarProperty Name="Us_username" ColumnName="Us_username" />
+          <ScalarProperty Name="Us_password" ColumnName="Us_password" />
+          <ScalarProperty Name="Us_Role" ColumnName="Us_Role" />
+          <ScalarProperty Name="Us_SupGroup" ColumnName="Us_SupGroup" />
+          <ScalarProperty Name="Us_text1" ColumnName="Us_text1" />
+          <ScalarProperty Name="Us_text2" ColumnName="Us_text2" />
+          <ScalarProperty Name="Us_text3" ColumnName="Us_text3" />
+          <ScalarProperty Name="Us_text4" ColumnName="Us_text4" />
+          <ScalarProperty Name="Us_text5" ColumnName="Us_text5" />
+          <ScalarProperty Name="Us_text6" ColumnName="Us_text6" />
+          <ScalarProperty Name="Us_text7" ColumnName="Us_text7" />
+          <ScalarProperty Name="Us_float1" ColumnName="Us_float1" />
+          <ScalarProperty Name="Us_float2" ColumnName="Us_float2" />
+          <ScalarProperty Name="Us_float3" ColumnName="Us_float3" />
+          <ScalarProperty Name="Us_float4" ColumnName="Us_float4" />
+          <ScalarProperty Name="Us_datetime1" ColumnName="Us_datetime1" />
+          <ScalarProperty Name="Us_datetime2" ColumnName="Us_datetime2" />
+          <ScalarProperty Name="Us_datetime3" ColumnName="Us_datetime3" />
+          <ScalarProperty Name="Us_datetime4" ColumnName="Us_datetime4" />
+          <ScalarProperty Name="Us_datetime5" ColumnName="Us_datetime5" />
+          <ScalarProperty Name="Us_bit" ColumnName="Us_bit" />
+          <ScalarProperty Name="Us_deleteflag" ColumnName="Us_deleteflag" />
+          <ScalarProperty Name="Us_SyncFlag" ColumnName="Us_SyncFlag" />
+          <ScalarProperty Name="US_TypeKho" ColumnName="US_TypeKho" />
+          <ScalarProperty Name="Shop_id" ColumnName="Shop_id" />
+          <ScalarProperty Name="Shop_name" ColumnName="Shop_name" />
+          <ScalarProperty Name="Shop_detail" ColumnName="Shop_detail" />
+          <ScalarProperty Name="Shop_npp" ColumnName="Shop_npp" />
+          <ScalarProperty Name="Shop_nppcode" ColumnName="Shop_nppcode" />
+          <ScalarProperty Name="Shop_Ngcode" ColumnName="Shop_Ngcode" />
+          <ScalarProperty Name="Shop_LoaiCHCurrent" ColumnName="Shop_LoaiCHCurrent" />
+          <ScalarProperty Name="Shop_LoaiCHFuture" ColumnName="Shop_LoaiCHFuture" />
+          <ScalarProperty Name="Shop_latidue" ColumnName="Shop_latidue" />
+          <ScalarProperty Name="Shop_Longtidue" ColumnName="Shop_Longtidue" />
+          <ScalarProperty Name="Shop_phone" ColumnName="Shop_phone" />
+          <ScalarProperty Name="Shop_Sup" ColumnName="Shop_Sup" />
+          <ScalarProperty Name="Shop_GroupPrice" ColumnName="Shop_GroupPrice" />
+          <ScalarProperty Name="Shop_text2" ColumnName="Shop_text2" />
+          <ScalarProperty Name="Shop_text3" ColumnName="Shop_text3" />
+          <ScalarProperty Name="Shop_text4" ColumnName="Shop_text4" />
+          <ScalarProperty Name="Shop_float1" ColumnName="Shop_float1" />
+          <ScalarProperty Name="Shop_float2" ColumnName="Shop_float2" />
+          <ScalarProperty Name="Shop_float3" ColumnName="Shop_float3" />
+          <ScalarProperty Name="Shop_float4" ColumnName="Shop_float4" />
+          <ScalarProperty Name="Shop_bit" ColumnName="Shop_bit" />
+          <ScalarProperty Name="Shop_datetime1" ColumnName="Shop_datetime1" />
+          <ScalarProperty Name="Shop_datetime2" ColumnName="Shop_datetime2" />
+          <ScalarProperty Name="Shop_datetime3" ColumnName="Shop_datetime3" />
+          <ScalarProperty Name="Shop_datetime4" ColumnName="Shop_datetime4" />
+          <ScalarProperty Name="Shop_deleteflag" ColumnName="Shop_deleteflag" />
+          <ScalarProperty Name="Shop_SyncFlag" ColumnName="Shop_SyncFlag" />
+          <ScalarProperty Name="CaLamViecDetail_id" ColumnName="CaLamViecDetail_id" />
+          <ScalarProperty Name="CaLamViecDetail_Name" ColumnName="CaLamViecDetail_Name" />
+          <ScalarProperty Name="CaLamViecDetail_TGBD" ColumnName="CaLamViecDetail_TGBD" />
+          <ScalarProperty Name="CaLamViecDetail_TGKT" ColumnName="CaLamViecDetail_TGKT" />
+          <ScalarProperty Name="CaLamViecDetail_CHAMCONG" ColumnName="CaLamViecDetail_CHAMCONG" />
+          <ScalarProperty Name="CaLamViecDetail_DeleteFlag" ColumnName="CaLamViecDetail_DeleteFlag" />
+          <ScalarProperty Name="CaLamViecDetail_SyncFlag" ColumnName="CaLamViecDetail_SyncFlag" />
+          <ScalarProperty Name="Bigplan_date" ColumnName="Bigplan_date" />
+          <ScalarProperty Name="Bigplan_deleteFlag" ColumnName="Bigplan_deleteFlag" />
+          <ScalarProperty Name="Bigplan_id" ColumnName="Bigplan_id" />
+          <ScalarProperty Name="BigPlan_SyncFlag" ColumnName="BigPlan_SyncFlag" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VW_DatHang">
+      <EntityTypeMapping TypeName="DBMOBILEAPPModel.VW_DatHang">
+        <MappingFragment StoreEntitySet="VW_DatHang">
+          <ScalarProperty Name="Us_id" ColumnName="Us_id" />
+          <ScalarProperty Name="Us_name" ColumnName="Us_name" />
+          <ScalarProperty Name="Us_username" ColumnName="Us_username" />
+          <ScalarProperty Name="Us_password" ColumnName="Us_password" />
+          <ScalarProperty Name="Us_Role" ColumnName="Us_Role" />
+          <ScalarProperty Name="Us_SupGroup" ColumnName="Us_SupGroup" />
+          <ScalarProperty Name="Us_text1" ColumnName="Us_text1" />
+          <ScalarProperty Name="Us_text2" ColumnName="Us_text2" />
+          <ScalarProperty Name="Us_text3" ColumnName="Us_text3" />
+          <ScalarProperty Name="Us_text4" ColumnName="Us_text4" />
+          <ScalarProperty Name="Us_text5" ColumnName="Us_text5" />
+          <ScalarProperty Name="Us_text6" ColumnName="Us_text6" />
+          <ScalarProperty Name="Us_text7" ColumnName="Us_text7" />
+          <ScalarProperty Name="Us_float1" ColumnName="Us_float1" />
+          <ScalarProperty Name="Us_float2" ColumnName="Us_float2" />
+          <ScalarProperty Name="Us_float3" ColumnName="Us_float3" />
+          <ScalarProperty Name="Us_float4" ColumnName="Us_float4" />
+          <ScalarProperty Name="Us_datetime1" ColumnName="Us_datetime1" />
+          <ScalarProperty Name="Us_datetime2" ColumnName="Us_datetime2" />
+          <ScalarProperty Name="Us_datetime3" ColumnName="Us_datetime3" />
+          <ScalarProperty Name="Us_datetime4" ColumnName="Us_datetime4" />
+          <ScalarProperty Name="Us_datetime5" ColumnName="Us_datetime5" />
+          <ScalarProperty Name="Us_bit" ColumnName="Us_bit" />
+          <ScalarProperty Name="Us_deleteflag" ColumnName="Us_deleteflag" />
+          <ScalarProperty Name="Us_SyncFlag" ColumnName="Us_SyncFlag" />
+          <ScalarProperty Name="US_TypeKho" ColumnName="US_TypeKho" />
+          <ScalarProperty Name="Shop_id" ColumnName="Shop_id" />
+          <ScalarProperty Name="Shop_name" ColumnName="Shop_name" />
+          <ScalarProperty Name="Shop_detail" ColumnName="Shop_detail" />
+          <ScalarProperty Name="Shop_npp" ColumnName="Shop_npp" />
+          <ScalarProperty Name="Shop_nppcode" ColumnName="Shop_nppcode" />
+          <ScalarProperty Name="Shop_Ngcode" ColumnName="Shop_Ngcode" />
+          <ScalarProperty Name="Shop_LoaiCHCurrent" ColumnName="Shop_LoaiCHCurrent" />
+          <ScalarProperty Name="Shop_LoaiCHFuture" ColumnName="Shop_LoaiCHFuture" />
+          <ScalarProperty Name="Shop_latidue" ColumnName="Shop_latidue" />
+          <ScalarProperty Name="Shop_Longtidue" ColumnName="Shop_Longtidue" />
+          <ScalarProperty Name="Shop_phone" ColumnName="Shop_phone" />
+          <ScalarProperty Name="Shop_Sup" ColumnName="Shop_Sup" />
+          <ScalarProperty Name="Shop_GroupPrice" ColumnName="Shop_GroupPrice" />
+          <ScalarProperty Name="Shop_text2" ColumnName="Shop_text2" />
+          <ScalarProperty Name="Shop_text3" ColumnName="Shop_text3" />
+          <ScalarProperty Name="Shop_text4" ColumnName="Shop_text4" />
+          <ScalarProperty Name="Shop_float1" ColumnName="Shop_float1" />
+          <ScalarProperty Name="Shop_float2" ColumnName="Shop_float2" />
+          <ScalarProperty Name="Shop_float3" ColumnName="Shop_float3" />
+          <ScalarProperty Name="Shop_float4" ColumnName="Shop_float4" />
+          <ScalarProperty Name="Shop_bit" ColumnName="Shop_bit" />
+          <ScalarProperty Name="Shop_datetime1" ColumnName="Shop_datetime1" />
+          <ScalarProperty Name="Shop_datetime2" ColumnName="Shop_datetime2" />
+          <ScalarProperty Name="Shop_datetime3" ColumnName="Shop_datetime3" />
+          <ScalarProperty Name="Shop_datetime4" ColumnName="Shop_datetime4" />
+          <ScalarProperty Name="Shop_deleteflag" ColumnName="Shop_deleteflag" />
+          <ScalarProperty Name="Shop_SyncFlag" ColumnName="Shop_SyncFlag" />
+          <ScalarProperty Name="sku_barcode" ColumnName="sku_barcode" />
+          <ScalarProperty Name="sku_name" ColumnName="sku_name" />
+          <ScalarProperty Name="sku_detail" ColumnName="sku_detail" />
+          <ScalarProperty Name="sku_txtname" ColumnName="sku_txtname" />
+          <ScalarProperty Name="sku_txtPrice" ColumnName="sku_txtPrice" />
+          <ScalarProperty Name="Target_Group" ColumnName="Target_Group" />
+          <ScalarProperty Name="sku_text1" ColumnName="sku_text1" />
+          <ScalarProperty Name="sku_text2" ColumnName="sku_text2" />
+          <ScalarProperty Name="sku_text3" ColumnName="sku_text3" />
+          <ScalarProperty Name="sku_text4" ColumnName="sku_text4" />
+          <ScalarProperty Name="sku_text5" ColumnName="sku_text5" />
+          <ScalarProperty Name="sku_float1" ColumnName="sku_float1" />
+          <ScalarProperty Name="sku_float2" ColumnName="sku_float2" />
+          <ScalarProperty Name="sku_float3" ColumnName="sku_float3" />
+          <ScalarProperty Name="sku_float4" ColumnName="sku_float4" />
+          <ScalarProperty Name="sku_float5" ColumnName="sku_float5" />
+          <ScalarProperty Name="sku_float6" ColumnName="sku_float6" />
+          <ScalarProperty Name="sku_datetime1" ColumnName="sku_datetime1" />
+          <ScalarProperty Name="sku_datetime2" ColumnName="sku_datetime2" />
+          <ScalarProperty Name="sku_datetime3" ColumnName="sku_datetime3" />
+          <ScalarProperty Name="sku_datetime4" ColumnName="sku_datetime4" />
+          <ScalarProperty Name="sku_bit" ColumnName="sku_bit" />
+          <ScalarProperty Name="sku_deleteflag" ColumnName="sku_deleteflag" />
+          <ScalarProperty Name="sku_SyncFlag" ColumnName="sku_SyncFlag" />
+          <ScalarProperty Name="DDH_DeleteFlag" ColumnName="DDH_DeleteFlag" />
+          <ScalarProperty Name="DDH_ID" ColumnName="DDH_ID" />
+          <ScalarProperty Name="DDH_Syncflag" ColumnName="DDH_Syncflag" />
+          <ScalarProperty Name="DDH_time" ColumnName="DDH_time" />
+          <ScalarProperty Name="CTDDH_DeleteFlag" ColumnName="CTDDH_DeleteFlag" />
+          <ScalarProperty Name="CTDDH_Soluong" ColumnName="CTDDH_Soluong" />
+          <ScalarProperty Name="CTDDH_SyncFlag" ColumnName="CTDDH_SyncFlag" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VW_DeXuatNhapHang">
+      <EntityTypeMapping TypeName="DBMOBILEAPPModel.VW_DeXuatNhapHang">
+        <MappingFragment StoreEntitySet="VW_DeXuatNhapHang">
+          <ScalarProperty Name="Us_id" ColumnName="Us_id" />
+          <ScalarProperty Name="Us_name" ColumnName="Us_name" />
+          <ScalarProperty Name="Us_username" ColumnName="Us_username" />
+          <ScalarProperty Name="Us_password" ColumnName="Us_password" />
+          <ScalarProperty Name="Us_Role" ColumnName="Us_Role" />
+          <ScalarProperty Name="Us_SupGroup" ColumnName="Us_SupGroup" />
+          <ScalarProperty Name="Us_text1" ColumnName="Us_text1" />
+          <ScalarProperty Name="Us_text2" ColumnName="Us_text2" />
+          <ScalarProperty Name="Us_text3" ColumnName="Us_text3" />
+          <ScalarProperty Name="Us_text4" ColumnName="Us_text4" />
+          <ScalarProperty Name="Us_text5" ColumnName="Us_text5" />
+          <ScalarProperty Name="Us_text6" ColumnName="Us_text6" />
+          <ScalarProperty Name="Us_text7" ColumnName="Us_text7" />
+          <ScalarProperty Name="Us_float1" ColumnName="Us_float1" />
+          <ScalarProperty Name="Us_float2" ColumnName="Us_float2" />
+          <ScalarProperty Name="Us_float3" ColumnName="Us_float3" />
+          <ScalarProperty Name="Us_float4" ColumnName="Us_float4" />
+          <ScalarProperty Name="Us_datetime1" ColumnName="Us_datetime1" />
+          <ScalarProperty Name="Us_datetime2" ColumnName="Us_datetime2" />
+          <ScalarProperty Name="Us_datetime3" ColumnName="Us_datetime3" />
+          <ScalarProperty Name="Us_datetime4" ColumnName="Us_datetime4" />
+          <ScalarProperty Name="Us_datetime5" ColumnName="Us_datetime5" />
+          <ScalarProperty Name="Us_bit" ColumnName="Us_bit" />
+          <ScalarProperty Name="Us_deleteflag" ColumnName="Us_deleteflag" />
+          <ScalarProperty Name="Us_SyncFlag" ColumnName="Us_SyncFlag" />
+          <ScalarProperty Name="US_TypeKho" ColumnName="US_TypeKho" />
+          <ScalarProperty Name="Shop_id" ColumnName="Shop_id" />
+          <ScalarProperty Name="Shop_name" ColumnName="Shop_name" />
+          <ScalarProperty Name="Shop_detail" ColumnName="Shop_detail" />
+          <ScalarProperty Name="Shop_npp" ColumnName="Shop_npp" />
+          <ScalarProperty Name="Shop_nppcode" ColumnName="Shop_nppcode" />
+          <ScalarProperty Name="Shop_Ngcode" ColumnName="Shop_Ngcode" />
+          <ScalarProperty Name="Shop_LoaiCHCurrent" ColumnName="Shop_LoaiCHCurrent" />
+          <ScalarProperty Name="Shop_LoaiCHFuture" ColumnName="Shop_LoaiCHFuture" />
+          <ScalarProperty Name="Shop_latidue" ColumnName="Shop_latidue" />
+          <ScalarProperty Name="Shop_Longtidue" ColumnName="Shop_Longtidue" />
+          <ScalarProperty Name="Shop_phone" ColumnName="Shop_phone" />
+          <ScalarProperty Name="Shop_Sup" ColumnName="Shop_Sup" />
+          <ScalarProperty Name="Shop_GroupPrice" ColumnName="Shop_GroupPrice" />
+          <ScalarProperty Name="Shop_text2" ColumnName="Shop_text2" />
+          <ScalarProperty Name="Shop_text3" ColumnName="Shop_text3" />
+          <ScalarProperty Name="Shop_text4" ColumnName="Shop_text4" />
+          <ScalarProperty Name="Shop_float1" ColumnName="Shop_float1" />
+          <ScalarProperty Name="Shop_float2" ColumnName="Shop_float2" />
+          <ScalarProperty Name="Shop_float3" ColumnName="Shop_float3" />
+          <ScalarProperty Name="Shop_float4" ColumnName="Shop_float4" />
+          <ScalarProperty Name="Shop_bit" ColumnName="Shop_bit" />
+          <ScalarProperty Name="Shop_datetime1" ColumnName="Shop_datetime1" />
+          <ScalarProperty Name="Shop_datetime2" ColumnName="Shop_datetime2" />
+          <ScalarProperty Name="Shop_datetime3" ColumnName="Shop_datetime3" />
+          <ScalarProperty Name="Shop_datetime4" ColumnName="Shop_datetime4" />
+          <ScalarProperty Name="Shop_deleteflag" ColumnName="Shop_deleteflag" />
+          <ScalarProperty Name="Shop_SyncFlag" ColumnName="Shop_SyncFlag" />
+          <ScalarProperty Name="sku_barcode" ColumnName="sku_barcode" />
+          <ScalarProperty Name="sku_name" ColumnName="sku_name" />
+          <ScalarProperty Name="sku_detail" ColumnName="sku_detail" />
+          <ScalarProperty Name="sku_txtname" ColumnName="sku_txtname" />
+          <ScalarProperty Name="sku_txtPrice" ColumnName="sku_txtPrice" />
+          <ScalarProperty Name="Target_Group" ColumnName="Target_Group" />
+          <ScalarProperty Name="sku_text1" ColumnName="sku_text1" />
+          <ScalarProperty Name="sku_text2" ColumnName="sku_text2" />
+          <ScalarProperty Name="sku_text3" ColumnName="sku_text3" />
+          <ScalarProperty Name="sku_text4" ColumnName="sku_text4" />
+          <ScalarProperty Name="sku_text5" ColumnName="sku_text5" />
+          <ScalarProperty Name="sku_float1" ColumnName="sku_float1" />
+          <ScalarProperty Name="sku_float2" ColumnName="sku_float2" />
+          <ScalarProperty Name="sku_float3" ColumnName="sku_float3" />
+          <ScalarProperty Name="sku_float4" ColumnName="sku_float4" />
+          <ScalarProperty Name="sku_float5" ColumnName="sku_float5" />
+          <ScalarProperty Name="sku_float6" ColumnName="sku_float6" />
+          <ScalarProperty Name="sku_datetime1" ColumnName="sku_datetime1" />
+          <ScalarProperty Name="sku_datetime2" ColumnName="sku_datetime2" />
+          <ScalarProperty Name="sku_datetime3" ColumnName="sku_datetime3" />
+          <ScalarProperty Name="sku_datetime4" ColumnName="sku_datetime4" />
+          <ScalarProperty Name="sku_bit" ColumnName="sku_bit" />
+          <ScalarProperty Name="sku_deleteflag" ColumnName="sku_deleteflag" />
+          <ScalarProperty Name="sku_SyncFlag" ColumnName="sku_SyncFlag" />
+          <ScalarProperty Name="DDH_DeleteFlag" ColumnName="DDH_DeleteFlag" />
+          <ScalarProperty Name="DDH_ID" ColumnName="DDH_ID" />
+          <ScalarProperty Name="DDH_Syncflag" ColumnName="DDH_Syncflag" />
+          <ScalarProperty Name="DDH_time" ColumnName="DDH_time" />
+          <ScalarProperty Name="CTDDH_DeleteFlag" ColumnName="CTDDH_DeleteFlag" />
+          <ScalarProperty Name="CTDDH_Soluong" ColumnName="CTDDH_Soluong" />
+          <ScalarProperty Name="CTDDH_SyncFlag" ColumnName="CTDDH_SyncFlag" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VW_DOIQUA">
+      <EntityTypeMapping TypeName="DBMOBILEAPPModel.VW_DOIQUA">
+        <MappingFragment StoreEntitySet="VW_DOIQUA">
+          <ScalarProperty Name="DMQT_Barcode" ColumnName="DMQT_Barcode" />
+          <ScalarProperty Name="DMQT_Name" ColumnName="DMQT_Name" />
+          <ScalarProperty Name="DMQT_Detail" ColumnName="DMQT_Detail" />
+          <ScalarProperty Name="DMQT_Status" ColumnName="DMQT_Status" />
+          <ScalarProperty Name="DMQT_SyncFlag" ColumnName="DMQT_SyncFlag" />
+          <ScalarProperty Name="DMQT_DeleteFlag" ColumnName="DMQT_DeleteFlag" />
+          <ScalarProperty Name="CTDQ_ID" ColumnName="CTDQ_ID" />
+          <ScalarProperty Name="CTDQ_Name" ColumnName="CTDQ_Name" />
+          <ScalarProperty Name="CTDQ_Detail" ColumnName="CTDQ_Detail" />
+          <ScalarProperty Name="CTDQ_APPLYROLE" ColumnName="CTDQ_APPLYROLE" />
+          <ScalarProperty Name="CTDQ_DateBatDau" ColumnName="CTDQ_DateBatDau" />
+          <ScalarProperty Name="CTDQ_DateKetThuc" ColumnName="CTDQ_DateKetThuc" />
+          <ScalarProperty Name="CTDQ_SyncFlag" ColumnName="CTDQ_SyncFlag" />
+          <ScalarProperty Name="CTDQ_DeleteFlag" ColumnName="CTDQ_DeleteFlag" />
+          <ScalarProperty Name="CTDQ_SoLuongToiDaPhanQua" ColumnName="CTDQ_SoLuongToiDaPhanQua" />
+          <ScalarProperty Name="CTdQ_SoluongToiDaSDT" ColumnName="CTdQ_SoluongToiDaSDT" />
+          <ScalarProperty Name="DoiQua_ID" ColumnName="DoiQua_ID" />
+          <ScalarProperty Name="DoiQua_DeleteFlag" ColumnName="DoiQua_DeleteFlag" />
+          <ScalarProperty Name="DoiQua_SyncFlag" ColumnName="DoiQua_SyncFlag" />
+          <ScalarProperty Name="DoiQua_Value" ColumnName="DoiQua_Value" />
+          <ScalarProperty Name="Bill_date" ColumnName="Bill_date" />
+          <ScalarProperty Name="Bill_deleteFlag" ColumnName="Bill_deleteFlag" />
+          <ScalarProperty Name="Bill_id" ColumnName="Bill_id" />
+          <ScalarProperty Name="Bill_ImageKH" ColumnName="Bill_ImageKH" />
+          <ScalarProperty Name="Bill_SDTKH" ColumnName="Bill_SDTKH" />
+          <ScalarProperty Name="Bill_SyncFlag" ColumnName="Bill_SyncFlag" />
+          <ScalarProperty Name="Bill_TenKH" ColumnName="Bill_TenKH" />
+          <ScalarProperty Name="Shop_id" ColumnName="Shop_id" />
+          <ScalarProperty Name="Us_id" ColumnName="Us_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vw_doithucanhtranh">
+      <EntityTypeMapping TypeName="DBMOBILEAPPModel.vw_doithucanhtranh">
+        <MappingFragment StoreEntitySet="vw_doithucanhtranh">
+          <ScalarProperty Name="Us_id" ColumnName="Us_id" />
+          <ScalarProperty Name="Us_name" ColumnName="Us_name" />
+          <ScalarProperty Name="Us_username" ColumnName="Us_username" />
+          <ScalarProperty Name="Us_password" ColumnName="Us_password" />
+          <ScalarProperty Name="Us_Role" ColumnName="Us_Role" />
+          <ScalarProperty Name="Us_SupGroup" ColumnName="Us_SupGroup" />
+          <ScalarProperty Name="Us_text1" ColumnName="Us_text1" />
+          <ScalarProperty Name="Us_text2" ColumnName="Us_text2" />
+          <ScalarProperty Name="Us_text3" ColumnName="Us_text3" />
+          <ScalarProperty Name="Us_text4" ColumnName="Us_text4" />
+          <ScalarProperty Name="Us_text5" ColumnName="Us_text5" />
+          <ScalarProperty Name="Us_text6" ColumnName="Us_text6" />
+          <ScalarProperty Name="Us_text7" ColumnName="Us_text7" />
+          <ScalarProperty Name="Us_float1" ColumnName="Us_float1" />
+          <ScalarProperty Name="Us_float2" ColumnName="Us_float2" />
+          <ScalarProperty Name="Us_float3" ColumnName="Us_float3" />
+          <ScalarProperty Name="Us_float4" ColumnName="Us_float4" />
+          <ScalarProperty Name="Us_datetime1" ColumnName="Us_datetime1" />
+          <ScalarProperty Name="Us_datetime2" ColumnName="Us_datetime2" />
+          <ScalarProperty Name="Us_datetime3" ColumnName="Us_datetime3" />
+          <ScalarProperty Name="Us_datetime4" ColumnName="Us_datetime4" />
+          <ScalarProperty Name="Us_datetime5" ColumnName="Us_datetime5" />
+          <ScalarProperty Name="Us_bit" ColumnName="Us_bit" />
+          <ScalarProperty Name="Us_deleteflag" ColumnName="Us_deleteflag" />
+          <ScalarProperty Name="Us_SyncFlag" ColumnName="Us_SyncFlag" />
+          <ScalarProperty Name="US_TypeKho" ColumnName="US_TypeKho" />
+          <ScalarProperty Name="Shop_id" ColumnName="Shop_id" />
+          <ScalarProperty Name="Shop_name" ColumnName="Shop_name" />
+          <ScalarProperty Name="Shop_detail" ColumnName="Shop_detail" />
+          <ScalarProperty Name="Shop_npp" ColumnName="Shop_npp" />
+          <ScalarProperty Name="Shop_nppcode" ColumnName="Shop_nppcode" />
+          <ScalarProperty Name="Shop_Ngcode" ColumnName="Shop_Ngcode" />
+          <ScalarProperty Name="Shop_LoaiCHCurrent" ColumnName="Shop_LoaiCHCurrent" />
+          <ScalarProperty Name="Shop_LoaiCHFuture" ColumnName="Shop_LoaiCHFuture" />
+          <ScalarProperty Name="Shop_latidue" ColumnName="Shop_latidue" />
+          <ScalarProperty Name="Shop_Longtidue" ColumnName="Shop_Longtidue" />
+          <ScalarProperty Name="Shop_phone" ColumnName="Shop_phone" />
+          <ScalarProperty Name="Shop_Sup" ColumnName="Shop_Sup" />
+          <ScalarProperty Name="Shop_GroupPrice" ColumnName="Shop_GroupPrice" />
+          <ScalarProperty Name="Shop_text2" ColumnName="Shop_text2" />
+          <ScalarProperty Name="Shop_text3" ColumnName="Shop_text3" />
+          <ScalarProperty Name="Shop_text4" ColumnName="Shop_text4" />
+          <ScalarProperty Name="Shop_float1" ColumnName="Shop_float1" />
+          <ScalarProperty Name="Shop_float2" ColumnName="Shop_float2" />
+          <ScalarProperty Name="Shop_float3" ColumnName="Shop_float3" />
+          <ScalarProperty Name="Shop_float4" ColumnName="Shop_float4" />
+          <ScalarProperty Name="Shop_bit" ColumnName="Shop_bit" />
+          <ScalarProperty Name="Shop_datetime1" ColumnName="Shop_datetime1" />
+          <ScalarProperty Name="Shop_datetime2" ColumnName="Shop_datetime2" />
+          <ScalarProperty Name="Shop_datetime3" ColumnName="Shop_datetime3" />
+          <ScalarProperty Name="Shop_datetime4" ColumnName="Shop_datetime4" />
+          <ScalarProperty Name="Shop_deleteflag" ColumnName="Shop_deleteflag" />
+          <ScalarProperty Name="Shop_SyncFlag" ColumnName="Shop_SyncFlag" />
+          <ScalarProperty Name="dt_brand" ColumnName="dt_brand" />
+          <ScalarProperty Name="dt_crmrange" ColumnName="dt_crmrange" />
+          <ScalarProperty Name="dt_cty" ColumnName="dt_cty" />
+          <ScalarProperty Name="dt_DeleteFlag" ColumnName="dt_DeleteFlag" />
+          <ScalarProperty Name="dt_ffrange" ColumnName="dt_ffrange" />
+          <ScalarProperty Name="dt_fortmat" ColumnName="dt_fortmat" />
+          <ScalarProperty Name="dt_giagoc" ColumnName="dt_giagoc" />
+          <ScalarProperty Name="dt_giahangtang" ColumnName="dt_giahangtang" />
+          <ScalarProperty Name="dt_giakm" ColumnName="dt_giakm" />
+          <ScalarProperty Name="dt_hangtang" ColumnName="dt_hangtang" />
+          <ScalarProperty Name="dt_id" ColumnName="dt_id" />
+          <ScalarProperty Name="dt_keyacc" ColumnName="dt_keyacc" />
+          <ScalarProperty Name="dt_ltnrange" ColumnName="dt_ltnrange" />
+          <ScalarProperty Name="dt_nam" ColumnName="dt_nam" />
+          <ScalarProperty Name="dt_noidung" ColumnName="dt_noidung" />
+          <ScalarProperty Name="dt_OnPostOffPost" ColumnName="dt_OnPostOffPost" />
+          <ScalarProperty Name="dt_post" ColumnName="dt_post" />
+          <ScalarProperty Name="dt_SyncFlag" ColumnName="dt_SyncFlag" />
+          <ScalarProperty Name="dt_tenpost" ColumnName="dt_tenpost" />
+          <ScalarProperty Name="dt_thoigianbd" ColumnName="dt_thoigianbd" />
+          <ScalarProperty Name="dt_thoigiankt" ColumnName="dt_thoigiankt" />
+          <ScalarProperty Name="dt_type" ColumnName="dt_type" />
+          <ScalarProperty Name="dt_variant" ColumnName="dt_variant" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VW_doithucanhtranhdongian">
+      <EntityTypeMapping TypeName="DBMOBILEAPPModel.VW_doithucanhtranhdongian">
+        <MappingFragment StoreEntitySet="VW_doithucanhtranhdongian">
+          <ScalarProperty Name="DTCTIMAGE_ID" ColumnName="DTCTIMAGE_ID" />
+          <ScalarProperty Name="DTCTIMAGE_Date" ColumnName="DTCTIMAGE_Date" />
+          <ScalarProperty Name="US_ID" ColumnName="US_ID" />
+          <ScalarProperty Name="Shop_ID" ColumnName="Shop_ID" />
+          <ScalarProperty Name="DTCTIMAGE_Note" ColumnName="DTCTIMAGE_Note" />
+          <ScalarProperty Name="DTCTIMAGE_SyncFlag" ColumnName="DTCTIMAGE_SyncFlag" />
+          <ScalarProperty Name="DTCTIMAGE_DeleteFlag" ColumnName="DTCTIMAGE_DeleteFlag" />
+          <ScalarProperty Name="DTCTIMAGED_DeleteFlag" ColumnName="DTCTIMAGED_DeleteFlag" />
+          <ScalarProperty Name="DTCTIMAGED_ID" ColumnName="DTCTIMAGED_ID" />
+          <ScalarProperty Name="DTCTIMAGED_Image" ColumnName="DTCTIMAGED_Image" />
+          <ScalarProperty Name="DTCTIMAGED_ImagePublish" ColumnName="DTCTIMAGED_ImagePublish" />
+          <ScalarProperty Name="DTCTIMAGED_Note" ColumnName="DTCTIMAGED_Note" />
+          <ScalarProperty Name="DTCTIMAGED_SyncFlag" ColumnName="DTCTIMAGED_SyncFlag" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VW_DoithucanhtranhImage">
+      <EntityTypeMapping TypeName="DBMOBILEAPPModel.VW_DoithucanhtranhImage">
+        <MappingFragment StoreEntitySet="VW_DoithucanhtranhImage">
+          <ScalarProperty Name="Us_id" ColumnName="Us_id" />
+          <ScalarProperty Name="Us_name" ColumnName="Us_name" />
+          <ScalarProperty Name="Us_username" ColumnName="Us_username" />
+          <ScalarProperty Name="Us_password" ColumnName="Us_password" />
+          <ScalarProperty Name="Us_Role" ColumnName="Us_Role" />
+          <ScalarProperty Name="Us_SupGroup" ColumnName="Us_SupGroup" />
+          <ScalarProperty Name="Us_text1" ColumnName="Us_text1" />
+          <ScalarProperty Name="Us_text2" ColumnName="Us_text2" />
+          <ScalarProperty Name="Us_text3" ColumnName="Us_text3" />
+          <ScalarProperty Name="Us_text4" ColumnName="Us_text4" />
+          <ScalarProperty Name="Us_text5" ColumnName="Us_text5" />
+          <ScalarProperty Name="Us_text6" ColumnName="Us_text6" />
+          <ScalarProperty Name="Us_text7" ColumnName="Us_text7" />
+          <ScalarProperty Name="Us_float1" ColumnName="Us_float1" />
+          <ScalarProperty Name="Us_float2" ColumnName="Us_float2" />
+          <ScalarProperty Name="Us_float3" ColumnName="Us_float3" />
+          <ScalarProperty Name="Us_float4" ColumnName="Us_float4" />
+          <ScalarProperty Name="Us_datetime1" ColumnName="Us_datetime1" />
+          <ScalarProperty Name="Us_datetime2" ColumnName="Us_datetime2" />
+          <ScalarProperty Name="Us_datetime3" ColumnName="Us_datetime3" />
+          <ScalarProperty Name="Us_datetime4" ColumnName="Us_datetime4" />
+          <ScalarProperty Name="Us_datetime5" ColumnName="Us_datetime5" />
+          <ScalarProperty Name="Us_bit" ColumnName="Us_bit" />
+          <ScalarProperty Name="Us_deleteflag" ColumnName="Us_deleteflag" />
+          <ScalarProperty Name="Us_SyncFlag" ColumnName="Us_SyncFlag" />
+          <ScalarProperty Name="US_TypeKho" ColumnName="US_TypeKho" />
+          <ScalarProperty Name="Shop_id" ColumnName="Shop_id" />
+          <ScalarProperty Name="Shop_name" ColumnName="Shop_name" />
+          <ScalarProperty Name="Shop_detail" ColumnName="Shop_detail" />
+          <ScalarProperty Name="Shop_npp" ColumnName="Shop_npp" />
+          <ScalarProperty Name="Shop_nppcode" ColumnName="Shop_nppcode" />
+          <ScalarProperty Name="Shop_Ngcode" ColumnName="Shop_Ngcode" />
+          <ScalarProperty Name="Shop_LoaiCHCurrent" ColumnName="Shop_LoaiCHCurrent" />
+          <ScalarProperty Name="Shop_LoaiCHFuture" ColumnName="Shop_LoaiCHFuture" />
+          <ScalarProperty Name="Shop_latidue" ColumnName="Shop_latidue" />
+          <ScalarProperty Name="Shop_Longtidue" ColumnName="Shop_Longtidue" />
+          <ScalarProperty Name="Shop_phone" ColumnName="Shop_phone" />
+          <ScalarProperty Name="Shop_Sup" ColumnName="Shop_Sup" />
+          <ScalarProperty Name="Shop_GroupPrice" ColumnName="Shop_GroupPrice" />
+          <ScalarProperty Name="Shop_text2" ColumnName="Shop_text2" />
+          <ScalarProperty Name="Shop_text3" ColumnName="Shop_text3" />
+          <ScalarProperty Name="Shop_text4" ColumnName="Shop_text4" />
+          <ScalarProperty Name="Shop_float1" ColumnName="Shop_float1" />
+          <ScalarProperty Name="Shop_float2" ColumnName="Shop_float2" />
+          <ScalarProperty Name="Shop_float3" ColumnName="Shop_float3" />
+          <ScalarProperty Name="Shop_float4" ColumnName="Shop_float4" />
+          <ScalarProperty Name="Shop_bit" ColumnName="Shop_bit" />
+          <ScalarProperty Name="Shop_datetime1" ColumnName="Shop_datetime1" />
+          <ScalarProperty Name="Shop_datetime2" ColumnName="Shop_datetime2" />
+          <ScalarProperty Name="Shop_datetime3" ColumnName="Shop_datetime3" />
+          <ScalarProperty Name="Shop_datetime4" ColumnName="Shop_datetime4" />
+          <ScalarProperty Name="Shop_deleteflag" ColumnName="Shop_deleteflag" />
+          <ScalarProperty Name="Shop_SyncFlag" ColumnName="Shop_SyncFlag" />
+          <ScalarProperty Name="DTCTIMAGE_Date" ColumnName="DTCTIMAGE_Date" />
+          <ScalarProperty Name="DTCTIMAGE_DeleteFlag" ColumnName="DTCTIMAGE_DeleteFlag" />
+          <ScalarProperty Name="DTCTIMAGE_ID" ColumnName="DTCTIMAGE_ID" />
+          <ScalarProperty Name="DTCTIMAGE_Note" ColumnName="DTCTIMAGE_Note" />
+          <ScalarProperty Name="DTCTIMAGE_SyncFlag" ColumnName="DTCTIMAGE_SyncFlag" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VW_KHO">
+      <EntityTypeMapping TypeName="DBMOBILEAPPModel.VW_KHO">
+        <MappingFragment StoreEntitySet="VW_KHO">
+          <ScalarProperty Name="Shop_id" ColumnName="Shop_id" />
+          <ScalarProperty Name="Shop_name" ColumnName="Shop_name" />
+          <ScalarProperty Name="Shop_detail" ColumnName="Shop_detail" />
+          <ScalarProperty Name="Shop_npp" ColumnName="Shop_npp" />
+          <ScalarProperty Name="Shop_nppcode" ColumnName="Shop_nppcode" />
+          <ScalarProperty Name="Shop_Ngcode" ColumnName="Shop_Ngcode" />
+          <ScalarProperty Name="Shop_LoaiCHCurrent" ColumnName="Shop_LoaiCHCurrent" />
+          <ScalarProperty Name="Shop_LoaiCHFuture" ColumnName="Shop_LoaiCHFuture" />
+          <ScalarProperty Name="Shop_latidue" ColumnName="Shop_latidue" />
+          <ScalarProperty Name="Shop_Longtidue" ColumnName="Shop_Longtidue" />
+          <ScalarProperty Name="Shop_phone" ColumnName="Shop_phone" />
+          <ScalarProperty Name="Shop_Sup" ColumnName="Shop_Sup" />
+          <ScalarProperty Name="Shop_GroupPrice" ColumnName="Shop_GroupPrice" />
+          <ScalarProperty Name="Shop_text2" ColumnName="Shop_text2" />
+          <ScalarProperty Name="Shop_text3" ColumnName="Shop_text3" />
+          <ScalarProperty Name="Shop_text4" ColumnName="Shop_text4" />
+          <ScalarProperty Name="Shop_float1" ColumnName="Shop_float1" />
+          <ScalarProperty Name="Shop_float2" ColumnName="Shop_float2" />
+          <ScalarProperty Name="Shop_float3" ColumnName="Shop_float3" />
+          <ScalarProperty Name="Shop_float4" ColumnName="Shop_float4" />
+          <ScalarProperty Name="Shop_bit" ColumnName="Shop_bit" />
+          <ScalarProperty Name="Shop_datetime1" ColumnName="Shop_datetime1" />
+          <ScalarProperty Name="Shop_datetime2" ColumnName="Shop_datetime2" />
+          <ScalarProperty Name="Shop_datetime3" ColumnName="Shop_datetime3" />
+          <ScalarProperty Name="Shop_datetime4" ColumnName="Shop_datetime4" />
+          <ScalarProperty Name="Shop_deleteflag" ColumnName="Shop_deleteflag" />
+          <ScalarProperty Name="Shop_SyncFlag" ColumnName="Shop_SyncFlag" />
+          <ScalarProperty Name="DMQT_Barcode" ColumnName="DMQT_Barcode" />
+          <ScalarProperty Name="DMQT_Name" ColumnName="DMQT_Name" />
+          <ScalarProperty Name="DMQT_Detail" ColumnName="DMQT_Detail" />
+          <ScalarProperty Name="DMQT_Status" ColumnName="DMQT_Status" />
+          <ScalarProperty Name="DMQT_SyncFlag" ColumnName="DMQT_SyncFlag" />
+          <ScalarProperty Name="DMQT_DeleteFlag" ColumnName="DMQT_DeleteFlag" />
+          <ScalarProperty Name="SL" ColumnName="SL" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VW_NHAPHANG">
+      <EntityTypeMapping TypeName="DBMOBILEAPPModel.VW_NHAPHANG">
+        <MappingFragment StoreEntitySet="VW_NHAPHANG">
+          <ScalarProperty Name="Us_id" ColumnName="Us_id" />
+          <ScalarProperty Name="Us_name" ColumnName="Us_name" />
+          <ScalarProperty Name="Us_username" ColumnName="Us_username" />
+          <ScalarProperty Name="Us_password" ColumnName="Us_password" />
+          <ScalarProperty Name="Us_Role" ColumnName="Us_Role" />
+          <ScalarProperty Name="Us_SupGroup" ColumnName="Us_SupGroup" />
+          <ScalarProperty Name="Us_text1" ColumnName="Us_text1" />
+          <ScalarProperty Name="Us_text2" ColumnName="Us_text2" />
+          <ScalarProperty Name="Us_text3" ColumnName="Us_text3" />
+          <ScalarProperty Name="Us_text4" ColumnName="Us_text4" />
+          <ScalarProperty Name="Us_text5" ColumnName="Us_text5" />
+          <ScalarProperty Name="Us_text6" ColumnName="Us_text6" />
+          <ScalarProperty Name="Us_text7" ColumnName="Us_text7" />
+          <ScalarProperty Name="Us_float1" ColumnName="Us_float1" />
+          <ScalarProperty Name="Us_float2" ColumnName="Us_float2" />
+          <ScalarProperty Name="Us_float3" ColumnName="Us_float3" />
+          <ScalarProperty Name="Us_float4" ColumnName="Us_float4" />
+          <ScalarProperty Name="Us_datetime1" ColumnName="Us_datetime1" />
+          <ScalarProperty Name="Us_datetime2" ColumnName="Us_datetime2" />
+          <ScalarProperty Name="Us_datetime3" ColumnName="Us_datetime3" />
+          <ScalarProperty Name="Us_datetime4" ColumnName="Us_datetime4" />
+          <ScalarProperty Name="Us_datetime5" ColumnName="Us_datetime5" />
+          <ScalarProperty Name="Us_bit" ColumnName="Us_bit" />
+          <ScalarProperty Name="Us_deleteflag" ColumnName="Us_deleteflag" />
+          <ScalarProperty Name="Us_SyncFlag" ColumnName="Us_SyncFlag" />
+          <ScalarProperty Name="US_TypeKho" ColumnName="US_TypeKho" />
+          <ScalarProperty Name="Shop_id" ColumnName="Shop_id" />
+          <ScalarProperty Name="Shop_name" ColumnName="Shop_name" />
+          <ScalarProperty Name="Shop_detail" ColumnName="Shop_detail" />
+          <ScalarProperty Name="Shop_npp" ColumnName="Shop_npp" />
+          <ScalarProperty Name="Shop_nppcode" ColumnName="Shop_nppcode" />
+          <ScalarProperty Name="Shop_Ngcode" ColumnName="Shop_Ngcode" />
+          <ScalarProperty Name="Shop_LoaiCHCurrent" ColumnName="Shop_LoaiCHCurrent" />
+          <ScalarProperty Name="Shop_LoaiCHFuture" ColumnName="Shop_LoaiCHFuture" />
+          <ScalarProperty Name="Shop_latidue" ColumnName="Shop_latidue" />
+          <ScalarProperty Name="Shop_Longtidue" ColumnName="Shop_Longtidue" />
+          <ScalarProperty Name="Shop_phone" ColumnName="Shop_phone" />
+          <ScalarProperty Name="Shop_Sup" ColumnName="Shop_Sup" />
+          <ScalarProperty Name="Shop_GroupPrice" ColumnName="Shop_GroupPrice" />
+          <ScalarProperty Name="Shop_text2" ColumnName="Shop_text2" />
+          <ScalarProperty Name="Shop_text3" ColumnName="Shop_text3" />
+          <ScalarProperty Name="Shop_text4" ColumnName="Shop_text4" />
+          <ScalarProperty Name="Shop_float1" ColumnName="Shop_float1" />
+          <ScalarProperty Name="Shop_float2" ColumnName="Shop_float2" />
+          <ScalarProperty Name="Shop_float3" ColumnName="Shop_float3" />
+          <ScalarProperty Name="Shop_float4" ColumnName="Shop_float4" />
+          <ScalarProperty Name="Shop_bit" ColumnName="Shop_bit" />
+          <ScalarProperty Name="Shop_datetime1" ColumnName="Shop_datetime1" />
+          <ScalarProperty Name="Shop_datetime2" ColumnName="Shop_datetime2" />
+          <ScalarProperty Name="Shop_datetime3" ColumnName="Shop_datetime3" />
+          <ScalarProperty Name="Shop_datetime4" ColumnName="Shop_datetime4" />
+          <ScalarProperty Name="Shop_deleteflag" ColumnName="Shop_deleteflag" />
+          <ScalarProperty Name="Shop_SyncFlag" ColumnName="Shop_SyncFlag" />
+          <ScalarProperty Name="sku_barcode" ColumnName="sku_barcode" />
+          <ScalarProperty Name="sku_name" ColumnName="sku_name" />
+          <ScalarProperty Name="sku_detail" ColumnName="sku_detail" />
+          <ScalarProperty Name="sku_txtname" ColumnName="sku_txtname" />
+          <ScalarProperty Name="sku_txtPrice" ColumnName="sku_txtPrice" />
+          <ScalarProperty Name="Target_Group" ColumnName="Target_Group" />
+          <ScalarProperty Name="sku_text1" ColumnName="sku_text1" />
+          <ScalarProperty Name="sku_text2" ColumnName="sku_text2" />
+          <ScalarProperty Name="sku_text3" ColumnName="sku_text3" />
+          <ScalarProperty Name="sku_text4" ColumnName="sku_text4" />
+          <ScalarProperty Name="sku_text5" ColumnName="sku_text5" />
+          <ScalarProperty Name="sku_float1" ColumnName="sku_float1" />
+          <ScalarProperty Name="sku_float2" ColumnName="sku_float2" />
+          <ScalarProperty Name="sku_float3" ColumnName="sku_float3" />
+          <ScalarProperty Name="sku_float4" ColumnName="sku_float4" />
+          <ScalarProperty Name="sku_float5" ColumnName="sku_float5" />
+          <ScalarProperty Name="sku_float6" ColumnName="sku_float6" />
+          <ScalarProperty Name="sku_datetime1" ColumnName="sku_datetime1" />
+          <ScalarProperty Name="sku_datetime2" ColumnName="sku_datetime2" />
+          <ScalarProperty Name="sku_datetime3" ColumnName="sku_datetime3" />
+          <ScalarProperty Name="sku_datetime4" ColumnName="sku_datetime4" />
+          <ScalarProperty Name="sku_bit" ColumnName="sku_bit" />
+          <ScalarProperty Name="sku_deleteflag" ColumnName="sku_deleteflag" />
+          <ScalarProperty Name="sku_SyncFlag" ColumnName="sku_SyncFlag" />
+          <ScalarProperty Name="DNH_Date" ColumnName="DNH_Date" />
+          <ScalarProperty Name="DNH_DeleteFlag" ColumnName="DNH_DeleteFlag" />
+          <ScalarProperty Name="DNH_ID" ColumnName="DNH_ID" />
+          <ScalarProperty Name="DNH_Image" ColumnName="DNH_Image" />
+          <ScalarProperty Name="DNH_ImagePublish" ColumnName="DNH_ImagePublish" />
+          <ScalarProperty Name="DNH_SyncFlag" ColumnName="DNH_SyncFlag" />
+          <ScalarProperty Name="CTDNH_Date" ColumnName="CTDNH_Date" />
+          <ScalarProperty Name="CTDNH_DeleteFlag" ColumnName="CTDNH_DeleteFlag" />
+          <ScalarProperty Name="CTDNH_ID" ColumnName="CTDNH_ID" />
+          <ScalarProperty Name="CTDNH_Soluong" ColumnName="CTDNH_Soluong" />
+          <ScalarProperty Name="CTDNH_SyncFlag" ColumnName="CTDNH_SyncFlag" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VW_ReportDTCTSimple">
+      <EntityTypeMapping TypeName="DBMOBILEAPPModel.VW_ReportDTCTSimple">
+        <MappingFragment StoreEntitySet="VW_ReportDTCTSimple">
+          <ScalarProperty Name="DTCTIMAGE_ID" ColumnName="DTCTIMAGE_ID" />
+          <ScalarProperty Name="DTCTIMAGE_Date" ColumnName="DTCTIMAGE_Date" />
+          <ScalarProperty Name="US_ID" ColumnName="US_ID" />
+          <ScalarProperty Name="Shop_ID" ColumnName="Shop_ID" />
+          <ScalarProperty Name="DTCTIMAGE_Note" ColumnName="DTCTIMAGE_Note" />
+          <ScalarProperty Name="DTCTIMAGE_SyncFlag" ColumnName="DTCTIMAGE_SyncFlag" />
+          <ScalarProperty Name="DTCTIMAGE_DeleteFlag" ColumnName="DTCTIMAGE_DeleteFlag" />
+          <ScalarProperty Name="DTCTIMAGED_DeleteFlag" ColumnName="DTCTIMAGED_DeleteFlag" />
+          <ScalarProperty Name="DTCTIMAGED_ID" ColumnName="DTCTIMAGED_ID" />
+          <ScalarProperty Name="DTCTIMAGED_Image" ColumnName="DTCTIMAGED_Image" />
+          <ScalarProperty Name="DTCTIMAGED_ImagePublish" ColumnName="DTCTIMAGED_ImagePublish" />
+          <ScalarProperty Name="DTCTIMAGED_Note" ColumnName="DTCTIMAGED_Note" />
+          <ScalarProperty Name="DTCTIMAGED_SyncFlag" ColumnName="DTCTIMAGED_SyncFlag" />
+          <ScalarProperty Name="Shop_Ngcode" ColumnName="Shop_Ngcode" />
+          <ScalarProperty Name="Shop_name" ColumnName="Shop_name" />
+          <ScalarProperty Name="Shop_detail" ColumnName="Shop_detail" />
+          <ScalarProperty Name="Shop_npp" ColumnName="Shop_npp" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VW_Supchamdiem">
+      <EntityTypeMapping TypeName="DBMOBILEAPPModel.VW_Supchamdiem">
+        <MappingFragment StoreEntitySet="VW_Supchamdiem">
+          <ScalarProperty Name="Us_id" ColumnName="Us_id" />
+          <ScalarProperty Name="Us_name" ColumnName="Us_name" />
+          <ScalarProperty Name="Us_username" ColumnName="Us_username" />
+          <ScalarProperty Name="Us_password" ColumnName="Us_password" />
+          <ScalarProperty Name="Us_Role" ColumnName="Us_Role" />
+          <ScalarProperty Name="Us_SupGroup" ColumnName="Us_SupGroup" />
+          <ScalarProperty Name="Us_text1" ColumnName="Us_text1" />
+          <ScalarProperty Name="Us_text2" ColumnName="Us_text2" />
+          <ScalarProperty Name="Us_text3" ColumnName="Us_text3" />
+          <ScalarProperty Name="Us_text4" ColumnName="Us_text4" />
+          <ScalarProperty Name="Us_text5" ColumnName="Us_text5" />
+          <ScalarProperty Name="Us_text6" ColumnName="Us_text6" />
+          <ScalarProperty Name="Us_text7" ColumnName="Us_text7" />
+          <ScalarProperty Name="Us_float1" ColumnName="Us_float1" />
+          <ScalarProperty Name="Us_float2" ColumnName="Us_float2" />
+          <ScalarProperty Name="Us_float3" ColumnName="Us_float3" />
+          <ScalarProperty Name="Us_float4" ColumnName="Us_float4" />
+          <ScalarProperty Name="Us_datetime1" ColumnName="Us_datetime1" />
+          <ScalarProperty Name="Us_datetime2" ColumnName="Us_datetime2" />
+          <ScalarProperty Name="Us_datetime3" ColumnName="Us_datetime3" />
+          <ScalarProperty Name="Us_datetime4" ColumnName="Us_datetime4" />
+          <ScalarProperty Name="Us_datetime5" ColumnName="Us_datetime5" />
+          <ScalarProperty Name="Us_bit" ColumnName="Us_bit" />
+          <ScalarProperty Name="Us_deleteflag" ColumnName="Us_deleteflag" />
+          <ScalarProperty Name="Us_SyncFlag" ColumnName="Us_SyncFlag" />
+          <ScalarProperty Name="US_TypeKho" ColumnName="US_TypeKho" />
+          <ScalarProperty Name="Shop_id" ColumnName="Shop_id" />
+          <ScalarProperty Name="Shop_name" ColumnName="Shop_name" />
+          <ScalarProperty Name="Shop_detail" ColumnName="Shop_detail" />
+          <ScalarProperty Name="Shop_npp" ColumnName="Shop_npp" />
+          <ScalarProperty Name="Shop_nppcode" ColumnName="Shop_nppcode" />
+          <ScalarProperty Name="Shop_Ngcode" ColumnName="Shop_Ngcode" />
+          <ScalarProperty Name="Shop_LoaiCHCurrent" ColumnName="Shop_LoaiCHCurrent" />
+          <ScalarProperty Name="Shop_LoaiCHFuture" ColumnName="Shop_LoaiCHFuture" />
+          <ScalarProperty Name="Shop_latidue" ColumnName="Shop_latidue" />
+          <ScalarProperty Name="Shop_Longtidue" ColumnName="Shop_Longtidue" />
+          <ScalarProperty Name="Shop_phone" ColumnName="Shop_phone" />
+          <ScalarProperty Name="Shop_Sup" ColumnName="Shop_Sup" />
+          <ScalarProperty Name="Shop_GroupPrice" ColumnName="Shop_GroupPrice" />
+          <ScalarProperty Name="Shop_text2" ColumnName="Shop_text2" />
+          <ScalarProperty Name="Shop_text3" ColumnName="Shop_text3" />
+          <ScalarProperty Name="Shop_text4" ColumnName="Shop_text4" />
+          <ScalarProperty Name="Shop_float1" ColumnName="Shop_float1" />
+          <ScalarProperty Name="Shop_float2" ColumnName="Shop_float2" />
+          <ScalarProperty Name="Shop_float3" ColumnName="Shop_float3" />
+          <ScalarProperty Name="Shop_float4" ColumnName="Shop_float4" />
+          <ScalarProperty Name="Shop_bit" ColumnName="Shop_bit" />
+          <ScalarProperty Name="Shop_datetime1" ColumnName="Shop_datetime1" />
+          <ScalarProperty Name="Shop_datetime2" ColumnName="Shop_datetime2" />
+          <ScalarProperty Name="Shop_datetime3" ColumnName="Shop_datetime3" />
+          <ScalarProperty Name="Shop_datetime4" ColumnName="Shop_datetime4" />
+          <ScalarProperty Name="Shop_deleteflag" ColumnName="Shop_deleteflag" />
+          <ScalarProperty Name="Shop_SyncFlag" ColumnName="Shop_SyncFlag" />
+          <ScalarProperty Name="TieuChiCD_id" ColumnName="TieuChiCD_id" />
+          <ScalarProperty Name="TieuChiCD_Name" ColumnName="TieuChiCD_Name" />
+          <ScalarProperty Name="TieuChiCD_Min" ColumnName="TieuChiCD_Min" />
+          <ScalarProperty Name="TieuChiCD_Max" ColumnName="TieuChiCD_Max" />
+          <ScalarProperty Name="TieuChiCD_Group" ColumnName="TieuChiCD_Group" />
+          <ScalarProperty Name="TieuChiCD_text1" ColumnName="TieuChiCD_text1" />
+          <ScalarProperty Name="TieuChiCD_text2" ColumnName="TieuChiCD_text2" />
+          <ScalarProperty Name="TieuChiCD_text3" ColumnName="TieuChiCD_text3" />
+          <ScalarProperty Name="TieuChiCD_text4" ColumnName="TieuChiCD_text4" />
+          <ScalarProperty Name="TieuChiCD_float1" ColumnName="TieuChiCD_float1" />
+          <ScalarProperty Name="TieuChiCD_float2" ColumnName="TieuChiCD_float2" />
+          <ScalarProperty Name="TieuChiCD_float3" ColumnName="TieuChiCD_float3" />
+          <ScalarProperty Name="TieuChiCD_float4" ColumnName="TieuChiCD_float4" />
+          <ScalarProperty Name="TieuChiCD_bit" ColumnName="TieuChiCD_bit" />
+          <ScalarProperty Name="TieuChiCD_DeleteFlag" ColumnName="TieuChiCD_DeleteFlag" />
+          <ScalarProperty Name="TieuChiCD_SyncFlag" ColumnName="TieuChiCD_SyncFlag" />
+          <ScalarProperty Name="SupChamDiem_DeleteFlag" ColumnName="SupChamDiem_DeleteFlag" />
+          <ScalarProperty Name="SupChamDiem_id" ColumnName="SupChamDiem_id" />
+          <ScalarProperty Name="SupChamDiem_Lannay" ColumnName="SupChamDiem_Lannay" />
+          <ScalarProperty Name="SupChamDiem_LanToi" ColumnName="SupChamDiem_LanToi" />
+          <ScalarProperty Name="SupChamDiem_SyncFlag" ColumnName="SupChamDiem_SyncFlag" />
+          <ScalarProperty Name="SupChamDiem_TimeCD" ColumnName="SupChamDiem_TimeCD" />
+          <ScalarProperty Name="SupChamDiem_UserAccept" ColumnName="SupChamDiem_UserAccept" />
+          <ScalarProperty Name="SupChamDiem_UserNote" ColumnName="SupChamDiem_UserNote" />
+          <ScalarProperty Name="SupBigPlan_date" ColumnName="SupBigPlan_date" />
+          <ScalarProperty Name="SupBigPlan_DeleteFlag" ColumnName="SupBigPlan_DeleteFlag" />
+          <ScalarProperty Name="SupBigPlan_GroupPlan" ColumnName="SupBigPlan_GroupPlan" />
+          <ScalarProperty Name="SupBigPlan_id" ColumnName="SupBigPlan_id" />
+          <ScalarProperty Name="SupBigPlan_KeHoachLanToi" ColumnName="SupBigPlan_KeHoachLanToi" />
+          <ScalarProperty Name="SupBigPlan_NXkehoachLanNay" ColumnName="SupBigPlan_NXkehoachLanNay" />
+          <ScalarProperty Name="SupBigPlan_SupName" ColumnName="SupBigPlan_SupName" />
+          <ScalarProperty Name="SupBigPlan_SupUsername" ColumnName="SupBigPlan_SupUsername" />
+          <ScalarProperty Name="SupBigPlan_SyncFlag" ColumnName="SupBigPlan_SyncFlag" />
+          <ScalarProperty Name="SupBigPlan_UserAccept" ColumnName="SupBigPlan_UserAccept" />
+          <ScalarProperty Name="SupBigPlan_UserNote" ColumnName="SupBigPlan_UserNote" />
+          <ScalarProperty Name="ChitietSupChamDiem_DeleteFlag" ColumnName="ChitietSupChamDiem_DeleteFlag" />
+          <ScalarProperty Name="ChitietSupChamDiem_ID" ColumnName="ChitietSupChamDiem_ID" />
+          <ScalarProperty Name="ChitietSupChamDiem_SyncFlag" ColumnName="ChitietSupChamDiem_SyncFlag" />
+          <ScalarProperty Name="ChitietSupChamDiem_value" ColumnName="ChitietSupChamDiem_value" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VW_SupCheckin">
+      <EntityTypeMapping TypeName="DBMOBILEAPPModel.VW_SupCheckin">
+        <MappingFragment StoreEntitySet="VW_SupCheckin">
+          <ScalarProperty Name="Us_id" ColumnName="Us_id" />
+          <ScalarProperty Name="Us_name" ColumnName="Us_name" />
+          <ScalarProperty Name="Us_username" ColumnName="Us_username" />
+          <ScalarProperty Name="Us_password" ColumnName="Us_password" />
+          <ScalarProperty Name="Us_Role" ColumnName="Us_Role" />
+          <ScalarProperty Name="Us_SupGroup" ColumnName="Us_SupGroup" />
+          <ScalarProperty Name="Us_text1" ColumnName="Us_text1" />
+          <ScalarProperty Name="Us_text2" ColumnName="Us_text2" />
+          <ScalarProperty Name="Us_text3" ColumnName="Us_text3" />
+          <ScalarProperty Name="Us_text4" ColumnName="Us_text4" />
+          <ScalarProperty Name="Us_text5" ColumnName="Us_text5" />
+          <ScalarProperty Name="Us_text6" ColumnName="Us_text6" />
+          <ScalarProperty Name="Us_text7" ColumnName="Us_text7" />
+          <ScalarProperty Name="Us_float1" ColumnName="Us_float1" />
+          <ScalarProperty Name="Us_float2" ColumnName="Us_float2" />
+          <ScalarProperty Name="Us_float3" ColumnName="Us_float3" />
+          <ScalarProperty Name="Us_float4" ColumnName="Us_float4" />
+          <ScalarProperty Name="Us_datetime1" ColumnName="Us_datetime1" />
+          <ScalarProperty Name="Us_datetime2" ColumnName="Us_datetime2" />
+          <ScalarProperty Name="Us_datetime3" ColumnName="Us_datetime3" />
+          <ScalarProperty Name="Us_datetime4" ColumnName="Us_datetime4" />
+          <ScalarProperty Name="Us_datetime5" ColumnName="Us_datetime5" />
+          <ScalarProperty Name="Us_bit" ColumnName="Us_bit" />
+          <ScalarProperty Name="Us_deleteflag" ColumnName="Us_deleteflag" />
+          <ScalarProperty Name="Us_SyncFlag" ColumnName="Us_SyncFlag" />
+          <ScalarProperty Name="US_TypeKho" ColumnName="US_TypeKho" />
+          <ScalarProperty Name="Shop_id" ColumnName="Shop_id" />
+          <ScalarProperty Name="Shop_name" ColumnName="Shop_name" />
+          <ScalarProperty Name="Shop_detail" ColumnName="Shop_detail" />
+          <ScalarProperty Name="Shop_npp" ColumnName="Shop_npp" />
+          <ScalarProperty Name="Shop_nppcode" ColumnName="Shop_nppcode" />
+          <ScalarProperty Name="Shop_Ngcode" ColumnName="Shop_Ngcode" />
+          <ScalarProperty Name="Shop_LoaiCHCurrent" ColumnName="Shop_LoaiCHCurrent" />
+          <ScalarProperty Name="Shop_LoaiCHFuture" ColumnName="Shop_LoaiCHFuture" />
+          <ScalarProperty Name="Shop_latidue" ColumnName="Shop_latidue" />
+          <ScalarProperty Name="Shop_Longtidue" ColumnName="Shop_Longtidue" />
+          <ScalarProperty Name="Shop_phone" ColumnName="Shop_phone" />
+          <ScalarProperty Name="Shop_Sup" ColumnName="Shop_Sup" />
+          <ScalarProperty Name="Shop_GroupPrice" ColumnName="Shop_GroupPrice" />
+          <ScalarProperty Name="Shop_text2" ColumnName="Shop_text2" />
+          <ScalarProperty Name="Shop_text3" ColumnName="Shop_text3" />
+          <ScalarProperty Name="Shop_text4" ColumnName="Shop_text4" />
+          <ScalarProperty Name="Shop_float1" ColumnName="Shop_float1" />
+          <ScalarProperty Name="Shop_float2" ColumnName="Shop_float2" />
+          <ScalarProperty Name="Shop_float3" ColumnName="Shop_float3" />
+          <ScalarProperty Name="Shop_float4" ColumnName="Shop_float4" />
+          <ScalarProperty Name="Shop_bit" ColumnName="Shop_bit" />
+          <ScalarProperty Name="Shop_datetime1" ColumnName="Shop_datetime1" />
+          <ScalarProperty Name="Shop_datetime2" ColumnName="Shop_datetime2" />
+          <ScalarProperty Name="Shop_datetime3" ColumnName="Shop_datetime3" />
+          <ScalarProperty Name="Shop_datetime4" ColumnName="Shop_datetime4" />
+          <ScalarProperty Name="Shop_deleteflag" ColumnName="Shop_deleteflag" />
+          <ScalarProperty Name="Shop_SyncFlag" ColumnName="Shop_SyncFlag" />
+          <ScalarProperty Name="SupBigPlan_date" ColumnName="SupBigPlan_date" />
+          <ScalarProperty Name="SupBigPlan_DeleteFlag" ColumnName="SupBigPlan_DeleteFlag" />
+          <ScalarProperty Name="SupBigPlan_GroupPlan" ColumnName="SupBigPlan_GroupPlan" />
+          <ScalarProperty Name="SupBigPlan_id" ColumnName="SupBigPlan_id" />
+          <ScalarProperty Name="SupBigPlan_KeHoachLanToi" ColumnName="SupBigPlan_KeHoachLanToi" />
+          <ScalarProperty Name="SupBigPlan_NXkehoachLanNay" ColumnName="SupBigPlan_NXkehoachLanNay" />
+          <ScalarProperty Name="SupBigPlan_SupName" ColumnName="SupBigPlan_SupName" />
+          <ScalarProperty Name="SupBigPlan_SupUsername" ColumnName="SupBigPlan_SupUsername" />
+          <ScalarProperty Name="SupBigPlan_SyncFlag" ColumnName="SupBigPlan_SyncFlag" />
+          <ScalarProperty Name="SupBigPlan_UserAccept" ColumnName="SupBigPlan_UserAccept" />
+          <ScalarProperty Name="SupBigPlan_UserNote" ColumnName="SupBigPlan_UserNote" />
+          <ScalarProperty Name="SupCheckIn_AdminAccept" ColumnName="SupCheckIn_AdminAccept" />
+          <ScalarProperty Name="SupCheckIn_AdminNote" ColumnName="SupCheckIn_AdminNote" />
+          <ScalarProperty Name="SupCheckIn_Count" ColumnName="SupCheckIn_Count" />
+          <ScalarProperty Name="SupCheckIn_date" ColumnName="SupCheckIn_date" />
+          <ScalarProperty Name="SupCheckIn_DeleteFlag" ColumnName="SupCheckIn_DeleteFlag" />
+          <ScalarProperty Name="SupCheckIn_id" ColumnName="SupCheckIn_id" />
+          <ScalarProperty Name="SupCheckIn_ImageCI" ColumnName="SupCheckIn_ImageCI" />
+          <ScalarProperty Name="SupCheckIn_ImageCO" ColumnName="SupCheckIn_ImageCO" />
+          <ScalarProperty Name="SupCheckIn_Latidue" ColumnName="SupCheckIn_Latidue" />
+          <ScalarProperty Name="SupCheckIn_Longtidue" ColumnName="SupCheckIn_Longtidue" />
+          <ScalarProperty Name="SupCheckIn_SyncFlag" ColumnName="SupCheckIn_SyncFlag" />
+          <ScalarProperty Name="SupCheckIn_TimeCI" ColumnName="SupCheckIn_TimeCI" />
+          <ScalarProperty Name="SupCheckIn_TimeCO" ColumnName="SupCheckIn_TimeCO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VW_SUPCHECKINOUT">
+      <EntityTypeMapping TypeName="DBMOBILEAPPModel.VW_SUPCHECKINOUT">
+        <MappingFragment StoreEntitySet="VW_SUPCHECKINOUT">
+          <ScalarProperty Name="Us_id" ColumnName="Us_id" />
+          <ScalarProperty Name="Us_name" ColumnName="Us_name" />
+          <ScalarProperty Name="Us_username" ColumnName="Us_username" />
+          <ScalarProperty Name="Us_password" ColumnName="Us_password" />
+          <ScalarProperty Name="Us_Role" ColumnName="Us_Role" />
+          <ScalarProperty Name="Us_SupGroup" ColumnName="Us_SupGroup" />
+          <ScalarProperty Name="Us_text1" ColumnName="Us_text1" />
+          <ScalarProperty Name="Us_text2" ColumnName="Us_text2" />
+          <ScalarProperty Name="Us_text3" ColumnName="Us_text3" />
+          <ScalarProperty Name="Us_text4" ColumnName="Us_text4" />
+          <ScalarProperty Name="Us_text5" ColumnName="Us_text5" />
+          <ScalarProperty Name="Us_text6" ColumnName="Us_text6" />
+          <ScalarProperty Name="Us_text7" ColumnName="Us_text7" />
+          <ScalarProperty Name="Us_float1" ColumnName="Us_float1" />
+          <ScalarProperty Name="Us_float2" ColumnName="Us_float2" />
+          <ScalarProperty Name="Us_float3" ColumnName="Us_float3" />
+          <ScalarProperty Name="Us_float4" ColumnName="Us_float4" />
+          <ScalarProperty Name="Us_datetime1" ColumnName="Us_datetime1" />
+          <ScalarProperty Name="Us_datetime2" ColumnName="Us_datetime2" />
+          <ScalarProperty Name="Us_datetime3" ColumnName="Us_datetime3" />
+          <ScalarProperty Name="Us_datetime4" ColumnName="Us_datetime4" />
+          <ScalarProperty Name="Us_datetime5" ColumnName="Us_datetime5" />
+          <ScalarProperty Name="Us_bit" ColumnName="Us_bit" />
+          <ScalarProperty Name="Us_deleteflag" ColumnName="Us_deleteflag" />
+          <ScalarProperty Name="Us_SyncFlag" ColumnName="Us_SyncFlag" />
+          <ScalarProperty Name="US_TypeKho" ColumnName="US_TypeKho" />
+          <ScalarProperty Name="Shop_id" ColumnName="Shop_id" />
+          <ScalarProperty Name="Shop_name" ColumnName="Shop_name" />
+          <ScalarProperty Name="Shop_detail" ColumnName="Shop_detail" />
+          <ScalarProperty Name="Shop_npp" ColumnName="Shop_npp" />
+          <ScalarProperty Name="Shop_nppcode" ColumnName="Shop_nppcode" />
+          <ScalarProperty Name="Shop_Ngcode" ColumnName="Shop_Ngcode" />
+          <ScalarProperty Name="Shop_LoaiCHCurrent" ColumnName="Shop_LoaiCHCurrent" />
+          <ScalarProperty Name="Shop_LoaiCHFuture" ColumnName="Shop_LoaiCHFuture" />
+          <ScalarProperty Name="Shop_latidue" ColumnName="Shop_latidue" />
+          <ScalarProperty Name="Shop_Longtidue" ColumnName="Shop_Longtidue" />
+          <ScalarProperty Name="Shop_phone" ColumnName="Shop_phone" />
+          <ScalarProperty Name="Shop_Sup" ColumnName="Shop_Sup" />
+          <ScalarProperty Name="Shop_GroupPrice" ColumnName="Shop_GroupPrice" />
+          <ScalarProperty Name="Shop_text2" ColumnName="Shop_text2" />
+          <ScalarProperty Name="Shop_text3" ColumnName="Shop_text3" />
+          <ScalarProperty Name="Shop_text4" ColumnName="Shop_text4" />
+          <ScalarProperty Name="Shop_float1" ColumnName="Shop_float1" />
+          <ScalarProperty Name="Shop_float2" ColumnName="Shop_float2" />
+          <ScalarProperty Name="Shop_float3" ColumnName="Shop_float3" />
+          <ScalarProperty Name="Shop_float4" ColumnName="Shop_float4" />
+          <ScalarProperty Name="Shop_bit" ColumnName="Shop_bit" />
+          <ScalarProperty Name="Shop_datetime1" ColumnName="Shop_datetime1" />
+          <ScalarProperty Name="Shop_datetime2" ColumnName="Shop_datetime2" />
+          <ScalarProperty Name="Shop_datetime3" ColumnName="Shop_datetime3" />
+          <ScalarProperty Name="Shop_datetime4" ColumnName="Shop_datetime4" />
+          <ScalarProperty Name="Shop_deleteflag" ColumnName="Shop_deleteflag" />
+          <ScalarProperty Name="Shop_SyncFlag" ColumnName="Shop_SyncFlag" />
+          <ScalarProperty Name="SupBigPlan_date" ColumnName="SupBigPlan_date" />
+          <ScalarProperty Name="SupBigPlan_DeleteFlag" ColumnName="SupBigPlan_DeleteFlag" />
+          <ScalarProperty Name="SupBigPlan_GroupPlan" ColumnName="SupBigPlan_GroupPlan" />
+          <ScalarProperty Name="SupBigPlan_id" ColumnName="SupBigPlan_id" />
+          <ScalarProperty Name="SupBigPlan_KeHoachLanToi" ColumnName="SupBigPlan_KeHoachLanToi" />
+          <ScalarProperty Name="SupBigPlan_NXkehoachLanNay" ColumnName="SupBigPlan_NXkehoachLanNay" />
+          <ScalarProperty Name="SupBigPlan_SupName" ColumnName="SupBigPlan_SupName" />
+          <ScalarProperty Name="SupBigPlan_SupUsername" ColumnName="SupBigPlan_SupUsername" />
+          <ScalarProperty Name="SupBigPlan_SyncFlag" ColumnName="SupBigPlan_SyncFlag" />
+          <ScalarProperty Name="SupBigPlan_UserAccept" ColumnName="SupBigPlan_UserAccept" />
+          <ScalarProperty Name="SupBigPlan_UserNote" ColumnName="SupBigPlan_UserNote" />
+          <ScalarProperty Name="SupCheckIn_AdminAccept" ColumnName="SupCheckIn_AdminAccept" />
+          <ScalarProperty Name="SupCheckIn_AdminNote" ColumnName="SupCheckIn_AdminNote" />
+          <ScalarProperty Name="SupCheckIn_Count" ColumnName="SupCheckIn_Count" />
+          <ScalarProperty Name="SupCheckIn_date" ColumnName="SupCheckIn_date" />
+          <ScalarProperty Name="SupCheckIn_DeleteFlag" ColumnName="SupCheckIn_DeleteFlag" />
+          <ScalarProperty Name="SupCheckIn_id" ColumnName="SupCheckIn_id" />
+          <ScalarProperty Name="SupCheckIn_ImageCI" ColumnName="SupCheckIn_ImageCI" />
+          <ScalarProperty Name="SupCheckIn_ImageCO" ColumnName="SupCheckIn_ImageCO" />
+          <ScalarProperty Name="SupCheckIn_Latidue" ColumnName="SupCheckIn_Latidue" />
+          <ScalarProperty Name="SupCheckIn_Longtidue" ColumnName="SupCheckIn_Longtidue" />
+          <ScalarProperty Name="SupCheckIn_SyncFlag" ColumnName="SupCheckIn_SyncFlag" />
+          <ScalarProperty Name="SupCheckIn_TimeCI" ColumnName="SupCheckIn_TimeCI" />
+          <ScalarProperty Name="SupCheckIn_TimeCO" ColumnName="SupCheckIn_TimeCO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VW_UsercheckInout">
+      <EntityTypeMapping TypeName="DBMOBILEAPPModel.VW_UsercheckInout">
+        <MappingFragment StoreEntitySet="VW_UsercheckInout">
+          <ScalarProperty Name="Us_id" ColumnName="Us_id" />
+          <ScalarProperty Name="Us_name" ColumnName="Us_name" />
+          <ScalarProperty Name="Us_username" ColumnName="Us_username" />
+          <ScalarProperty Name="Us_password" ColumnName="Us_password" />
+          <ScalarProperty Name="Us_Role" ColumnName="Us_Role" />
+          <ScalarProperty Name="Us_SupGroup" ColumnName="Us_SupGroup" />
+          <ScalarProperty Name="Us_text1" ColumnName="Us_text1" />
+          <ScalarProperty Name="Us_text2" ColumnName="Us_text2" />
+          <ScalarProperty Name="Us_text3" ColumnName="Us_text3" />
+          <ScalarProperty Name="Us_text4" ColumnName="Us_text4" />
+          <ScalarProperty Name="Us_text5" ColumnName="Us_text5" />
+          <ScalarProperty Name="Us_text6" ColumnName="Us_text6" />
+          <ScalarProperty Name="Us_text7" ColumnName="Us_text7" />
+          <ScalarProperty Name="Us_float1" ColumnName="Us_float1" />
+          <ScalarProperty Name="Us_float2" ColumnName="Us_float2" />
+          <ScalarProperty Name="Us_float3" ColumnName="Us_float3" />
+          <ScalarProperty Name="Us_float4" ColumnName="Us_float4" />
+          <ScalarProperty Name="Us_datetime1" ColumnName="Us_datetime1" />
+          <ScalarProperty Name="Us_datetime2" ColumnName="Us_datetime2" />
+          <ScalarProperty Name="Us_datetime3" ColumnName="Us_datetime3" />
+          <ScalarProperty Name="Us_datetime4" ColumnName="Us_datetime4" />
+          <ScalarProperty Name="Us_datetime5" ColumnName="Us_datetime5" />
+          <ScalarProperty Name="Us_bit" ColumnName="Us_bit" />
+          <ScalarProperty Name="Us_deleteflag" ColumnName="Us_deleteflag" />
+          <ScalarProperty Name="Us_SyncFlag" ColumnName="Us_SyncFlag" />
+          <ScalarProperty Name="US_TypeKho" ColumnName="US_TypeKho" />
+          <ScalarProperty Name="Shop_id" ColumnName="Shop_id" />
+          <ScalarProperty Name="Shop_name" ColumnName="Shop_name" />
+          <ScalarProperty Name="Shop_detail" ColumnName="Shop_detail" />
+          <ScalarProperty Name="Shop_npp" ColumnName="Shop_npp" />
+          <ScalarProperty Name="Shop_nppcode" ColumnName="Shop_nppcode" />
+          <ScalarProperty Name="Shop_Ngcode" ColumnName="Shop_Ngcode" />
+          <ScalarProperty Name="Shop_LoaiCHCurrent" ColumnName="Shop_LoaiCHCurrent" />
+          <ScalarProperty Name="Shop_LoaiCHFuture" ColumnName="Shop_LoaiCHFuture" />
+          <ScalarProperty Name="Shop_latidue" ColumnName="Shop_latidue" />
+          <ScalarProperty Name="Shop_Longtidue" ColumnName="Shop_Longtidue" />
+          <ScalarProperty Name="Shop_phone" ColumnName="Shop_phone" />
+          <ScalarProperty Name="Shop_Sup" ColumnName="Shop_Sup" />
+          <ScalarProperty Name="Shop_GroupPrice" ColumnName="Shop_GroupPrice" />
+          <ScalarProperty Name="Shop_text2" ColumnName="Shop_text2" />
+          <ScalarProperty Name="Shop_text3" ColumnName="Shop_text3" />
+          <ScalarProperty Name="Shop_text4" ColumnName="Shop_text4" />
+          <ScalarProperty Name="Shop_float1" ColumnName="Shop_float1" />
+          <ScalarProperty Name="Shop_float2" ColumnName="Shop_float2" />
+          <ScalarProperty Name="Shop_float3" ColumnName="Shop_float3" />
+          <ScalarProperty Name="Shop_float4" ColumnName="Shop_float4" />
+          <ScalarProperty Name="Shop_bit" ColumnName="Shop_bit" />
+          <ScalarProperty Name="Shop_datetime1" ColumnName="Shop_datetime1" />
+          <ScalarProperty Name="Shop_datetime2" ColumnName="Shop_datetime2" />
+          <ScalarProperty Name="Shop_datetime3" ColumnName="Shop_datetime3" />
+          <ScalarProperty Name="Shop_datetime4" ColumnName="Shop_datetime4" />
+          <ScalarProperty Name="Shop_deleteflag" ColumnName="Shop_deleteflag" />
+          <ScalarProperty Name="Shop_SyncFlag" ColumnName="Shop_SyncFlag" />
+          <ScalarProperty Name="Bigplan_date" ColumnName="Bigplan_date" />
+          <ScalarProperty Name="Bigplan_deleteFlag" ColumnName="Bigplan_deleteFlag" />
+          <ScalarProperty Name="Bigplan_id" ColumnName="Bigplan_id" />
+          <ScalarProperty Name="BigPlan_SyncFlag" ColumnName="BigPlan_SyncFlag" />
+          <ScalarProperty Name="CaLamViecDetail_id" ColumnName="CaLamViecDetail_id" />
+          <ScalarProperty Name="UserCheckInOut_AdminCheck" ColumnName="UserCheckInOut_AdminCheck" />
+          <ScalarProperty Name="UserCheckInOut_AdminNote" ColumnName="UserCheckInOut_AdminNote" />
+          <ScalarProperty Name="UserCheckInOut_Count" ColumnName="UserCheckInOut_Count" />
+          <ScalarProperty Name="UserCheckInOut_date" ColumnName="UserCheckInOut_date" />
+          <ScalarProperty Name="UserCheckInOut_DeleteFlag" ColumnName="UserCheckInOut_DeleteFlag" />
+          <ScalarProperty Name="UserCheckInOut_ID" ColumnName="UserCheckInOut_ID" />
+          <ScalarProperty Name="UserCheckInOut_ImageCI" ColumnName="UserCheckInOut_ImageCI" />
+          <ScalarProperty Name="UserCheckInOut_ImageCO" ColumnName="UserCheckInOut_ImageCO" />
+          <ScalarProperty Name="UserCheckInOut_LatidueCI" ColumnName="UserCheckInOut_LatidueCI" />
+          <ScalarProperty Name="UserCheckInOut_LatidueCO" ColumnName="UserCheckInOut_LatidueCO" />
+          <ScalarProperty Name="UserCheckInOut_LongtidueCI" ColumnName="UserCheckInOut_LongtidueCI" />
+          <ScalarProperty Name="UserCheckInOut_LongtidueCO" ColumnName="UserCheckInOut_LongtidueCO" />
+          <ScalarProperty Name="UserCheckInOut_SyncFlag" ColumnName="UserCheckInOut_SyncFlag" />
+          <ScalarProperty Name="UserCheckInOut_TimeCI" ColumnName="UserCheckInOut_TimeCI" />
+          <ScalarProperty Name="UserCheckInOut_TimeCO" ColumnName="UserCheckInOut_TimeCO" />
+          <ScalarProperty Name="UserCheckInOut_UserNote" ColumnName="UserCheckInOut_UserNote" />
+          <ScalarProperty Name="UserCheckInOut_ImageCI1" ColumnName="UserCheckInOut_ImageCI1" />
+          <ScalarProperty Name="UserCheckInOut_ImageCO1" ColumnName="UserCheckInOut_ImageCO1" />
+          <ScalarProperty Name="UserCheckInOut_ImageCI2" ColumnName="UserCheckInOut_ImageCI2" />
+          <ScalarProperty Name="UserCheckInOut_ImageCO2" ColumnName="UserCheckInOut_ImageCO2" />
+          <ScalarProperty Name="UserCheckInOut_ImageCI3" ColumnName="UserCheckInOut_ImageCI3" />
+          <ScalarProperty Name="UserCheckInOut_ImageCO3" ColumnName="UserCheckInOut_ImageCO3" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="Sp_Suabill" FunctionName="DBMOBILEAPPModel.Store.Sp_Suabill" />
+    <FunctionImportMapping FunctionImportName="Sp_Themdoiqua" FunctionName="DBMOBILEAPPModel.Store.Sp_Themdoiqua" />
+    <FunctionImportMapping FunctionImportName="Sp_ThemspBillDetail" FunctionName="DBMOBILEAPPModel.Store.Sp_ThemspBillDetail" />
+    <FunctionImportMapping FunctionImportName="Sp_xoabill" FunctionName="DBMOBILEAPPModel.Store.Sp_xoabill" />
+    <FunctionImportMapping FunctionImportName="Sp_XoaDoiqua" FunctionName="DBMOBILEAPPModel.Store.Sp_XoaDoiqua" />
+    <FunctionImportMapping FunctionImportName="Sp_XoaspBillDetail" FunctionName="DBMOBILEAPPModel.Store.Sp_XoaspBillDetail" />
+  </EntityContainerMapping>
+</Mapping>

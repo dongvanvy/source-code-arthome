@@ -1,0 +1,97 @@
+﻿@using WEBREPORTMOBILEAPP.Models
+@model tbl_bill
+@{
+    ViewBag.Title = "EditBill";
+    Layout = "~/Views/Shared/_LayoutPageAdmin.cshtml";
+}
+<script>
+    $(function () {
+        $("#startdate").datepicker({
+            dateFormat: "yy-mm-dd",
+            ignoreReadonly: true,
+            allowInputToggle: true
+        }).val()
+        $("#enddate").datepicker({
+            dateFormat: "yy-mm-dd",
+            ignoreReadonly: true,
+            allowInputToggle: true
+        }).val()
+    });
+    function submitform() {
+        $('#BATestForm').submit();
+    }
+</script>
+
+<div class="card mb-3">
+    <div class="card-header">
+        @*<i class="fas fa-table"></i>
+        @using (Html.BeginForm("ViewEditBill", "HOME", FormMethod.Post, new { id = "BATestForm", name = "BATestForm" }))
+        {
+            <table>
+                <thead>
+                    <tr>
+                        <th>Ngày bắt đầu</th>
+                        <th><input id="startdate" name="txt_bd" value="@ViewBag.bd" class="form-control" onchange="submitform();" type="date" /></th>
+                    </tr>
+                    <tr>
+                        <th>Ngày kết thúc</th>
+                        <th><input id="enddate" name="txt_kt" value="@ViewBag.kt" class="form-control" onchange="submitform();" type="date" /></th>
+                    </tr>
+                </thead>
+            </table>
+        }
+        <br />*@
+    </div>
+    <form name="form-txt" id="form-txt">
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>Bill_ID</th>
+                            <th>Ngày</th>
+                            <th>Thao tác</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <input type="text" name="Txt_id" value="@Model.Bill_id" required="required" readonly="readonly" />
+                            </td>
+                            <td>
+                                <input name="Txt_tg" value="@Model.Bill_date.Value.ToString("yyyy/MM/dd HH:mm:ss")" type="text" required="required" />
+                            </td>
+                            <td>
+                                <input type="button" value="Xác Nhận" onclick="SuaDuLieu()"/>
+                            </td>
+                        </tr>
+                        
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </form>
+    <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+</div>
+
+<script>
+     function SuaDuLieu()
+                {
+                var datapost = $('#form-txt').serialize();
+                    $.post('@Url.Action("EditBillAC", "Home")', datapost, function (res) {
+                        if (res.status != undefined && res.status == "1") {
+                            //mua item thanh cong, lam mot viec gi do sau do, vi du: thong bao mua hang thanh cong va dong' popup
+                                    alert(res.message);
+                                    location.reload(true);
+                        } else {
+                            //thong bao loi ra cho nguoi dung hoặc thông báo validate data gì đó
+                            alert(res.message);
+                        }
+                    }, 'json');//kiểu dữ liệu trả về là json
+                    return false;
+                }
+</script>
+
+
+
+

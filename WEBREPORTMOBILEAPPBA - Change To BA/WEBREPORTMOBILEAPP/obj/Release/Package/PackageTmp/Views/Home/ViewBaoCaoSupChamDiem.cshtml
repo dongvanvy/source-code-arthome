@@ -1,0 +1,136 @@
+﻿@using WEBREPORTMOBILEAPP.Models
+@model List<VW_Supchamdiem>
+@{
+    ViewBag.Title = "ViewBaoCaoSupChamDiem";
+    Layout = "~/Views/Shared/_LayoutPageAdmin.cshtml";
+    var user =  ViewBag.user as List<tbl_user>;
+    var shop = ViewBag.shop as List<tbl_shop>;
+    var sup =  ViewBag.sup as List<Tbl_SupName>;
+    DateTime ngaymuon = Convert.ToDateTime(ViewBag.bd);
+    DateTime ngaytra = Convert.ToDateTime(ViewBag.kt);
+    TimeSpan Time = ngaytra - ngaymuon;
+    int TongSoNgay = Time.Days;
+    int i = 1;
+    var big = ViewBag.bigplan as List<tbl_SupBigPlan>;
+}
+<script>
+    $(function () {
+        $("#startdate").datepicker({
+            dateFormat: "yy-mm-dd",
+            ignoreReadonly: true,
+            allowInputToggle: true
+        }).val()
+        $("#enddate").datepicker({
+            dateFormat: "yy-mm-dd",
+            ignoreReadonly: true,
+            allowInputToggle: true
+        }).val()
+    });
+    function submitform() {
+        $('#BATestForm').submit();
+    }
+</script>
+<div class="card mb-3">
+    <div class="card-header">
+        <i class="fas fa-table"></i>
+        @using (Html.BeginForm("ViewBaoCaoSupChamDiem", "HOME", FormMethod.Post, new { id = "BATestForm", name = "BATestForm" }))
+        {
+            <table>
+                <thead>
+                    <tr>
+                        <th>Ngày bắt đầu</th>
+                        <th><input id="startdate" name="txt_bd" value="@ViewBag.bd" class="form-control" onchange="submitform();" type="date" /></th>
+                    </tr>
+                    <tr>
+                        <th>Ngày kết thúc</th>
+                        <th><input id="enddate" name="txt_kt" value="@ViewBag.kt" class="form-control" onchange="submitform();" type="date" /></th>
+                    </tr>
+                </thead>
+            </table>
+        }
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Tên nhân viên</th>
+                        <th>Tên Sup</th>
+                        @for (int p=0;p<=TongSoNgay;p++)
+                        {
+                            <th>
+                                @ngaymuon.AddDays(p).ToString("dd/MM/yyyy")
+                            </th>
+                        }
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in user)
+                    {
+                    <tr>
+                        <td>@item.Us_name</td>
+                        <td>@user.FirstOrDefault(n => n.Us_id == item.Us_id).Us_SupGroup</td>
+                        @for (int p = 0; p <= TongSoNgay; p++)
+                        {
+                        <td>
+                            @if (Model.FirstOrDefault(n => n.Us_id == item.Us_id && n.SupBigPlan_date == ngaymuon.AddDays(p))!=null)
+	                        {
+                            <span>@Model.FirstOrDefault(n => n.Us_id == item.Us_id && n.SupBigPlan_date == ngaymuon.AddDays(p)).Shop_name.ToString() - </span>
+	                        }
+                            <span class="btn-success">@Model.Where(n => n.Us_id == item.Us_id && n.SupBigPlan_date == ngaymuon.AddDays(p)).Sum(n => n.ChitietSupChamDiem_value).Value.ToString("#,##")</span> -
+                            @if (Model.FirstOrDefault(n => n.Us_id == item.Us_id && n.SupBigPlan_date == ngaymuon.AddDays(p)) != null)
+                            {
+                                /**/
+                                if (Model.Where(n => n.Us_id == item.Us_id && n.SupBigPlan_date == ngaymuon.AddDays(p)).Sum(n => n.ChitietSupChamDiem_value).Value < 80)
+                                {
+                                    <span>Kém</span><br />
+                                }
+                                else if (Model.Where(n => n.Us_id == item.Us_id && n.SupBigPlan_date == ngaymuon.AddDays(p)).Sum(n => n.ChitietSupChamDiem_value).Value >= 80 && Model.Where(n => n.Us_id == item.Us_id && n.SupBigPlan_date == ngaymuon.AddDays(p)).Sum(n => n.ChitietSupChamDiem_value).Value < 120)
+                                {
+                                    <span>Yếu</span><br />
+                                }
+                                else if (Model.Where(n => n.Us_id == item.Us_id && n.SupBigPlan_date == ngaymuon.AddDays(p)).Sum(n => n.ChitietSupChamDiem_value).Value >= 120 && Model.Where(n => n.Us_id == item.Us_id && n.SupBigPlan_date == ngaymuon.AddDays(p)).Sum(n => n.ChitietSupChamDiem_value).Value < 160)
+                                {
+                                    <span>Đạt yêu cầu</span><br />
+                                }
+                                else if (Model.Where(n => n.Us_id == item.Us_id && n.SupBigPlan_date == ngaymuon.AddDays(p)).Sum(n => n.ChitietSupChamDiem_value).Value >= 160 && Model.Where(n => n.Us_id == item.Us_id && n.SupBigPlan_date == ngaymuon.AddDays(p)).Sum(n => n.ChitietSupChamDiem_value).Value < 200)
+                                {
+                                    <span>Giỏi</span><br />
+                                }
+                                else
+                                {
+                                    <span>Xuất sắc</span><br />
+                                }
+                            }
+                            @foreach (var item1 in Model)
+                            {
+                                if (item.Us_id == item1.Us_id && item1.SupBigPlan_date == ngaymuon.AddDays(p) && item1.ChitietSupChamDiem_value < item1.TieuChiCD_Max)
+                                {
+                                    <span>@item1.TieuChiCD_Name (Current @item1.ChitietSupChamDiem_value) - (Max @item1.TieuChiCD_Max)</span><br />
+                                }
+                            }
+                            @if (Model.FirstOrDefault(n => n.Us_id == item.Us_id && n.SupBigPlan_date == ngaymuon.AddDays(p)) == null)
+                            {
+
+                            }
+                            else
+                            {
+                                <span>
+                                    Nhận xét lần này: @Model.FirstOrDefault(n => n.Us_id == item.Us_id && n.SupBigPlan_date == ngaymuon.AddDays(p)).SupBigPlan_NXkehoachLanNay
+                                </span><br />
+                                <span>
+                                    Kế hoạch lần tới: @Model.FirstOrDefault(n => n.Us_id == item.Us_id && n.SupBigPlan_date == ngaymuon.AddDays(p)).SupBigPlan_KeHoachLanToi
+                                </span>
+
+                            }
+                        </td>
+                        }
+                    </tr>
+
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+</div>

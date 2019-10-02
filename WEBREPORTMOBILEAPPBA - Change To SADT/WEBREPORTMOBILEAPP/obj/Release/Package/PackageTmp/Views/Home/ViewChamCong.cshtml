@@ -1,0 +1,144 @@
+﻿@using WEBREPORTMOBILEAPP.Models
+@model List<VW_UsercheckInout>
+@{
+    ViewBag.Title = "ViewChamCong";
+    Layout = "~/Views/Shared/_LayoutPageAdmin.cshtml";
+    var luser = ViewBag.user as List<tbl_user>;
+    DateTime ngaymuon = Convert.ToDateTime(ViewBag.bd);
+    DateTime ngaytra = Convert.ToDateTime(ViewBag.kt);
+    TimeSpan Time = ngaytra - ngaymuon;
+    int TongSoNgay = Time.Days;
+    var User = ViewBag.user as List<tbl_user>;
+    var bigplan = ViewBag.bigplan as List<VW_Bigplan>;
+    var calv = ViewBag.calv as List<tbl_CaLamViecDetail>;
+}
+<script>
+    $(function () {
+        $("#startdate").datepicker({
+            dateFormat: "yy-mm-dd",
+            ignoreReadonly: true,
+            allowInputToggle: true
+        }).val()
+        $("#enddate").datepicker({
+            dateFormat: "yy-mm-dd",
+            ignoreReadonly: true,
+            allowInputToggle: true
+        }).val()
+    });
+    function submitform() {
+        $('#BATestForm').submit();
+    }
+</script>
+<script>
+    $(document).ready(function () {
+        $('#dataTable1').DataTable();
+    });
+</script>
+<div class="card mb-3">
+    <div class="card-header">
+
+        @using (Html.BeginForm("ViewChamCong", "HOME", FormMethod.Post, new { id = "BATestForm", name = "BATestForm" }))
+        {
+            <table>
+                <thead>
+                    <tr>
+                        <th>Ngày bắt đầu</th>
+                        <th><input id="startdate" name="txt_bd" value="@ViewBag.bd" class="form-control" onchange="submitform();" type="date" /></th>
+                    </tr>
+                    <tr>
+                        <th>Ngày kết thúc</th>
+                        <th><input id="enddate" name="txt_kt" value="@ViewBag.kt" class="form-control" onchange="submitform();" type="date" /></th>
+                    </tr>
+                    @*<tr>
+                        <th>
+                            Ca làm việc
+                        </th>
+                        <th>
+                            <select name="txt_ca" onchange="submitform();">
+                                @if (ViewBag.ca == "0")
+                                {
+                                    <option value="0" selected>ALL</option>
+                                    <option value="1">Sáng</option>
+                                    <option value="2">Chiều</option>
+                                }
+                                else if (ViewBag.ca == "1")
+                                {
+                                    <option value="0">ALL</option>
+                                    <option value="1" selected>Sáng</option>
+                                    <option value="2">Chiều</option>
+                                }
+                                else
+                                {
+                                    <option value="0">ALL</option>
+                                    <option value="1">Sáng</option>
+                                    <option value="2" selected>Chiều</option>
+                                }
+
+                            </select>
+                        </th>
+                    </tr>*@
+                </thead>
+            </table>
+        }
+        <i class="fas fa-table"></i>CHẤM CÔNG
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>MÃ NV</th>
+                        <th>TÊN NHÂN VIÊN</th>
+                        @for (int i = 0; i <= TongSoNgay; i++)
+                        {
+                            <th>
+                                @ngaymuon.AddDays(i).ToString("dd/MM/yyyy")
+                            </th>
+                        }
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in User)
+                    {
+                    <tr>
+                        <td>
+                            @item.Us_username
+                        </td>
+                        <td>
+                            @item.Us_name
+                        </td>
+                        @for (int i = 0; i <= TongSoNgay; i++)
+                        {
+                            <td>
+                                @if (Model.Where(n=>n.Us_id.ToLower()==item.Us_id.ToLower() && n.Bigplan_date==ngaymuon.AddDays(i)).Count()>0)
+                                {
+                                    var check = Model.Where(n => n.Us_id.ToLower() == item.Us_id.ToLower() && n.Bigplan_date == ngaymuon.AddDays(i)).ToList();
+                                    <span>@check.FirstOrDefault().Shop_id-</span>
+                                    foreach (var item1 in check)
+                                    {
+                                        var checkclv = calv.SingleOrDefault(n => n.CaLamViecDetail_id == item1.CaLamViecDetail_id);
+                                        if (item1.UserCheckInOut_TimeCO == null)
+                                        {
+                                            <span>0</span>
+                                        }
+                                        else
+                                        {
+                                            <span>@(item1.UserCheckInOut_TimeCO-item1.UserCheckInOut_TimeCI)</span>
+                                        }
+                                    }
+                                }
+                            </td>
+                        }
+                    </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+    @*<div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>*@
+</div>
+
+
+
+
+

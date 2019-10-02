@@ -1,0 +1,134 @@
+﻿@model WEBREPORTMOBILEAPP.Models.tbl_shop
+
+@{
+    ViewBag.Title = "DeleteShop";
+    Layout = "~/Views/Shared/_LayoutPageAdmin.cshtml";
+}
+
+<h2>Delete Shop</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Shop_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Shop_id)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Shop_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Shop_id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Shop_detail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Shop_detail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Shop_npp)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Shop_npp)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Shop_nppcode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Shop_nppcode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Shop_Ngcode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Shop_Ngcode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Shop_LoaiCHCurrent)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Shop_LoaiCHCurrent)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Shop_latidue)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Shop_latidue)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Shop_Longtidue)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Shop_Longtidue)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Shop_phone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Shop_phone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Shop_Sup)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Shop_Sup)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Shop_GroupPrice)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Shop_GroupPrice)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Shop_deleteflag)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Shop_deleteflag)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Shop_SyncFlag)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Shop_SyncFlag)
+        </dd>
+
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "ViewShop")
+        </div>
+    }
+</div>

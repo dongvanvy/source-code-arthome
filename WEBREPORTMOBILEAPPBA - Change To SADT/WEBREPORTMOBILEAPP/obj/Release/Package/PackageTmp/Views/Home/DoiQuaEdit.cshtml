@@ -1,0 +1,162 @@
+﻿@using WEBREPORTMOBILEAPP.Models
+@model List<VW_DOIQUA>
+@{
+    ViewBag.Title = "DoiQuaEdit";
+    Layout = "~/Views/Shared/_LayoutPageAdmin.cshtml";
+    int i = 1;
+    var ctdq = ViewBag.ctdq as List<tbl_ChuongTrinhDoiQua>;
+}
+<div class="card mb-3">
+    <div class="card-header">
+        <i class="fas fa-table"></i>
+        <br />
+        <form name="doiqua" id="doiqua">
+            <table>
+                <thead>
+                    <tr>
+                        <th colspan="2" class="text-center">Thêm quà vào đơn hàng</th>
+                    </tr>
+                    <tr>
+                        <th>Chương trình đổi quà</th>
+                        <th>
+                            <input type="text" value="@ViewBag.billid" name="txt_billid" hidden />
+                            <select name="SL_ctdq" id="SL_ctdq" onchange="laydsdmqt($('#SL_ctdq').val())">
+                                @foreach (var item in ctdq)
+                                {
+                                    <option value="@item.CTDQ_ID">
+                                        @item.CTDQ_Name
+                                    </option>
+                                }
+                            </select>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>Chọn quà</th>
+                        <th>
+                            <select name="SL_qua" id="SL_qua">
+                                <option value="0">
+                                    Chọn quà
+                                </option>
+                            </select>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>Số lượng</th>
+                        <th>
+                            <input type="number" inputmode="numeric" name="Txt_sl" value="0" required="required"/>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th colspan="2">
+                            <button type="button" value="Thêm" onclick="ThemQua()">Thêm</button>
+                            @*<input type="submit" value="Thêm" />*@
+                        </th>
+                    </tr>
+                </thead>
+            </table>
+        </form>
+    </div>
+    <form>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Bill_ID</th>
+                            <th>Ngày</th>
+                            <th>Nhân viên</th>
+                            <th>Cửa hàng</th>
+                            <th>DMQT_Barcode</th>
+                            <th>Tên Quà</th>
+                            <th>Số lượng</th>
+                            <th>Xóa</th>
+                            <th>Sửa</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            if (Model.Where(n => n.Bill_id == item.Bill_id).Count() > 0)
+                            {
+                                <tr>
+                                    <td>@i</td>
+                                    <td>@item.Bill_id</td>
+                                    <td>@item.Bill_date.Value.ToString("HH:mm:ss dd/MM/yyyy")</td>
+                                    <td>@item.Us_id</td>
+                                    <td>@item.Shop_id</td>
+                                    <td>
+                                        @item.DMQT_Barcode
+                                    </td>
+                                    <td>
+                                        @item.DMQT_Name
+                                    </td>
+                                    <td>
+                                        @item.DoiQua_Value.Value.ToString("#,##")
+                                    </td>
+                                    <th>
+                                        <a onclick="xoadoiqua('@item.DoiQua_ID')" href="javascript:void(0)">Xóa</a>
+                                    </th>
+                                    <th>
+                                        <a href="@Url.Action("EditBill","Home",new { id=item.Bill_id})" target="_blank">Sửa</a>
+                                    </th>
+                                </tr>
+                                i++;
+                            }
+
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </form>
+    <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+</div>
+
+<script>
+    function ThemQua() {
+        var datapost = $('#doiqua').serialize();
+                    $.post('@Url.Action("ThemQuaVaoDoiQua", "Home")', datapost, function (res) {
+                        if (res.status != undefined && res.status == "1") {
+                            //mua item thanh cong, lam mot viec gi do sau do, vi du: thong bao mua hang thanh cong va dong' popup
+                                    alert(res.message);
+                                    location.reload(true);
+                        } else {
+                            //thong bao loi ra cho nguoi dung hoặc thông báo validate data gì đó
+                            alert(res.message);
+                        }
+                    }, 'json');//kiểu dữ liệu trả về là json
+                    return false;
+                }
+    function xoadoiqua(id) {
+        if (confirm("Bạn đã chắc chắn chưa?")) {
+            $.post('@Url.Action("XoaQuaTrongDoiQua", "Home")', { id: id }, function (res) {
+            if (res.status != undefined && res.status == "1") {
+                //mua item thanh cong, lam mot viec gi do sau do, vi du: thong bao mua hang thanh cong va dong' popup
+                alert(res.message);
+                location.reload(true);
+            } else {
+                //thong bao loi ra cho nguoi dung hoặc thông báo validate data gì đó
+                alert(res.message);
+            }
+        }, 'json');//kiểu dữ liệu trả về là json
+        }
+        return false;
+    }
+    function laydsdmqt(id) {
+        $("#SL_qua option[value!='0']").remove();
+        $.post('@Url.Action("Laydsdmqt", "Home")', { id: id }, function (res) {
+            if (res.status != undefined && res.status == "1") {
+                //mua item thanh cong, lam mot viec gi do sau do, vi du: thong bao mua hang thanh cong va dong' popup
+                $.each(res.data, function (i, item) {
+                    $("#SL_qua").append('<option value=' + item.DMQT_Barcode + '>' + item.DMQT_Name  + '</option>');
+                });
+            } else {
+                //thong bao loi ra cho nguoi dung hoặc thông báo validate data gì đó
+                alert(res.message);
+            }
+        }, 'json');//kiểu dữ liệu trả về là json
+        return false;
+    }
+</script>
+

@@ -1,0 +1,325 @@
+﻿@using WEBREPORTMOBILEAPP.Models
+@model  List<tbl_doithucanhtranh>
+@{
+    ViewBag.Title = "ViewDoiThuCanhTranh";
+    Layout = "~/Views/Shared/_LayoutPageAdmin.cshtml";
+    var cty = ViewBag.cty as List<tbl_DTCTCty>;
+    var brand = ViewBag.brand as List<tbl_DTCTBrand>;
+    var format =ViewBag.format as List<tbl_DTCTformat>;
+    var variant=ViewBag.variant as List<tbl_DTCTVARIANT>;
+    var crm=ViewBag.crm as List<tbl_DTCTcrmrange>;
+    var ff=ViewBag.ff as List<tbl_DTCTffrange>;
+    var onoff=ViewBag.onoff as List<tbl_DTCTonpostoffpost>;
+    var type =ViewBag.type as List<tbl_DTCTtype>;
+    var ltn = ViewBag.ltn as List<tbl_DTCTltmrange>;
+    int i = 1;
+}
+
+<script>
+    $(function () {
+        $("#startdate").datepicker({
+            dateFormat: "yy-mm-dd",
+            ignoreReadonly: true,
+            allowInputToggle: true
+        }).val()
+        $("#enddate").datepicker({
+            dateFormat: "yy-mm-dd",
+            ignoreReadonly: true,
+            allowInputToggle: true
+        }).val()
+    });
+    function submitform() {
+        $('#BATestForm').submit();
+    }
+</script>
+
+<div class="card mb-3">
+    <div class="card-header">
+        <i class="fas fa-table"></i>
+        @using (Html.BeginForm("ViewDoiThuCanhTranh", "HOME", FormMethod.Post, new { id = "BATestForm", name = "BATestForm" }))
+        {
+            <table>
+                <thead>
+                    <tr>
+                        <th>Ngày bắt đầu</th>
+                        <th><input id="startdate" name="txt_bd" value="@ViewBag.bd" class="form-control" onchange="submitform();" type="date" /></th>
+                    </tr>
+                    <tr>
+                        <th>Ngày kết thúc</th>
+                        <th><input id="enddate" name="txt_kt" value="@ViewBag.kt" class="form-control" onchange="submitform();" type="date" /></th>
+                    </tr>
+                </thead>
+            </table>
+        }
+        <br />
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Nhân viên</th>
+                        <th>Siêu thị</th>
+                        <th>Nội dung</th>
+                        <th>Công ty</th>
+                        <th>Format</th>
+                        <th>Brand</th>
+                        <th>Variant</th>
+                        <th>CrmRange</th>
+                        <th>FFRange</th>
+                        <th>LTNRange</th>
+                        <th>On/Off Post</th>
+                        <th>Tên Post</th>
+                        <th>Nội dung post</th>
+                        <th>Giá gốc</th>
+                        <th>Giá KM</th>
+                        <th>Hàng tặng</th>
+                        <th>Giá hàng tặng</th>
+                        <th>Type</th>
+                        <th>Thời gian bắt đầu</th>
+                        <th>Thời gian kết thúc</th>
+                        <th>Năm</th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th>#</th>
+                        <th>Nhân viên</th>
+                        <th>Siêu thị</th>
+                        <th>Nội dung</th>
+                        <th>Công ty</th>
+                        <th>Format</th>
+                        <th>Brand</th>
+                        <th>Variant</th>
+                        <th>CrmRange</th>
+                        <th>FFRange</th>
+                        <th>LTNRange</th>
+                        <th>On/Off Post</th>
+                        <th>Tên Post</th>
+                        <th>Nội dung post</th>
+                        <th>Giá gốc</th>
+                        <th>Giá KM</th>
+                        <th>Hàng tặng</th>
+                        <th>Giá hàng tặng</th>
+                        <th>Type</th>
+                        <th>Thời gian bắt đầu</th>
+                        <th>Thời gian kết thúc</th>
+                        <th>Năm</th>
+                    </tr>
+                </tfoot>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                    <tr>
+                        <td>@i</td>
+                        <td>@item.US_ID</td>
+                        <td>@item.Shop_id</td>
+                        <td>@item.dt_noidung</td>
+                        @if (item.dt_cty != null)
+                        {
+                            <td>
+                                @cty.SingleOrDefault(n => n.cty_id == item.dt_cty).cty_name
+                            </td>
+                        }
+                        else
+                        {
+                            <td></td>
+                        }
+                        @if (item.dt_fortmat != null)
+                        {
+                            <td>
+                                @format.SingleOrDefault(n => n.bf_id == item.dt_fortmat).bf_name
+                            </td>
+                        }
+                        else
+                        {
+                            <td></td>
+                        }
+                        @if (item.dt_brand != null)
+                        {
+                            <td>
+                                @brand.SingleOrDefault(n => n.Brand_id == item.dt_brand).Brand_name
+                            </td>
+                        }
+                        else
+                        {
+                            <td></td>
+                        }
+                        @if (item.dt_variant != null)
+                        {
+                            <td>
+                                @variant.SingleOrDefault(n => n.va_id == item.dt_variant).va_name
+                            </td>
+                        }
+                        else
+                        {
+                            <td></td>
+                        }
+                        @if (item.dt_crmrange != null)
+                        {
+                            <td>
+                                @crm.SingleOrDefault(n => n.crm_id == item.dt_crmrange).crm_name
+                            </td>
+                        }
+                        else
+                        {
+                            <td></td>
+                        }
+                        @if (item.dt_ffrange != null)
+                        {
+                            <td>
+                                @ff.SingleOrDefault(n => n.ff_id == item.dt_ffrange).ff_name
+                            </td>
+                        }
+                        else
+                        {
+                            <td></td>
+                        }
+                        @if (item.dt_ltnrange != null)
+                        {
+                            <td>
+                                @ltn.SingleOrDefault(n => n.ltm_id == item.dt_ltnrange).ltm_name
+                            </td>
+                        }
+                        else
+                        {
+                            <td></td>
+                        }
+                        @if (item.dt_OnPostOffPost != null)
+                        {
+                            <td>
+                                @onoff.SingleOrDefault(n => n.ofpost_id == item.dt_OnPostOffPost).ofpost_name
+                            </td>
+                        }
+                        else
+                        {
+                            <td></td>
+                        }
+                        @if (item.dt_tenpost != null)
+                        {
+                            <td>
+                                @item.dt_tenpost
+                            </td>
+                        }
+                        else
+                        {
+                            <td></td>
+                        }
+                        @if (item.dt_post != null)
+                        {
+                            <td>
+                                @item.dt_post
+                            </td>
+                        }
+                        else
+                        {
+                            <td></td>
+                        }
+                        @if (item.dt_giagoc != null)
+                        {
+                            <td>
+                                @item.dt_giagoc.Value.ToString("#,##")
+                            </td>
+                        }
+                        else
+                        {
+                            <td></td>
+                        }
+                        @if (item.dt_giakm != null)
+                        {
+                            <td>
+                                @item.dt_giakm.Value.ToString("#,##")
+                            </td>
+                        }
+                        else
+                        {
+                            <td></td>
+                        }
+                        @if (item.dt_hangtang != null)
+                        {
+                            <td>
+                                @item.dt_hangtang
+                            </td>
+                        }
+                        else
+                        {
+                            <td></td>
+                        }
+                        @if (item.dt_giahangtang != null)
+                        {
+                            <td>
+                                @item.dt_giahangtang.Value.ToString("#,##")
+                            </td>
+                        }
+                        else
+                        {
+                            <td></td>
+                        }
+                        @if (item.dt_type != null)
+                        {
+                            <td>
+                                @type.SingleOrDefault(n => n.ty_id == item.dt_type).ty_name
+                            </td>
+                        }
+                        else
+                        {
+                            <td></td>
+                        }
+                        @if (item.dt_thoigianbd != null)
+                        {
+                            <td>
+                                @item.dt_thoigianbd.Value.ToString("dd/MM/yyyy")
+                            </td>
+                        }
+                        else
+                        {
+                            <td></td>
+                        }
+                        @if (item.dt_thoigiankt != null)
+                        {
+                            <td>
+                                @item.dt_thoigiankt.Value.ToString("dd/MM/yyyy")
+                            </td>
+                        }
+                        else
+                        {
+                            <td></td>
+                        }
+                        @if (item.dt_nam != null)
+                        {
+                            <td>
+                                @item.dt_nam
+                            </td>
+                        }
+                        else
+                        {
+                            <td></td>
+                        }
+                    </tr>
+                        i++;
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+    @*<div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>*@
+</div>
+<script>
+    $(document).ready(function () {
+        $('#dataTable').DataTable(
+            {
+                dom: 'Bfrtip',
+                buttons: [
+                    'copy', 'csv', 'excel', 'pdf', 'print'
+                ],
+                paging: false,
+                searching: false,
+                "ordering": false,
+                "info": false
+            });
+    });
+</script>
+
+
+

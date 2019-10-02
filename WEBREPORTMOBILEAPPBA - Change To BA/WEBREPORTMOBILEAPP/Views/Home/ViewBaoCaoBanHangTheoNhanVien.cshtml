@@ -1,0 +1,114 @@
+﻿
+@using WEBREPORTMOBILEAPP.Models
+@model IEnumerable<WEBREPORTMOBILEAPP.Models.VW_banhang>
+
+@{
+    ViewBag.Title = "ViewBaoCaoBanHangTheoNhanVien";
+    Layout = "~/Views/Shared/_LayoutPageAdmin.cshtml";
+    int i = 1;
+    var user = ViewBag.user as List<tbl_user>;
+    var shop = ViewBag.shop as List<tbl_shop>;
+    var sku = ViewBag.sku as List<tbl_sku>;
+    var ddh = ViewBag.ddh as List<tbl_bill>;
+    var nhomnh = ViewBag.nhomnh as List<tbl_NhomNganhHang>;
+    var nganhh = ViewBag.nganhh as List<tbl_NganhHang>;
+    var nhanh = ViewBag.nhanh as List<tbl_NhanHang>;
+    var abc = ViewBag.NVDetail as List<VW_banhang>;
+}
+<script>
+    $(function () {
+        $("#startdate").datepicker({
+            dateFormat: "yy-mm-dd",
+            ignoreReadonly: true,
+            allowInputToggle: true
+        }).val()
+        $("#enddate").datepicker({
+            dateFormat: "yy-mm-dd",
+            ignoreReadonly: true,
+            allowInputToggle: true
+        }).val()
+    });
+    function submitform() {
+        $('#BATestForm').submit();
+    }
+</script>
+
+<div class="card mb-3">
+    <div class="card-header">
+
+        @using (Html.BeginForm("ViewBaoCaoBanHangTheoNhanVien", "HOME", FormMethod.Post, new { id = "BATestForm", name = "BATestForm" }))
+        {
+            <table>
+                <thead>
+                    <tr>
+                        <th>Ngày bắt đầu</th>
+                        <th><input id="startdate" name="txt_bd" value="@ViewBag.bd" class="form-control" onchange="submitform();" type="date" /></th>
+                    </tr>
+                    <tr>
+                        <th>Ngày kết thúc</th>
+                        <th><input id="enddate" name="txt_kt" value="@ViewBag.kt" class="form-control" onchange="submitform();" type="date" /></th>
+                    </tr>
+                </thead>
+            </table>
+        }
+        <i class="fas fa-table"></i> CỬA HÀNG - NHÓM NGÀNH HÀNG
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Tên Nhân Viên</th>
+                        <th> Chi Tiết</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in user)
+                    {
+                        <tr>
+                            <td>@item.Us_id</td>
+                            <td>@item.Us_name</td>
+                            <td>
+                                <table>
+                                    <tr>                                       
+                                        <td>Tên SKU</td>
+                                        <td>Số lượng</td>
+                                        <td>Thành tiền</td>
+                                    </tr>
+                                    @foreach (var item1 in sku)
+                                    {                                        
+                                        if (Model.Where(n => n.sku_name == item1.sku_name && n.Us_id == item.Us_id).Count() != 0)
+                                        {
+                                            <tr>                                                
+                                                <td><span>@item1.sku_name</span></td>
+                                                <td><span>@Model.Where(n => n.sku_barcode == item1.sku_barcode && n.Us_id == item.Us_id).Sum(n => n.BillDetail_soluong).Value.ToString("#,##")</span></td>
+                                                <td><span>@Model.Where(n => n.sku_barcode == item1.sku_barcode && n.Us_id == item.Us_id).Sum(n => n.BillDetail_soluong * n.BillDetail_dongia).Value.ToString("#,##")</span></td>
+
+                                            </tr>
+
+                                        }
+
+                                    }
+                                </table>
+                            </td>
+
+                        </tr>
+                    }
+
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+    @*<div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>*@
+</div>
+
+<script>
+    $(document).ready(function () {
+        $('#dataTable').DataTable();
+
+    });
+</script>
+
+

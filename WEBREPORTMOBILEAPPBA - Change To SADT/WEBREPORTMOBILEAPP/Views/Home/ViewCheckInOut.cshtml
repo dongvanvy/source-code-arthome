@@ -1,0 +1,130 @@
+﻿@using WEBREPORTMOBILEAPP.Models
+@model List<VW_UsercheckInout>
+@{
+    ViewBag.Title = "ViewCheckInOut";
+    Layout = "~/Views/Shared/_LayoutPageAdmin.cshtml";
+    int i = 1;
+}
+<script>
+    $(function () {
+        $("#startdate").datepicker({
+            dateFormat: "yy-mm-dd",
+            ignoreReadonly: true,
+            allowInputToggle: true
+        }).val()
+        $("#enddate").datepicker({
+            dateFormat: "yy-mm-dd",
+            ignoreReadonly: true,
+            allowInputToggle: true
+        }).val()
+    });
+    function submitform() {
+        $('#BATestForm').submit();
+    }
+</script>
+
+<div class="card mb-3">
+    <div class="card-header">
+        <i class="fas fa-table"></i>
+        @using (Html.BeginForm("ViewCheckInOut", "HOME", FormMethod.Post, new { id = "BATestForm", name = "BATestForm" }))
+        {
+            <table>
+                <thead>
+                    <tr>
+                        <th>Ngày bắt đầu</th>
+                        <th><input id="startdate" name="txt_bd" value="@ViewBag.bd" class="form-control" onchange="submitform();" type="date" /></th>
+                    </tr>
+                    <tr>
+                        <th>Ngày kết thúc</th>
+                        <th><input id="enddate" name="txt_kt" value="@ViewBag.kt" class="form-control" onchange="submitform();" type="date" /></th>
+                    </tr>
+                </thead>
+            </table>
+        }
+        <br />
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="tableCheckIn" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Ngày</th>
+                        <th>Nhân viên</th>
+                        <th>Cửa hàng</th>
+                        <th>Check In</th>
+                        <th>Check Out</th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th>#</th>
+                        <th>Ngày</th>
+                        <th>Nhân viên</th>
+                        <th>Cửa hàng</th>
+                        <th>Check In</th>
+                        <th>Check Out</th>
+                        <th>Vị Trí</th>
+                    </tr>
+                </tfoot>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@i</td>
+                            <td>@item.Bigplan_date.ToString("dd/MM/yyyy")</td>
+                            <td>@item.Us_name</td>
+                            <td>@item.Shop_name</td>
+                            @if (item.UserCheckInOut_ImageCI != null)
+                            {
+                        <td>
+                            <img src="@item.UserCheckInOut_ImageCI" style="width:70px;height:auto;" /><br />
+                            Thời gian:@item.UserCheckInOut_TimeCI<br />
+                            <a href="@Url.Action("ViewShowLocation","Home",new { ID=item.UserCheckInOut_ID})">Check</a>
+                            
+
+                        </td>
+                            }
+                            else
+                            {
+                                <td>Chưa check in</td>
+                            }
+                            @if (item.UserCheckInOut_ImageCO != null)
+                            {
+                                <td>
+                                    <img src="@item.UserCheckInOut_ImageCO" style="width:70px;height:auto;" /><br />
+                                    Thời gian:@item.UserCheckInOut_TimeCO<br />
+                                    <a href="@Url.Action("ViewShowLocationCkout","Home",new { ID=item.UserCheckInOut_ID})">Check</a>
+                                </td>
+                            }
+                            else
+                            {
+                                <td>Chưa check Out</td>
+                            }
+                      
+                           
+                     
+                        </tr>
+                        i++;
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+</div>
+<script>
+    $(document).ready(function () {
+        $('#tableCheckIn').DataTable(
+            {
+                dom: 'Bfrtip',
+                buttons: [
+                    'copy', 'csv', 'excel', 'pdf', 'print'
+                ],
+                paging: false,
+                searching: true,
+                "ordering": true,
+                "info": false});
+    });
+</script>
+

@@ -1,0 +1,122 @@
+﻿
+@using WEBREPORTMOBILEAPP.Models
+@model List<VW_banhang>
+@{
+    ViewBag.Title = "ViewBaoCaoBanHangTheoCH";
+    Layout = "~/Views/Shared/_LayoutPageAdmin.cshtml";
+    int i = 1;
+    var user = ViewBag.user as List<tbl_user>;
+    var shop = ViewBag.shop as List<tbl_shop>;
+    var sku = ViewBag.sku as List<tbl_sku>;
+    var ddh = ViewBag.ddh as List<tbl_bill>;
+    var nhomnh = ViewBag.nhomnh as List<tbl_NhomNganhHang>;
+    var nganhh = ViewBag.nganhh as List<tbl_NganhHang>;
+    var nhanh = ViewBag.nhanh as List<tbl_NhanHang>;
+}
+<script src="//cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+<script src="//cdn.datatables.net/buttons/1.3.1/js/buttons.html5.min.js"></script>
+<script>
+    $(function () {
+        $("#startdate").datepicker({
+            dateFormat: "yy-mm-dd",
+            ignoreReadonly: true,
+            allowInputToggle: true
+        }).val()
+        $("#enddate").datepicker({
+            dateFormat: "yy-mm-dd",
+            ignoreReadonly: true,
+            allowInputToggle: true
+        }).val()
+    });
+    function submitform() {
+        $('#BATestForm').submit();
+    }
+</script>
+
+<div class="card mb-3">
+    <div class="card-header">
+
+        @using (Html.BeginForm("ViewBaoCaoBanHangTheoCH", "HOME", FormMethod.Post, new { id = "BATestForm", name = "BATestForm" }))
+        {
+            <table>
+                <thead>
+                    <tr>
+                        <th>Ngày bắt đầu</th>
+                        <th><input id="startdate" name="txt_bd" value="@ViewBag.bd" class="form-control" onchange="submitform();" type="date" /></th>
+                    </tr>
+                    <tr>
+                        <th>Ngày kết thúc</th>
+                        <th><input id="enddate" name="txt_kt" value="@ViewBag.kt" class="form-control" onchange="submitform();" type="date" /></th>
+                    </tr>
+                </thead>
+            </table>
+        }
+        <i class="fas fa-table"></i> SIÊU THỊ
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataKemWall" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Tên SIÊU THỊ</th>
+                        <th>Tên Nhân viên</th>
+                        @foreach (var item in sku)
+                        {
+                            <th>
+                                @item.sku_name @item.sku_detail
+                            </th>
+                        }
+                        <th>TOTAL</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in shop)
+                    {
+                        foreach (var item1 in user)
+                        {
+                            if (Model.Where(n => n.Shop_id == item.Shop_id && n.Us_id == item1.Us_id).Count() > 0)
+                            {
+                                <tr>
+                                    <td>@item.Shop_name</td>
+                                    <td>@item1.Us_name</td>
+                                    @foreach (var item2 in sku)
+                                    {
+                                        <td>
+                                            @Model.Where(n => n.Shop_id == item.Shop_id && n.Us_id == item1.Us_id && n.sku_barcode == item2.sku_barcode).Sum(n => n.BillDetail_soluong).Value.ToString("#,##")
+                                        </td>
+                                    }
+                                    <td>
+                                        @Model.Where(n => n.Shop_id == item.Shop_id && n.Us_id == item1.Us_id).Sum(n => n.BillDetail_soluong * n.BillDetail_dongia).Value.ToString("#,##")
+                                    </td>
+                                </tr>
+                            }
+
+                        }
+
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+    @*<div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>*@
+</div>
+
+<script>
+     $(document).ready(function () {
+        $('#dataKemWall').DataTable(
+            {
+                dom: 'Bfrtip',
+                buttons: [
+                    'copy', 'csv', 'excel', 'pdf', 'print'
+                ],
+                paging: false,
+                searching: false,
+                "ordering": false,
+                "info": false
+            });
+        //$('#dataTable1').DataTable();
+        //$('#dataTable2').DataTable();
+        //$('#dataTable3').DataTable();
+    });
+</script>
+
