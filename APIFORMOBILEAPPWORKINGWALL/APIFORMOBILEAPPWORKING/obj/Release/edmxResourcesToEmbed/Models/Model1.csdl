@@ -1,0 +1,1817 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DBMOBILEAPPModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="tbl_BaoCaoHinhAnh">
+    <Key>
+      <PropertyRef Name="BCHA_ID" />
+    </Key>
+    <Property Name="BCHA_ID" Type="String" MaxLength="900" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Shop_id" Type="String" MaxLength="900" FixedLength="false" Unicode="true" />
+    <Property Name="Us_id" Type="String" MaxLength="900" FixedLength="false" Unicode="true" />
+    <Property Name="BCHA_Time" Type="DateTime" Precision="3" />
+    <Property Name="BCHA_SyncFlag" Type="DateTime" Precision="3" />
+    <Property Name="BCHA_DeleteFlag" Type="DateTime" Precision="3" />
+    <Property Name="Bigplan_id" Type="String" MaxLength="900" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="tbl_bigplan">
+    <Key>
+      <PropertyRef Name="Bigplan_id" />
+    </Key>
+    <Property Name="Bigplan_id" Type="String" MaxLength="900" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Us_id" Type="String" MaxLength="900" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CaLamViecDetail_id" Type="String" MaxLength="900" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Shop_id" Type="String" MaxLength="900" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Bigplan_date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Bigplan_deleteFlag" Type="DateTime" Precision="3" />
+    <Property Name="BigPlan_SyncFlag" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="tbl_bill">
+    <Key>
+      <PropertyRef Name="Bill_id" />
+    </Key>
+    <Property Name="Bill_id" Type="String" MaxLength="900" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Us_id" Type="String" MaxLength="900" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Shop_id" Type="String" MaxLength="900" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Bill_date" Type="DateTime" Precision="3" />
+    <Property Name="Bill_deleteFlag" Type="DateTime" Precision="3" />
+    <Property Name="Bill_SyncFlag" Type="DateTime" Precision="3" />
+    <Property Name="Bill_SDTKH" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Bill_TenKH" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Bill_ImageKH" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="tbl_billDetail">
+    <Key>
+      <PropertyRef Name="Bill_id" />
+      <PropertyRef Name="sku_barcode" />
+    </Key>
+    <Property Name="Bill_id" Type="String" MaxLength="900" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="sku_barcode" Type="Double" Nullable="false" />
+    <Property Name="BillDetail_soluong" Type="Int32" />
+    <Property Name="BillDetail_dongia" Type="Double" />
+    <Property Name="BillDetail_deleteFlag" Type="DateTime" Precision="3" />
+    <Property Name="BillDetail_SyncFlag" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="tbl_CaLamViecDetail">
+    <Key>
+      <PropertyRef Name="CaLamViecDetail_id" />
+    </Key>
+    <Property Name="CaLamViecDetail_id" Type="String" MaxLength="900" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CaLamViecDetail_Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CaLamViecDetail_TGBD" Type="Time" Precision="7" />
+    <Property Name="CaLamViecDetail_TGKT" Type="Time" Precision="7" />
+    <Property Name="CaLamViecDetail_CHAMCONG" Type="Double" />
+    <Property Name="CaLamViecDetail_DeleteFlag" Type="DateTime" Precision="3" />
+    <Property Name="CaLamViecDetail_SyncFlag" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="tbl_chitietDondathang">
+    <Key>
+      <PropertyRef Name="DDH_ID" />
+      <PropertyRef Name="sku_barcode" />
+    </Key>
+    <Property Name="DDH_ID" Type="String" MaxLength="900" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="sku_barcode" Type="Double" Nullable="false" />
+    <Property Name="CTDDH_Soluong" Type="Double" />
+    <Property Name="CTDDH_SyncFlag" Type="DateTime" Precision="3" />
+    <Property Name="CTDDH_DeleteFlag" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="Tbl_ChitietDonNhapHang">
+    <Key>
+      <PropertyRef Name="CTDNH_ID" />
+    </Key>
+    <Property Name="CTDNH_ID" Type="String" MaxLength="900" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DNH_ID" Type="String" MaxLength="900" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="sku_id" Type="Double" />
+    <Property Name="CTDNH_Soluong" Type="Double" />
+    <Property Name="CTDNH_Date" Type="DateTime" Precision="3" />
+    <Property Name="CTDNH_SyncFlag" Type="DateTime" Precision="3" />
+    <Property Name="CTDNH_DeleteFlag" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="tbl_ChitietSupChamDiem">
+    <Key>
+      <PropertyRef Name="ChitietSupChamDiem_ID" />
+    </Key>
+    <Property Name="ChitietSupChamDiem_ID" Type="String" MaxLength="900" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="SupChamDiem_id" Type="String" MaxLength="900" FixedLength="false" Unicode="true" />
+    <Property Name="TieuChiCD_id" Type="String" MaxLength="900" FixedLength="false" Unicode="true" />
+    <Property Name="ChitietSupChamDiem_value" Type="Int32" />
+    <Property Name="ChitietSupChamDiem_DeleteFlag" Type="DateTime" Precision="3" />
+    <Property Name="ChitietSupChamDiem_SyncFlag" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="tbl_chucnangphu">
+    <Key>
+      <PropertyRef Name="CNP_ID" />
+    </Key>
+    <Property Name="CNP_ID" Type="String" MaxLength="900" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CNP_NAME" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CNP_Detail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CNP_value" Type="Double" />
+    <Property Name="CNP_Status" Type="Boolean" />
+    <Property Name="CNP_SyncFlag" Type="DateTime" Precision="3" />
+    <Property Name="CNP_DeleteFlag" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="tbl_ChuongTrinhDoiQua">
+    <Key>
+      <PropertyRef Name="CTDQ_ID" />
+    </Key>
+    <Property Name="CTDQ_ID" Type="String" MaxLength="900" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CTDQ_Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CTDQ_Detail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CTDQ_APPLYROLE" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CTDQ_DateBatDau" Type="DateTime" Precision="3" />
+    <Property Name="CTDQ_DateKetThuc" Type="DateTime" Precision="3" />
+    <Property Name="CTDQ_SyncFlag" Type="DateTime" Precision="3" />
+    <Property Name="CTDQ_DeleteFlag" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="tbl_DanhMucQuaTang">
+    <Key>
+      <PropertyRef Name="DMQT_Barcode" />
+    </Key>
+    <Property Name="DMQT_Barcode" Type="Double" Nullable="false" />
+    <Property Name="DMQT_Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DMQT_Detail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DMQT_Status" Type="Boolean" />
+    <Property Name="DMQT_SyncFlag" Type="DateTime" Precision="3" />
+    <Property Name="DMQT_DeleteFlag" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="tbl_DetailBaoCaoHinhAnh">
+    <Key>
+      <PropertyRef Name="BCHA_ID" />
+      <PropertyRef Name="TCBCHA_ID" />
+    </Key>
+    <Property Name="BCHA_ID" Type="String" MaxLength="900" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="TCBCHA_ID" Type="String" MaxLength="900" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DBCHA_Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DBCHA_SyncFlag" Type="DateTime" Precision="3" />
+    <Property Name="DBCHA_DeleteFlag" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="tbl_DoiQua">
+    <Key>
+      <PropertyRef Name="DoiQua_ID" />
+    </Key>
+    <Property Name="DoiQua_ID" Type="String" MaxLength="900" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Bill_id" Type="String" MaxLength="900" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="RCTDQ_ID" Type="String" MaxLength="900" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DMQT_Barcode" Type="Double" Nullable="false" />
+    <Property Name="DoiQua_Value" Type="Int32" />
+    <Property Name="DoiQua_SyncFlag" Type="DateTime" Precision="3" />
+    <Property Name="DoiQua_DeleteFlag" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="tbl_doithucanhtranh">
+    <Key>
+      <PropertyRef Name="dt_id" />
+    </Key>
+    <Property Name="dt_id" Type="String" MaxLength="900" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="US_ID" Type="String" MaxLength="900" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Shop_id" Type="String" MaxLength="900" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="dt_keyacc" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="dt_cty" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="dt_fortmat" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="dt_brand" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="dt_variant" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="dt_crmrange" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="dt_ffrange" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="dt_ltnrange" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="dt_noidung" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="dt_OnPostOffPost" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="dt_giagoc" Type="Int32" />
+    <Property Name="dt_giakm" Type="Int32" />
+    <Property Name="dt_hangtang" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="dt_giahangtang" Type="Int32" />
+    <Property Name="dt_post" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="dt_tenpost" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="dt_thoigianbd" Type="DateTime" Precision="3" />
+    <Property Name="dt_thoigiankt" Type="DateTime" Precision="3" />
+    <Property Name="dt_nam" Type="Int32" />
+    <Property Name="dt_type" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="dt_SyncFlag" Type="DateTime" Precision="3" />
+    <Property Name="dt_DeleteFlag" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="Tbl_DoithucanhtranhIMAGE">
+    <Key>
+      <PropertyRef Name="DTCTIMAGE_ID" />
+    </Key>
+    <Property Name="DTCTIMAGE_ID" Type="String" MaxLength="900" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DTCTIMAGE_Date" Type="DateTime" Precision="3" />
+    <Property Name="US_ID" Type="String" MaxLength="900" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Shop_ID" Type="String" MaxLength="900" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DTCTIMAGE_Note" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DTCTIMAGE_SyncFlag" Type="DateTime" Precision="3" />
+    <Property Name="DTCTIMAGE_DeleteFlag" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="Tbl_DoithucanhtranhIMAGEDetail">
+    <Key>
+      <PropertyRef Name="DTCTIMAGED_ID" />
+    </Key>
+    <Property Name="DTCTIMAGED_ID" Type="String" MaxLength="900" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DTCTIMAGE_ID" Type="String" MaxLength="900" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DTCTIMAGED_Note" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DTCTIMAGED_SyncFlag" Type="DateTime" Precision="3" />
+    <Property Name="DTCTIMAGED_DeleteFlag" Type="DateTime" Precision="3" />
+    <Property Name="DTCTIMAGED_Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DTCTIMAGED_ImagePublish" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="tbl_Dondathang">
+    <Key>
+      <PropertyRef Name="DDH_ID" />
+    </Key>
+    <Property Name="DDH_ID" Type="String" MaxLength="900" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Us_id" Type="String" MaxLength="900" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_id" Type="String" MaxLength="900" FixedLength="false" Unicode="true" />
+    <Property Name="DDH_time" Type="DateTime" Precision="3" />
+    <Property Name="DDH_Syncflag" Type="DateTime" Precision="3" />
+    <Property Name="DDH_DeleteFlag" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="Tbl_DonNhapHang">
+    <Key>
+      <PropertyRef Name="DNH_ID" />
+    </Key>
+    <Property Name="DNH_ID" Type="String" MaxLength="900" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="US_ID" Type="String" MaxLength="900" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Shop_id" Type="String" MaxLength="900" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DNH_Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DNH_ImagePublish" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DNH_Date" Type="DateTime" Precision="3" />
+    <Property Name="DNH_SyncFlag" Type="DateTime" Precision="3" />
+    <Property Name="DNH_DeleteFlag" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="tbl_DTCTBrand">
+    <Key>
+      <PropertyRef Name="Brand_id" />
+    </Key>
+    <Property Name="Brand_id" Type="String" MaxLength="900" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="cty_id" Type="Int32" />
+    <Property Name="Brand_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Brand_details" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Brand_status" Type="Int32" />
+    <Property Name="Brand_SyncFlag" Type="DateTime" Precision="3" />
+    <Property Name="Brand_DeleteFlag" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="tbl_DTCTcrmrange">
+    <Key>
+      <PropertyRef Name="crm_id" />
+    </Key>
+    <Property Name="crm_id" Type="String" MaxLength="900" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="crm_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="crm_detail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="crm_status" Type="Int32" />
+    <Property Name="crm_SyncFlag" Type="DateTime" Precision="3" />
+    <Property Name="crm_DeleteFlag" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="tbl_DTCTCty">
+    <Key>
+      <PropertyRef Name="cty_id" />
+    </Key>
+    <Property Name="cty_id" Type="String" MaxLength="900" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="cty_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="cty_detail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="cty_status" Type="Int32" />
+    <Property Name="cty_SyncFlag" Type="DateTime" Precision="3" />
+    <Property Name="cty_DeleteFlag" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="tbl_DTCTffrange">
+    <Key>
+      <PropertyRef Name="ff_id" />
+    </Key>
+    <Property Name="ff_id" Type="String" MaxLength="900" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ff_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ff_detail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ff_status" Type="Int32" />
+    <Property Name="ff_SyncFlag" Type="DateTime" Precision="3" />
+    <Property Name="ff_DeleteFlag" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="tbl_DTCTformat">
+    <Key>
+      <PropertyRef Name="bf_id" />
+    </Key>
+    <Property Name="bf_id" Type="String" MaxLength="900" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="bf_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="bf_details" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="bf_status" Type="Int32" />
+    <Property Name="bf_SyncFlag" Type="DateTime" Precision="3" />
+    <Property Name="bf_DeleteFlag" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="tbl_DTCTltmrange">
+    <Key>
+      <PropertyRef Name="ltm_id" />
+    </Key>
+    <Property Name="ltm_id" Type="String" MaxLength="900" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ltm_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ltm_detail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ltm_status" Type="Int32" />
+    <Property Name="ltm_SyncFlag" Type="DateTime" Precision="3" />
+    <Property Name="ltm_DeleteFlag" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="tbl_DTCTonpostoffpost">
+    <Key>
+      <PropertyRef Name="ofpost_id" />
+    </Key>
+    <Property Name="ofpost_id" Type="String" MaxLength="900" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ofpost_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ofpost_detail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ofpost_status" Type="Int32" />
+    <Property Name="ofpost_SyncFlag" Type="DateTime" Precision="3" />
+    <Property Name="ofpost_DeleteFlag" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="tbl_DTCTtype">
+    <Key>
+      <PropertyRef Name="ty_id" />
+    </Key>
+    <Property Name="ty_id" Type="String" MaxLength="900" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ty_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ty_details" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ty_status" Type="Int32" />
+    <Property Name="ty_SyncFlag" Type="DateTime" Precision="3" />
+    <Property Name="ty_DeleteFlag" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="tbl_DTCTVARIANT">
+    <Key>
+      <PropertyRef Name="va_id" />
+    </Key>
+    <Property Name="va_id" Type="String" MaxLength="900" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="va_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="va_detail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="va_status" Type="Int32" />
+    <Property Name="va_SyncFlag" Type="DateTime" Precision="3" />
+    <Property Name="va_DeleteFlag" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="Tbl_ImageDonNhapHang">
+    <Key>
+      <PropertyRef Name="IDNH_ID" />
+    </Key>
+    <Property Name="IDNH_ID" Type="String" MaxLength="900" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DNH_ID" Type="String" MaxLength="900" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="IDNH_Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IDNH_ImagePublish" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IDNH_Note" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IDNH_SyncFlag" Type="DateTime" Precision="3" />
+    <Property Name="IDNH_DeleteFlag" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="tbl_Kho">
+    <Key>
+      <PropertyRef Name="KHO_ID" />
+    </Key>
+    <Property Name="KHO_ID" Type="String" MaxLength="900" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Shop_IDNguon" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="KHO_ACTION" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_IDDICH" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DMQT_Barcode" Type="Double" />
+    <Property Name="KHO_SOLUONG" Type="Int32" />
+    <Property Name="KHO_Time" Type="DateTime" Precision="3" />
+    <Property Name="KHO_ACCEPT" Type="Boolean" />
+    <Property Name="KHO_SyncFlag" Type="DateTime" Precision="3" />
+    <Property Name="KHO_DeleteFlag" Type="DateTime" Precision="3" />
+    <Property Name="KHO_UsIDDich" Type="String" MaxLength="900" FixedLength="false" Unicode="true" />
+    <Property Name="KHO_USNameDich" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="KHO_UsIDNguon" Type="String" MaxLength="900" FixedLength="false" Unicode="true" />
+    <Property Name="KHO_USNameNguon" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="tbl_menu">
+    <Key>
+      <PropertyRef Name="Menu_id" />
+    </Key>
+    <Property Name="Menu_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Menu_Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Menu_code" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Menu_Role" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Menu_DeleteFlag" Type="DateTime" Precision="3" />
+    <Property Name="Menu_SyncFlag" Type="DateTime" Precision="3" />
+    <Property Name="Menu_Status" Type="Int32" />
+  </EntityType>
+  <EntityType Name="tbl_NganhHang">
+    <Key>
+      <PropertyRef Name="NH_ID" />
+    </Key>
+    <Property Name="NH_ID" Type="String" MaxLength="900" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="NH_Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NH_Status" Type="Boolean" />
+    <Property Name="NH_SyncFlag" Type="DateTime" Precision="3" />
+    <Property Name="NH_DeleteFlag" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="tbl_NhanHang">
+    <Key>
+      <PropertyRef Name="NhanH_ID" />
+    </Key>
+    <Property Name="NhanH_ID" Type="String" MaxLength="900" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="NhanH_Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NhanH_Status" Type="Boolean" />
+    <Property Name="NhanH_SyncFlag" Type="DateTime" Precision="3" />
+    <Property Name="NhanH_DeleteFlag" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="tbl_NhomNganhHang">
+    <Key>
+      <PropertyRef Name="NNH_ID" />
+    </Key>
+    <Property Name="NNH_ID" Type="String" MaxLength="900" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="NNH_Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NNH_Status" Type="Boolean" />
+    <Property Name="NNH_SyncFlag" Type="DateTime" Precision="3" />
+    <Property Name="NNH_DeleteFlag" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="tbl_Price">
+    <Key>
+      <PropertyRef Name="Price_ID" />
+    </Key>
+    <Property Name="Price_ID" Type="String" MaxLength="900" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="sku_barcode" Type="Double" />
+    <Property Name="Shop_GroupPrice" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Price_Value" Type="Int32" />
+    <Property Name="Price_Status" Type="Boolean" />
+    <Property Name="Price_DateUpdate" Type="DateTime" Precision="3" />
+    <Property Name="Price_SyncFlag" Type="DateTime" Precision="3" />
+    <Property Name="Price_DeleteFlag" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="tbl_RulesChuongTrinhDoiQua">
+    <Key>
+      <PropertyRef Name="RCTDQ_ID" />
+    </Key>
+    <Property Name="CTDQ_ID" Type="String" MaxLength="900" FixedLength="false" Unicode="true" />
+    <Property Name="RCTDQ_ID" Type="String" MaxLength="900" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="RCTDQ_Value" Type="Int32" />
+    <Property Name="RCTDQ_And" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="RCTDQ_Or" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="RCTDQ_SyncFlag" Type="DateTime" Precision="3" />
+    <Property Name="RCTDQ_Delete" Type="DateTime" Precision="3" />
+    <Property Name="RCTDQ_NhomNganhHang" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="RCTDQ_NganhHang" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="RCTDQ_NhanHang" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="RCTDQ_ValueNhomNganhNhanHang" Type="Int32" />
+  </EntityType>
+  <EntityType Name="tbl_shop">
+    <Key>
+      <PropertyRef Name="Shop_id" />
+    </Key>
+    <Property Name="Shop_id" Type="String" MaxLength="900" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Shop_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_detail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_npp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_nppcode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_Ngcode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_LoaiCHCurrent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_LoaiCHFuture" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_latidue" Type="Double" />
+    <Property Name="Shop_Longtidue" Type="Double" />
+    <Property Name="Shop_phone" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_Sup" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_GroupPrice" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_text2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_text3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_text4" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_float1" Type="Double" />
+    <Property Name="Shop_float2" Type="Double" />
+    <Property Name="Shop_float3" Type="Double" />
+    <Property Name="Shop_float4" Type="Double" />
+    <Property Name="Shop_bit" Type="Boolean" />
+    <Property Name="Shop_datetime1" Type="DateTime" Precision="3" />
+    <Property Name="Shop_datetime2" Type="DateTime" Precision="3" />
+    <Property Name="Shop_datetime3" Type="DateTime" Precision="3" />
+    <Property Name="Shop_datetime4" Type="DateTime" Precision="3" />
+    <Property Name="Shop_deleteflag" Type="DateTime" Precision="3" />
+    <Property Name="Shop_SyncFlag" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="tbl_sku">
+    <Key>
+      <PropertyRef Name="sku_barcode" />
+    </Key>
+    <Property Name="sku_barcode" Type="Double" Nullable="false" />
+    <Property Name="sku_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="sku_detail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="sku_txtname" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="sku_txtPrice" Type="Double" />
+    <Property Name="Target_Group" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="sku_text1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="sku_text2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="sku_text3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="sku_text4" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="sku_text5" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="sku_float1" Type="Double" />
+    <Property Name="sku_float2" Type="Double" />
+    <Property Name="sku_float3" Type="Double" />
+    <Property Name="sku_float4" Type="Double" />
+    <Property Name="sku_float5" Type="Double" />
+    <Property Name="sku_float6" Type="Double" />
+    <Property Name="sku_datetime1" Type="DateTime" Precision="3" />
+    <Property Name="sku_datetime2" Type="DateTime" Precision="3" />
+    <Property Name="sku_datetime3" Type="DateTime" Precision="3" />
+    <Property Name="sku_datetime4" Type="DateTime" Precision="3" />
+    <Property Name="sku_bit" Type="Boolean" />
+    <Property Name="sku_deleteflag" Type="DateTime" Precision="3" />
+    <Property Name="sku_SyncFlag" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="tbl_SupBigPlan">
+    <Key>
+      <PropertyRef Name="SupBigPlan_id" />
+    </Key>
+    <Property Name="SupBigPlan_id" Type="String" MaxLength="900" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Us_id" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Shop_id" Type="String" MaxLength="900" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="SupBigPlan_date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="SupBigPlan_NXkehoachLanNay" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SupBigPlan_KeHoachLanToi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SupBigPlan_GroupPlan" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SupBigPlan_UserAccept" Type="Int32" />
+    <Property Name="SupBigPlan_UserNote" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SupBigPlan_DeleteFlag" Type="DateTime" Precision="3" />
+    <Property Name="SupBigPlan_SyncFlag" Type="DateTime" Precision="3" />
+    <Property Name="SupBigPlan_SupName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SupBigPlan_SupUsername" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="tbl_SupChamDiem">
+    <Key>
+      <PropertyRef Name="SupChamDiem_id" />
+    </Key>
+    <Property Name="SupChamDiem_id" Type="String" MaxLength="900" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="SupBigPlan_id" Type="String" MaxLength="900" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="SupChamDiem_TimeCD" Type="DateTime" Precision="3" />
+    <Property Name="SupChamDiem_UserAccept" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SupChamDiem_UserNote" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SupChamDiem_DeleteFlag" Type="DateTime" Precision="3" />
+    <Property Name="SupChamDiem_SyncFlag" Type="DateTime" Precision="3" />
+    <Property Name="SupChamDiem_Lannay" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SupChamDiem_LanToi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="tbl_SupCheckIn">
+    <Key>
+      <PropertyRef Name="SupCheckIn_id" />
+    </Key>
+    <Property Name="SupCheckIn_id" Type="String" MaxLength="900" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="SupBigPlan_id" Type="String" MaxLength="900" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="SupCheckIn_date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="SupCheckIn_Latidue" Type="Double" />
+    <Property Name="SupCheckIn_Longtidue" Type="Double" />
+    <Property Name="SupCheckIn_ImageCI" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SupCheckIn_ImageCO" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SupCheckIn_AdminAccept" Type="Int32" />
+    <Property Name="SupCheckIn_AdminNote" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SupCheckIn_TimeCI" Type="DateTime" Precision="3" />
+    <Property Name="SupCheckIn_TimeCO" Type="DateTime" Precision="3" />
+    <Property Name="SupCheckIn_Count" Type="Double" />
+    <Property Name="SupCheckIn_DeleteFlag" Type="DateTime" Precision="3" />
+    <Property Name="SupCheckIn_SyncFlag" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="Tbl_SupName">
+    <Key>
+      <PropertyRef Name="Sup_ID" />
+    </Key>
+    <Property Name="Sup_ID" Type="String" MaxLength="900" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Sup_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Sup_Status" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="tbl_Target">
+    <Key>
+      <PropertyRef Name="Target_ID" />
+    </Key>
+    <Property Name="Target_ID" Type="String" MaxLength="900" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Target_Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Us_id" Type="String" MaxLength="900" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_id" Type="String" MaxLength="900" FixedLength="false" Unicode="true" />
+    <Property Name="Target_Group" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Target_Value" Type="Int32" />
+    <Property Name="Target_DayStart" Type="DateTime" Precision="3" />
+    <Property Name="Target_DayEnd" Type="DateTime" Precision="3" />
+    <Property Name="Target_SyncFlag" Type="DateTime" Precision="3" />
+    <Property Name="Target_DeleteFlag" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="tbl_TieuChiBaoCaoHinhAnh">
+    <Key>
+      <PropertyRef Name="TCBCHA_ID" />
+    </Key>
+    <Property Name="TCBCHA_ID" Type="String" MaxLength="900" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="TCBCHA_Role" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TCBCHA_Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TCBCHA_Status" Type="Boolean" />
+    <Property Name="TCBCHA_SyncFlag" Type="DateTime" Precision="3" />
+    <Property Name="TCBCHA_DeleteFlag" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="tbl_TieuChiChamDiem">
+    <Key>
+      <PropertyRef Name="TieuChiCD_id" />
+    </Key>
+    <Property Name="TieuChiCD_id" Type="String" MaxLength="900" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="TieuChiCD_Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TieuChiCD_Min" Type="Int32" />
+    <Property Name="TieuChiCD_Max" Type="Int32" />
+    <Property Name="TieuChiCD_Group" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TieuChiCD_text1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TieuChiCD_text2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TieuChiCD_text3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TieuChiCD_text4" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TieuChiCD_float1" Type="Double" />
+    <Property Name="TieuChiCD_float2" Type="Double" />
+    <Property Name="TieuChiCD_float3" Type="Double" />
+    <Property Name="TieuChiCD_float4" Type="Double" />
+    <Property Name="TieuChiCD_bit" Type="Boolean" />
+    <Property Name="TieuChiCD_DeleteFlag" Type="DateTime" Precision="3" />
+    <Property Name="TieuChiCD_SyncFlag" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="tbl_user">
+    <Key>
+      <PropertyRef Name="Us_id" />
+    </Key>
+    <Property Name="Us_id" Type="String" MaxLength="900" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Us_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Us_username" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Us_password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Us_Role" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Us_SupGroup" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Us_text1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Us_text2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Us_text3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Us_text4" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Us_text5" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Us_text6" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Us_text7" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Us_float1" Type="Double" />
+    <Property Name="Us_float2" Type="Double" />
+    <Property Name="Us_float3" Type="Double" />
+    <Property Name="Us_float4" Type="Double" />
+    <Property Name="Us_datetime1" Type="DateTime" Precision="3" />
+    <Property Name="Us_datetime2" Type="DateTime" Precision="3" />
+    <Property Name="Us_datetime3" Type="DateTime" Precision="3" />
+    <Property Name="Us_datetime4" Type="DateTime" Precision="3" />
+    <Property Name="Us_datetime5" Type="DateTime" Precision="3" />
+    <Property Name="Us_bit" Type="Boolean" />
+    <Property Name="Us_deleteflag" Type="DateTime" Precision="3" />
+    <Property Name="Us_SyncFlag" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="tbl_UserCheckInOut">
+    <Key>
+      <PropertyRef Name="UserCheckInOut_ID" />
+    </Key>
+    <Property Name="UserCheckInOut_ID" Type="String" MaxLength="900" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Bigplan_id" Type="String" MaxLength="900" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="UserCheckInOut_date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UserCheckInOut_ImageCI" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="UserCheckInOut_ImageCO" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="UserCheckInOut_TimeCI" Type="DateTime" Precision="3" />
+    <Property Name="UserCheckInOut_TimeCO" Type="DateTime" Precision="3" />
+    <Property Name="UserCheckInOut_LatidueCI" Type="Double" />
+    <Property Name="UserCheckInOut_LongtidueCI" Type="Double" />
+    <Property Name="UserCheckInOut_LatidueCO" Type="Double" />
+    <Property Name="UserCheckInOut_LongtidueCO" Type="Double" />
+    <Property Name="UserCheckInOut_AdminCheck" Type="Int32" />
+    <Property Name="UserCheckInOut_AdminNote" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="UserCheckInOut_UserNote" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="UserCheckInOut_Count" Type="Double" />
+    <Property Name="UserCheckInOut_DeleteFlag" Type="DateTime" Precision="3" />
+    <Property Name="UserCheckInOut_SyncFlag" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="VW_banhang">
+    <Key>
+      <PropertyRef Name="Us_id" />
+      <PropertyRef Name="Shop_id" />
+      <PropertyRef Name="sku_barcode" />
+      <PropertyRef Name="Bill_id" />
+    </Key>
+    <Property Name="Us_id" Type="String" MaxLength="900" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Us_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Us_username" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Us_password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Us_Role" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Us_SupGroup" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Us_text1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Us_text2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Us_text3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Us_text4" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Us_text5" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Us_text6" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Us_text7" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Us_float1" Type="Double" />
+    <Property Name="Us_float2" Type="Double" />
+    <Property Name="Us_float3" Type="Double" />
+    <Property Name="Us_float4" Type="Double" />
+    <Property Name="Us_datetime1" Type="DateTime" Precision="3" />
+    <Property Name="Us_datetime2" Type="DateTime" Precision="3" />
+    <Property Name="Us_datetime3" Type="DateTime" Precision="3" />
+    <Property Name="Us_datetime4" Type="DateTime" Precision="3" />
+    <Property Name="Us_datetime5" Type="DateTime" Precision="3" />
+    <Property Name="Us_bit" Type="Boolean" />
+    <Property Name="Us_deleteflag" Type="DateTime" Precision="3" />
+    <Property Name="Us_SyncFlag" Type="DateTime" Precision="3" />
+    <Property Name="Shop_id" Type="String" MaxLength="900" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Shop_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_detail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_npp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_nppcode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_Ngcode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_LoaiCHCurrent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_LoaiCHFuture" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_latidue" Type="Double" />
+    <Property Name="Shop_Longtidue" Type="Double" />
+    <Property Name="Shop_phone" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_Sup" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_GroupPrice" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_text2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_text3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_text4" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_float1" Type="Double" />
+    <Property Name="Shop_float2" Type="Double" />
+    <Property Name="Shop_float3" Type="Double" />
+    <Property Name="Shop_float4" Type="Double" />
+    <Property Name="Shop_bit" Type="Boolean" />
+    <Property Name="Shop_datetime1" Type="DateTime" Precision="3" />
+    <Property Name="Shop_datetime2" Type="DateTime" Precision="3" />
+    <Property Name="Shop_datetime3" Type="DateTime" Precision="3" />
+    <Property Name="Shop_datetime4" Type="DateTime" Precision="3" />
+    <Property Name="Shop_deleteflag" Type="DateTime" Precision="3" />
+    <Property Name="Shop_SyncFlag" Type="DateTime" Precision="3" />
+    <Property Name="sku_barcode" Type="Double" Nullable="false" />
+    <Property Name="sku_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="sku_detail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="sku_txtname" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="sku_txtPrice" Type="Double" />
+    <Property Name="Target_Group" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="sku_text1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="sku_text2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="sku_text3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="sku_text4" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="sku_text5" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="sku_float1" Type="Double" />
+    <Property Name="sku_float2" Type="Double" />
+    <Property Name="sku_float3" Type="Double" />
+    <Property Name="sku_float4" Type="Double" />
+    <Property Name="sku_float5" Type="Double" />
+    <Property Name="sku_float6" Type="Double" />
+    <Property Name="sku_datetime1" Type="DateTime" Precision="3" />
+    <Property Name="sku_datetime2" Type="DateTime" Precision="3" />
+    <Property Name="sku_datetime3" Type="DateTime" Precision="3" />
+    <Property Name="sku_datetime4" Type="DateTime" Precision="3" />
+    <Property Name="sku_bit" Type="Boolean" />
+    <Property Name="sku_deleteflag" Type="DateTime" Precision="3" />
+    <Property Name="sku_SyncFlag" Type="DateTime" Precision="3" />
+    <Property Name="Bill_date" Type="DateTime" Precision="3" />
+    <Property Name="Bill_deleteFlag" Type="DateTime" Precision="3" />
+    <Property Name="Bill_id" Type="String" MaxLength="900" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Bill_ImageKH" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Bill_SDTKH" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Bill_SyncFlag" Type="DateTime" Precision="3" />
+    <Property Name="Bill_TenKH" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="BillDetail_deleteFlag" Type="DateTime" Precision="3" />
+    <Property Name="BillDetail_dongia" Type="Double" />
+    <Property Name="BillDetail_soluong" Type="Int32" />
+    <Property Name="BillDetail_SyncFlag" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="VW_BCHINHANH">
+    <Key>
+      <PropertyRef Name="Us_id" />
+      <PropertyRef Name="Shop_id" />
+      <PropertyRef Name="TCBCHA_ID" />
+      <PropertyRef Name="BCHA_ID" />
+    </Key>
+    <Property Name="Us_id" Type="String" MaxLength="900" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Us_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Us_username" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Us_password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Us_Role" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Us_SupGroup" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Us_text1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Us_text2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Us_text3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Us_text4" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Us_text5" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Us_text6" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Us_text7" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Us_float1" Type="Double" />
+    <Property Name="Us_float2" Type="Double" />
+    <Property Name="Us_float3" Type="Double" />
+    <Property Name="Us_float4" Type="Double" />
+    <Property Name="Us_datetime1" Type="DateTime" Precision="3" />
+    <Property Name="Us_datetime2" Type="DateTime" Precision="3" />
+    <Property Name="Us_datetime3" Type="DateTime" Precision="3" />
+    <Property Name="Us_datetime4" Type="DateTime" Precision="3" />
+    <Property Name="Us_datetime5" Type="DateTime" Precision="3" />
+    <Property Name="Us_bit" Type="Boolean" />
+    <Property Name="Us_deleteflag" Type="DateTime" Precision="3" />
+    <Property Name="Us_SyncFlag" Type="DateTime" Precision="3" />
+    <Property Name="Shop_id" Type="String" MaxLength="900" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Shop_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_detail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_npp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_nppcode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_Ngcode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_LoaiCHCurrent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_LoaiCHFuture" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_latidue" Type="Double" />
+    <Property Name="Shop_Longtidue" Type="Double" />
+    <Property Name="Shop_phone" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_Sup" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_GroupPrice" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_text2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_text3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_text4" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_float1" Type="Double" />
+    <Property Name="Shop_float2" Type="Double" />
+    <Property Name="Shop_float3" Type="Double" />
+    <Property Name="Shop_float4" Type="Double" />
+    <Property Name="Shop_bit" Type="Boolean" />
+    <Property Name="Shop_datetime1" Type="DateTime" Precision="3" />
+    <Property Name="Shop_datetime2" Type="DateTime" Precision="3" />
+    <Property Name="Shop_datetime3" Type="DateTime" Precision="3" />
+    <Property Name="Shop_datetime4" Type="DateTime" Precision="3" />
+    <Property Name="Shop_deleteflag" Type="DateTime" Precision="3" />
+    <Property Name="Shop_SyncFlag" Type="DateTime" Precision="3" />
+    <Property Name="TCBCHA_ID" Type="String" MaxLength="900" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="TCBCHA_Role" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TCBCHA_Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TCBCHA_Status" Type="Boolean" />
+    <Property Name="TCBCHA_SyncFlag" Type="DateTime" Precision="3" />
+    <Property Name="TCBCHA_DeleteFlag" Type="DateTime" Precision="3" />
+    <Property Name="bigplan_id" Type="String" MaxLength="900" FixedLength="false" Unicode="true" />
+    <Property Name="BCHA_DeleteFlag" Type="DateTime" Precision="3" />
+    <Property Name="BCHA_ID" Type="String" MaxLength="900" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="BCHA_SyncFlag" Type="DateTime" Precision="3" />
+    <Property Name="BCHA_Time" Type="DateTime" Precision="3" />
+    <Property Name="DBCHA_DeleteFlag" Type="DateTime" Precision="3" />
+    <Property Name="DBCHA_Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DBCHA_SyncFlag" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="VW_Bigplan">
+    <Key>
+      <PropertyRef Name="Us_id" />
+      <PropertyRef Name="Shop_id" />
+      <PropertyRef Name="CaLamViecDetail_id" />
+      <PropertyRef Name="Bigplan_date" />
+      <PropertyRef Name="Bigplan_id" />
+    </Key>
+    <Property Name="Us_id" Type="String" MaxLength="900" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Us_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Us_username" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Us_password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Us_Role" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Us_SupGroup" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Us_text1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Us_text2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Us_text3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Us_text4" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Us_text5" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Us_text6" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Us_text7" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Us_float1" Type="Double" />
+    <Property Name="Us_float2" Type="Double" />
+    <Property Name="Us_float3" Type="Double" />
+    <Property Name="Us_float4" Type="Double" />
+    <Property Name="Us_datetime1" Type="DateTime" Precision="3" />
+    <Property Name="Us_datetime2" Type="DateTime" Precision="3" />
+    <Property Name="Us_datetime3" Type="DateTime" Precision="3" />
+    <Property Name="Us_datetime4" Type="DateTime" Precision="3" />
+    <Property Name="Us_datetime5" Type="DateTime" Precision="3" />
+    <Property Name="Us_bit" Type="Boolean" />
+    <Property Name="Us_deleteflag" Type="DateTime" Precision="3" />
+    <Property Name="Us_SyncFlag" Type="DateTime" Precision="3" />
+    <Property Name="Shop_id" Type="String" MaxLength="900" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Shop_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_detail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_npp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_nppcode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_Ngcode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_LoaiCHCurrent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_LoaiCHFuture" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_latidue" Type="Double" />
+    <Property Name="Shop_Longtidue" Type="Double" />
+    <Property Name="Shop_phone" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_Sup" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_GroupPrice" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_text2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_text3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_text4" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_float1" Type="Double" />
+    <Property Name="Shop_float2" Type="Double" />
+    <Property Name="Shop_float3" Type="Double" />
+    <Property Name="Shop_float4" Type="Double" />
+    <Property Name="Shop_bit" Type="Boolean" />
+    <Property Name="Shop_datetime1" Type="DateTime" Precision="3" />
+    <Property Name="Shop_datetime2" Type="DateTime" Precision="3" />
+    <Property Name="Shop_datetime3" Type="DateTime" Precision="3" />
+    <Property Name="Shop_datetime4" Type="DateTime" Precision="3" />
+    <Property Name="Shop_deleteflag" Type="DateTime" Precision="3" />
+    <Property Name="Shop_SyncFlag" Type="DateTime" Precision="3" />
+    <Property Name="CaLamViecDetail_id" Type="String" MaxLength="900" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CaLamViecDetail_Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CaLamViecDetail_TGBD" Type="Time" Precision="7" />
+    <Property Name="CaLamViecDetail_TGKT" Type="Time" Precision="7" />
+    <Property Name="CaLamViecDetail_CHAMCONG" Type="Double" />
+    <Property Name="CaLamViecDetail_DeleteFlag" Type="DateTime" Precision="3" />
+    <Property Name="CaLamViecDetail_SyncFlag" Type="DateTime" Precision="3" />
+    <Property Name="Bigplan_date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Bigplan_deleteFlag" Type="DateTime" Precision="3" />
+    <Property Name="Bigplan_id" Type="String" MaxLength="900" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="BigPlan_SyncFlag" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="VW_DatHang">
+    <Key>
+      <PropertyRef Name="Us_id" />
+      <PropertyRef Name="Shop_id" />
+      <PropertyRef Name="sku_barcode" />
+      <PropertyRef Name="DDH_ID" />
+    </Key>
+    <Property Name="Us_id" Type="String" MaxLength="900" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Us_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Us_username" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Us_password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Us_Role" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Us_SupGroup" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Us_text1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Us_text2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Us_text3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Us_text4" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Us_text5" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Us_text6" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Us_text7" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Us_float1" Type="Double" />
+    <Property Name="Us_float2" Type="Double" />
+    <Property Name="Us_float3" Type="Double" />
+    <Property Name="Us_float4" Type="Double" />
+    <Property Name="Us_datetime1" Type="DateTime" Precision="3" />
+    <Property Name="Us_datetime2" Type="DateTime" Precision="3" />
+    <Property Name="Us_datetime3" Type="DateTime" Precision="3" />
+    <Property Name="Us_datetime4" Type="DateTime" Precision="3" />
+    <Property Name="Us_datetime5" Type="DateTime" Precision="3" />
+    <Property Name="Us_bit" Type="Boolean" />
+    <Property Name="Us_deleteflag" Type="DateTime" Precision="3" />
+    <Property Name="Us_SyncFlag" Type="DateTime" Precision="3" />
+    <Property Name="Shop_id" Type="String" MaxLength="900" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Shop_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_detail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_npp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_nppcode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_Ngcode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_LoaiCHCurrent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_LoaiCHFuture" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_latidue" Type="Double" />
+    <Property Name="Shop_Longtidue" Type="Double" />
+    <Property Name="Shop_phone" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_Sup" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_GroupPrice" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_text2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_text3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_text4" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_float1" Type="Double" />
+    <Property Name="Shop_float2" Type="Double" />
+    <Property Name="Shop_float3" Type="Double" />
+    <Property Name="Shop_float4" Type="Double" />
+    <Property Name="Shop_bit" Type="Boolean" />
+    <Property Name="Shop_datetime1" Type="DateTime" Precision="3" />
+    <Property Name="Shop_datetime2" Type="DateTime" Precision="3" />
+    <Property Name="Shop_datetime3" Type="DateTime" Precision="3" />
+    <Property Name="Shop_datetime4" Type="DateTime" Precision="3" />
+    <Property Name="Shop_deleteflag" Type="DateTime" Precision="3" />
+    <Property Name="Shop_SyncFlag" Type="DateTime" Precision="3" />
+    <Property Name="sku_barcode" Type="Double" Nullable="false" />
+    <Property Name="sku_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="sku_detail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="sku_txtname" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="sku_txtPrice" Type="Double" />
+    <Property Name="Target_Group" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="sku_text1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="sku_text2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="sku_text3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="sku_text4" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="sku_text5" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="sku_float1" Type="Double" />
+    <Property Name="sku_float2" Type="Double" />
+    <Property Name="sku_float3" Type="Double" />
+    <Property Name="sku_float4" Type="Double" />
+    <Property Name="sku_float5" Type="Double" />
+    <Property Name="sku_float6" Type="Double" />
+    <Property Name="sku_datetime1" Type="DateTime" Precision="3" />
+    <Property Name="sku_datetime2" Type="DateTime" Precision="3" />
+    <Property Name="sku_datetime3" Type="DateTime" Precision="3" />
+    <Property Name="sku_datetime4" Type="DateTime" Precision="3" />
+    <Property Name="sku_bit" Type="Boolean" />
+    <Property Name="sku_deleteflag" Type="DateTime" Precision="3" />
+    <Property Name="sku_SyncFlag" Type="DateTime" Precision="3" />
+    <Property Name="DDH_DeleteFlag" Type="DateTime" Precision="3" />
+    <Property Name="DDH_ID" Type="String" MaxLength="900" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DDH_Syncflag" Type="DateTime" Precision="3" />
+    <Property Name="DDH_time" Type="DateTime" Precision="3" />
+    <Property Name="CTDDH_DeleteFlag" Type="DateTime" Precision="3" />
+    <Property Name="CTDDH_Soluong" Type="Double" />
+    <Property Name="CTDDH_SyncFlag" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="VW_DeXuatNhapHang">
+    <Key>
+      <PropertyRef Name="Us_id" />
+      <PropertyRef Name="Shop_id" />
+      <PropertyRef Name="sku_barcode" />
+      <PropertyRef Name="DDH_ID" />
+    </Key>
+    <Property Name="Us_id" Type="String" MaxLength="900" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Us_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Us_username" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Us_password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Us_Role" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Us_SupGroup" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Us_text1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Us_text2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Us_text3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Us_text4" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Us_text5" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Us_text6" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Us_text7" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Us_float1" Type="Double" />
+    <Property Name="Us_float2" Type="Double" />
+    <Property Name="Us_float3" Type="Double" />
+    <Property Name="Us_float4" Type="Double" />
+    <Property Name="Us_datetime1" Type="DateTime" Precision="3" />
+    <Property Name="Us_datetime2" Type="DateTime" Precision="3" />
+    <Property Name="Us_datetime3" Type="DateTime" Precision="3" />
+    <Property Name="Us_datetime4" Type="DateTime" Precision="3" />
+    <Property Name="Us_datetime5" Type="DateTime" Precision="3" />
+    <Property Name="Us_bit" Type="Boolean" />
+    <Property Name="Us_deleteflag" Type="DateTime" Precision="3" />
+    <Property Name="Us_SyncFlag" Type="DateTime" Precision="3" />
+    <Property Name="Shop_id" Type="String" MaxLength="900" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Shop_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_detail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_npp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_nppcode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_Ngcode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_LoaiCHCurrent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_LoaiCHFuture" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_latidue" Type="Double" />
+    <Property Name="Shop_Longtidue" Type="Double" />
+    <Property Name="Shop_phone" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_Sup" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_GroupPrice" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_text2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_text3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_text4" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_float1" Type="Double" />
+    <Property Name="Shop_float2" Type="Double" />
+    <Property Name="Shop_float3" Type="Double" />
+    <Property Name="Shop_float4" Type="Double" />
+    <Property Name="Shop_bit" Type="Boolean" />
+    <Property Name="Shop_datetime1" Type="DateTime" Precision="3" />
+    <Property Name="Shop_datetime2" Type="DateTime" Precision="3" />
+    <Property Name="Shop_datetime3" Type="DateTime" Precision="3" />
+    <Property Name="Shop_datetime4" Type="DateTime" Precision="3" />
+    <Property Name="Shop_deleteflag" Type="DateTime" Precision="3" />
+    <Property Name="Shop_SyncFlag" Type="DateTime" Precision="3" />
+    <Property Name="sku_barcode" Type="Double" Nullable="false" />
+    <Property Name="sku_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="sku_detail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="sku_txtname" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="sku_txtPrice" Type="Double" />
+    <Property Name="Target_Group" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="sku_text1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="sku_text2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="sku_text3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="sku_text4" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="sku_text5" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="sku_float1" Type="Double" />
+    <Property Name="sku_float2" Type="Double" />
+    <Property Name="sku_float3" Type="Double" />
+    <Property Name="sku_float4" Type="Double" />
+    <Property Name="sku_float5" Type="Double" />
+    <Property Name="sku_float6" Type="Double" />
+    <Property Name="sku_datetime1" Type="DateTime" Precision="3" />
+    <Property Name="sku_datetime2" Type="DateTime" Precision="3" />
+    <Property Name="sku_datetime3" Type="DateTime" Precision="3" />
+    <Property Name="sku_datetime4" Type="DateTime" Precision="3" />
+    <Property Name="sku_bit" Type="Boolean" />
+    <Property Name="sku_deleteflag" Type="DateTime" Precision="3" />
+    <Property Name="sku_SyncFlag" Type="DateTime" Precision="3" />
+    <Property Name="DDH_DeleteFlag" Type="DateTime" Precision="3" />
+    <Property Name="DDH_ID" Type="String" MaxLength="900" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DDH_Syncflag" Type="DateTime" Precision="3" />
+    <Property Name="DDH_time" Type="DateTime" Precision="3" />
+    <Property Name="CTDDH_DeleteFlag" Type="DateTime" Precision="3" />
+    <Property Name="CTDDH_Soluong" Type="Double" />
+    <Property Name="CTDDH_SyncFlag" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="VW_DOIQUA">
+    <Key>
+      <PropertyRef Name="DMQT_Barcode" />
+      <PropertyRef Name="CTDQ_ID" />
+      <PropertyRef Name="Bill_id" />
+      <PropertyRef Name="Shop_id" />
+      <PropertyRef Name="Us_id" />
+    </Key>
+    <Property Name="DMQT_Barcode" Type="Double" Nullable="false" />
+    <Property Name="DMQT_Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DMQT_Detail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DMQT_Status" Type="Boolean" />
+    <Property Name="DMQT_SyncFlag" Type="DateTime" Precision="3" />
+    <Property Name="DMQT_DeleteFlag" Type="DateTime" Precision="3" />
+    <Property Name="CTDQ_ID" Type="String" MaxLength="900" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CTDQ_Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CTDQ_Detail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CTDQ_APPLYROLE" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CTDQ_DateBatDau" Type="DateTime" Precision="3" />
+    <Property Name="CTDQ_DateKetThuc" Type="DateTime" Precision="3" />
+    <Property Name="CTDQ_SyncFlag" Type="DateTime" Precision="3" />
+    <Property Name="CTDQ_DeleteFlag" Type="DateTime" Precision="3" />
+    <Property Name="DoiQua_DeleteFlag" Type="DateTime" Precision="3" />
+    <Property Name="DoiQua_SyncFlag" Type="DateTime" Precision="3" />
+    <Property Name="DoiQua_Value" Type="Int32" />
+    <Property Name="Bill_date" Type="DateTime" Precision="3" />
+    <Property Name="Bill_deleteFlag" Type="DateTime" Precision="3" />
+    <Property Name="Bill_id" Type="String" MaxLength="900" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Bill_ImageKH" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Bill_SDTKH" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Bill_SyncFlag" Type="DateTime" Precision="3" />
+    <Property Name="Bill_TenKH" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_id" Type="String" MaxLength="900" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Us_id" Type="String" MaxLength="900" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="vw_doithucanhtranh">
+    <Key>
+      <PropertyRef Name="Us_id" />
+      <PropertyRef Name="Shop_id" />
+      <PropertyRef Name="dt_id" />
+    </Key>
+    <Property Name="Us_id" Type="String" MaxLength="900" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Us_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Us_username" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Us_password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Us_Role" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Us_SupGroup" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Us_text1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Us_text2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Us_text3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Us_text4" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Us_text5" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Us_text6" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Us_text7" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Us_float1" Type="Double" />
+    <Property Name="Us_float2" Type="Double" />
+    <Property Name="Us_float3" Type="Double" />
+    <Property Name="Us_float4" Type="Double" />
+    <Property Name="Us_datetime1" Type="DateTime" Precision="3" />
+    <Property Name="Us_datetime2" Type="DateTime" Precision="3" />
+    <Property Name="Us_datetime3" Type="DateTime" Precision="3" />
+    <Property Name="Us_datetime4" Type="DateTime" Precision="3" />
+    <Property Name="Us_datetime5" Type="DateTime" Precision="3" />
+    <Property Name="Us_bit" Type="Boolean" />
+    <Property Name="Us_deleteflag" Type="DateTime" Precision="3" />
+    <Property Name="Us_SyncFlag" Type="DateTime" Precision="3" />
+    <Property Name="Shop_id" Type="String" MaxLength="900" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Shop_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_detail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_npp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_nppcode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_Ngcode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_LoaiCHCurrent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_LoaiCHFuture" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_latidue" Type="Double" />
+    <Property Name="Shop_Longtidue" Type="Double" />
+    <Property Name="Shop_phone" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_Sup" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_GroupPrice" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_text2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_text3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_text4" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_float1" Type="Double" />
+    <Property Name="Shop_float2" Type="Double" />
+    <Property Name="Shop_float3" Type="Double" />
+    <Property Name="Shop_float4" Type="Double" />
+    <Property Name="Shop_bit" Type="Boolean" />
+    <Property Name="Shop_datetime1" Type="DateTime" Precision="3" />
+    <Property Name="Shop_datetime2" Type="DateTime" Precision="3" />
+    <Property Name="Shop_datetime3" Type="DateTime" Precision="3" />
+    <Property Name="Shop_datetime4" Type="DateTime" Precision="3" />
+    <Property Name="Shop_deleteflag" Type="DateTime" Precision="3" />
+    <Property Name="Shop_SyncFlag" Type="DateTime" Precision="3" />
+    <Property Name="dt_brand" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="dt_crmrange" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="dt_cty" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="dt_DeleteFlag" Type="DateTime" Precision="3" />
+    <Property Name="dt_ffrange" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="dt_fortmat" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="dt_giagoc" Type="Int32" />
+    <Property Name="dt_giahangtang" Type="Int32" />
+    <Property Name="dt_giakm" Type="Int32" />
+    <Property Name="dt_hangtang" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="dt_id" Type="String" MaxLength="900" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="dt_keyacc" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="dt_ltnrange" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="dt_nam" Type="Int32" />
+    <Property Name="dt_noidung" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="dt_OnPostOffPost" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="dt_post" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="dt_SyncFlag" Type="DateTime" Precision="3" />
+    <Property Name="dt_tenpost" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="dt_thoigianbd" Type="DateTime" Precision="3" />
+    <Property Name="dt_thoigiankt" Type="DateTime" Precision="3" />
+    <Property Name="dt_type" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="dt_variant" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="VW_DoithucanhtranhImage">
+    <Key>
+      <PropertyRef Name="Us_id" />
+      <PropertyRef Name="Shop_id" />
+      <PropertyRef Name="DTCTIMAGE_ID" />
+    </Key>
+    <Property Name="Us_id" Type="String" MaxLength="900" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Us_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Us_username" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Us_password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Us_Role" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Us_SupGroup" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Us_text1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Us_text2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Us_text3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Us_text4" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Us_text5" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Us_text6" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Us_text7" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Us_float1" Type="Double" />
+    <Property Name="Us_float2" Type="Double" />
+    <Property Name="Us_float3" Type="Double" />
+    <Property Name="Us_float4" Type="Double" />
+    <Property Name="Us_datetime1" Type="DateTime" Precision="3" />
+    <Property Name="Us_datetime2" Type="DateTime" Precision="3" />
+    <Property Name="Us_datetime3" Type="DateTime" Precision="3" />
+    <Property Name="Us_datetime4" Type="DateTime" Precision="3" />
+    <Property Name="Us_datetime5" Type="DateTime" Precision="3" />
+    <Property Name="Us_bit" Type="Boolean" />
+    <Property Name="Us_deleteflag" Type="DateTime" Precision="3" />
+    <Property Name="Us_SyncFlag" Type="DateTime" Precision="3" />
+    <Property Name="Shop_id" Type="String" MaxLength="900" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Shop_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_detail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_npp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_nppcode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_Ngcode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_LoaiCHCurrent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_LoaiCHFuture" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_latidue" Type="Double" />
+    <Property Name="Shop_Longtidue" Type="Double" />
+    <Property Name="Shop_phone" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_Sup" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_GroupPrice" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_text2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_text3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_text4" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_float1" Type="Double" />
+    <Property Name="Shop_float2" Type="Double" />
+    <Property Name="Shop_float3" Type="Double" />
+    <Property Name="Shop_float4" Type="Double" />
+    <Property Name="Shop_bit" Type="Boolean" />
+    <Property Name="Shop_datetime1" Type="DateTime" Precision="3" />
+    <Property Name="Shop_datetime2" Type="DateTime" Precision="3" />
+    <Property Name="Shop_datetime3" Type="DateTime" Precision="3" />
+    <Property Name="Shop_datetime4" Type="DateTime" Precision="3" />
+    <Property Name="Shop_deleteflag" Type="DateTime" Precision="3" />
+    <Property Name="Shop_SyncFlag" Type="DateTime" Precision="3" />
+    <Property Name="DTCTIMAGE_Date" Type="DateTime" Precision="3" />
+    <Property Name="DTCTIMAGE_DeleteFlag" Type="DateTime" Precision="3" />
+    <Property Name="DTCTIMAGE_ID" Type="String" MaxLength="900" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DTCTIMAGE_Note" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DTCTIMAGE_SyncFlag" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="VW_KHO">
+    <Key>
+      <PropertyRef Name="Shop_id" />
+      <PropertyRef Name="DMQT_Barcode" />
+    </Key>
+    <Property Name="Shop_id" Type="String" MaxLength="900" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Shop_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_detail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_npp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_nppcode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_Ngcode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_LoaiCHCurrent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_LoaiCHFuture" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_latidue" Type="Double" />
+    <Property Name="Shop_Longtidue" Type="Double" />
+    <Property Name="Shop_phone" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_Sup" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_GroupPrice" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_text2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_text3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_text4" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_float1" Type="Double" />
+    <Property Name="Shop_float2" Type="Double" />
+    <Property Name="Shop_float3" Type="Double" />
+    <Property Name="Shop_float4" Type="Double" />
+    <Property Name="Shop_bit" Type="Boolean" />
+    <Property Name="Shop_datetime1" Type="DateTime" Precision="3" />
+    <Property Name="Shop_datetime2" Type="DateTime" Precision="3" />
+    <Property Name="Shop_datetime3" Type="DateTime" Precision="3" />
+    <Property Name="Shop_datetime4" Type="DateTime" Precision="3" />
+    <Property Name="Shop_deleteflag" Type="DateTime" Precision="3" />
+    <Property Name="Shop_SyncFlag" Type="DateTime" Precision="3" />
+    <Property Name="DMQT_Barcode" Type="Double" Nullable="false" />
+    <Property Name="DMQT_Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DMQT_Detail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DMQT_Status" Type="Boolean" />
+    <Property Name="DMQT_SyncFlag" Type="DateTime" Precision="3" />
+    <Property Name="DMQT_DeleteFlag" Type="DateTime" Precision="3" />
+    <Property Name="SL" Type="Int32" />
+  </EntityType>
+  <EntityType Name="VW_NHAPHANG">
+    <Key>
+      <PropertyRef Name="Us_id" />
+      <PropertyRef Name="Shop_id" />
+      <PropertyRef Name="sku_barcode" />
+      <PropertyRef Name="DNH_ID" />
+      <PropertyRef Name="CTDNH_ID" />
+    </Key>
+    <Property Name="Us_id" Type="String" MaxLength="900" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Us_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Us_username" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Us_password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Us_Role" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Us_SupGroup" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Us_text1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Us_text2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Us_text3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Us_text4" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Us_text5" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Us_text6" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Us_text7" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Us_float1" Type="Double" />
+    <Property Name="Us_float2" Type="Double" />
+    <Property Name="Us_float3" Type="Double" />
+    <Property Name="Us_float4" Type="Double" />
+    <Property Name="Us_datetime1" Type="DateTime" Precision="3" />
+    <Property Name="Us_datetime2" Type="DateTime" Precision="3" />
+    <Property Name="Us_datetime3" Type="DateTime" Precision="3" />
+    <Property Name="Us_datetime4" Type="DateTime" Precision="3" />
+    <Property Name="Us_datetime5" Type="DateTime" Precision="3" />
+    <Property Name="Us_bit" Type="Boolean" />
+    <Property Name="Us_deleteflag" Type="DateTime" Precision="3" />
+    <Property Name="Us_SyncFlag" Type="DateTime" Precision="3" />
+    <Property Name="Shop_id" Type="String" MaxLength="900" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Shop_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_detail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_npp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_nppcode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_Ngcode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_LoaiCHCurrent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_LoaiCHFuture" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_latidue" Type="Double" />
+    <Property Name="Shop_Longtidue" Type="Double" />
+    <Property Name="Shop_phone" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_Sup" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_GroupPrice" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_text2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_text3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_text4" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_float1" Type="Double" />
+    <Property Name="Shop_float2" Type="Double" />
+    <Property Name="Shop_float3" Type="Double" />
+    <Property Name="Shop_float4" Type="Double" />
+    <Property Name="Shop_bit" Type="Boolean" />
+    <Property Name="Shop_datetime1" Type="DateTime" Precision="3" />
+    <Property Name="Shop_datetime2" Type="DateTime" Precision="3" />
+    <Property Name="Shop_datetime3" Type="DateTime" Precision="3" />
+    <Property Name="Shop_datetime4" Type="DateTime" Precision="3" />
+    <Property Name="Shop_deleteflag" Type="DateTime" Precision="3" />
+    <Property Name="Shop_SyncFlag" Type="DateTime" Precision="3" />
+    <Property Name="sku_barcode" Type="Double" Nullable="false" />
+    <Property Name="sku_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="sku_detail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="sku_txtname" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="sku_txtPrice" Type="Double" />
+    <Property Name="Target_Group" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="sku_text1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="sku_text2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="sku_text3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="sku_text4" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="sku_text5" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="sku_float1" Type="Double" />
+    <Property Name="sku_float2" Type="Double" />
+    <Property Name="sku_float3" Type="Double" />
+    <Property Name="sku_float4" Type="Double" />
+    <Property Name="sku_float5" Type="Double" />
+    <Property Name="sku_float6" Type="Double" />
+    <Property Name="sku_datetime1" Type="DateTime" Precision="3" />
+    <Property Name="sku_datetime2" Type="DateTime" Precision="3" />
+    <Property Name="sku_datetime3" Type="DateTime" Precision="3" />
+    <Property Name="sku_datetime4" Type="DateTime" Precision="3" />
+    <Property Name="sku_bit" Type="Boolean" />
+    <Property Name="sku_deleteflag" Type="DateTime" Precision="3" />
+    <Property Name="sku_SyncFlag" Type="DateTime" Precision="3" />
+    <Property Name="DNH_Date" Type="DateTime" Precision="3" />
+    <Property Name="DNH_DeleteFlag" Type="DateTime" Precision="3" />
+    <Property Name="DNH_ID" Type="String" MaxLength="900" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DNH_Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DNH_ImagePublish" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DNH_SyncFlag" Type="DateTime" Precision="3" />
+    <Property Name="CTDNH_Date" Type="DateTime" Precision="3" />
+    <Property Name="CTDNH_DeleteFlag" Type="DateTime" Precision="3" />
+    <Property Name="CTDNH_ID" Type="String" MaxLength="900" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CTDNH_Soluong" Type="Double" />
+    <Property Name="CTDNH_SyncFlag" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="VW_Supchamdiem">
+    <Key>
+      <PropertyRef Name="Us_id" />
+      <PropertyRef Name="Shop_id" />
+      <PropertyRef Name="TieuChiCD_id" />
+      <PropertyRef Name="SupChamDiem_id" />
+      <PropertyRef Name="SupBigPlan_date" />
+      <PropertyRef Name="SupBigPlan_id" />
+      <PropertyRef Name="ChitietSupChamDiem_ID" />
+    </Key>
+    <Property Name="Us_id" Type="String" MaxLength="900" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Us_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Us_username" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Us_password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Us_Role" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Us_SupGroup" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Us_text1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Us_text2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Us_text3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Us_text4" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Us_text5" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Us_text6" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Us_text7" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Us_float1" Type="Double" />
+    <Property Name="Us_float2" Type="Double" />
+    <Property Name="Us_float3" Type="Double" />
+    <Property Name="Us_float4" Type="Double" />
+    <Property Name="Us_datetime1" Type="DateTime" Precision="3" />
+    <Property Name="Us_datetime2" Type="DateTime" Precision="3" />
+    <Property Name="Us_datetime3" Type="DateTime" Precision="3" />
+    <Property Name="Us_datetime4" Type="DateTime" Precision="3" />
+    <Property Name="Us_datetime5" Type="DateTime" Precision="3" />
+    <Property Name="Us_bit" Type="Boolean" />
+    <Property Name="Us_deleteflag" Type="DateTime" Precision="3" />
+    <Property Name="Us_SyncFlag" Type="DateTime" Precision="3" />
+    <Property Name="Shop_id" Type="String" MaxLength="900" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Shop_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_detail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_npp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_nppcode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_Ngcode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_LoaiCHCurrent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_LoaiCHFuture" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_latidue" Type="Double" />
+    <Property Name="Shop_Longtidue" Type="Double" />
+    <Property Name="Shop_phone" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_Sup" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_GroupPrice" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_text2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_text3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_text4" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_float1" Type="Double" />
+    <Property Name="Shop_float2" Type="Double" />
+    <Property Name="Shop_float3" Type="Double" />
+    <Property Name="Shop_float4" Type="Double" />
+    <Property Name="Shop_bit" Type="Boolean" />
+    <Property Name="Shop_datetime1" Type="DateTime" Precision="3" />
+    <Property Name="Shop_datetime2" Type="DateTime" Precision="3" />
+    <Property Name="Shop_datetime3" Type="DateTime" Precision="3" />
+    <Property Name="Shop_datetime4" Type="DateTime" Precision="3" />
+    <Property Name="Shop_deleteflag" Type="DateTime" Precision="3" />
+    <Property Name="Shop_SyncFlag" Type="DateTime" Precision="3" />
+    <Property Name="TieuChiCD_id" Type="String" MaxLength="900" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="TieuChiCD_Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TieuChiCD_Min" Type="Int32" />
+    <Property Name="TieuChiCD_Max" Type="Int32" />
+    <Property Name="TieuChiCD_Group" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TieuChiCD_text1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TieuChiCD_text2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TieuChiCD_text3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TieuChiCD_text4" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TieuChiCD_float1" Type="Double" />
+    <Property Name="TieuChiCD_float2" Type="Double" />
+    <Property Name="TieuChiCD_float3" Type="Double" />
+    <Property Name="TieuChiCD_float4" Type="Double" />
+    <Property Name="TieuChiCD_bit" Type="Boolean" />
+    <Property Name="TieuChiCD_DeleteFlag" Type="DateTime" Precision="3" />
+    <Property Name="TieuChiCD_SyncFlag" Type="DateTime" Precision="3" />
+    <Property Name="SupChamDiem_DeleteFlag" Type="DateTime" Precision="3" />
+    <Property Name="SupChamDiem_id" Type="String" MaxLength="900" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="SupChamDiem_Lannay" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SupChamDiem_LanToi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SupChamDiem_SyncFlag" Type="DateTime" Precision="3" />
+    <Property Name="SupChamDiem_TimeCD" Type="DateTime" Precision="3" />
+    <Property Name="SupChamDiem_UserAccept" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SupChamDiem_UserNote" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SupBigPlan_date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="SupBigPlan_DeleteFlag" Type="DateTime" Precision="3" />
+    <Property Name="SupBigPlan_GroupPlan" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SupBigPlan_id" Type="String" MaxLength="900" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="SupBigPlan_KeHoachLanToi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SupBigPlan_NXkehoachLanNay" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SupBigPlan_SupName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SupBigPlan_SupUsername" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SupBigPlan_SyncFlag" Type="DateTime" Precision="3" />
+    <Property Name="SupBigPlan_UserAccept" Type="Int32" />
+    <Property Name="SupBigPlan_UserNote" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ChitietSupChamDiem_DeleteFlag" Type="DateTime" Precision="3" />
+    <Property Name="ChitietSupChamDiem_ID" Type="String" MaxLength="900" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ChitietSupChamDiem_SyncFlag" Type="DateTime" Precision="3" />
+    <Property Name="ChitietSupChamDiem_value" Type="Int32" />
+  </EntityType>
+  <EntityType Name="VW_SupCheckin">
+    <Key>
+      <PropertyRef Name="Us_id" />
+      <PropertyRef Name="Shop_id" />
+      <PropertyRef Name="SupBigPlan_date" />
+      <PropertyRef Name="SupBigPlan_id" />
+      <PropertyRef Name="SupCheckIn_date" />
+      <PropertyRef Name="SupCheckIn_id" />
+    </Key>
+    <Property Name="Us_id" Type="String" MaxLength="900" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Us_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Us_username" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Us_password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Us_Role" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Us_SupGroup" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Us_text1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Us_text2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Us_text3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Us_text4" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Us_text5" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Us_text6" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Us_text7" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Us_float1" Type="Double" />
+    <Property Name="Us_float2" Type="Double" />
+    <Property Name="Us_float3" Type="Double" />
+    <Property Name="Us_float4" Type="Double" />
+    <Property Name="Us_datetime1" Type="DateTime" Precision="3" />
+    <Property Name="Us_datetime2" Type="DateTime" Precision="3" />
+    <Property Name="Us_datetime3" Type="DateTime" Precision="3" />
+    <Property Name="Us_datetime4" Type="DateTime" Precision="3" />
+    <Property Name="Us_datetime5" Type="DateTime" Precision="3" />
+    <Property Name="Us_bit" Type="Boolean" />
+    <Property Name="Us_deleteflag" Type="DateTime" Precision="3" />
+    <Property Name="Us_SyncFlag" Type="DateTime" Precision="3" />
+    <Property Name="Shop_id" Type="String" MaxLength="900" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Shop_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_detail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_npp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_nppcode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_Ngcode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_LoaiCHCurrent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_LoaiCHFuture" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_latidue" Type="Double" />
+    <Property Name="Shop_Longtidue" Type="Double" />
+    <Property Name="Shop_phone" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_Sup" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_GroupPrice" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_text2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_text3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_text4" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_float1" Type="Double" />
+    <Property Name="Shop_float2" Type="Double" />
+    <Property Name="Shop_float3" Type="Double" />
+    <Property Name="Shop_float4" Type="Double" />
+    <Property Name="Shop_bit" Type="Boolean" />
+    <Property Name="Shop_datetime1" Type="DateTime" Precision="3" />
+    <Property Name="Shop_datetime2" Type="DateTime" Precision="3" />
+    <Property Name="Shop_datetime3" Type="DateTime" Precision="3" />
+    <Property Name="Shop_datetime4" Type="DateTime" Precision="3" />
+    <Property Name="Shop_deleteflag" Type="DateTime" Precision="3" />
+    <Property Name="Shop_SyncFlag" Type="DateTime" Precision="3" />
+    <Property Name="SupBigPlan_date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="SupBigPlan_DeleteFlag" Type="DateTime" Precision="3" />
+    <Property Name="SupBigPlan_GroupPlan" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SupBigPlan_id" Type="String" MaxLength="900" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="SupBigPlan_KeHoachLanToi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SupBigPlan_NXkehoachLanNay" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SupBigPlan_SupName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SupBigPlan_SupUsername" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SupBigPlan_SyncFlag" Type="DateTime" Precision="3" />
+    <Property Name="SupBigPlan_UserAccept" Type="Int32" />
+    <Property Name="SupBigPlan_UserNote" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SupCheckIn_AdminAccept" Type="Int32" />
+    <Property Name="SupCheckIn_AdminNote" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SupCheckIn_Count" Type="Double" />
+    <Property Name="SupCheckIn_date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="SupCheckIn_DeleteFlag" Type="DateTime" Precision="3" />
+    <Property Name="SupCheckIn_id" Type="String" MaxLength="900" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="SupCheckIn_ImageCI" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SupCheckIn_ImageCO" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SupCheckIn_Latidue" Type="Double" />
+    <Property Name="SupCheckIn_Longtidue" Type="Double" />
+    <Property Name="SupCheckIn_SyncFlag" Type="DateTime" Precision="3" />
+    <Property Name="SupCheckIn_TimeCI" Type="DateTime" Precision="3" />
+    <Property Name="SupCheckIn_TimeCO" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="VW_SUPCHECKINOUT">
+    <Key>
+      <PropertyRef Name="Us_id" />
+      <PropertyRef Name="Shop_id" />
+      <PropertyRef Name="SupBigPlan_date" />
+      <PropertyRef Name="SupBigPlan_id" />
+      <PropertyRef Name="SupCheckIn_date" />
+      <PropertyRef Name="SupCheckIn_id" />
+    </Key>
+    <Property Name="Us_id" Type="String" MaxLength="900" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Us_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Us_username" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Us_password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Us_Role" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Us_SupGroup" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Us_text1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Us_text2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Us_text3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Us_text4" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Us_text5" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Us_text6" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Us_text7" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Us_float1" Type="Double" />
+    <Property Name="Us_float2" Type="Double" />
+    <Property Name="Us_float3" Type="Double" />
+    <Property Name="Us_float4" Type="Double" />
+    <Property Name="Us_datetime1" Type="DateTime" Precision="3" />
+    <Property Name="Us_datetime2" Type="DateTime" Precision="3" />
+    <Property Name="Us_datetime3" Type="DateTime" Precision="3" />
+    <Property Name="Us_datetime4" Type="DateTime" Precision="3" />
+    <Property Name="Us_datetime5" Type="DateTime" Precision="3" />
+    <Property Name="Us_bit" Type="Boolean" />
+    <Property Name="Us_deleteflag" Type="DateTime" Precision="3" />
+    <Property Name="Us_SyncFlag" Type="DateTime" Precision="3" />
+    <Property Name="Shop_id" Type="String" MaxLength="900" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Shop_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_detail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_npp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_nppcode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_Ngcode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_LoaiCHCurrent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_LoaiCHFuture" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_latidue" Type="Double" />
+    <Property Name="Shop_Longtidue" Type="Double" />
+    <Property Name="Shop_phone" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_Sup" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_GroupPrice" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_text2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_text3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_text4" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_float1" Type="Double" />
+    <Property Name="Shop_float2" Type="Double" />
+    <Property Name="Shop_float3" Type="Double" />
+    <Property Name="Shop_float4" Type="Double" />
+    <Property Name="Shop_bit" Type="Boolean" />
+    <Property Name="Shop_datetime1" Type="DateTime" Precision="3" />
+    <Property Name="Shop_datetime2" Type="DateTime" Precision="3" />
+    <Property Name="Shop_datetime3" Type="DateTime" Precision="3" />
+    <Property Name="Shop_datetime4" Type="DateTime" Precision="3" />
+    <Property Name="Shop_deleteflag" Type="DateTime" Precision="3" />
+    <Property Name="Shop_SyncFlag" Type="DateTime" Precision="3" />
+    <Property Name="SupBigPlan_date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="SupBigPlan_DeleteFlag" Type="DateTime" Precision="3" />
+    <Property Name="SupBigPlan_GroupPlan" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SupBigPlan_id" Type="String" MaxLength="900" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="SupBigPlan_KeHoachLanToi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SupBigPlan_NXkehoachLanNay" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SupBigPlan_SupName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SupBigPlan_SupUsername" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SupBigPlan_SyncFlag" Type="DateTime" Precision="3" />
+    <Property Name="SupBigPlan_UserAccept" Type="Int32" />
+    <Property Name="SupBigPlan_UserNote" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SupCheckIn_AdminAccept" Type="Int32" />
+    <Property Name="SupCheckIn_AdminNote" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SupCheckIn_Count" Type="Double" />
+    <Property Name="SupCheckIn_date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="SupCheckIn_DeleteFlag" Type="DateTime" Precision="3" />
+    <Property Name="SupCheckIn_id" Type="String" MaxLength="900" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="SupCheckIn_ImageCI" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SupCheckIn_ImageCO" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SupCheckIn_Latidue" Type="Double" />
+    <Property Name="SupCheckIn_Longtidue" Type="Double" />
+    <Property Name="SupCheckIn_SyncFlag" Type="DateTime" Precision="3" />
+    <Property Name="SupCheckIn_TimeCI" Type="DateTime" Precision="3" />
+    <Property Name="SupCheckIn_TimeCO" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="VW_UsercheckInout">
+    <Key>
+      <PropertyRef Name="Us_id" />
+      <PropertyRef Name="Shop_id" />
+      <PropertyRef Name="Bigplan_date" />
+      <PropertyRef Name="Bigplan_id" />
+      <PropertyRef Name="CaLamViecDetail_id" />
+      <PropertyRef Name="UserCheckInOut_date" />
+      <PropertyRef Name="UserCheckInOut_ID" />
+    </Key>
+    <Property Name="Us_id" Type="String" MaxLength="900" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Us_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Us_username" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Us_password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Us_Role" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Us_SupGroup" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Us_text1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Us_text2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Us_text3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Us_text4" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Us_text5" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Us_text6" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Us_text7" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Us_float1" Type="Double" />
+    <Property Name="Us_float2" Type="Double" />
+    <Property Name="Us_float3" Type="Double" />
+    <Property Name="Us_float4" Type="Double" />
+    <Property Name="Us_datetime1" Type="DateTime" Precision="3" />
+    <Property Name="Us_datetime2" Type="DateTime" Precision="3" />
+    <Property Name="Us_datetime3" Type="DateTime" Precision="3" />
+    <Property Name="Us_datetime4" Type="DateTime" Precision="3" />
+    <Property Name="Us_datetime5" Type="DateTime" Precision="3" />
+    <Property Name="Us_bit" Type="Boolean" />
+    <Property Name="Us_deleteflag" Type="DateTime" Precision="3" />
+    <Property Name="Us_SyncFlag" Type="DateTime" Precision="3" />
+    <Property Name="Shop_id" Type="String" MaxLength="900" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Shop_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_detail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_npp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_nppcode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_Ngcode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_LoaiCHCurrent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_LoaiCHFuture" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_latidue" Type="Double" />
+    <Property Name="Shop_Longtidue" Type="Double" />
+    <Property Name="Shop_phone" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_Sup" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_GroupPrice" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_text2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_text3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_text4" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shop_float1" Type="Double" />
+    <Property Name="Shop_float2" Type="Double" />
+    <Property Name="Shop_float3" Type="Double" />
+    <Property Name="Shop_float4" Type="Double" />
+    <Property Name="Shop_bit" Type="Boolean" />
+    <Property Name="Shop_datetime1" Type="DateTime" Precision="3" />
+    <Property Name="Shop_datetime2" Type="DateTime" Precision="3" />
+    <Property Name="Shop_datetime3" Type="DateTime" Precision="3" />
+    <Property Name="Shop_datetime4" Type="DateTime" Precision="3" />
+    <Property Name="Shop_deleteflag" Type="DateTime" Precision="3" />
+    <Property Name="Shop_SyncFlag" Type="DateTime" Precision="3" />
+    <Property Name="Bigplan_date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Bigplan_deleteFlag" Type="DateTime" Precision="3" />
+    <Property Name="Bigplan_id" Type="String" MaxLength="900" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="BigPlan_SyncFlag" Type="DateTime" Precision="3" />
+    <Property Name="CaLamViecDetail_id" Type="String" MaxLength="900" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="UserCheckInOut_AdminCheck" Type="Int32" />
+    <Property Name="UserCheckInOut_AdminNote" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="UserCheckInOut_Count" Type="Double" />
+    <Property Name="UserCheckInOut_date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UserCheckInOut_DeleteFlag" Type="DateTime" Precision="3" />
+    <Property Name="UserCheckInOut_ID" Type="String" MaxLength="900" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="UserCheckInOut_ImageCI" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="UserCheckInOut_ImageCO" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="UserCheckInOut_LatidueCI" Type="Double" />
+    <Property Name="UserCheckInOut_LatidueCO" Type="Double" />
+    <Property Name="UserCheckInOut_LongtidueCI" Type="Double" />
+    <Property Name="UserCheckInOut_LongtidueCO" Type="Double" />
+    <Property Name="UserCheckInOut_SyncFlag" Type="DateTime" Precision="3" />
+    <Property Name="UserCheckInOut_TimeCI" Type="DateTime" Precision="3" />
+    <Property Name="UserCheckInOut_TimeCO" Type="DateTime" Precision="3" />
+    <Property Name="UserCheckInOut_UserNote" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityContainer Name="DBMOBILEAPPEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="tbl_BaoCaoHinhAnh" EntityType="Self.tbl_BaoCaoHinhAnh" />
+    <EntitySet Name="tbl_bigplan" EntityType="Self.tbl_bigplan" />
+    <EntitySet Name="tbl_bill" EntityType="Self.tbl_bill" />
+    <EntitySet Name="tbl_billDetail" EntityType="Self.tbl_billDetail" />
+    <EntitySet Name="tbl_CaLamViecDetail" EntityType="Self.tbl_CaLamViecDetail" />
+    <EntitySet Name="tbl_chitietDondathang" EntityType="Self.tbl_chitietDondathang" />
+    <EntitySet Name="Tbl_ChitietDonNhapHang" EntityType="Self.Tbl_ChitietDonNhapHang" />
+    <EntitySet Name="tbl_ChitietSupChamDiem" EntityType="Self.tbl_ChitietSupChamDiem" />
+    <EntitySet Name="tbl_chucnangphu" EntityType="Self.tbl_chucnangphu" />
+    <EntitySet Name="tbl_ChuongTrinhDoiQua" EntityType="Self.tbl_ChuongTrinhDoiQua" />
+    <EntitySet Name="tbl_DanhMucQuaTang" EntityType="Self.tbl_DanhMucQuaTang" />
+    <EntitySet Name="tbl_DetailBaoCaoHinhAnh" EntityType="Self.tbl_DetailBaoCaoHinhAnh" />
+    <EntitySet Name="tbl_DoiQua" EntityType="Self.tbl_DoiQua" />
+    <EntitySet Name="tbl_doithucanhtranh" EntityType="Self.tbl_doithucanhtranh" />
+    <EntitySet Name="Tbl_DoithucanhtranhIMAGE" EntityType="Self.Tbl_DoithucanhtranhIMAGE" />
+    <EntitySet Name="Tbl_DoithucanhtranhIMAGEDetail" EntityType="Self.Tbl_DoithucanhtranhIMAGEDetail" />
+    <EntitySet Name="tbl_Dondathang" EntityType="Self.tbl_Dondathang" />
+    <EntitySet Name="Tbl_DonNhapHang" EntityType="Self.Tbl_DonNhapHang" />
+    <EntitySet Name="tbl_DTCTBrand" EntityType="Self.tbl_DTCTBrand" />
+    <EntitySet Name="tbl_DTCTcrmrange" EntityType="Self.tbl_DTCTcrmrange" />
+    <EntitySet Name="tbl_DTCTCty" EntityType="Self.tbl_DTCTCty" />
+    <EntitySet Name="tbl_DTCTffrange" EntityType="Self.tbl_DTCTffrange" />
+    <EntitySet Name="tbl_DTCTformat" EntityType="Self.tbl_DTCTformat" />
+    <EntitySet Name="tbl_DTCTltmrange" EntityType="Self.tbl_DTCTltmrange" />
+    <EntitySet Name="tbl_DTCTonpostoffpost" EntityType="Self.tbl_DTCTonpostoffpost" />
+    <EntitySet Name="tbl_DTCTtype" EntityType="Self.tbl_DTCTtype" />
+    <EntitySet Name="tbl_DTCTVARIANT" EntityType="Self.tbl_DTCTVARIANT" />
+    <EntitySet Name="Tbl_ImageDonNhapHang" EntityType="Self.Tbl_ImageDonNhapHang" />
+    <EntitySet Name="tbl_Kho" EntityType="Self.tbl_Kho" />
+    <EntitySet Name="tbl_menu" EntityType="Self.tbl_menu" />
+    <EntitySet Name="tbl_NganhHang" EntityType="Self.tbl_NganhHang" />
+    <EntitySet Name="tbl_NhanHang" EntityType="Self.tbl_NhanHang" />
+    <EntitySet Name="tbl_NhomNganhHang" EntityType="Self.tbl_NhomNganhHang" />
+    <EntitySet Name="tbl_Price" EntityType="Self.tbl_Price" />
+    <EntitySet Name="tbl_RulesChuongTrinhDoiQua" EntityType="Self.tbl_RulesChuongTrinhDoiQua" />
+    <EntitySet Name="tbl_shop" EntityType="Self.tbl_shop" />
+    <EntitySet Name="tbl_sku" EntityType="Self.tbl_sku" />
+    <EntitySet Name="tbl_SupBigPlan" EntityType="Self.tbl_SupBigPlan" />
+    <EntitySet Name="tbl_SupChamDiem" EntityType="Self.tbl_SupChamDiem" />
+    <EntitySet Name="tbl_SupCheckIn" EntityType="Self.tbl_SupCheckIn" />
+    <EntitySet Name="Tbl_SupName" EntityType="Self.Tbl_SupName" />
+    <EntitySet Name="tbl_Target" EntityType="Self.tbl_Target" />
+    <EntitySet Name="tbl_TieuChiBaoCaoHinhAnh" EntityType="Self.tbl_TieuChiBaoCaoHinhAnh" />
+    <EntitySet Name="tbl_TieuChiChamDiem" EntityType="Self.tbl_TieuChiChamDiem" />
+    <EntitySet Name="tbl_user" EntityType="Self.tbl_user" />
+    <EntitySet Name="tbl_UserCheckInOut" EntityType="Self.tbl_UserCheckInOut" />
+    <EntitySet Name="VW_banhang" EntityType="Self.VW_banhang" />
+    <EntitySet Name="VW_BCHINHANH" EntityType="Self.VW_BCHINHANH" />
+    <EntitySet Name="VW_Bigplan" EntityType="Self.VW_Bigplan" />
+    <EntitySet Name="VW_DatHang" EntityType="Self.VW_DatHang" />
+    <EntitySet Name="VW_DeXuatNhapHang" EntityType="Self.VW_DeXuatNhapHang" />
+    <EntitySet Name="VW_DOIQUA" EntityType="Self.VW_DOIQUA" />
+    <EntitySet Name="vw_doithucanhtranh" EntityType="Self.vw_doithucanhtranh" />
+    <EntitySet Name="VW_DoithucanhtranhImage" EntityType="Self.VW_DoithucanhtranhImage" />
+    <EntitySet Name="VW_KHO" EntityType="Self.VW_KHO" />
+    <EntitySet Name="VW_NHAPHANG" EntityType="Self.VW_NHAPHANG" />
+    <EntitySet Name="VW_Supchamdiem" EntityType="Self.VW_Supchamdiem" />
+    <EntitySet Name="VW_SupCheckin" EntityType="Self.VW_SupCheckin" />
+    <EntitySet Name="VW_SUPCHECKINOUT" EntityType="Self.VW_SUPCHECKINOUT" />
+    <EntitySet Name="VW_UsercheckInout" EntityType="Self.VW_UsercheckInout" />
+  </EntityContainer>
+</Schema>
